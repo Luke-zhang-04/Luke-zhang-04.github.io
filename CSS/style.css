@@ -1,0 +1,508 @@
+html, body, footer {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    padding: 50px;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    font-size: 1.25vw;
+    line-height: 1.6; 
+    font-weight: 100;
+}
+
+li {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    padding: 0px;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    font-size: 1.25vw;
+    line-height: 1.6; 
+    font-weight: 100;
+}
+
+ul, ol {
+    display:list-item;
+    padding-left: 70px;
+}
+
+ul {list-style-type:circle;}
+
+strong {
+    font-weight: 900;
+}
+
+body {
+    background-color: #1E1E1E;
+}
+
+#navbar:not(.appear) a.active {
+    -webkit-animation-name: trans_in;
+    -webkit-animation-duration: 1s;
+    animation-name: trans_in;
+    animation-duration: 1s;
+    color: rgb(30, 80, 114);
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Open Sans', sans-serif;
+}
+
+#navbar:not(.trans) a.active {
+    -webkit-animation-name: appear_in;
+    -webkit-animation-duration: 1s;
+    animation-name: appear_in;
+    animation-duration: 1s;
+    color: white;
+    background-color: rgb(30, 80, 114);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.trans {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-animation-name: trans;
+    -webkit-animation-duration: 1s;
+    animation-name: trans;
+    animation-duration: 1s;
+    background-color: rgba(0, 0, 0, 0);
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    z-index: 5;
+}
+
+.trans a {
+    -webkit-animation-name: nav_colour_out;
+    -webkit-animation-duration: 1s;
+    animation-name: nav_colour_out;
+    animation-duration: 1s;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    float: right;
+}
+
+.trans a:not(.active) {
+        color: white;
+}
+
+.appear {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-animation-name: appear;
+    -webkit-animation-duration: 1s;
+    animation-name: appear;
+    animation-duration: 1s;
+    background-color: #062F4F;
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    z-index: 5;
+}
+
+.appear a {
+    -webkit-animation-name: nav_colour_out;
+    -webkit-animation-duration: 1s;
+    animation-name: nav_colour_out;
+    animation-duration: 1s;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    float: right;
+}
+
+.appear a:not(.active) {
+        color: white;
+}
+
+.appear a:hover:not(.active) {
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    -webkit-animation-name: nav_colour;
+    -webkit-animation-duration: 1s;
+    animation-name: nav_colour;
+    animation-duration: 1s;
+    color: white;
+    background-color: #328CC1;
+}
+
+@-webkit-keyframes appear {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    } to {
+        background-color: #062F4F;
+        color: white;
+    }
+}
+
+@keyframes appear {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    } to {
+        background-color: #062F4F;
+        color: white;
+    }
+}
+
+@-webkit-keyframes trans {
+    from {
+        background-color: #062F4F;
+        color: white;
+    }to {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    } 
+}
+
+@keyframes trans {
+    from {
+        background-color: #062F4F;
+        color: white;
+    }to {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    } 
+}
+
+@-webkit-keyframes nav_colour {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    } to {
+        background-color: #328CC1;
+        color: white;
+    }
+}
+
+@keyframes nav_colour {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    } to {
+        background-color: #328CC1;
+        color: white;
+    }
+}
+
+@-webkit-keyframes nav_colour_out {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    } to {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    }  
+}
+
+@keyframes nav_colour_out {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    } to {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+    }  
+}
+
+@keyframes trans_in {
+    from {
+        background-color: rgb(30, 80, 114);
+        color: white;
+    } to {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(30, 80, 114);
+    }
+}
+
+@-webkit-keyframes trans_in {
+    from {
+        background-color: rgb(30, 80, 114);
+        color: white;
+    } to {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(30, 80, 114);
+    }
+}
+
+@keyframes appear_in {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(30, 80, 114);
+    } to {
+        background-color: rgb(30, 80, 114);
+        color: white;
+    }
+}
+
+@-webkit-keyframes appear_in {
+    from {
+        background-color: rgb(30, 80, 114);
+        color: white;
+    } to {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(30, 80, 114);
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .text {font-size: 11px}
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    color: #328CC1;
+    padding: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: block;
+    /*font-size: 2.25em;*/
+    font-size: 2vw;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    color: #328CC1;
+    padding: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: block;
+    /*font-size: 2.25em;*/
+    font-size: 1.5vw;
+}
+
+hr {
+    width: 80%;
+}
+
+.link {
+    text-decoration: none;
+    color:rgb(30, 80, 114);
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: #062F4F;
+    cursor: pointer;
+}
+
+footer {
+    background-color:#0B3C5D;
+}
+
+footer p {
+    color: white;
+    padding-bottom: 50px;
+}
+
+.preload {
+    animation: none !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -ms-animation: none !important;
+    -o-animation: none !important;
+}
+
+.preload a {
+    animation: none !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -ms-animation: none !important;
+    -o-animation: none !important;
+}
+
+p a {
+    color: #328CC1;
+}
+
+p a:hover {
+    color: rgb(115, 168, 199);
+}
+
+white {
+    color: white;
+}
+
+classname {
+    color: #559384;
+}
+
+builtin {
+    color: #328CC1;
+}
+
+funcname {
+    color: #BCB996;
+}
+
+attr {
+    color: rgb(117, 186, 226);
+}
+
+h2:not(#title) {
+    text-indent: 50px;
+}
+
+p {
+    padding: 0;
+    padding-left: 150px;
+}
+
+ul {
+    padding-left: 160px;
+}
+
+string {
+    color: #A47A69;
+}
+
+h1:not(#name), h2:not(#title), p, li {
+    font-size: 1.25vw;
+    font-family: melno, monospace;;
+}
+
+.texttrans {
+    opacity: 0;
+}
+
+.textappear {
+    -webkit-animation-name: textappear;
+    -webkit-animation-duration: 1s;
+    animation-name: textappear;
+    animation-duration: 1s;
+    opacity: 1;
+}
+
+@-webkit-keyframes textappear {from {opacity: 0} to {opacity: 1}}
+
+@keyframes textappear {from {opacity: 0} to {opacity: 1}}
+
+#social_media_icons {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    padding: 10px;
+    width: 5vw;
+    height: auto;
+}
+
+.fa-github {
+    -webkit-animation-name: github_out;
+    -webkit-animation-duration: 1s;
+    animation-name: github_out;
+    animation-duration: 1s;
+    color: black;
+}
+
+.fa-github:hover {
+    -webkit-animation-name: github;
+    -webkit-animation-duration: 1s;
+    animation-name: github;
+    animation-duration: 1s;
+    color: #202020;
+}
+
+.fa-envelope {
+    -webkit-animation-name: envelope_out;
+    -webkit-animation-duration: 1s;
+    animation-name: envelope_out;
+    animation-duration: 1s;
+    color: #D6483C;
+}
+
+.fa-envelope:hover {
+    -webkit-animation-name: envelope;
+    -webkit-animation-duration: 1s;
+    animation-name: envelope;
+    animation-duration: 1s;
+    color: white;
+}
+
+.fa-code{
+    -webkit-animation-name: code_out;
+    -webkit-animation-duration: 1s;
+    animation-name: code_out;
+    animation-duration: 1s;
+    color: #55676F;
+}
+
+.fa-code:hover {
+    -webkit-animation-name: code;
+    -webkit-animation-duration: 1s;
+    animation-name: code;
+    animation-duration: 1s;
+    color: #4D4E4F;
+}
+
+@keyframes github {
+    from {color: black} to {color: #202020;}
+}
+
+@-webkit-keyframes github {
+    from {color: black} to {color: #202020;}
+}
+
+@keyframes envelope {
+    from {color: #D6483C} to {color: white}
+}
+
+@-webkit-keyframes envelope {
+    from {color: #D6483C} to {color: white}
+}
+
+@keyframes code {
+    from {color: #55676F} to {color: #4D4E4F}
+}
+
+@-webkit-keyframes code {
+    from {color: #55676F} to {color: #4D4E4F}
+}
+
+@keyframes github_out {
+    to {color: black} from {color: #202020;}
+}
+
+@-webkit-keyframes github_out {
+    to {color: black} from {color: #202020;}
+}
+
+@keyframes envelope_out {
+    to {color: #D6483C} from {color: white}
+}
+
+@-webkit-keyframes envelope_out {
+    to {color: #D6483C} from {color: white}
+}
+
+@keyframes code_out {
+    to {color: #55676F} from {color: #4D4E4F}
+}
+
+@-webkit-keyframes code_out {
+    to {color: #55676F} from {color: #4D4E4F}
+}
+
+@media only screen and (max-width: 600px) {
+    .texttrans{
+        opacity: 1;
+    }
+}

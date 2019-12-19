@@ -1,0 +1,12 @@
+Dark dark blue: #000214
+Dark blue: #062F4F
+Blue: #0B3C5D
+Light blue: #328CC1
+Gold: #D9B310
+Ivory Black: #1D2731
+
+class: #598DB9
+classname: #559384
+def: #598DB9
+funcname: #BCB996
+string: #A47A69

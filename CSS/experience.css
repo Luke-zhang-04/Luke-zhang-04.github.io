@@ -1,0 +1,59 @@
+#background_img {
+    -webkit-animation-name: background_img;
+    -webkit-animation-duration: 2s;
+    animation-name: background_img;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    -webkit-animation-timing-function: ease-in;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    filter: blur(4px);
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#name {
+    -webkit-animation-name: experience;
+    -webkit-animation-duration: 2s;
+    animation-name: experience;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    font-size: 5vw;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@keyframes experience {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-webkit-keyframes experience {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes background_img {
+    from {filter: blur(0);}
+    to {filter: blur(4px);}
+}
+
+@-webkit-keyframes background_img {
+    from {filter: blur(0);}
+    to {filter: blur(4px);}
+}
