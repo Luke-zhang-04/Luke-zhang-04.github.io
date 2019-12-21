@@ -2,14 +2,19 @@ window.onscroll = function() {scroll()} //when scrolling call function scroll()
 
 let counter = 0 //kinda like a loop variable
 let quoteCounter = 0
+let parentQuoteCounter = 0
 
 let elements = document.getElementsByClassName("text") //elements w/ class text
 objects = Array.prototype.slice.call(elements) //turn HTML collection into arrya
 let positions = objects.map(i => i.offsetTop) //get positions of the elements
 
 let quoteElements = document.getElementsByClassName("quoteText")
-objects = Array.prototype.slice.call(quoteElements)
-let quotePositions = objects.map(i => i.offsetTop)
+quoteObjects = Array.prototype.slice.call(quoteElements)
+let quotePositions = quoteObjects.map(i => i.offsetTop)
+
+let parentElements = document.getElementsByClassName("quote")
+parentObjects = Array.prototype.slice.call(parentElements)
+let parentPositions = parentObjects.map(i => i.offsetTop)
 
 let navbar = document.getElementById("navbar") //get position of the navbar
 
@@ -30,10 +35,13 @@ function scroll() {
     counter ++ //increment counter to next element
     if (positions[counter] <= window.pageYOffset+window.screen.height*0.8) scroll() //if scrolled through more than one element recurse to load multiple elements at once
   }
-  if (window.pageYOffset+window.screen.height*0.1 >= quotePositions[quoteCounter]) { //if bottom of screen*0.8 is below elements[counter]
+  if (window.pageYOffset+window.screen.height*0.6 >= quotePositions[quoteCounter] + parentPositions[parentQuoteCounter]) { //if bottom of screen*0.8 is below elements[counter]
+    console.log("OFFSET", window.pageYOffset)
+    console.log(quotePositions[quoteCounter])
     quoteElements[quoteCounter].classList.add("textappear") //make text appear
     quoteElements[quoteCounter].classList.remove("texttrans") //remove transparent class
     quoteCounter ++ //increment counter to next element
-    if (positions[quoteCounter] <= window.pageYOffset+window.screen.height*0.8) scroll() //if scrolled through more than one element recurse to load multiple elements at once
+    parentQuoteCounter ++
+    if (quotePositions[quoteCounter] <= window.pageYOffset+window.screen.height*0.5) scroll() //if scrolled through more than one element recurse to load multiple elements at once
   }
 }

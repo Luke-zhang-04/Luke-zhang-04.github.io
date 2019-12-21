@@ -15,6 +15,10 @@
     filter: blur(4px);
 }
 
+.quoted {
+    color: white;
+}
+
 .quote {
     position: relative;
 }
