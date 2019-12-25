@@ -375,7 +375,7 @@ string {
 
 h1:not(#name), h2:not(#title), p, li {
     font-size: 1.25vw;
-    font-family: melno, monospace;;
+    font-family: monaco, monospace;;
 }
 
 .texttrans {
