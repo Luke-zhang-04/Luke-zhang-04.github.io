@@ -13,27 +13,22 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 */
+@import "colours";
 
-#background {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
+$none: rgba(0, 0, 0, 0);
+
+@keyframes to_transparent {
+    from {
+        background-color: $gunmetal;
+    } to {
+        background: $none;
+    }
 }
 
-#aligner {
-    position: relative;
-    width: 100%;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-#credit {
-    transform: translateY(-100px);
-    float: right;
+@keyframes to_background {
+    from {
+        background: $none;
+    } to {
+        background-color: $gunmetal;
+    }
 }
