@@ -1,8 +1,3 @@
-// Required
-@import "../bootstrap/scss/functions";
-@import "../bootstrap/scss/variables";
-@import "../bootstrap/scss/mixins";
-
 /* Coolors Exported Palette - coolors.co/587b7f-226165-f4f4f4-171717-2c2f35 */
 $wintergreen-dream: rgba(88, 123, 127, 1);
 $blue-sapphire: rgba(34, 97, 101, 1);
@@ -18,8 +13,26 @@ $theme-colors: (
     "secondary": $gunmetal,
     "accent1": $blue-sapphire,
     "accent2": $eerie-black,
-    "paper": $paper
+    "paper": $paper,
+    "none": rgba(0, 0, 0, 0)
 );
+
+.navbar {    
+    .nav-link {
+        font-size: 1.25rem;
+    }
+    .navbar-brand {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+}
+
+@import "../bootstrap/scss/bootstrap";
+/*
+// Required
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
 
 //Optional
 @import "../bootstrap/scss/root";
@@ -32,3 +45,7 @@ $theme-colors: (
 @import "../bootstrap/scss/nav";
 @import "../bootstrap/scss/navbar";
 @import "../bootstrap/scss/tables";
+@import "../bootstrap/scss/type";
+@import "../bootstrap/scss/utilities";
+@import "../bootstrap/scss/pagination";
+*/
