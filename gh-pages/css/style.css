@@ -141,6 +141,11 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.nav-logo {
+  width: 20%;
+  height: auto;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
