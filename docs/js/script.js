@@ -28,15 +28,16 @@ const navbar = document.querySelector(".navbar")
 function scroll() {
     if (window.pageYOffset >= 130) {
         navbar.classList.add("navbar-background")
-        navbar.classList.add("navbar-dark")
-        navbar.classList.remove("navbar-light")
+        navbar.classList.add("navbar-text-light")
+        navbar.classList.remove("navbar-text-dark")
         navbar.classList.remove("navbar-transparent")
         navbar.classList.remove("navbar-default")
+        navbar.classList.remove("navbar-light")
         toggled = true
     } else if (toggled) {
         navbar.classList.remove("navbar-background")
         navbar.classList.add("navbar-transparent")
-        navbar.classList.add("navbar-light")
-        navbar.classList.remove("navbar-dark")
+        navbar.classList.add("navbar-text-dark")
+        navbar.classList.remove("navbar-text-light")
     }
 }

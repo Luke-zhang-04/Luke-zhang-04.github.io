@@ -1,18 +1,3 @@
-/*
-	luke-zhang-04.github.io
-    Copyright (C) 2020  Luke Zhang
-    
-    https://github.com/Luke-zhang-04
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-*/
 @import "colours";
 
 $none: rgba(0, 0, 0, 0);
@@ -30,5 +15,53 @@ $none: rgba(0, 0, 0, 0);
         background: $none;
     } to {
         background-color: $gunmetal;
+    }
+}
+
+@keyframes to_dark_brand {
+    from {
+        color: rgba(255, 255, 255, 1);
+    } to {
+        color: rgba(0, 0, 0, 1);
+    }
+}
+
+@keyframes to_light_brand {
+    from {
+        color: rgba(0, 0, 0, 1);
+    } to {
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+@keyframes to_dark_item {
+    from {
+        color: rgba(255, 255, 255, 0.5);
+    } to {
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes to_light_item {
+    from {
+        color: rgba(0, 0, 0, 0.5);
+    } to {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes to_dark_active {
+    from {
+        color: rgba(255, 255, 255, 0.9);
+    } to {
+        color: rgba(0, 0, 0, 0.9);
+    }
+}
+
+@keyframes to_light_active {
+    from {
+        color: rgba(0, 0, 0, 0.9);
+    } to {
+        color: rgba(255, 255, 255, 0.9);
     }
 }

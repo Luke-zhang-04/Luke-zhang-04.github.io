@@ -14,37 +14,7 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 */
-/*
-	luke-zhang-04.github.io
-    Copyright (C) 2020  Luke Zhang
-
-    https://github.com/Luke-zhang-04
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-*/
 /* Coolors Exported Palette - coolors.co/587b7f-226165-f4f4f4-171717-2c2f35 */
-/*
-	luke-zhang-04.github.io
-    Copyright (C) 2020  Luke Zhang
-
-    https://github.com/Luke-zhang-04
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-*/
 @keyframes to_transparent {
   from {
     background-color: #2c2f35;
@@ -61,22 +31,55 @@
     background-color: #2c2f35;
   }
 }
+@keyframes to_dark_brand {
+  from {
+    color: white;
+  }
+  to {
+    color: black;
+  }
+}
+@keyframes to_light_brand {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
+}
+@keyframes to_dark_item {
+  from {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  to {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes to_light_item {
+  from {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  to {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+@keyframes to_dark_active {
+  from {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  to {
+    color: rgba(0, 0, 0, 0.9);
+  }
+}
+@keyframes to_light_active {
+  from {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  to {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
 /* Coolors Exported Palette - coolors.co/587b7f-226165-f4f4f4-171717-2c2f35 */
-/*
-	luke-zhang-04.github.io
-    Copyright (C) 2020  Luke Zhang
-
-    https://github.com/Luke-zhang-04
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-*/
 .navbar-default {
   background-color: var(--none);
 }
@@ -110,6 +113,32 @@
 .navbar-background .navbar-brand {
   font-weight: bold;
   font-size: 2rem;
+}
+
+.navbar-text-dark .navbar-brand {
+  animation: to_dark_brand 1s ease-out;
+  color: black;
+}
+.navbar-text-dark .navbar-nav .nav-item:not(.active) .nav-link {
+  animation: to_dark_item 1s ease-out;
+  color: rgba(0, 0, 0, 0.5);
+}
+.navbar-text-dark .navbar-nav .active .nav-link {
+  animation: to_dark_active 1s ease-out;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-text-light .navbar-brand {
+  animation: to_light_brand 1s ease-out;
+  color: white;
+}
+.navbar-text-light .navbar-nav .nav-item:not(.active) .nav-link {
+  animation: to_light_item 1s ease-out;
+  color: rgba(255, 255, 255, 0.5);
+}
+.navbar-text-light .navbar-nav .active .nav-link {
+  animation: to_light_active 1s ease-out;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /*!

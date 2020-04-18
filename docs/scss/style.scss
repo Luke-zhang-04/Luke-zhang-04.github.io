@@ -52,6 +52,52 @@
     }
 }
 
+.navbar-text-dark {
+    .navbar-brand {
+        animation: to_dark_brand 1s ease-out;
+        color: rgba(0, 0, 0, 1);
+    }
+    .navbar-nav {
+        .nav-item:not(.active) {
+            .nav-link {
+                animation: to_dark_item 1s ease-out;
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+    .navbar-nav {
+        .active {
+            .nav-link {
+                animation: to_dark_active 1s ease-out;
+                color: rgba(0, 0, 0, 0.9);
+            }
+        }
+    }
+}
+
+.navbar-text-light {
+    .navbar-brand {
+        animation: to_light_brand 1s ease-out;
+        color: rgba(255, 255, 255, 1);
+    }
+    .navbar-nav {
+        .nav-item:not(.active) {
+            .nav-link {
+                animation: to_light_item 1s ease-out;
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+    .navbar-nav {
+        .active {
+            .nav-link {
+                animation: to_light_active 1s ease-out;
+                color: rgba(255, 255, 255, 0.9);
+            }
+        }
+    }
+}
+
 @import "../bootstrap/scss/bootstrap";
 /*
 // Required
