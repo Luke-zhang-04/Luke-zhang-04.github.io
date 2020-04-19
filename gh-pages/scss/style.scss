@@ -97,7 +97,7 @@
         .active {
             .nav-link {
                 animation: to_light_active 1s ease-out;
-                color: rgba(255, 255, 255, 0.9);
+                color: rgba(255, 255, 255, 0.9) !important;
             }
         }
     }
@@ -114,6 +114,10 @@
         width: 50px;
         height: auto;
     }
+}
+
+footer {
+    color: white;
 }
 
 @import "../bootstrap/scss/bootstrap";

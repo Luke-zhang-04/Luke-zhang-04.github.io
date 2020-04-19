@@ -143,7 +143,7 @@
 }
 .navbar-text-light .navbar-nav .active .nav-link {
   animation: to_light_active 1s ease-out;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .nav-logo {
@@ -158,6 +158,10 @@
     height: auto;
   }
 }
+footer {
+  color: white;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

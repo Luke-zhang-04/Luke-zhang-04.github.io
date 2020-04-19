@@ -26,36 +26,20 @@ const navbar = document.querySelector(".navbar")
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function scroll() {
-    if (!mobile()) {
-        if (window.pageYOffset >= 130) {
-            navbar.classList.add("navbar-background")
-            navbar.classList.add("navbar-text-light")
-            navbar.classList.remove("navbar-text-dark")
-            navbar.classList.remove("navbar-transparent")
-            navbar.classList.remove("navbar-default")
-            navbar.classList.remove("navbar-light")
-            toggled = true
-        } else if (toggled) {
-            navbar.classList.remove("navbar-background")
-            navbar.classList.add("navbar-transparent")
-            navbar.classList.add("navbar-text-dark")
-            navbar.classList.remove("navbar-text-light")
-        }
-    } else {
-        if (window.pageYOffset >= 130) {
-            navbar.classList.add("navbar-background")
-            navbar.classList.add("navbar-text-light")
-            navbar.classList.remove("navbar-text-dark")
-            navbar.classList.remove("navbar-transparent")
-            navbar.classList.remove("navbar-default")
-            navbar.classList.remove("navbar-light")
-            toggled = true
-        } else if (toggled) {
-            navbar.classList.remove("navbar-background")
-            navbar.classList.add("navbar-transparent")
-            navbar.classList.add("navbar-text-dark")
-            navbar.classList.remove("navbar-text-light")
-        }
+    if (window.pageYOffset >= 130) {
+        navbar.classList.add("navbar-background")
+        navbar.classList.add("navbar-text-light")
+        navbar.classList.remove("navbar-text-dark")
+        navbar.classList.remove("navbar-transparent")
+        navbar.classList.remove("navbar-default")
+        if (!mobile()) navbar.classList.remove("navbar-light")
+        toggled = true
+        
+    } else if (toggled) {
+        navbar.classList.remove("navbar-background")
+        navbar.classList.add("navbar-transparent")
+        navbar.classList.add("navbar-text-dark")
+        navbar.classList.remove("navbar-text-light")
     }
 }
 
