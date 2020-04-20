@@ -140,7 +140,7 @@
 }
 
 .nav-logo {
-  width: 3vw;
+  width: 4vw;
   height: auto;
   cursor: pointer;
 }
@@ -153,6 +153,11 @@
 }
 footer {
   color: white;
+}
+
+.splash-image {
+  width: 100%;
+  height: auto;
 }
 
 /*!
