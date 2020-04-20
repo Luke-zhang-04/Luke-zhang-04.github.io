@@ -20,11 +20,11 @@
 .navbar-default {
     background-color: var(--none);
     .nav-link {
-        font-size: 1.25rem;
+        font-size: 1.25vw;
     }
     .navbar-brand {
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 2vw;
     }
     .navbar-nav {
         .nav-item:not(.active) {
@@ -51,11 +51,11 @@
     animation: to_transparent 1s ease-out;
     background-color: var(--none);
     .nav-link {
-        font-size: 1.25rem;
+        font-size: 1.25vw;
     }
     .navbar-brand {
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 2vw;
     }
 }
 
@@ -63,11 +63,11 @@
     animation: to_background 1s ease-out;
     background-color: $gunmetal;
     .nav-link {
-        font-size: 1.25rem;
+        font-size: 1.25vw;
     }
     .navbar-brand {
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 2vw;
     }
 }
 
@@ -104,7 +104,7 @@
             .nav-link {
                 // animation: to_light_item 1s ease-out;
                 color: rgba(255, 255, 255, 0.5);
-                font-size: 1.25rem;        
+                font-size: 1.25vw;        
             }
         }
     }
@@ -113,14 +113,14 @@
             .nav-link {
                 // animation: to_light_active 1s ease-out;
                 color: rgba(255, 255, 255, 0.9) !important;
-                font-size: 1.25rem;    
+                font-size: 1.25vw;    
             }
         }
     }
 }
 
 .nav-logo {
-    width: 20%;
+    width: 4vw;
     height: auto;
     cursor: pointer;
 }

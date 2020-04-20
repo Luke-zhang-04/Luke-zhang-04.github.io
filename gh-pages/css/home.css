@@ -46,8 +46,9 @@ body {
 
 #splash button {
     animation: fade-in-delay-2 3s ease-out;
-    top: 525px;
+    top: 35vw;
     font-size: 1vw;
+    padding: 0.375vw 0.75vw !important;
 }
 
 #resume-button {
@@ -61,22 +62,22 @@ body {
 #splash h3 {
     animation: fade-in-delay-2 3s ease-out;
     left: 5%;
-    top: 450px;
-    font-size: 2.5rem;
+    top: 30vw;
+    font-size: 2.5vw;
 }
 
 #splash h2 {
     animation: fade-in 2s ease-out;
     left: 5%;
-    top: 200px;
-    font-size: 5rem;
+    top: 15vw;
+    font-size: 5vw;
 }
 
 #splash h1 {
     animation: fade-in-delay 3s ease-out;
     left: 5%;
-    top: 300px;
-    font-size: 7.5rem;
+    top: 20vw;
+    font-size: 7.5vw;
 }
 
 @keyframes fade-in {
