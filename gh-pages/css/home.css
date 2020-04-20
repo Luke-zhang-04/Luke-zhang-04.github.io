@@ -1,7 +1,7 @@
 /*
 	luke-zhang-04.github.io
     Copyright (C) 2020  Luke Zhang
-    
+
     https://github.com/Luke-zhang-04
 
     This program is free software: you can redistribute it and/or modify
@@ -13,97 +13,152 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 */
-
 #background {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #aligner {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #splash {
-    /* width: 100vw; */
-    width: 100%;
+  /* width: 100vw; */
+  width: 100%;
 }
-
-#splash h2, #splash h1, #splash h3, button {
-    position: absolute;
-    z-index: 100;
-    color: var(--paper);
+#splash h2, #splash h1, #splash h3, #splash button {
+  position: absolute;
+  z-index: 100;
+  color: var(--paper);
 }
-
 #splash button {
-    animation: fade-in-delay-2 3s ease-out;
-    top: 35vw;
-    font-size: 1vw;
-    padding: 0.375vw 0.75vw !important;
+  animation: fade-in-delay-2 3s ease-out;
+  top: 35vw;
+  font-size: 1vw;
+  padding: 0.375vw 0.75vw !important;
+}
+#splash h3 {
+  animation: fade-in-delay-2 3s ease-out;
+  left: 5%;
+  top: 30vw;
+  font-size: 2.5vw;
+}
+#splash h2 {
+  animation: fade-in 2s ease-out;
+  left: 5%;
+  top: 15vw;
+  font-size: 5vw;
+}
+#splash h1 {
+  animation: fade-in-delay 3s ease-out;
+  left: 5%;
+  top: 20vw;
+  font-size: 7.5vw;
 }
 
 #resume-button {
-    left: 5%;
+  left: 5%;
 }
 
 #portfolio-button {
-    left: 12.5%;
-}
-
-#splash h3 {
-    animation: fade-in-delay-2 3s ease-out;
-    left: 5%;
-    top: 30vw;
-    font-size: 2.5vw;
-}
-
-#splash h2 {
-    animation: fade-in 2s ease-out;
-    left: 5%;
-    top: 15vw;
-    font-size: 5vw;
-}
-
-#splash h1 {
-    animation: fade-in-delay 3s ease-out;
-    left: 5%;
-    top: 20vw;
-    font-size: 7.5vw;
+  left: 12.5%;
 }
 
 @keyframes fade-in {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
 @keyframes fade-in-delay {
-    0% {
-        opacity: 0;
-    } 33% {
-        opacity: 0;
-    } 100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in-delay-2 {
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.content {
+  width: 100%;
+  height: 200vh;
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+.content h1:nth-of-type(1), .content div:nth-of-type(2) {
+  position: absolute;
+  z-index: 100;
+  color: var(--paper);
+  left: 5vw;
+}
+.content h1:nth-of-type(2), .content div:nth-of-type(3) {
+  position: absolute;
+  z-index: 100;
+  color: var(--paper);
+  left: 35vw;
+}
+.content h1:nth-of-type(3), .content div:nth-of-type(4) {
+  position: absolute;
+  z-index: 100;
+  color: var(--paper);
+  left: 65vw;
+}
+.content h1 {
+  top: 10vw;
+  font-size: 2.5vw;
+}
+.content .list {
+  top: 15vw;
+  font-size: 2vw;
+}
+.content .list p img {
+  width: 2vw;
+  height: auto;
 }
 
-@keyframes fade-in-delay-2 {
-    0% {
-        opacity: 0;
-    } 66% {
-        opacity: 0;
-    } 100% {
-        opacity: 1;
-    }
+.splash-image {
+  width: 100%;
 }
+
+#section1 {
+  background-image: url("../pictures/background2.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.cover {
+  position: absolute;
+  background-color: rgba(23, 23, 23, 0.75);
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
+/*# sourceMappingURL=home.css.map */
