@@ -160,6 +160,11 @@ footer {
   height: auto;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-left: 0.5vw !important;
+  padding-right: 0.5vw !important;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

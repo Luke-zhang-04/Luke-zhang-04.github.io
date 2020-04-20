@@ -13,5 +13,5 @@ document.getElementById("splash").style.height = (
 
 if (!mobile()) {
     let timeline = new TimelineMax();
-    timelines.push(tl)
+    timelines.push(timeline)
 }

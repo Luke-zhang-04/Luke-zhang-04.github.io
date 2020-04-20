@@ -141,6 +141,11 @@ footer {
     height: auto;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 0.5vw !important;
+    padding-right: 0.5vw !important;
+}
+
 @import "../bootstrap/scss/bootstrap";
 /*
 // Required
