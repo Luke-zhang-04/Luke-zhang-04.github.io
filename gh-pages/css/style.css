@@ -90,6 +90,12 @@
   font-weight: bold;
   font-size: 2rem;
 }
+.navbar-default .navbar-nav .nav-item:not(.active) .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+.navbar-default .navbar-nav .active .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
 
 .navbar-brand {
   padding-top: 0 !important;
@@ -120,30 +126,17 @@
   font-size: 2rem;
 }
 
-.navbar-text-dark .navbar-brand {
-  animation: to_dark_brand 1s ease-out;
-  color: black;
-}
-.navbar-text-dark .navbar-nav .nav-item:not(.active) .nav-link {
-  animation: to_dark_item 1s ease-out;
-  color: rgba(0, 0, 0, 0.5);
-}
-.navbar-text-dark .navbar-nav .active .nav-link {
-  animation: to_dark_active 1s ease-out;
-  color: rgba(0, 0, 0, 0.9);
-}
-
 .navbar-text-light .navbar-brand {
   animation: to_light_brand 1s ease-out;
   color: white;
 }
 .navbar-text-light .navbar-nav .nav-item:not(.active) .nav-link {
-  animation: to_light_item 1s ease-out;
   color: rgba(255, 255, 255, 0.5);
+  font-size: 1.25rem;
 }
 .navbar-text-light .navbar-nav .active .nav-link {
-  animation: to_light_active 1s ease-out;
   color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.25rem;
 }
 
 .nav-logo {

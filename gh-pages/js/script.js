@@ -29,17 +29,16 @@ function scroll() {
     if (window.pageYOffset >= 130) {
         navbar.classList.add("navbar-background")
         navbar.classList.add("navbar-text-light")
-        navbar.classList.remove("navbar-text-dark")
+        // navbar.classList.remove("navbar-text-dark")
         navbar.classList.remove("navbar-transparent")
         navbar.classList.remove("navbar-default")
-        if (!mobile()) navbar.classList.remove("navbar-light")
+        // if (!mobile()) navbar.classList.remove("navbar-light")
         toggled = true
-        
     } else if (toggled) {
         navbar.classList.remove("navbar-background")
         navbar.classList.add("navbar-transparent")
-        navbar.classList.add("navbar-text-dark")
-        navbar.classList.remove("navbar-text-light")
+        // navbar.classList.add("navbar-text-dark")
+        // navbar.classList.remove("navbar-text-light")
     }
 }
 

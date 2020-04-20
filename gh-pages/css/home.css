@@ -34,5 +34,75 @@ body {
 }
 
 #splash {
-    width: 100vw;
+    /* width: 100vw; */
+    width: 100%;
+}
+
+#splash h2, #splash h1, #splash h3, button {
+    position: absolute;
+    z-index: 100;
+    color: var(--paper);
+}
+
+#splash button {
+    animation: fade-in-delay-2 3s ease-out;
+    top: 525px;
+    font-size: 1vw;
+}
+
+#resume-button {
+    left: 5%;
+}
+
+#portfolio-button {
+    left: 12.5%;
+}
+
+#splash h3 {
+    animation: fade-in-delay-2 3s ease-out;
+    left: 5%;
+    top: 450px;
+    font-size: 2.5rem;
+}
+
+#splash h2 {
+    animation: fade-in 2s ease-out;
+    left: 5%;
+    top: 200px;
+    font-size: 5rem;
+}
+
+#splash h1 {
+    animation: fade-in-delay 3s ease-out;
+    left: 5%;
+    top: 300px;
+    font-size: 7.5rem;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-delay {
+    0% {
+        opacity: 0;
+    } 33% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-delay-2 {
+    0% {
+        opacity: 0;
+    } 66% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
 }
