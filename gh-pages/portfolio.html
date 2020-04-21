@@ -21,8 +21,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Luke Zhang | Portfolio</title>
-<link rel="icon" href="">
+    <link rel="icon" href="pictures/logo-white.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/portfolio.css">
 </head>
 
 <body>
@@ -47,6 +48,11 @@
             </ul>
         </div>
     </nav>
+
+    <div id="splash">
+        <img id="background" src="pictures/background2.png"/>
+        <h1>My Projects</h1>
+    </div>
 
     <footer class="page-footer font-small bg-secondary pt-4">
         <div class="container-fluid text-center text-md-left">
@@ -90,9 +96,7 @@
                 </div>
                 <div class="col-md-2 mb-md-0 mb-2">
                     <h5 class="text-uppercase">Image Credits</h5>
-                    <a style="background-color:black; color:white; text-decoration:none; padding:4px 6px; font-family:-apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif; font-size:1vw; font-weight:bold; line-height:1.2; display:inline-block; border-radius:3px" href="https://unsplash.com/@emilep?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Émile Perron"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Émile Perron</span></a>
-                    
-                    <a style="background-color:black; color:white; text-decoration:none; padding:4px 6px; font-family:-apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;font-size:1vw; font-weight:bold; line-height:1.2; display:inline-block; border-radius:3px" href="https://unsplash.com/@maximalfocus?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Maximalfocus"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Maximalfocus</span></a>
+                    <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;font-size:1vw;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@andrewtneel?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Andrew Neel"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Andrew Neel</span></a>
                 </div>
             </div>
         </div>
@@ -104,10 +108,33 @@
         <!-- Copyright -->
   
     </footer>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDKHbbyZoschUX1cMf5VdjRl9TtdIX1R9A",
+            authDomain: "luke-zhang.firebaseapp.com",
+            databaseURL: "https://luke-zhang.firebaseio.com",
+            projectId: "luke-zhang",
+            storageBucket: "luke-zhang.appspot.com",
+            messagingSenderId: "309956853075",
+            appId: "1:309956853075:web:ebb55b1076c4aca168f5a6"
+        }
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig)
+        const storage = firebase.storage()
+        const db = firebase.firestore()
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/portfolio.js"></script>
 </body>
 </html>

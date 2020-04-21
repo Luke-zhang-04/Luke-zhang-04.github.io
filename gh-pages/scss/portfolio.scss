@@ -1,0 +1,66 @@
+/*
+	luke-zhang-04.github.io
+    Copyright (C) 2020  Luke Zhang
+    
+    https://github.com/Luke-zhang-04
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+*/
+#background {
+    animation: to-blur 1s ease-out;
+    filter: blur(4px);
+    width: 100%;
+    height: auto;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#aligner {
+    position: relative;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#splash {
+    /* width: 100vw; */
+    width: 100%;
+    h1 {
+        animation: fade-in 3s ease-out;
+        position: absolute;
+        z-index: 100;
+        color: var(--paper);
+        left: 30%;
+        top: 20vw;
+        font-size: 7.5vw;
+        font-weight: bold;
+    }
+}
+
+@keyframes to-blur {
+    from {
+        filter: blur(0);
+    } to {
+        filter: blur(4px);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}

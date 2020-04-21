@@ -62,13 +62,3 @@ function windowResize() {
         scroll()
     }
 }
-
-window.onresize = function() {
-    windowResize()
-    document.getElementById("splash").style.height = (
-        window.innerWidth*0.56255674596 - navbar.offsetHeight - 26
-    ).toString() + "px"
-}
-document.getElementById("splash").style.height = (
-    window.innerWidth*0.56255674596 - navbar.offsetHeight - 26
-).toString() + "px"

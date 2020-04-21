@@ -105,11 +105,13 @@ body {
 
 .content {
     width: 100%;
-    height: 200vh;
+    height: 100vh;
     position: relative;
     box-sizing: border-box;
     margin-left: 0 !important;
     margin-bottom: 0 !important;
+    background-position: 0% 100%;
+
     h1:nth-of-type(1), div:nth-of-type(2) {
         position: absolute;
         z-index: 100;
@@ -151,7 +153,8 @@ body {
 #section1 {
     background-image: url("../pictures/background2.jpg");
     background-repeat: no-repeat;
-    background-size: auto;
+    // background-size: auto;
+    background-size: cover;
 }
 
 .cover {
@@ -160,4 +163,47 @@ body {
     z-index: 100;
     width: 100%;
     height: 100%;
+}
+
+@media screen and (orientation: portrait) {
+    .content {
+        width: 100%;
+        height: 100vw;
+        position: relative;
+        box-sizing: border-box;
+        margin-left: 0 !important;
+        margin-bottom: 0 !important;
+        h1:nth-of-type(1), div:nth-of-type(2) {
+            position: absolute;
+            z-index: 100;
+            color: var(--paper);
+            left: 5vw;
+        }
+        h1:nth-of-type(2), div:nth-of-type(3) {
+            position: absolute;
+            z-index: 100;
+            color: var(--paper);
+            left: 35vw;
+        }
+        h1:nth-of-type(3), div:nth-of-type(4) {
+            position: absolute;
+            z-index: 100;
+            color: var(--paper);
+            left: 65vw;
+        }
+        h1 {
+            top: 10vw;
+            font-size: 2.5vw;
+        }
+        
+        .list {
+            top: 15vw;
+            font-size: 2vw;
+        }
+        
+        .list p img {
+            width: 2vw;
+            height: auto;
+        }
+    }
 }
