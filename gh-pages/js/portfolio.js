@@ -46,7 +46,6 @@ function displayProjects() {
                     <div class="card-img-overlay">
                         <h4 class="card-title">${doc.id}</h4>
                         <p class="card-text">${doc.data().tags}</p>
-                        <a class="btn btn-primary">More</a>
                     </div>
                 </div>
                 `
@@ -69,7 +68,6 @@ function displayProjects() {
                         <div class="card-img-overlay">
                             <h4 class="card-title">${doc.id}</h4>
                             <p class="card-text">${doc.data().tags}</p>
-                            <a class="btn btn-primary">More</a>
                         </div>
                     </div>
                     `

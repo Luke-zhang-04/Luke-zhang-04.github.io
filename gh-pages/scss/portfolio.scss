@@ -73,6 +73,7 @@ body {
 }
 
 .port-card:hover {
+    cursor: pointer;
     .card-img-overlay {
         animation: fade-in 1s ease-out;
         opacity: 1;
