@@ -54,6 +54,24 @@
         <h1>My Projects</h1>
     </div>
 
+    <div id="projects" class="jumbotron">
+        <h1 class="text-secondary">My Projects</h1>
+        <div class="row">
+            <div class="col col-md-4 mb-md-0 mb-4"></div>
+            <div class="col col-md-4 mb-md-0 mb-4"></div>
+            <div class="col col-md-4 mb-md-0 mb-4"></div>
+        </div>
+    </div>
+
+    <div id="collections" class="jumbotron">
+        <h1 class="text-secondary">My Collections</h1>
+        <div class="row">
+            <div class="col col-md-4 mb-md-0 mb-4"></div>
+            <div class="col col-md-4 mb-md-0 mb-4"></div>
+            <div class="col col-md-4 mb-md-0 mb-4"></div>
+        </div>
+    </div>
+
     <footer class="page-footer font-small bg-secondary pt-4">
         <div class="container-fluid text-center text-md-left">
             <div class="row">
@@ -129,6 +147,7 @@
         firebase.initializeApp(firebaseConfig)
         const storage = firebase.storage()
         const db = firebase.firestore()
+        const storageRef = storage.ref("project_images")
     </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -165,6 +165,12 @@ footer {
   padding-right: 0.5vw !important;
 }
 
+.jumbotron {
+  margin-top: 0;
+  margin-bottom: 0 !important;
+  background-color: #f4f4f4 !important;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

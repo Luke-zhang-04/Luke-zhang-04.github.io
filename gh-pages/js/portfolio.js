@@ -14,6 +14,8 @@
     GNU General Public License for more details.
 */
 
+let data = {projects: {}, collections: {}}
+
 window.onresize = function() {
     document.getElementById("splash").style.height = (
         window.innerWidth*0.66666666666 - navbar.offsetHeight - 26
@@ -22,3 +24,61 @@ window.onresize = function() {
 document.getElementById("splash").style.height = (
     window.innerWidth*0.66666666666 - navbar.offsetHeight - 26
 ).toString() + "px"
+
+function displayProjects() {
+    const projectContainer = document.getElementById("projects")
+    const collectionContainer = document.getElementById("collections")
+    const projectColumns = projectContainer.querySelector(".row")
+    const collectionColumns = collectionContainer.querySelector(".row")
+    let counter
+
+    db.collection("projects").get().then(snapshot => {
+        counter = 0
+        snapshot.docs.forEach(doc => {
+            let imgurl = storageRef.child(doc.data().file)
+            let column = projectColumns.getElementsByClassName("col")[counter%3]
+            
+            imgurl.getDownloadURL().then(url => {
+                column.insertAdjacentHTML("beforeend",
+                `
+                <div class="card port-card" style="display: inline-block; width: 100%">
+                    <img class="card-img-top" src="${url}" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h4 class="card-title">${doc.id}</h4>
+                        <p class="card-text">${doc.data().tags}</p>
+                        <a class="btn btn-primary">More</a>
+                    </div>
+                </div>
+                `
+                )
+            })
+            counter ++
+        })
+    }).then(() => {
+        counter = 0
+        db.collection("collections").get().then(snapshot => {
+            snapshot.docs.forEach(doc => {
+                let imgurl = storageRef.child(doc.data().file)
+                let column = collectionColumns.getElementsByClassName("col")[counter%3]
+
+                imgurl.getDownloadURL().then(url => {
+                    column.insertAdjacentHTML("beforeend",
+                    `
+                    <div class="card port-card" style="display: inline-block; width: 100%">
+                        <img class="card-img-top" src="${url}" alt="Card image">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">${doc.id}</h4>
+                            <p class="card-text">${doc.data().tags}</p>
+                            <a class="btn btn-primary">More</a>
+                        </div>
+                    </div>
+                    `
+                    )
+                })
+                counter ++
+            })
+        })
+    })
+}
+
+displayProjects()
