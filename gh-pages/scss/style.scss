@@ -132,6 +132,12 @@
     }
 }
 
+@media only screen and (max-width: 991px) {
+    .nav-link, .nav-item {
+        font-size: 5vw !important;
+    }
+}
+
 footer {
     color: white;
 }

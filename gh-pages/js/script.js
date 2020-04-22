@@ -62,3 +62,32 @@ function windowResize() {
         scroll()
     }
 }
+
+function resizeDivider() {
+    document.getElementById("splash").style.height = (
+        window.innerWidth*0.56255674596 - navbar.offsetHeight - 26
+    ).toString() + "px"
+    if (document.getElementById("navbarNav").classList.contains("collapsing")) {
+        setTimeout(resizeDivider, 1)
+    }
+}
+
+document.querySelector(".navbar-toggler").addEventListener("click", event => {
+    const navSelection = document.getElementById("navbarNav")
+    const navbar = document.querySelector(".navbar")
+    if (!navSelection.classList.contains("show")) {
+        navbar.style.backgroundColor = "var(--secondary)"
+        navbar.style.animation = "to_background 1s ease"
+        navbar.classList.add("navbar-dark")
+        navbar.classList.remove("navbar-light")
+        setTimeout(resizeDivider, 1)
+        navbar.style.animation = ""
+    } else {
+        navbar.style.backgroundColor = ""
+        navbar.style.animation = "to_transparent 1s ease"
+        navbar.classList.remove("navbar-dark")
+        navbar.classList.add("navbar-light")
+        setTimeout(resizeDivider, 1)
+        navbar.style.animation = ""
+    }
+})
