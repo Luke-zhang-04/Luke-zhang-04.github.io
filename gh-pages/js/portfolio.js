@@ -36,7 +36,7 @@ function displayProjects() { //displays project cards
         counter = 0
         snapshot.docs.forEach(doc => {
             let imgurl = storageRef.child(doc.data().file) //get image URL
-            let column = projectColumns.getElementsByClassName("col")[counter%3] //column reference
+            let column = projectColumns.getElementsByClassName("proj-col")[counter%3] //column reference
             
             imgurl.getDownloadURL().then(url => {
                 data.projects[doc.id] = doc.data() //insert doc data
@@ -47,6 +47,7 @@ function displayProjects() { //displays project cards
                     data.projects[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
                 }
                 let tags = ""
+                let description = ""
 
                 for (i = 0; i < data.projects[doc.id].tags.length; i++) { //format tags and make sure they aren't too long
                     if (i >= 5) {
@@ -59,12 +60,22 @@ function displayProjects() { //displays project cards
                     }
                 }
 
+                for (i = 0; i < data.projects[doc.id].description.split(" ").length; i++) { //format description
+                    if (i >= 20) {
+                        description += " . . ."
+                        break
+                    } else {
+                        description += data.projects[doc.id].description.split(" ")[i].replace(`\\n`, "<br/>").replace(`\\n`, "") + " "
+                    }
+                }
+
                 column.insertAdjacentHTML("beforeend", //insert tags and a card
                     `<div class="card port-card" style="display: inline-block; width: 100%">
                         <img class="card-img-top" src="${url}" alt="Card image">
                         <div class="card-img-overlay card-cover"></div>
                         <div class="card-img-overlay">
                             <h4 class="card-title">${(doc.id).charAt(0).toUpperCase() + (doc.id).slice(1)}</h4>
+                            <p>${description}</p>
                             <p class="card-text">${tags}</p>
                         </div>
                     </div>`
@@ -77,7 +88,7 @@ function displayProjects() { //displays project cards
         db.collection("collections").get().then(snapshot => { //get collections from database collection
             snapshot.docs.forEach(doc => {
                 let imgurl = storageRef.child(doc.data().file) //get image URL
-                let column = collectionColumns.getElementsByClassName("col")[counter%3] //column reference
+                let column = collectionColumns.getElementsByClassName("proj-col")[counter%3] //column reference
 
                 imgurl.getDownloadURL().then(url => {
                     data.collections[doc.id] = doc.data() //insert doc data
@@ -87,8 +98,9 @@ function displayProjects() { //displays project cards
                         let target = data.collections[doc.id].tags[i]
                         data.collections[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
                     }
-
                     let tags = ""
+                    let description = ""
+
                     for (i = 0; i < data.collections[doc.id].tags.length; i++) {//format tags and make sure they're not too long
                         if (i >= 5) {
                             tags += " . . ."
@@ -100,12 +112,22 @@ function displayProjects() { //displays project cards
                         }
                     }
 
+                    for (i = 0; i < data.collections[doc.id].description.split(" ").length; i++) { //format description
+                        if (i >= 20) {
+                            description += " . . ."
+                            break
+                        } else {
+                            description += data.collections[doc.id].description.split(" ")[i].replace(`\\n`, "<br/>").replace(`\\n`, "") + " "
+                        }
+                    }
+
                     column.insertAdjacentHTML("beforeend", //create new card with the data
                         `<div class="card port-card" style="display: inline-block; width: 100%">
                             <img class="card-img-top" src="${url}" alt="Card image">
                             <div class="card-img-overlay card-cover"></div>
                             <div class="card-img-overlay">
                                 <h4 class="card-title">${(doc.id).charAt(0).toUpperCase() + (doc.id).slice(1)}</h4>
+                                <p>${description}</p>
                                 <p class="card-text">${tags}</p>
                             </div>
                         </div>`
