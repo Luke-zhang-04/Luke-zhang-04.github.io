@@ -40,11 +40,16 @@ function displayProjects() { //displays project cards
             
             imgurl.getDownloadURL().then(url => {
                 data.projects[doc.id] = doc.data() //insert doc data
-                data.projects[doc.id][imgurl] = url //insert image url
+                data.projects[doc.id]["imgurl"] = url //insert image url
 
                 for (i = 0; i < data.projects[doc.id].tags.length; i++) { //capitalize tags
                     let target = data.projects[doc.id].tags[i]
-                    data.projects[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
+
+                    if (target === "front-end-code") {
+                        data.projects[doc.id].tags[i] = "HTML, CSS, JS"
+                    } else {
+                        data.projects[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
+                    }
                 }
                 let tags = ""
                 let description = ""
@@ -70,7 +75,7 @@ function displayProjects() { //displays project cards
                 }
 
                 column.insertAdjacentHTML("beforeend", //insert tags and a card
-                    `<div class="card port-card" style="display: inline-block; width: 100%">
+                    `<div class="card port-card" style="display: inline-block; width: 100%" data-toggle="modal" data-target="#projectModal" data-name="projects.${doc.id}">
                         <img class="card-img-top" src="${url}" alt="Card image">
                         <div class="card-img-overlay card-cover"></div>
                         <div class="card-img-overlay">
@@ -92,7 +97,7 @@ function displayProjects() { //displays project cards
 
                 imgurl.getDownloadURL().then(url => {
                     data.collections[doc.id] = doc.data() //insert doc data
-                    data.collections[doc.id][imgurl] = url //insert image URL
+                    data.collections[doc.id]["imgurl"] = url //insert image URL
 
                     for (i = 0; i < data.collections[doc.id].tags.length; i++) { //capitalize tags
                         let target = data.collections[doc.id].tags[i]
@@ -122,7 +127,7 @@ function displayProjects() { //displays project cards
                     }
 
                     column.insertAdjacentHTML("beforeend", //create new card with the data
-                        `<div class="card port-card" style="display: inline-block; width: 100%">
+                        `<div class="card port-card" style="display: inline-block; width: 100%" data-toggle="modal" data-target="#projectModal" data-name="collections.${doc.id}">
                             <img class="card-img-top" src="${url}" alt="Card image">
                             <div class="card-img-overlay card-cover"></div>
                             <div class="card-img-overlay">
@@ -140,3 +145,64 @@ function displayProjects() { //displays project cards
 }
 
 displayProjects()
+
+$('#projectModal').on('show.bs.modal', event => { //hopefully the only time I'll need Jquery
+    const trigger = $(event.relatedTarget)
+    const [type, name] = trigger.data("name").split(".")
+    const projectData = data[type][name]
+
+    const modal = document.getElementById("projectModal")
+    const footer = modal.querySelector(".modal-footer")
+    const body = modal.querySelector(".modal-body")
+    const header = modal.querySelector(".modal-header")
+
+    header.querySelector("#modalTitle").innerHTML = name
+
+    if (type === "projects") {
+        for ([key, version] of Object.entries(projectData.links)) { //make links for viewing
+            if (key === "live") {
+                footer.insertAdjacentHTML("afterbegin", 
+                    `<a type="button" class="btn btn-primary" href=${version} target="_blank"><i class="fas fa-eye"></i> View live</a>`
+                )
+            } else if (key === "GitHub") {
+                footer.insertAdjacentHTML("afterbegin", 
+                    `<a type="button" class="btn btn-secondary" href=${version} target="_blank"><i class="fab fa-github"></i> View GitHub</a>`
+                )
+            } else if (key === "PyPi") {
+                footer.insertAdjacentHTML("afterbegin", 
+                    `<a type="button" class="btn btn-warning" href=${version} target="_blank"><i class="fab fa-python"></i> View PyPi</a>`
+                )
+            }
+        }
+    } else if (type === "collections") {
+        footer.insertAdjacentHTML("afterbegin", 
+                `<a type="button" class="btn btn-secondary" href=${projectData.link} target="_blank"><i class="fab fa-github"></i> View GitHub</a>`
+            )
+    }
+    let tags = ""
+    let description = projectData.description.replace("\\n", "<br/><br/>").replace("\\n", "")
+
+    for ([index, elem] of projectData.tags.entries()) {
+        if (index < projectData.tags.length-1) {
+            tags += `${elem}, `
+        } else {
+            tags += elem
+        }
+    }
+
+    body.querySelector("#img-col").querySelector(".modal-img").setAttribute("src", projectData.imgurl)
+    body.querySelector("#des-col").innerHTML = `
+        <p>${description}</p>
+        <p>${tags}</p>
+    `
+})
+
+$("#projectModal").on("hide.bs.modal", event => { //apparently I'll need it again :(
+    const modal = document.getElementById("projectModal")
+    const footer = modal.querySelector(".modal-footer")
+    const body = modal.querySelector(".modal-body")
+    const header = modal.querySelector(".modal-header")
+
+    //clear HTML
+    footer.innerHTML = ``
+})

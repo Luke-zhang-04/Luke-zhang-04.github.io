@@ -53,7 +53,7 @@ if (!mobile()) {
     const scene = new ScrollMagic.Scene({
         triggerElement: elem,
         triggerHook: "onLeave",
-        duration: "200%"
+        duration: "400%"
     })
     .setPin(elem)
     .setTween(timeline)
