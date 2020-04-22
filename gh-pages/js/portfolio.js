@@ -39,16 +39,25 @@ function displayProjects() {
             let column = projectColumns.getElementsByClassName("col")[counter%3]
             
             imgurl.getDownloadURL().then(url => {
+                data.projects[doc.id] = doc.data()
+                data.projects[doc.id][imgurl] = url
+                for (i = 0; i < data.projects[doc.id].tags.length; i++) {
+                    let target = data.projects[doc.id].tags[i]
+                    data.projects[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
+                }
+                let tags = ""
+
+                
+
                 column.insertAdjacentHTML("beforeend",
-                `
-                <div class="card port-card" style="display: inline-block; width: 100%">
-                    <img class="card-img-top" src="${url}" alt="Card image">
-                    <div class="card-img-overlay">
-                        <h4 class="card-title">${doc.id}</h4>
-                        <p class="card-text">${doc.data().tags}</p>
-                    </div>
-                </div>
-                `
+                    `<div class="card port-card" style="display: inline-block; width: 100%">
+                        <img class="card-img-top" src="${url}" alt="Card image">
+                        <div class="card-img-overlay card-cover"></div>
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">${(doc.id).charAt(0).toUpperCase() + (doc.id).slice(1)}</h4>
+                            <p class="card-text">${tags}</p>
+                        </div>
+                    </div>`
                 )
             })
             counter ++
@@ -61,16 +70,21 @@ function displayProjects() {
                 let column = collectionColumns.getElementsByClassName("col")[counter%3]
 
                 imgurl.getDownloadURL().then(url => {
+                    data.collections[doc.id] = doc.data()
+                    data.collections[doc.id][imgurl] = url
+                    for (i = 0; i < data.collections[doc.id].tags.length; i++) {
+                        let target = data.collections[doc.id].tags[i]
+                        data.collections[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
+                    }
                     column.insertAdjacentHTML("beforeend",
-                    `
-                    <div class="card port-card" style="display: inline-block; width: 100%">
-                        <img class="card-img-top" src="${url}" alt="Card image">
-                        <div class="card-img-overlay">
-                            <h4 class="card-title">${doc.id}</h4>
-                            <p class="card-text">${doc.data().tags}</p>
-                        </div>
-                    </div>
-                    `
+                        `<div class="card port-card" style="display: inline-block; width: 100%">
+                            <img class="card-img-top" src="${url}" alt="Card image">
+                            <div class="card-img-overlay card-cover"></div>
+                            <div class="card-img-overlay">
+                                <h4 class="card-title">${(doc.id).charAt(0).toUpperCase() + (doc.id).slice(1)}</h4>
+                                <p class="card-text">${data.collections[doc.id].tags}</p>
+                            </div>
+                        </div>`
                     )
                 })
                 counter ++

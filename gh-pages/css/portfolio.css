@@ -66,14 +66,73 @@ body {
     opacity: 1;
   }
 }
-.port-card .card-img-overlay {
+@keyframes from-left-corner {
+  from {
+    top: 100%;
+    left: 100%;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes to-left-corner {
+  from {
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    left: 100%;
+    opacity: 0;
+  }
+}
+.port-card {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+.port-card .card-cover, .port-card .card-img-overlay {
   opacity: 0;
 }
-
-.port-card:hover .card-img-overlay {
-  animation: fade-in 1s ease-out;
-  opacity: 1;
+.port-card .card-img-overlay {
+  animation: fade-out 0.5s ease-in-out;
+  background-color: rgba(255, 255, 255, 0);
+}
+.port-card .card-cover {
+  animation: to-left-corner 0.5s ease-in-out;
   background-color: rgba(255, 255, 255, 0.75);
+  opacity: 0;
+  top: 100%;
+  left: 100%;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+}
+
+.port-card:hover {
+  cursor: pointer;
+}
+.port-card:hover .card-img-overlay {
+  animation: fade-in 1s ease-in-out;
+  opacity: 1;
+}
+.port-card:hover .card-cover {
+  animation: from-left-corner 0.5s ease-in-out;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  padding: 1.25rem;
 }
 
 /*# sourceMappingURL=portfolio.css.map */
