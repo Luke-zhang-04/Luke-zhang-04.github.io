@@ -88,7 +88,7 @@ function typewriter(step = null, i = 0, clear = false) {
         "  GitHub",
         "  Email",
         "  PyPi",
-        "  LinkedIn"
+        "  LinkedIn" //55
     ]
     const fonts = [
         null,
@@ -104,26 +104,20 @@ function typewriter(step = null, i = 0, clear = false) {
             i.querySelector("a").innerHTML = ""
         }
         return new Promise(() => setTimeout(() => {
-            typewriter()
+            return
         }), 2000)
     }
 
     if (!step) {
         if (i < steps[0].length) {
             header.innerHTML += steps[0][i]
-            // setTimeout(() => {
-            //     typewriter(null, i+1)
-            // }, 60)
             return new Promise(() => setTimeout(() => {
-                typewriter(null, i+1)
+                return typewriter(null, i+1)
             }, 60))
         
         } else {
-            // setTimeout(() => {
-            //     typewriter(1)
-            // }, 200)
             return new Promise(() => setTimeout(() => {
-                typewriter(1)
+                return typewriter(1)
             }, 200))
         
         }
@@ -131,41 +125,35 @@ function typewriter(step = null, i = 0, clear = false) {
         if (i < steps[step].length) {
             if (i === 0) {
                 list[step-1].querySelector("a").innerHTML += fonts[step]
-                // setTimeout(() => {
-                //     typewriter(step, i+1)
-                // }, 60)
                 return new Promise(() => setTimeout(() => {
-                    typewriter(step, i+1)
+                    return typewriter(step, i+1)
                 }, 60))
             
             } else {
                 list[step-1].querySelector("a").innerHTML += steps[step][i]
-                // setTimeout(() => {
-                //     typewriter(step, i+1)
-                // }, 60)
                 return new Promise(() => setTimeout(() => {
-                    typewriter(step, i+1)
+                    return typewriter(step, i+1)
                 }, 60))
             
             }
         } else {
-            // setTimeout(() => {
-            //     typewriter(step+1)
-            // }, 200)
             return new Promise(() => setTimeout(() => {
-                typewriter(step+1)
+                return typewriter(step+1)
             }), 200)
         
         }
     } else {
-        timeout(5000).then(() => {
-            typewriter(null, 0, true)
+        return timeout(5000).then(() => {
+            return typewriter(null, 0, true)
         })
     }
 }
 
 function callTyper() {
     typewriter()
+    timeout(9100).then(() => {
+        callTyper()
+    })
 }
 
 callTyper()
