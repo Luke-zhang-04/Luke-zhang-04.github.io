@@ -114,6 +114,10 @@
         </ul>
     </div>
 
+    <div id="section3" class="content">
+        <h1>My Projects</h1>
+    </div>
+
     <footer class="page-footer font-small bg-secondary pt-4">
         <div class="container-fluid text-center text-md-left">
             <div class="row">
@@ -174,7 +178,31 @@
         <!-- Copyright -->
   
     </footer>
-  <!-- Footer -->
+    <!-- Footer -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDKHbbyZoschUX1cMf5VdjRl9TtdIX1R9A",
+            authDomain: "luke-zhang.firebaseapp.com",
+            databaseURL: "https://luke-zhang.firebaseio.com",
+            projectId: "luke-zhang",
+            storageBucket: "luke-zhang.appspot.com",
+            messagingSenderId: "309956853075",
+            appId: "1:309956853075:web:ebb55b1076c4aca168f5a6"
+        }
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig)
+        const storage = firebase.storage()
+        const db = firebase.firestore()
+        const storageRef = storage.ref("project_images")
+    </script>
 
     <script src="js/scrollmagic/ScrollMagic.js"></script>
     <script src="js/scrollmagic/plugins/animation.gsap.js"></script>
