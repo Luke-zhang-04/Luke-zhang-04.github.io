@@ -24,33 +24,62 @@ function bindTimeline1() {
     let timeline1 = new TimelineMax();
     timelines.push(timeline1)
     let elem = document.getElementsByClassName("content")[0]
-    timeline1.from(elem.querySelector(".cover"), 2.5, {x: 0, opacity: 0, width: 0})
+    timeline1.from(elem.querySelector(".cover"), 5, {x: 0, opacity: 0, width: 0})
 
     for (i = 0; i < 3; i++) {
-        timeline1.from(
-            elem.getElementsByTagName("h1")[i],
-            .5,
+        // timeline1.staggerFromTo(
+        //     elem.getElementsByTagName("h1")[i],
+        //     .5,
+        //     {
+        //         x: elem.getElementsByTagName("h1")[i].clientWidth/1.25,
+        //         opacity: 0
+        //     },
+        //     {
+        //         x: 0,
+        //         opacity: 1,
+        //         ease: Back.easeOut
+        //     },
+        //     0.15,
+        //     "-=.125"
+        // )
+        
+        // let list = elem.getElementsByClassName("list")[i]
+        // for (j = 0; j < list.length; j++) {
+        //     let remove = .25
+        //     timeline1.staggerFromTo(
+        //         list[j], .5,
+        //         {
+        //             x: elem.getElementsByTagName("h1")[i].clientWidth/1.25,
+        //             opacity: 0
+        //         },
+        //         {
+        //             x: 0,
+        //             opacity: 1,
+        //             ease: Back.easeOut
+        //         },
+        //         0.15,
+        //         "-="+remove.toString()
+        //     )
+        // }
+        let objects = [elem.querySelector(".animate"+i.toString()), ...elem.getElementsByClassName("list")[i].children]
+        timeline1.staggerFromTo(
+            // list,
+            objects,
+            2,
             {
                 x: elem.getElementsByTagName("h1")[i].clientWidth/1.25,
                 opacity: 0
             },
-            "-=.125"
+            {
+                x: 0,
+                opacity: 1,
+                ease: Back.easeOut
+            },
+            0.5,
+            "-=.25"
         )
-        
-        let list = elem.getElementsByClassName("list")[i].children
-        for (j = 0; j < list.length; j++) {
-            let remove = .25
-            timeline1.from(
-                list[j], .5,
-                {
-                    x: elem.getElementsByTagName("h1")[i].clientWidth/1.25,
-                    opacity: 0
-                },
-                "-="+remove.toString()
-            )
-        }
     }
-    timeline1.from(elem, 5, {"background-position": "0% 0%"})
+    timeline1.from(elem, 10, {"background-position": "0% 0%"})
 
     const scene = new ScrollMagic.Scene({
         triggerElement: elem,
