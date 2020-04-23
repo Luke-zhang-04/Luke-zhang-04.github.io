@@ -65,7 +65,60 @@ function bindTimeline1() {
 }
 
 function bindTimeline2() {
+    const timeline2 = new TimelineMax()
+    timelines.push(timeline2)
+    const elem = document.getElementById("section3")
+    const title = elem.querySelector(".proj-title")
+    const projects = elem.getElementsByClassName("proj-col")
 
+    timeline2.from(
+        ".proj",
+        0.2,
+        {display: "none"}
+
+    )
+
+    timeline2.staggerFromTo(
+        ".proj-header",
+        2,
+        {
+            x: window.innerWidth,
+            opacity: 0
+        },
+        {
+            x: 0,
+            opacity: 1,
+            ease: Back.easeOut,
+        },
+        0.15
+    )
+
+    timeline2.staggerFromTo(
+        ".proj-col",
+        2,
+        {
+            x: window.innerWidth,
+            opacity: 0
+        },
+        {
+            x: 0,
+            opacity: 1,
+            ease: Back.easeOut,
+        },
+        0.15,
+        "-=1.75"
+    )
+
+    const scene = new ScrollMagic.Scene({
+        triggerElement: elem,
+        triggerHook: "onLeave",
+        duration: "400%"
+    })
+    .setPin(elem)
+    .setTween(timeline2)
+    .addTo(controller)
+
+    scenes.push(scene)
 }
 
 if (!mobile()) {

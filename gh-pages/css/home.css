@@ -253,7 +253,7 @@ body {
   color: var(--accent2);
   position: absolute;
   left: 5vw;
-  top: 5vw;
+  top: 10vw;
 }
 #section3 .proj-title .btn, #section3 .proj-title h1 {
   display: inline-block;
@@ -308,18 +308,22 @@ body {
   position: absolute;
 }
 
+.proj-col, .proj-title {
+  display: block;
+}
+
 .proj-col:nth-of-type(1) {
-  top: 10vw;
+  top: 15vw;
   left: 5vw;
 }
 
 .proj-col:nth-of-type(2) {
-  top: 40vw;
+  top: 45vw;
   left: 30vw;
 }
 
 .proj-col:nth-of-type(3) {
-  top: 10vw;
+  top: 15vw;
   left: 55vw;
 }
 
