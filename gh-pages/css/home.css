@@ -104,6 +104,16 @@ body {
     opacity: 1;
   }
 }
+.proj-content {
+  width: 100%;
+  height: 80vw;
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
+  background-position: 0% 100%;
+}
+
 .content {
   width: 100%;
   height: 75vw;
@@ -210,6 +220,15 @@ body {
     width: 2vw;
     height: auto;
   }
+
+  .proj-content {
+    width: 100%;
+    height: 100vw;
+    position: relative;
+    box-sizing: border-box;
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 #section2 {
   width: 100%;
@@ -228,6 +247,121 @@ body {
   top: 30vw;
   left: 50vw;
   font-size: 4vw;
+}
+
+#section3 .proj-title {
+  color: var(--accent2);
+  position: absolute;
+  left: 5vw;
+  top: 5vw;
+}
+#section3 .proj-title .btn, #section3 .proj-title h1 {
+  display: inline-block;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes from-left-corner {
+  from {
+    top: 100%;
+    left: 100%;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes to-left-corner {
+  from {
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    left: 100%;
+    opacity: 0;
+  }
+}
+.proj-col, .port-card .card-img-overlay {
+  width: 40vw;
+  height: auto;
+}
+
+.proj-col {
+  position: absolute;
+}
+
+.proj-col:nth-of-type(1) {
+  top: 10vw;
+  left: 5vw;
+}
+
+.proj-col:nth-of-type(2) {
+  top: 40vw;
+  left: 30vw;
+}
+
+.proj-col:nth-of-type(3) {
+  top: 10vw;
+  left: 55vw;
+}
+
+.port-card {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+.port-card .card-cover, .port-card .card-img-overlay {
+  opacity: 0;
+}
+.port-card .card-img-overlay {
+  animation: fade-out 0.5s ease-in-out;
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--accent2);
+}
+.port-card .card-img-overlay p {
+  font-size: 1vw;
+}
+.port-card .card-img-overlay h4 {
+  font-size: 1.5vw;
+}
+.port-card .card-cover {
+  animation: to-left-corner 0.5s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.75);
+  opacity: 0;
+  top: 100%;
+  left: 100%;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+}
+
+.port-card .card-img-overlay {
+  animation: fade-in 1s ease-in-out;
+  opacity: 1;
+}
+.port-card .card-cover {
+  animation: from-left-corner 0.5s ease-in-out;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  padding: 1.25rem;
 }
 
 /*# sourceMappingURL=home.css.map */

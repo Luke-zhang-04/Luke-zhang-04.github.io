@@ -109,6 +109,12 @@ body {
   animation: fade-out 0.5s ease-in-out;
   background-color: rgba(255, 255, 255, 0);
 }
+.port-card .card-img-overlay p {
+  font-size: 1vw;
+}
+.port-card .card-img-overlay h4 {
+  font-size: 1.5vw;
+}
 .port-card .card-cover {
   animation: to-left-corner 0.5s ease-in-out;
   background-color: rgba(255, 255, 255, 0.75);

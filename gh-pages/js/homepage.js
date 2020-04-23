@@ -18,6 +18,8 @@ let timelines = []
 let scenes = []
 const controller = new ScrollMagic.Controller()
 
+let data = {projects: {}, collections: {}} //data for projects
+
 function bindTimeline1() {
     let timeline1 = new TimelineMax();
     timelines.push(timeline1)
@@ -161,3 +163,64 @@ callTyper()
 function timeout(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+function displayProjects() {
+    db.collection("projects").orderBy("date").get().then(snapshot => {
+        const projectColumns = document.getElementsByClassName("proj-col")
+        for (counter = 0; counter < 3; counter++) {
+            let doc = snapshot.docs.reverse()[counter]
+            let imgurl = storageRef.child(doc.data().file) //get image URL
+            let column = projectColumns[counter] //column reference
+
+            imgurl.getDownloadURL().then(url => {
+                data.projects[doc.id] = doc.data() //insert doc data
+                data.projects[doc.id]["imgurl"] = url //insert image url
+
+                for (i = 0; i < data.projects[doc.id].tags.length; i++) { //capitalize tags
+                    let target = data.projects[doc.id].tags[i]
+
+                    if (target === "front-end-code") {
+                        data.projects[doc.id].tags[i] = "HTML, CSS, JS"
+                    } else {
+                        data.projects[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
+                    }
+                }
+                let tags = ""
+                let description = ""
+
+                for (i = 0; i < data.projects[doc.id].tags.length; i++) { //format tags and make sure they aren't too long
+                    if (i >= 5) {
+                        tags += " . . ."
+                        break
+                    } else if (i == 4 || i == data.projects[doc.id].tags.length-1) {
+                        tags += `${data.projects[doc.id].tags[i]}`
+                    } else {
+                        tags += `${data.projects[doc.id].tags[i]}, `
+                    }
+                }
+
+                for (i = 0; i < data.projects[doc.id].description.split(" ").length; i++) { //format description
+                    if (i >= 20) {
+                        description += " . . ."
+                        break
+                    } else {
+                        description += data.projects[doc.id].description.split(" ")[i].replace(`\\n`, "<br/>").replace(`\\n`, "") + " "
+                    }
+                }
+                column.innerHTML = `
+                    <div class="card port-card" style="display: inline-block; width: 100%">
+                        <img class="card-img-top" src="${url}" alt="Card image">
+                        <div class="card-img-overlay card-cover"></div>
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">${(doc.id).charAt(0).toUpperCase() + (doc.id).slice(1)}</h4>
+                            <p>${description}</p>
+                            <p class="card-text">${tags}</p>
+                        </div>
+                    </div>
+                `
+            })
+        }
+    })
+}
+
+displayProjects()
