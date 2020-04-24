@@ -180,3 +180,9 @@ footer {
 @import "../bootstrap/scss/utilities";
 @import "../bootstrap/scss/pagination";
 */
+
+@each $color, $value in $theme-colors {
+    .panel-#{$color} {
+        background-color: $value;
+    }
+}

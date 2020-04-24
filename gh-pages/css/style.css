@@ -10621,5 +10621,52 @@ h3 {
 @import "../bootstrap/scss/utilities";
 @import "../bootstrap/scss/pagination";
 */
+.panel-primary {
+  background-color: #587b7f;
+}
+
+.panel-secondary {
+  background-color: #2c2f35;
+}
+
+.panel-success {
+  background-color: #28a745;
+}
+
+.panel-info {
+  background-color: #17a2b8;
+}
+
+.panel-warning {
+  background-color: #ffc107;
+}
+
+.panel-danger {
+  background-color: #dc3545;
+}
+
+.panel-light {
+  background-color: #f8f9fa;
+}
+
+.panel-dark {
+  background-color: #343a40;
+}
+
+.panel-accent1 {
+  background-color: #226165;
+}
+
+.panel-accent2 {
+  background-color: #171717;
+}
+
+.panel-paper {
+  background-color: #f4f4f4;
+}
+
+.panel-none {
+  background-color: rgba(0, 0, 0, 0);
+}
 
 /*# sourceMappingURL=style.css.map */

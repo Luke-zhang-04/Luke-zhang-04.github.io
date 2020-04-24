@@ -26,7 +26,7 @@ function bindTimeline1() {
     let elem = document.getElementsByClassName("content")[0]
     timeline1.from(elem.querySelector(".cover"), 5, {x: 0, opacity: 0, width: 0})
 
-    for (i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
         // timeline1.staggerFromTo(
         //     elem.getElementsByTagName("h1")[i],
         //     .5,
@@ -150,10 +150,33 @@ function bindTimeline2() {
     scenes.push(scene)
 }
 
-if (!mobile()) {
-    bindTimeline1()
-    bindTimeline2()
+function bindTimeline3() {
+    var controller = new ScrollMagic.Controller();
+
+    // define movement of panels
+    var wipeAnimation = new TimelineMax()
+        .fromTo("section.panel.panel1", 7.5, {x: "100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
+        .fromTo("section.panel.panel2", 7.5, {x:  "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
+        .fromTo("section.panel.panel3", 7.5, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}) // in from top
+        .fromTo('section.panel.panel4', 7.5, {y: "100%"}, {y: "0%", ease: Linear.easeNone})
+
+    // create scene to pin and link animation
+    new ScrollMagic.Scene({
+        triggerElement: "#pinContainer",
+        triggerHook: "onLeave",
+        duration: "750%"
+    })
+    .setPin("#pinContainer")
+    .setTween(wipeAnimation)
+    .addTo(controller);
 }
+
+if (!mobile()) {
+    // bindTimeline1()
+    // bindTimeline2()
+}
+bindTimeline1()
+bindTimeline3()
 
 window.onresize = function() {
     document.getElementById("splash").style.height = (
@@ -246,63 +269,93 @@ function timeout(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// function displayProjects() {
+//     db.collection("projects").orderBy("date").get().then(snapshot => {
+//         const projectColumns = document.getElementsByClassName("proj-col")
+//         for (counter = 0; counter < 3; counter++) {
+//             let doc = snapshot.docs.reverse()[counter]
+//             let imgurl = storageRef.child(doc.data().file) //get image URL
+//             let column = projectColumns[counter] //column reference
+
+//             imgurl.getDownloadURL().then(url => {
+//                 data.projects[doc.id] = doc.data() //insert doc data
+//                 data.projects[doc.id]["imgurl"] = url //insert image url
+
+//                 for (i = 0; i < data.projects[doc.id].tags.length; i++) { //capitalize tags
+//                     let target = data.projects[doc.id].tags[i]
+
+//                     if (target === "front-end-code") {
+//                         data.projects[doc.id].tags[i] = "HTML, CSS, JS"
+//                     } else {
+//                         data.projects[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
+//                     }
+//                 }
+//                 let tags = ""
+//                 let description = ""
+
+//                 for (i = 0; i < data.projects[doc.id].tags.length; i++) { //format tags and make sure they aren't too long
+//                     if (i >= 5) {
+//                         tags += " . . ."
+//                         break
+//                     } else if (i == 4 || i == data.projects[doc.id].tags.length-1) {
+//                         tags += `${data.projects[doc.id].tags[i]}`
+//                     } else {
+//                         tags += `${data.projects[doc.id].tags[i]}, `
+//                     }
+//                 }
+
+//                 for (i = 0; i < data.projects[doc.id].description.split(" ").length; i++) { //format description
+//                     if (i >= 20) {
+//                         description += " . . ."
+//                         break
+//                     } else {
+//                         description += data.projects[doc.id].description.split(" ")[i].replace(`\\n`, "<br/>").replace(`\\n`, "") + " "
+//                     }
+//                 }
+//                 column.innerHTML = `
+//                     <div class="card port-card" style="display: inline-block; width: 100%">
+//                         <img class="card-img-top" src="${url}" alt="Card image">
+//                         <div class="card-img-overlay card-cover"></div>
+//                         <div class="card-img-overlay">
+//                             <h4 class="card-title">${(doc.id).charAt(0).toUpperCase() + (doc.id).slice(1)}</h4>
+//                             <p>${description}</p>
+//                             <p class="card-text">${tags}</p>
+//                         </div>
+//                     </div>
+//                 `
+//             })
+//         }
+//     })
+// }
+
 function displayProjects() {
+    const containers = document.getElementsByClassName("panel-proj")
     db.collection("projects").orderBy("date").get().then(snapshot => {
-        const projectColumns = document.getElementsByClassName("proj-col")
-        for (counter = 0; counter < 3; counter++) {
-            let doc = snapshot.docs.reverse()[counter]
-            let imgurl = storageRef.child(doc.data().file) //get image URL
-            let column = projectColumns[counter] //column reference
+        for (let i = 0; i < containers.length; i++) {
+            let doc = snapshot.docs.reverse()[i]
+            let container = containers[i]
+            let imgurl = storageRef.child(doc.data().file)
+            let description = doc.data().description.replace("\\n", "<br/>").replace("\\n", "")
 
             imgurl.getDownloadURL().then(url => {
-                data.projects[doc.id] = doc.data() //insert doc data
-                data.projects[doc.id]["imgurl"] = url //insert image url
+                let image = new Image()
+                image.onload = findHHandWW
+                image.src = url
 
-                for (i = 0; i < data.projects[doc.id].tags.length; i++) { //capitalize tags
-                    let target = data.projects[doc.id].tags[i]
+                function findHHandWW() {
+                    imgHeight = this.height
+                    container.querySelector(".col-lg-5").innerHTML = `<img src="${url}"/>`
+                    container.querySelector(".col-lg-7").innerHTML = `<h2>${doc.id}</h2><p>${description}</p>`
 
-                    if (target === "front-end-code") {
-                        data.projects[doc.id].tags[i] = "HTML, CSS, JS"
-                    } else {
-                        data.projects[doc.id].tags[i] = target.charAt(0).toUpperCase() + target.slice(1)
-                    }
+                    let top = window.innerHeight/2 - container.querySelector("img").height/2 + 25
+                    container.querySelector("img").style.top = top.toString() + "px"
                 }
-                let tags = ""
-                let description = ""
-
-                for (i = 0; i < data.projects[doc.id].tags.length; i++) { //format tags and make sure they aren't too long
-                    if (i >= 5) {
-                        tags += " . . ."
-                        break
-                    } else if (i == 4 || i == data.projects[doc.id].tags.length-1) {
-                        tags += `${data.projects[doc.id].tags[i]}`
-                    } else {
-                        tags += `${data.projects[doc.id].tags[i]}, `
-                    }
-                }
-
-                for (i = 0; i < data.projects[doc.id].description.split(" ").length; i++) { //format description
-                    if (i >= 20) {
-                        description += " . . ."
-                        break
-                    } else {
-                        description += data.projects[doc.id].description.split(" ")[i].replace(`\\n`, "<br/>").replace(`\\n`, "") + " "
-                    }
-                }
-                column.innerHTML = `
-                    <div class="card port-card" style="display: inline-block; width: 100%">
-                        <img class="card-img-top" src="${url}" alt="Card image">
-                        <div class="card-img-overlay card-cover"></div>
-                        <div class="card-img-overlay">
-                            <h4 class="card-title">${(doc.id).charAt(0).toUpperCase() + (doc.id).slice(1)}</h4>
-                            <p>${description}</p>
-                            <p class="card-text">${tags}</p>
-                        </div>
-                    </div>
-                `
+                
             })
         }
     })
 }
 
-displayProjects()
+$("document").ready(() => {
+    displayProjects()
+})
