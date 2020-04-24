@@ -406,12 +406,6 @@ body {
   top: 30vh;
   padding: 5vw;
 }
-.panel h2 {
-  color: var(--paper);
-  position: absolute;
-  top: 10vh;
-  padding: 5vw;
-}
 
 .panel1 i {
   top: 50%;

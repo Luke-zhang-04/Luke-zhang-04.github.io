@@ -146,4 +146,12 @@ body {
   height: auto;
 }
 
+#filters .card-body {
+  cursor: pointer;
+}
+
+#filters .card-body:hover {
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=portfolio.css.map */

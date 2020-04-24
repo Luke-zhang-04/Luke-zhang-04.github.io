@@ -59,6 +59,22 @@
 
     <div id="projects" class="jumbotron">
         <h1 class="text-secondary">My Projects</h1>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#filters" aria-expanded="true" aria-controls="filters">
+                            Tags
+                        </button>
+                        <button onclick="clearProjects()" style="float: right;" class="btn btn-primary">Apply</button>
+                    </h2>
+                </div>
+          
+                <div id="filters" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="proj-col col-lg-4 col-md-6 col-sm-12"></div>
             <div class="proj-col col-lg-4 col-md-6 col-sm-12"></div>

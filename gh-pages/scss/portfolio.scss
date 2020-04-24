@@ -147,3 +147,11 @@ body {
     width: 100%;
     height: auto;
 }
+
+#filters .card-body {
+    cursor: pointer;
+}
+
+#filters .card-body:hover {
+    text-decoration: underline;
+}
