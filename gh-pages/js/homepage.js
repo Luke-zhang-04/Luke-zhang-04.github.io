@@ -195,14 +195,16 @@ function typewriter(step = null, i = 0, clear = false) {
         "  GitHub",
         "  Email",
         "  PyPi",
-        "  LinkedIn" //55
+        "  LinkedIn", //55
+        "  StackOverflow"
     ]
     const fonts = [
         null,
         `<i class="fab fa-github"></i>`,
         `<i class="fas fa-envelope"></i>`,
         `<i class="fab fa-python"></i>`,
-        `<i class="fab fa-linkedin"></i>`
+        `<i class="fab fa-linkedin"></i>`,
+        `<i class="fab fa-stack-overflow"></i>`
     ]
 
     if (clear) {
@@ -228,7 +230,7 @@ function typewriter(step = null, i = 0, clear = false) {
             }, 200))
         
         }
-    } else if (step <= 4) {
+    } else if (step <= 5) {
         if (i < steps[step].length) {
             if (i === 0) {
                 list[step-1].querySelector("a").innerHTML += fonts[step]
@@ -258,7 +260,7 @@ function typewriter(step = null, i = 0, clear = false) {
 
 function callTyper() {
     typewriter()
-    timeout(9100).then(() => {
+    timeout(10000).then(() => {
         callTyper()
     })
 }
