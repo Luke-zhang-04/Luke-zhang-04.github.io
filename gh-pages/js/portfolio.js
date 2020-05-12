@@ -338,6 +338,10 @@ $('#projectModal').on('show.bs.modal', event => { //hopefully the only time I'll
                 footer.insertAdjacentHTML("afterbegin", 
                     `<a type="button" class="btn btn-warning" href=${version} target="_blank"><i class="fab fa-python"></i> View PyPi</a>`
                 )
+            } else if (key === "NPM") {
+                footer.insertAdjacentHTML("afterbegin", 
+                    `<a type="button" class="btn btn-danger" href="${version} target="_blank"<i class="fab fa-npm"></i> View NPM</a>`
+                )
             }
         }
     } else if (type === "collections") {
