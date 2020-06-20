@@ -2,10 +2,10 @@
 # To find out more about Make, visit https://www.gnu.org/software/make/
 
 sass:
-	sass ./scss/bootstrap.scss ./public/css/styles.css
+	sass ./scss/bootstrap.scss ./css/styles.css
 
 sass-min:
-	sass ./scss/bootstrap.scss ./public/css/styles.css --style compressed
+	sass ./scss/bootstrap.scss ./css/styles.css --style compressed
 
 lint:
 	npx eslint "*/**/*.{js,jsx,ts,tsx}"
@@ -16,4 +16,4 @@ lint-fix:
 	npx stylelint "*/**/*.{scss,css}" --fix
 
 build:
-	npm run-script build
+	yarn build
