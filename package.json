@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "npx tsc -p .\nbash browserify.bash"
+  },
   "dependencies": {
     "bootstrap": "^4.5.0",
     "typescript": "^3.9.5"
