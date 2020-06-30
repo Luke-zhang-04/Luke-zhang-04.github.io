@@ -1,9 +1,9 @@
 {
-  "name": "Luke-zhang-04-github-io",
+  "name": "luke-zhang-dev-portfolio",
   "description": "Developer portfolio for Luke Zhang",
   "license": "AGPL-3.0",
   "scripts": {
-    "build": "make lint\nnpx tsc -p .\nbash browserify.bash\nmake sass-min"
+    "build": "make lint\nnpx tsc -p .\nbash browserify.bash\nmake sass-min\n"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
