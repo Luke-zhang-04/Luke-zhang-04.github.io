@@ -1,1 +1,20 @@
-@media(min-width: 992px){#home .landing-page .image-container{position:relative}#home .landing-page .image-container img:nth-child(1){position:absolute;width:50vw;height:auto;right:0}#home .landing-page .image-container img:nth-child(2){position:absolute;width:35vw;height:auto;right:3vw;top:10rem}}/*# sourceMappingURL=home.css.map */
+@media (min-width: 992px) {
+  #home .landing-page .image-container {
+    position: relative;
+  }
+  #home .landing-page .image-container img:nth-child(1) {
+    position: absolute;
+    width: 50vw;
+    height: auto;
+    right: 0;
+  }
+  #home .landing-page .image-container img:nth-child(2) {
+    position: absolute;
+    width: 35vw;
+    height: auto;
+    right: 3vw;
+    top: 10rem;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */
