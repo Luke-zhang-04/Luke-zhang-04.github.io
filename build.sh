@@ -46,7 +46,7 @@ for dir in ./src/*/ ; do
 done
 
 # Compile SASS
-# make sass-min
+make sass-min
 
 # Compile w/ TypeScript
 printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"

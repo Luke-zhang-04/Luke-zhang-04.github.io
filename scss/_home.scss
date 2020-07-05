@@ -1,0 +1,36 @@
+#home {
+
+}
+
+@media (min-width: 767px) {
+  #home {
+
+  }
+}
+
+@media (min-width: 992px) {
+  #home {
+    .landing-page {
+      .image-container {
+        position: relative;
+
+        img {
+          &:nth-child(1) {
+            position: absolute;
+            width: 50vw;
+            height: auto;
+            right: 0;
+          }
+
+          &:nth-child(2) {
+            position: absolute;
+            width: 35vw;
+            height: auto;
+            right: 3vw;
+            top: 10rem;
+          }
+        }
+      }
+    }
+  }
+}

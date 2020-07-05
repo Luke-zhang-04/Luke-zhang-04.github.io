@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import "variables";
 @import "bootstrap";
 
 /*!
@@ -21,3 +22,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+@import "home";
+
+body {
+  background-color: $light;
+}
+  
+html,
+body {
+  max-width: 100% !important;
+}
