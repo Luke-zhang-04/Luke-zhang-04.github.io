@@ -6,12 +6,7 @@
     "build": "bash build.sh"
   },
   "dependencies": {
-    "@types/bootstrap": "^4.5.0",
-    "@types/jquery": "^3.5.0",
-    "@types/popper.js": "^1.11.0",
-    "bootstrap": "^4.5.0",
-    "jquery": "^3.5.1",
-    "popper.js": "^1.16.1",
+    "bootstrap": "^5.0.0-alpha1",
     "typescript": "^3.9.5"
   },
   "devDependencies": {

@@ -39,82 +39,61 @@ formatDir() {
     echo "$1$2" | sed "s/$3//g"
 }
 
-#######################################
-# Build function for development setting
-# Globals:
-#   formatDir: () => string - Formats dir with sed; remove pattern $ts
-# Arguments:
-#   none
-#######################################
-development() {
-    # Get all folders in ./ts, add to their index files to browserify list
-    for dir in ./src/*/ ; do
-        formattedDir=$(formatDir $dir "index" $src)
-        
-        browserify+=( "$formattedDir" )
-    done
+# Get all folders in ./ts, add to their index files to browserify list
+for dir in ./src/*/ ; do
+    formattedDir=$(formatDir $dir "index" $src)
+    
+    browserify+=( "$formattedDir" )
+done
 
-    # Compile SASS
-    printf "${BIYellow}Compiling ${Red}./scss/ ${Purple}to ${BIBlue}./css/ ${Purple}with ${BIRed}SASS${Purple}\n"
-    for file in ./scss/*.scss ; do
-        formattedDir=$(formatDir $file "" $scss)
+# Compile SASS
+printf "${BIYellow}Compiling ${Red}./scss/ ${Purple}to ${BIBlue}./css/ ${Purple}with ${BIRed}SASS${Purple}\n"
+for file in ./scss/*.scss ; do
+    formattedDir=$(formatDir $file "" $scss)
 
-        if [[ ${formattedDir:0:1} != "_" ]]; then
-            fileName=$(formatDir $formattedDir "" "\.scss")
+    if [[ ${formattedDir:0:1} != "_" ]]; then
+        fileName=$(formatDir $formattedDir "" "\.scss")
 
-            printf "\t${BIYellow}Compiling ${Red}./scss/$fileName.scss ${Purple}to ${BIBlue}./css/$fileName.css ${Purple}with ${BIRed}SASS${Purple}\n"
+        printf "\t${BIYellow}Compiling ${Red}./scss/$fileName.scss ${Purple}to ${BIBlue}./css/$fileName.css ${Purple}with ${BIRed}SASS${Purple}\n"
 
-            sass ./scss/"$fileName".scss ./css/"$fileName".css
-        fi
-    done
-
-    # Compile w/ TypeScript
-    printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
-    npx tsc -p .
-
-    # Compile w/ Babel
-    printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
-    npx babel lib --out-dir lib
-
-    # Remove new JS directory
-    printf "${BIRed}Removing ${Yellow}./js/${Purple} ${Red}(if exists)${Purple}\n"
-    if [ -d "js" ]; then
-        rm -r js
+        sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed
     fi
+done
 
-    # Make new js directory
-    printf "${BIGreen}Creating${Purple} new ${Yellow}./js/${Purple} ${Cyan}directory${Purple}\n"
-    mkdir js
+# Compile w/ TypeScript
+printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
+npx tsc -p .
 
-    # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js/${Purple}\n"
-    for script in "${browserify[@]}"; do
-        formattedDir=$(formatDir $script "" $index)
+# Compile w/ Babel
+printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
+npx babel lib --out-dir lib
 
-        printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
-
-        npx browserify lib/"${script}".js > ./js/"${formattedDir}."js
-    done
-
-    # Compile w/ Babel
-    printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js/${BIGreen}\n\t"
-    npx babel js --out-dir js #--minified --compact true --no-comments
-
-    printf "${BGreen}Cleaning up...${Purple}\n"
-
-    # Get rid of lib
-    printf "\t${BIRed}Removing ${BIGreen}lib${ICyan}\n"
-    rm -r lib
-}
-
-production() {
-    echo "Not set"
-}
-
-if [[ $1 == "dev" ]]||[[ $1 == "development" ]]; then
-    printf "${Purple}Building in ${BIBlue}development${Purple} mode\n"
-    development
-else
-    printf "${Purple}Building in ${BIGreen}production${Purple} mode\n"
-    production
+# Remove new JS directory
+printf "${BIRed}Removing ${Yellow}./js/${Purple} ${Red}(if exists)${Purple}\n"
+if [ -d "js" ]; then
+    rm -r js
 fi
+
+# Make new js directory
+printf "${BIGreen}Creating${Purple} new ${Yellow}./js/${Purple} ${Cyan}directory${Purple}\n"
+mkdir js
+
+# Pack lib files w/ browserify
+printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js/${Purple}\n"
+for script in "${browserify[@]}"; do
+    formattedDir=$(formatDir $script "" $index)
+
+    printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
+
+    npx browserify lib/"${script}".js > ./js/"${formattedDir}."js
+done
+
+# Compile w/ Babel
+printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js/${BIGreen}\n\t"
+npx babel js --out-dir js --minified --compact true --no-comments
+
+printf "${BGreen}Cleaning up...${Purple}\n"
+
+# Get rid of lib
+printf "\t${BIRed}Removing ${BIGreen}lib${ICyan}\n"
+rm -r lib
