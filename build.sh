@@ -24,6 +24,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" # Get lo
 browserify=()
 src="\.\/src\/"
 index="\/index"
+scss="\.\/scss\/"
 
 #######################################
 # Formats dir with sed; remove pattern $ts
@@ -46,14 +47,25 @@ for dir in ./src/*/ ; do
 done
 
 # Compile SASS
-make sass-min
+printf "${BIYellow}Compiling ${Red}./scss/ ${Purple}to ${BIBlue} ./css/ ${Purple}with ${BIRed}SASS${Purple}\n"
+for file in ./scss/*.scss ; do
+    formattedDir=$(formatDir $file "" $scss)
+
+    if [[ ${formattedDir:0:1} != "_" ]]; then
+        fileName=$(formatDir $formattedDir "" "\.scss")
+
+        printf "\t${BIYellow}Compiling ${Red}./scss/$fileName.scss ${Purple}to ${BIBlue}./css/$fileName.css ${Purple}with ${BIRed}SASS${Purple}\n"
+
+        sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed
+    fi
+done
 
 # Compile w/ TypeScript
 printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
 npx tsc -p .
 
 # Compile w/ Babel
-printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n"
+printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
 npx babel lib --out-dir lib
 
 # Remove new JS directory
@@ -77,7 +89,7 @@ for script in "${browserify[@]}"; do
 done
 
 # Compile w/ Babel
-printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js/${BIGreen}\n"
+printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js/${BIGreen}\n\t"
 npx babel js --out-dir js --minified --compact true --no-comments
 
 printf "${BGreen}Cleaning up...${Purple}\n"

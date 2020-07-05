@@ -1,8 +1,7 @@
 {
     "extends": "stylelint-config-standard",
     "ignoreFiles": [
-        "*/css",
-        "css/styles.css"
+        "*.css"
     ],
     "rules": {
         "indentation": 2,
