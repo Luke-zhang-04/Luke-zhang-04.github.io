@@ -78,7 +78,7 @@ done
 
 # Compile w/ Babel
 printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js/${BIGreen}\n"
-npx babel js --out-dir js --minified --compact true --no-comments -s inline
+npx babel js --out-dir js --minified --compact true --no-comments
 
 printf "${BGreen}Cleaning up...${Purple}\n"
 

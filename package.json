@@ -6,13 +6,19 @@
     "build": "bash build.sh"
   },
   "dependencies": {
+    "@types/bootstrap": "^4.5.0",
+    "@types/jquery": "^3.5.0",
+    "@types/popper.js": "^1.11.0",
     "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
     "typescript": "^3.9.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "@types/node": "^14.0.14",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
     "@typescript-eslint/parser": "^3.3.0",
     "browserify": "^16.5.1",
