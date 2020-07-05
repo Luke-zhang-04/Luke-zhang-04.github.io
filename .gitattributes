@@ -1,1 +1,2 @@
 *.js linguist-generated=true
+*.scss linguist-language=CSS

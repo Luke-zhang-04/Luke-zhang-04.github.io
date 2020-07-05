@@ -14,6 +14,3 @@ lint:
 lint-fix:
 	npx eslint "*/**/*.{js,jsx,ts,tsx}" --fix
 	npx stylelint "*/**/*.{scss,css}" --fix
-
-build:
-	yarn build

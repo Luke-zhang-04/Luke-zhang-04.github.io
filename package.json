@@ -3,13 +3,16 @@
   "description": "Developer portfolio for Luke Zhang",
   "license": "AGPL-3.0",
   "scripts": {
-    "build": "make lint\nnpx tsc -p .\nbash browserify.bash\nmake sass-min\n"
+    "build": "bash build.sh"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
     "typescript": "^3.9.5"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
     "@typescript-eslint/parser": "^3.3.0",
     "browserify": "^16.5.1",
