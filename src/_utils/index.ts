@@ -1,56 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-@import "variables";
-@import "bootstrap";
-
-/*!
+/**
  * Luke Zhang's developer portfolio
- *
- * Copyright (C) 2020 Luke Zhang
- *
- * Luke-zhang-04.github.io
- *
+ * @copyright Copyright (C) 2020 Luke Zhang
+ * @author Luke Zhang Luke-zhang-04.github.io
+ * @license GPL-3.0
+ * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
+ * 
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- *
+ * 
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-
-body {
-  background-color: $light;
-}
-  
-html,
-body {
-  max-width: 100% !important;
-}
-
-.navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 1rem;
-  font-size: 2.25vw;
-
-  .nav-link {
-    margin-left: 0.75vw;
-    margin-right: 0.75vw;
-  }
-
-  .nav-item.active {
-    .nav-link {
-      color: rgba(0, 0, 0, 0.7);
-    }
-  }
-
-  img {
-    max-height: 5rem;
-  }
-}
