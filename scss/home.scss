@@ -79,12 +79,51 @@
       }
     }
 
-    .stripes {
-      height: 100vh;
-      width: 15rem;
-      background-image: url(../images/stripes.svg);
-      background-size: 5px 5px;
-      opacity: 0.25;
+    .languages {
+      position: relative;
+      display: block;
+
+      .stripes {
+        height: 100vh;
+        width: 15rem;
+        background-image: url(../images/stripes.svg);
+        background-size: 5px 5px;
+        opacity: 0.25;
+      }
+
+      .content-container {
+        height: 80vh;
+        position: absolute;
+        left: 7.5rem;
+        top: 10vh;
+        background-color: #fafafa;
+        max-width: 30rem;
+        box-shadow: -3px 3px 20px #37373720;
+
+        h1 {
+          font-size: 4rem;
+        }
+
+        span.line {
+          width: 5rem;
+          height: 0.25rem;
+          background-color: $dark;
+          margin-top: 5rem;
+          margin-bottom: 5rem;
+        }
+      }
+
+      .image-container {
+        position: absolute;
+        right: 5vw;
+        top: 50vh;
+
+        img.lang-img {
+          position: relative;
+          width: calc(90vw - 37.5rem);
+          margin-bottom: 50vh;
+        }
+      }
     }
   }
 }

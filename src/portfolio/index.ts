@@ -2,7 +2,7 @@
  * Luke Zhang's developer portfolio
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang Luke-zhang-04.github.io
- * @license GPL-3.0
+ * @license AGPL-3.0
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published

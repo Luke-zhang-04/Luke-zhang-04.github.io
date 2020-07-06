@@ -65,6 +65,78 @@ compileSass() {
 }
 
 #######################################
+# Main build function for development mode
+# Globals:
+#   colours
+#   formatDir: (string, string, stirng) => string - removes pattern from string adn adds suffix
+#   comileSass: () => void - compiles sass
+# Arguments:
+#   none
+#######################################
+buildDev() {
+    # Get all folders in ./ts, add to their index files to browserify list
+    for dir in ./src/*/ ; do
+        formattedDir=$(formatDir $dir "index" $src)
+        
+        if [[ ${formattedDir:0:1} != "_" ]]; then
+            browserify+=( "$formattedDir" )
+        fi
+    done
+
+    # Compile SASS
+    compileSass
+
+    # Compile w/ TypeScript
+    printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
+    npx tsc -p .
+
+    # Compile w/ Babel
+    # printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
+    # npx babel lib --out-dir lib
+
+    # Remove new JS_new directory
+    printf "${BIRed}Removing ${Yellow}./js_new_new/${Purple} ${Red}(if exists)${Purple}\n"
+    if [ -d "js_new" ]; then
+        rm -r js_new
+    fi
+
+    # Make new js_new directory
+    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new_new/${Purple} ${Cyan}directory${Purple}\n"
+    mkdir js_new
+
+    # Pack lib files w/ browserify
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new_new/${Purple}\n"
+    for script in "${browserify[@]}"; do
+        formattedDir=$(formatDir $script "" $index)
+
+        printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
+
+        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
+    done
+
+    # Compile w/ Babel
+    # printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
+    # npx babel js_new --out-dir js_new --minified --compact true --no-comments
+
+    printf "${BGreen}Cleaning up...${Purple}\n"
+
+    # Get rid of lib
+    printf "\t${BIRed}Removing ${BIGreen}lib${ICyan}\n"
+    rm -r lib
+
+    # Get rid of ./js/
+    if [ -d "js" ]; then
+        rm -r js
+    fi
+
+    # Create new ./js/ dir
+    # mkdir js
+
+    # Move ./js_new to ./js
+    mv ./js_new/ ./js/
+}
+
+#######################################
 # Main build function
 # Globals:
 #   colours
@@ -130,11 +202,10 @@ build() {
     fi
 
     # Create new ./js/ dir
-    mkdir js
+    # mkdir js
 
     # Move ./js_new to ./js
     mv ./js_new/ ./js/
-
 }
 
 if [[ $1 == "--only" ]]; then
@@ -143,6 +214,8 @@ if [[ $1 == "--only" ]]; then
     else
         printf "${BIRed}ERROR: ${Purple}Unknown option $2 for $1\n"
     fi
+elif [[ $1 == "dev" ]]||[[ $1 == "development" ]]; then
+    buildDev
 else
     build
 fi

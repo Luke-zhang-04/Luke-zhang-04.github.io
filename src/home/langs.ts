@@ -17,3 +17,25 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+import * as ScrollMagic from "scrollmagic"
+import * as utils from "../_utils"
+
+const bindLangStickEvent = (
+    container: HTMLDivElement,
+    images: HTMLCollectionOf<HTMLImageElement>,
+): ScrollMagic.Scene => {
+    const scene = new ScrollMagic.Scene({
+        triggerElement: images[0],
+        triggerHook: 0.5,
+        duration: images[images.length - 1].offsetTop + window.innerHeight * 0.5,
+    })
+    
+    if (scene) {
+        scene.setPin(container)
+            .addTo(utils.default)
+    }
+
+    return scene
+}
+
+export default bindLangStickEvent

@@ -2,7 +2,7 @@
  * Luke Zhang's developer portfolio
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang Luke-zhang-04.github.io
- * @license GPL-3.0
+ * @license AGPL-3.0
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -17,3 +17,19 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+import bindLangStickEvent from "./langs"
+
+const home = document.getElementById("home")
+
+if (home) {
+    if (
+        home.querySelector(".languages #fixed") &&
+        home.getElementsByClassName("lang-img")
+    ) {
+        bindLangStickEvent(
+            home.querySelector(".languages #fixed") as HTMLDivElement,
+            home.getElementsByClassName("lang-img") as
+                HTMLCollectionOf<HTMLImageElement>,
+        )
+    }
+}
