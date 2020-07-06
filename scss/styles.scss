@@ -1,3 +1,8 @@
+/*!
+ * Universal styling for luke-zhang-04.github.io
+ * Includes Normalize.css, Bootstrap SASS, and other styles that apply to all pages
+ */
+@import "../node_modules/normalize.css/normalize";
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import "variables";
 @import "bootstrap";
@@ -22,9 +27,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+@import "animations";
+@import "buttons";
 
 body {
   background-color: $light;
+  color: $dark;
 }
   
 html,
