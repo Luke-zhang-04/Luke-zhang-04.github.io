@@ -111,11 +111,11 @@ build() {
 
         printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
 
-        npx browserify lib/"${script}".js > ./js_new_new/"${formattedDir}."js_new
+        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
     done
 
     # Compile w/ Babel
-    printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new_new/${BIGreen}\n\t"
+    printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
     npx babel js_new --out-dir js_new --minified --compact true --no-comments
 
     printf "${BGreen}Cleaning up...${Purple}\n"
