@@ -71,7 +71,7 @@ compileSass() {
 #   formatDir: (string, string, stirng) => string - removes pattern from string adn adds suffix
 #   comileSass: () => void - compiles sass
 # Arguments:
-#   none
+#   skipSass: boolean - if sass should compile
 #######################################
 buildDev() {
     # Get all folders in ./ts, add to their index files to browserify list
@@ -83,8 +83,11 @@ buildDev() {
         fi
     done
 
+    if [[ ! $1 ]]; then
+        compileSass &
+    fi
     # Compile SASS
-    compileSass &
+    
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
@@ -212,13 +215,49 @@ build() {
     mv ./js_new/ ./js/
 }
 
+#######################################
+# Watches for file changes and executes build
+# Globals:
+#   none
+# Arguments:
+#   filePattern: string - dir to watch
+#######################################
+watch() {
+    fileChange1=""
+
+    while [[ true ]]; do
+        fileChange2=$(find $1/ -type f -exec md5 {} \;)
+
+        if [[ "$fileChange1" != "$fileChange2" ]] ; then       
+            if [[ "$1" == "scss" ]]; then
+                compileSass
+            else
+                buildDev true
+            fi
+
+            clear
+            printf "${BIGreen}Compiled successfully!\n\n"
+
+            fileChange1="$fileChange2"
+            printf "${BICyan}Waiting...${Purple}\n"
+        fi
+
+        sleep 15
+    done
+}
+
 if [[ $1 == "--only" ]]; then
     if [[ $2 == "sass" ]]; then
         compileSass
     else
         printf "${BIRed}ERROR: ${Purple}Unknown option $2 for $1\n"
     fi
-elif [[ $1 == "dev" ]]||[[ $1 == "development" ]]; then
+elif [[ $1 == "-w" ]]||[[ $1 == "--watch" ]];then
+    watch scss &
+    watch src &
+
+    wait
+elif [[ $1 == "-d" ]]||[[ $1 == "--dev" ]]; then
     buildDev
 else
     build
