@@ -2066,10 +2066,10 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
-destagnate@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/destagnate/-/destagnate-1.0.3.tgz#2e069c4c1a8dea2ae8dc2fe71adc77aa6c47060c"
-  integrity sha512-1pvUxZzac3V9nc1t9+Y0VbEIFzP6r13jPW/A/GUfVqfGOELKIeDGH6KaHlwcPdG3t216zZUc6k7fGLHPtfqb9Q==
+destagnate@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/destagnate/-/destagnate-1.1.0.tgz#b31538efd19db7ebd770a4db548830d5eed009c7"
+  integrity sha512-HA3fQCLbBzvjzPwpiu48QG8Nc7Zy62VzWjX5loEeReZIJiHaO3qHlgVUowMEQVLk66NY3g7tgPQc8cFLBBRSSg==
 
 detective@^5.2.0:
   version "5.2.0"
