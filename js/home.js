@@ -65,35 +65,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
 const langs_1 = __importStar(require("./langs"));
-const langDisplay = new langs_1.default(document.getElementById("langs-display")), homeFunc = () => {
+let scrollmagicScene;
+const langDisplay = new langs_1.default(document.getElementById("langs-display"), { parent: document.getElementById("langs-display") }), homeFunc = () => {
     if (window.innerWidth > 992) {
         const home = document.getElementById("home");
         langDisplay.unmount();
         langDisplay.mount();
         if (home) {
             if (home.querySelector(".languages #fixed") &&
-                home.getElementsByClassName("lang-img")) {
-                langs_1.bindLangStickEvent(home.querySelector(".languages #fixed"), home.getElementsByClassName("lang-img"), langDisplay);
+                home.getElementsByClassName("lang-img") &&
+                !scrollmagicScene) {
+                scrollmagicScene = langs_1.bindLangStickEvent(home.querySelector(".languages #fixed"), home.getElementsByClassName("lang-img"), langDisplay);
             }
         }
     }
@@ -178,9 +161,21 @@ const utils = __importStar(require("../_utils"));
 const destagnate_1 = __importStar(require("destagnate"));
 const langData_json_1 = __importDefault(require("./langData.json"));
 class LangDisplay extends destagnate_1.default {
-    constructor(parent) {
-        super(parent);
-        this.render = () => destagnate_1.createElement("div", {}, [
+    constructor(parent, props) {
+        super(parent, props);
+        /**
+         * Sets state with slight delay (to fade out)
+         * @param {Object.<string, string>} obj - object of new state
+         * @returns {void} void
+         */
+        this.changeComponent = (obj) => {
+            this.props.parent.classList.add("fade-out");
+            setTimeout(() => {
+                this.setState(obj);
+                this.props.parent.classList.remove("fade-out");
+            }, 250);
+        };
+        this.render = () => [
             destagnate_1.createElement("h2", { class: "my-3" }, this.state.title),
             destagnate_1.createElement("span", { class: "line d-block" }),
             destagnate_1.createElement("p", { class: "mb-4" }, this.state.text),
@@ -191,8 +186,7 @@ class LangDisplay extends destagnate_1.default {
                 "See projects ",
                 destagnate_1.createElement("span", { class: "material-icons" }, "trending_flat")
             ])
-        ]);
-        this.getState = () => this.state;
+        ];
         this.state = {
             ...langData_json_1.default.tsjs,
             key: "tsjs",
@@ -211,11 +205,14 @@ exports.bindLangStickEvent = (container, images, langDisplay) => {
         scene.setPin(container)
             .addTo(utils.default);
     }
+    let currentKey = "tsjs";
     scene.on("progress", (event) => {
         for (const [index, lang] of langs.entries()) {
             if (event.target.progress() <= increment * (index + 1)) {
-                if (langDisplay.getState().key !== lang) {
-                    langDisplay.setState({
+                console.log(event.target.progress, increment * (index + 1), index);
+                if (currentKey !== lang) {
+                    currentKey = lang;
+                    langDisplay.changeComponent({
                         ...langData_json_1.default[lang],
                         key: lang,
                     });
@@ -235,7 +232,7 @@ exports.bindLangStickEvent = (container, images, langDisplay) => {
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang luke-zhang-04.github.io
  * @license MIT
- * @version 1.0.2
+ * @version 1.1.0
  */
 
 var __createBinding = void 0 && (void 0).__createBinding || (Object.create ? function (o, m, k, k2) {
@@ -284,8 +281,28 @@ Object.defineProperty(exports, "__esModule", {
 exports.createElement = void 0;
 
 var lib_1 = __importStar(require("./lib"));
+/**
+ * DeStagnate
+ * A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @copyright Copyright (C) 2020 Luke Zhang
+ * @author Luke Zhang luke-zhang-04.github.io
+ * @license MIT
+ * @version 1.1.0
+ * @classdesc A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @class
+ * @namespace
+ */
+
 
 exports["default"] = lib_1["default"];
+/**
+ * Creates a child element to DynamComponent
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number>} props - element properties
+ * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - child of element, or array of children
+ * @returns {HTMLElement} html element
+ */
+
 exports.createElement = lib_1.createElement;
 
 __exportStar(require("./lib"), exports);
@@ -298,7 +315,7 @@ __exportStar(require("./lib"), exports);
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang luke-zhang-04.github.io
  * @license MIT
- * @version 1.0.2
+ * @version 1.1.0
  * @exports Preset
  * @package
  */
@@ -316,11 +333,21 @@ var Preset = function Preset() {
   _classCallCheck(this, Preset);
 
   /**
+   * Called when component catches error. Default behaviour is console.error
+   * @param {Error} error - error object with info
+   * @returns {void} void
+   */
+  this.componentDidCatch = function (error) {
+    return console.error(error);
+  };
+  /**
    * What to call after component mounting
    * @public
    * @instance
    * @returns {void} void
    */
+
+
   this.componentDidMount = function () {
     return undefined;
   };
@@ -372,7 +399,8 @@ var Preset = function Preset() {
    * Rendering HTML, must be part of extended class
    * @public
    * @instance
-   * @returns {null | HTMLElement} if returns null error will be thrown
+   * @abstract
+   * @returns {null | HTMLElement | Array.<HTMLElement>} if returns null error will be thrown
    */
 
 
@@ -390,7 +418,7 @@ exports["default"] = Preset;
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang luke-zhang-04.github.io
  * @license MIT
- * @version 1.0.2
+ * @version 1.1.0
  * @exports createElement
  */
 
@@ -419,7 +447,7 @@ Object.defineProperty(exports, "__esModule", {
  * @returns {void} void
  */
 
-var bindProps = function bindProps(element, props) {
+var _bindProps = function _bindProps(element, props) {
   if (props) {
     for (var _i = 0, _Object$entries = Object.entries(props); _i < _Object$entries.length; _i++) {
       var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
@@ -440,8 +468,7 @@ var bindProps = function bindProps(element, props) {
       }
     }
   }
-},
-
+};
 /**
  * Binds children to element
  * @package
@@ -449,7 +476,9 @@ var bindProps = function bindProps(element, props) {
  * @param {undefined | ChildrenType} children - children to bind with
  * @returns {void} void
  */
-bindChildren = function bindChildren(element, children) {
+
+
+var _bindChildren = function _bindChildren(element, children) {
   if (children || children === 0) {
     if (children instanceof Array) {
       var _iterator = _createForOfIteratorHelper(children),
@@ -476,19 +505,23 @@ bindChildren = function bindChildren(element, children) {
       element.appendChild(children);
     }
   }
-},
-
+};
 /**
  * Creates a child element to DynamComponent
  * @param {string} tagName - name of HTML element
- * @param {undefined | Object.<string, string | number>} props - element properties
- * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - child of element, or array of children
+ * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
  * @returns {HTMLElement} html element
  */
-createElement = function createElement(tagName, props, children) {
+
+
+var createElement = function createElement(tagName, props, children) {
   var element = document.createElement(tagName);
-  bindProps(element, props);
-  bindChildren(element, children);
+
+  _bindProps(element, props);
+
+  _bindChildren(element, children);
+
   return element;
 };
 
@@ -498,7 +531,17 @@ exports["default"] = createElement;
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -525,12 +568,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createElement = void 0;
 /**
- * Dynamic Component
+ * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang luke-zhang-04.github.io
  * @license MIT
- * @version 1.0.2
+ * @version 1.1.0
  * @exports DeStagnate
  */
 
@@ -538,10 +581,17 @@ var _preset_1 = __importDefault(require("./_preset"));
 
 var createElement_1 = __importDefault(require("./createElement"));
 /**
- * Dynamic Component
+ * DeStagnate
+ * A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @copyright Copyright (C) 2020 Luke Zhang
+ * @author Luke Zhang luke-zhang-04.github.io
+ * @license MIT
+ * @version 1.1.0
+ * @exports DeStagnate
  * @classdesc A simple, ReactJS inspired library to create dynamic components within static sites easier
  * @class
  * @namespace
+ * @abstract
  */
 
 
@@ -555,7 +605,7 @@ var DeStagnate = /*#__PURE__*/function (_preset_1$default) {
    * @public
    * @constructor
    * @param {HTMLElement} parent - parent of this element
-   * @param {undefined | Object.<string, string | number>} props - element properties
+   * @param {undefined | Object.<string, string | number>} props - element properties; works like React Props
    */
   function DeStagnate(parent, props) {
     var _this;
@@ -565,38 +615,82 @@ var DeStagnate = /*#__PURE__*/function (_preset_1$default) {
     _this = _super.call(this);
     _this.props = props;
     /**
+     * Creates a child element to DynamComponent
+     * @public
+     * @instance
+     * @readonly
+     * @param {string} tagName - name of HTML element
+     * @param {undefined | Object.<string, string | number>} props - element properties
+     * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - child of element, or array of children
+     * @returns {HTMLElement} html element
+     */
+
+    _this.createElement = DeStagnate.createElement;
+    /**
      * State of component. Works similar React State
-     * @type {Object.<string, unknown> | undefined}
+     * @type {undefined | Object.<string, unknown>}
      * @protected
      * @instance
      */
 
     _this.state = {};
     /**
+     * What to call before component update (state mutation)
+     * @public
+     * @instance
+     * @param {Props} prevProps - previous props
+     * @param {State} prevState - previous state
+     * @returns {void} void
+     */
+
+    _this.getSnapshotBeforeUpdate = function (prevProps, prevState) {
+      return [prevProps, prevState];
+    };
+    /**
      * Sets state
      * @public
      * @instance
      * @readonly
      * @param {State} obj - state to set
-     * @returns {void} void
+     * @returns {void | Error} void
      */
 
+
     _this.setState = function (obj) {
-      _this.componentWillUpdate();
+      try {
+        _this.componentWillUpdate();
 
-      Object.assign(_this.state, obj);
+        Object.assign(_this.state, obj);
 
-      while (_this.parent.firstChild) {
-        if (_this.parent.lastChild) {
-          _this.parent.removeChild(_this.parent.lastChild);
+        _this._removeChildren();
+
+        var renderedContent = _this.render();
+
+        if (renderedContent instanceof Array) {
+          var _iterator = _createForOfIteratorHelper(renderedContent),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var element = _step.value;
+
+              _this._parent.appendChild(element);
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
         } else {
-          break;
+          _this._parent.appendChild(renderedContent);
         }
+
+        _this.componentDidUpdate();
+      } catch (err) {
+        _this.componentDidCatch(err);
+
+        return err;
       }
-
-      _this.parent.appendChild(_this.render());
-
-      _this.componentDidUpdate();
     };
     /* eslint-disable max-len, @typescript-eslint/member-ordering */
 
@@ -605,24 +699,35 @@ var DeStagnate = /*#__PURE__*/function (_preset_1$default) {
      * @public
      * @instance
      * @readonly
-     * @returns {HTMLElement | error} - result of append child to parent element
+     * @returns {HTMLElement | Array.<HTMLElement> | error} - result of append child to parent element
      */
 
 
     _this.mountComponent = function () {
-      var component = _this.render();
+      try {
+        var component = _this.render();
 
-      _this.componentWillMount();
+        _this.componentWillMount();
 
-      if (!component) {
-        var msg = "Expected render method to be included in component class, no render method found";
-        console.error(msg);
-        return Error(msg);
+        if (!component) {
+          var msg = "Expected render method to be included in component class, no render method found, or render returned an empty array";
+          throw new Error(msg);
+        }
+
+        _this.componentDidMount();
+
+        if (component instanceof Array) {
+          return component.map(function (element) {
+            return _this._parent.appendChild(element);
+          });
+        }
+
+        return _this._parent.appendChild(component);
+      } catch (err) {
+        _this.componentDidCatch(err);
+
+        return err;
       }
-
-      _this.componentDidMount();
-
-      return _this.parent.appendChild(component);
     };
     /**
      * Initial mounting to be manually called
@@ -643,14 +748,12 @@ var DeStagnate = /*#__PURE__*/function (_preset_1$default) {
      */
 
     _this.unmountComponent = function () {
-      _this.componentWillUnmount();
+      try {
+        _this.componentWillUnmount();
 
-      while (_this.parent.firstChild) {
-        if (_this.parent.lastChild) {
-          _this.parent.removeChild(_this.parent.lastChild);
-        } else {
-          break;
-        }
+        _this._removeChildren();
+      } catch (err) {
+        _this.componentDidCatch(err);
       }
     };
     /**
@@ -663,30 +766,83 @@ var DeStagnate = /*#__PURE__*/function (_preset_1$default) {
 
 
     _this.unmount = _this.unmountComponent;
+    /* eslint-enable max-len, @typescript-eslint/member-ordering */
+
+    /**
+     * Removes children from this._parent
+     * @private
+     * @instance
+     * @return {void} void
+     */
+
+    _this._removeChildren = function () {
+      while (_this._parent.firstChild) {
+        if (_this._parent.lastChild) {
+          _this._parent.removeChild(_this._parent.lastChild);
+        } else {
+          break;
+        }
+      }
+    };
 
     if (["body", "html"].includes(parent.tagName.toLowerCase())) {
-      console.warn("WARNING! Avoid using ".concat(parent.tagName.toLowerCase(), " as element parent, as all elements within ").concat(parent.tagName.toLowerCase(), " will be removed on re-render"));
+      throw new Error("WARNING! Avoid using ".concat(parent.tagName.toLowerCase(), " as element parent, as all elements within ").concat(parent.tagName.toLowerCase(), " will be removed on re-render"));
     }
 
-    _this.parent = parent;
+    _this._parent = parent;
     return _this;
   }
+  /**
+   * Public getState getter as this.state itself is protected
+   * @public
+   * @instance
+   * @returns {State} component state
+   */
+
+
+  _createClass(DeStagnate, [{
+    key: "getState",
+    get: function get() {
+      return this.state;
+    }
+    /**
+     * Public getProps getter as this.props itself is protected
+     * @public
+     * @instance
+     * @returns {Props | undefined} component state
+     */
+
+  }, {
+    key: "getProps",
+    get: function get() {
+      return this.props;
+    }
+  }]);
 
   return DeStagnate;
 }(_preset_1["default"]);
 
 exports["default"] = DeStagnate;
 /**
- * Creates a child element to DeStagnate
+ * Creates a child element to DynamComponent
  * @public
  * @static
+ * @readonly
  * @param {string} tagName - name of HTML element
  * @param {undefined | Object.<string, string | number>} props - element properties
- * @param {undefined | Array.<HTMLElement> | HTMLElement} children - child of element, or array of children
+ * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - child of element, or array of children
  * @returns {HTMLElement} html element
  */
 
 DeStagnate.createElement = createElement_1["default"];
+/**
+ * Creates a child element to DynamComponent
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+ * @returns {HTMLElement} html element
+ */
+
 exports.createElement = createElement_1["default"];
 },{"./_preset":6,"./createElement":7}],9:[function(require,module,exports){
 /*!

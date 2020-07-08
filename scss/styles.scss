@@ -68,3 +68,7 @@ body {
 .spacer-vh {
   height: 100vh;
 }
+
+.fade-out {
+  animation: fade-out 0.25s ease;
+}

@@ -17,10 +17,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+import * as ScrollMagic from "scrollmagic"
 import LangDisplay, {bindLangStickEvent} from "./langs"
 
+
+let scrollmagicScene: ScrollMagic.Scene
+
 const langDisplay = new LangDisplay(
-        document.getElementById("langs-display") as HTMLElement
+        document.getElementById("langs-display") as HTMLElement,
+        {parent: document.getElementById("langs-display") as HTMLElement}
     ),
 
     homeFunc = (): void => {
@@ -33,9 +38,10 @@ const langDisplay = new LangDisplay(
             if (home) {
                 if (
                     home.querySelector(".languages #fixed") &&
-                    home.getElementsByClassName("lang-img")
+                    home.getElementsByClassName("lang-img") &&
+                    !scrollmagicScene
                 ) {
-                    bindLangStickEvent(
+                    scrollmagicScene = bindLangStickEvent(
                         home.querySelector(".languages #fixed") as
                             HTMLDivElement,
                         home.getElementsByClassName("lang-img") as

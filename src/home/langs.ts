@@ -38,10 +38,16 @@ interface LangDisplayState {
     href: string,
 }
 
-export default class LangDisplay extends DeStagnate<{}, LangDisplayState> {
+interface LangDisplayProps {
+    [index: string]: HTMLElement,
+    parent: HTMLElement,
+}
 
-    public constructor (parent: HTMLElement) {
-        super(parent)
+export default class LangDisplay extends DeStagnate
+    <LangDisplayProps, LangDisplayState> {
+
+    public constructor (parent: HTMLElement, props: LangDisplayProps) {
+        super(parent, props)
 
         this.state = {
             ...(langData as LangData).tsjs,
@@ -49,7 +55,21 @@ export default class LangDisplay extends DeStagnate<{}, LangDisplayState> {
         }
     }
 
-    public render = (): HTMLElement => createElement("div", {}, [
+    /**
+     * Sets state with slight delay (to fade out)
+     * @param {Object.<string, string>} obj - object of new state
+     * @returns {void} void
+     */
+    public changeComponent = (obj: LangDisplayState): void => {
+        this.props!.parent.classList.add("fade-out")
+
+        setTimeout(() => {
+            this.setState(obj)
+            this.props!.parent.classList.remove("fade-out")
+        }, 250)
+    }
+
+    public render = (): HTMLElement[] => [
         createElement("h2", {class: "my-3"}, this.state.title),
         createElement("span", {class: "line d-block"}),
         createElement("p", {class: "mb-4"}, this.state.text),
@@ -60,9 +80,7 @@ export default class LangDisplay extends DeStagnate<{}, LangDisplayState> {
             "See projects ",
             createElement("span", {class: "material-icons"}, "trending_flat")
         ])
-    ])
-
-    public getState = (): LangDisplayState => this.state
+    ]
 
 }
 
@@ -85,11 +103,15 @@ export const bindLangStickEvent = (
             .addTo(utils.default)
     }
 
+    let currentKey = "tsjs"
+
     scene.on("progress", (event) => {
         for (const [index, lang] of langs.entries()) {
             if (event.target.progress() <= increment * (index + 1)) {
-                if (langDisplay.getState().key !== lang) {
-                    langDisplay.setState({
+                console.log(event.target.progress, increment * (index + 1), index)
+                if (currentKey !== lang) {
+                    currentKey = lang
+                    langDisplay.changeComponent({
                         ...(langData as LangData)[lang],
                         key: lang,
                     })
