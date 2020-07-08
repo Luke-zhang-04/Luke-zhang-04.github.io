@@ -84,11 +84,13 @@ buildDev() {
     done
 
     # Compile SASS
-    compileSass
+    compileSass &
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
-    npx tsc -p .
+    npx tsc -p . &
+
+    wait
 
     # Compile w/ Babel
     # printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
@@ -156,11 +158,13 @@ build() {
     done
 
     # Compile SASS
-    compileSass
+    compileSass &
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
-    npx tsc -p .
+    npx tsc -p . &
+
+    wait
 
     # Compile w/ Babel
     printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"

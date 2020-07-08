@@ -11,12 +11,12 @@
     font-weight: 100;
     top: -40%;
     animation: arrow-not-hover 0.25s ease;
-    transform: translate(0, 0);
+    transform: translate(0, 0.25rem);
   }
 
   &:hover span.material-icons {
     animation: arrow-hover 0.25s ease;
-    transform: translate(0.75rem, 0);
+    transform: translate(0.75rem, 0.25rem);
   }
 }
 
@@ -34,18 +34,18 @@
     font-size: 3rem;
     font-weight: 100;
     top: -5%;
-    animation: arrow-not-hover 0.25s ease;
+    animation: arrow-not-hover-lg 0.25s ease;
     transform: translate(0, 0);
   }
 
   &:hover span.material-icons {
-    animation: arrow-hover 0.25s ease;
+    animation: arrow-hover-lg 0.25s ease;
     transform: translate(0.75rem, 0);
   }
 }
 /* stylelint-enable no-descending-specificity */
 
-@keyframes arrow-hover {
+@keyframes arrow-hover-lg {
   from {
     transform: translate(0, 0);
   }
@@ -55,13 +55,33 @@
   }
 }
 
-@keyframes arrow-not-hover {
+@keyframes arrow-not-hover-lg {
   from {
     transform: translate(0.75rem, 0);
   }
 
   to {
     transform: translate(0, 0);
+  }
+}
+
+@keyframes arrow-hover {
+  from {
+    transform: translate(0, 0.25rem);
+  }
+
+  to {
+    transform: translate(0.75rem, 0.25rem);
+  }
+}
+
+@keyframes arrow-not-hover {
+  from {
+    transform: translate(0.75rem, 0.25rem);
+  }
+
+  to {
+    transform: translate(0, 0.25rem);
   }
 }
 

@@ -17,19 +17,38 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import bindLangStickEvent from "./langs"
+import LangDisplay, {bindLangStickEvent} from "./langs"
 
-const home = document.getElementById("home")
+const langDisplay = new LangDisplay(
+        document.getElementById("langs-display") as HTMLElement
+    ),
 
-if (home) {
-    if (
-        home.querySelector(".languages #fixed") &&
-        home.getElementsByClassName("lang-img")
-    ) {
-        bindLangStickEvent(
-            home.querySelector(".languages #fixed") as HTMLDivElement,
-            home.getElementsByClassName("lang-img") as
-                HTMLCollectionOf<HTMLImageElement>,
-        )
+    homeFunc = (): void => {
+        if (window.innerWidth > 992) {
+            const home = document.getElementById("home")
+            
+            langDisplay.unmount()
+            langDisplay.mount()
+
+            if (home) {
+                if (
+                    home.querySelector(".languages #fixed") &&
+                    home.getElementsByClassName("lang-img")
+                ) {
+                    bindLangStickEvent(
+                        home.querySelector(".languages #fixed") as
+                            HTMLDivElement,
+                        home.getElementsByClassName("lang-img") as
+                            HTMLCollectionOf<HTMLImageElement>,
+                        langDisplay,
+                    )
+                }
+            }
+        } else {
+            langDisplay.unmount()
+        }
     }
-}
+
+window.onresize = homeFunc
+
+homeFunc()
