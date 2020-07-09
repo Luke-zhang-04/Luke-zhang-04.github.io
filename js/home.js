@@ -190,6 +190,7 @@ class LangDisplay extends destagnate_1.default {
         this.state = {
             ...langData_json_1.default.tsjs,
             key: "tsjs",
+            index: 0,
         };
     }
 }
@@ -215,6 +216,7 @@ exports.bindLangStickEvent = (container, images, langDisplay) => {
                     langDisplay.changeComponent({
                         ...langData_json_1.default[lang],
                         key: lang,
+                        index,
                     });
                 }
                 break;

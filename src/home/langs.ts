@@ -31,11 +31,12 @@ interface LangData {
 }
 
 interface LangDisplayState {
-    [index: string]: string,
+    [index: string]: string | number,
     key: string,
     title: string,
     text: string,
     href: string,
+    index: number,
 }
 
 interface LangDisplayProps {
@@ -52,6 +53,7 @@ export default class LangDisplay extends DeStagnate
         this.state = {
             ...(langData as LangData).tsjs,
             key: "tsjs",
+            index: 0,
         }
     }
 
@@ -114,6 +116,7 @@ export const bindLangStickEvent = (
                     langDisplay.changeComponent({
                         ...(langData as LangData)[lang],
                         key: lang,
+                        index,
                     })
                 }
                 break
