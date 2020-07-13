@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Luke Zhang's developer portfolio
+#
 # Copyright (C) 2020 Luke Zhang
 # 
 # Luke-zhang-04.github.io
@@ -100,17 +101,17 @@ buildDev() {
     # npx babel lib --out-dir lib
 
     # Remove new JS_new directory
-    printf "${BIRed}Removing ${Yellow}./js_new_new/${Purple} ${Red}(if exists)${Purple}\n"
+    printf "${BIRed}Removing ${Yellow}./js_new/${Purple} ${Red}(if exists)${Purple}\n"
     if [ -d "js_new" ]; then
         rm -r js_new
     fi
 
     # Make new js_new directory
-    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new_new/${Purple} ${Cyan}directory${Purple}\n"
+    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new/${Purple} ${Cyan}directory${Purple}\n"
     mkdir js_new
 
     # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new_new/${Purple}\n"
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
     for script in "${browserify[@]}"; do
         formattedDir=$(formatDir $script "" $index)
 
@@ -133,9 +134,6 @@ buildDev() {
     if [ -d "js" ]; then
         rm -r js
     fi
-
-    # Create new ./js/ dir
-    # mkdir js
 
     # Move ./js_new to ./js
     mv ./js_new/ ./js/
@@ -174,17 +172,17 @@ build() {
     npx babel lib --out-dir lib
 
     # Remove new JS_new directory
-    printf "${BIRed}Removing ${Yellow}./js_new_new/${Purple} ${Red}(if exists)${Purple}\n"
+    printf "${BIRed}Removing ${Yellow}./js_new/${Purple} ${Red}(if exists)${Purple}\n"
     if [ -d "js_new" ]; then
         rm -r js_new
     fi
 
     # Make new js_new directory
-    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new_new/${Purple} ${Cyan}directory${Purple}\n"
+    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new/${Purple} ${Cyan}directory${Purple}\n"
     mkdir js_new
 
     # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new_new/${Purple}\n"
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
     for script in "${browserify[@]}"; do
         formattedDir=$(formatDir $script "" $index)
 

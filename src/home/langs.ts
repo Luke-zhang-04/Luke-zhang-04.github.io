@@ -110,7 +110,6 @@ export const bindLangStickEvent = (
     scene.on("progress", (event) => {
         for (const [index, lang] of langs.entries()) {
             if (event.target.progress() <= increment * (index + 1)) {
-                console.log(event.target.progress, increment * (index + 1), index)
                 if (currentKey !== lang) {
                     currentKey = lang
                     langDisplay.changeComponent({
