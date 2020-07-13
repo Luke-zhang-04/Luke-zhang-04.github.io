@@ -19,7 +19,7 @@
  */
 import * as ScrollMagic from "scrollmagic"
 import LangDisplay, {bindLangStickEvent} from "./langs"
-
+import globals from "../_globals"
 
 let scrollmagicScene: ScrollMagic.Scene
 
@@ -29,7 +29,7 @@ const langDisplay = new LangDisplay(
     ),
 
     homeFunc = (): void => {
-        if (window.innerWidth > 992) {
+        if (window.innerWidth > globals.sizes.sm) {
             const home = document.getElementById("home")
             
             langDisplay.unmount()

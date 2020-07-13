@@ -4,13 +4,15 @@
 
 }
 
-@media (min-width: 767px) {
-  #home {
 
+@media (min-width: 767px) and (max-width: 991px) {
+  #home {
+    
   }
 }
 
-@media (min-width: 992px) {
+
+@media (min-width: 767px) {
   #home {
     .landing-page {
       height: 100vh;
