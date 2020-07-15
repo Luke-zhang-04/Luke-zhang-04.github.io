@@ -2,6 +2,8 @@
  * Universal styling for luke-zhang-04.github.io
  * Includes Normalize.css, Bootstrap SASS, and other styles that apply to all pages
  */
+@use "bootstrap" as variables;
+
 @import "../node_modules/normalize.css/normalize";
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import "variables";
@@ -33,13 +35,13 @@
 body {
   background-color: $light;
   color: $dark;
-  overflow: hidden;
+  overflow: hidden !important;
 }
   
 html,
 body {
   max-width: 100% !important;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .navbar {
@@ -64,6 +66,18 @@ body {
   img {
     max-height: 5rem;
   }
+
+  .navbar-brand.d-md-block {
+    position: absolute;
+    top: 0.25rem;
+    right: 1rem;
+  }
+}
+
+@media (min-width: 767px) {
+  .navbar {
+    font-size: 3vw;
+  }
 }
 
 .spacer-vh {
@@ -72,4 +86,20 @@ body {
 
 .fade-out {
   animation: fade-out 0.25s ease;
+}
+
+@for $width from 1 through 100 {
+  .w-#{$width} {
+    width: $width + "%" !important;
+  }
+}
+
+@each $name, $value in variables.$grid-breakpoints {
+  @media (min-width: $value - 1) {
+    @for $width from 1 through 100 {
+      .w-#{$name}-#{$width} {
+        width: percentage($width/100) !important;
+      }
+    }
+  }
 }

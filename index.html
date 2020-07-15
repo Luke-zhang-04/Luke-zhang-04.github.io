@@ -56,8 +56,8 @@
   <body id="home">
     <noscript>You need to enable JavaScript to use this site.</noscript>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-none">
-      <a class="navbar-brand" href="/">
+    <nav class="navbar navbar-expand-md navbar-light bg-none w-md-100 ml-md-0 pl-md-4">
+      <a class="navbar-brand d-md-none" href="/">
         <img src="images/logo.png" alt="logo"/>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,16 +69,20 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Portfolio</a>
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Resume</a>
+            <a class="nav-link" href="https://rebrand.ly/luke-zhang-resume" target="_blank" rel="noopener noreferrer">Resume</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Contact</a>
+            <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
       </div>
+
+      <a class="navbar-brand d-none d-md-block" href="/">
+        <img src="images/logo-light.png" alt="logo"/>
+      </a>
     </nav>
 
     <div class="landing-page">
@@ -86,8 +90,11 @@
         <h2>Hello, I'm</h2>
         <h1>Luke Zhang</h1>
         <div class="btn-container">
-          <btn class="btn-box-lg btn-box-primary">
+          <btn class="btn-box-lg btn-box-primary d-lg-block d-none">
             My work<span class="material-icons">trending_flat</span>
+          </btn>
+          <btn class="btn btn-outline-primary d-lg-none d-md-block d-sm-block">
+            My Work
           </btn>
           <a href="/">Resume</a>
         </div>
