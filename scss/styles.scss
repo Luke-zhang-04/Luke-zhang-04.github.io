@@ -4,10 +4,9 @@
  */
 @use "bootstrap" as variables;
 
-@import "../node_modules/normalize.css/normalize";
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import "variables";
-@import "bootstrap";
+@import "../node_modules/normalize.css/normalize";
 
 /*!
  * Luke Zhang's developer portfolio
@@ -64,7 +63,7 @@ body {
   }
 
   img {
-    max-height: 5rem;
+    max-height: 5vw;
   }
 
   .navbar-brand.d-md-block {
@@ -74,7 +73,7 @@ body {
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 767px) and (max-width: 991px) {
   .navbar {
     font-size: 3vw;
   }
@@ -90,12 +89,12 @@ body {
 
 @for $width from 1 through 100 {
   .w-#{$width} {
-    width: $width + "%" !important;
+    width: percentage($width/100) !important;
   }
 }
 
 @each $name, $value in variables.$grid-breakpoints {
-  @media (min-width: $value - 1) {
+  @media (min-width: $value - 1px) {
     @for $width from 1 through 100 {
       .w-#{$name}-#{$width} {
         width: percentage($width/100) !important;

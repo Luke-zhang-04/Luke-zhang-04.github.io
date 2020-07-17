@@ -94,7 +94,7 @@ buildDev() {
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
-    npx tsc -p . &
+    npx tsc -p . --target ES5 &
 
     wait
 

@@ -76,12 +76,16 @@ export default class LangDisplay extends DeStagnate
         createElement("span", {class: "line d-block"}),
         createElement("p", {class: "mb-4"}, this.state.text),
         createElement("button", {
-            class: "btn-box btn-box-primary",
+            class: "btn-box btn-box-primary d-none d-lg-block",
             href: this.state.href,
         }, [
             "See projects ",
             createElement("span", {class: "material-icons"}, "trending_flat")
-        ])
+        ]),
+        createElement("button", {
+            class: "btn btn-outline-primary d-block d-lg-none",
+            href: this.state.href,
+        }, "See Projects"),
     ]
 
 }
