@@ -60,9 +60,11 @@ compileSass() {
 
             printf "\t${BIYellow}Compiling ${Red}./scss/$fileName.scss ${Purple}to ${BIBlue}./css/$fileName.css ${Purple}with ${BIRed}SASS${Purple}\n"
 
-            sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed
+            sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed || npx sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed &
         fi
     done
+
+    wait
 }
 
 #######################################
@@ -117,8 +119,10 @@ buildDev() {
 
         printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
 
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
+        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js &
     done
+
+    wait
 
     # Compile w/ Babel
     # printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
@@ -188,8 +192,10 @@ build() {
 
         printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
 
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
+        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js &
     done
+
+    wait
 
     # Compile w/ Babel
     printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
