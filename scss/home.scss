@@ -21,19 +21,6 @@
 @import "variables";
 
 @media (max-width: 766px) {
-  .navbar-toggler {
-    position: absolute;
-    outline: none;
-    border: none;
-    right: 0;
-
-    img {
-      position: relative;
-      display: block;
-      margin-top: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-  }
 }
 
 @media (min-width: 767px) {
@@ -199,7 +186,7 @@
 
     .content-container {
       h1 {
-        top: 9rem;
+        top: 12.5rem;
         font-size: 4rem;
       }
 
@@ -214,6 +201,11 @@
         margin-top: 0.25rem;
       }
 
+      a {
+        font-size: 1.5rem;
+        left: 10rem;
+      }
+
       .btn-container {
         top: 19rem;
       }
@@ -225,7 +217,7 @@
       left: 0;
       top: 10vh;
       background-color: #fafafa;
-      max-width: 25rem;
+      width: 50vw;
       box-shadow: -3px 3px 20px #37373720;
 
       h1 {

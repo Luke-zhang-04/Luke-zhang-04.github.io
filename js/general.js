@@ -19,5 +19,16 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+(function () {
+    var navbarToggler = document.querySelector("#navbar .navbar-toggler"), navbarMenu = document.getElementById("navbarNav");
+    navbarToggler.addEventListener("click", function () {
+        if (navbarMenu.classList.contains("active")) {
+            navbarMenu.classList.remove("active");
+        }
+        else {
+            navbarMenu.classList.add("active");
+        }
+    });
+})();
 
 },{}]},{},[1]);

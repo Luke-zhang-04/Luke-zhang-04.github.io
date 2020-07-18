@@ -76,6 +76,67 @@ body {
 @media (min-width: 767px) and (max-width: 991px) {
   .navbar {
     font-size: 3vw;
+
+    img {
+      max-height: 5rem;
+    }
+  }
+}
+
+@media (max-width: 766px) {
+  .navbar {
+    .navbar-brand img {
+      height: 5rem;
+      max-height: 5rem;
+    }
+
+    .navbar-toggler {
+      position: absolute;
+      outline: none;
+      border: none;
+      right: 1rem;
+      z-index: 1000;
+  
+      img {
+        position: relative;
+        display: block;
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+
+  #navbarNav {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 100vw;
+    top: 0;
+    background-color: rgba($dark, 0.9);
+    z-index: 500;
+    color: $light;
+    opacity: 0;
+
+    &.active {
+      left: 0;
+      opacity: 1;
+    }
+
+    .nav-item {
+      display: block;
+      margin: 2rem auto;
+      max-width: 50vw;
+
+      &:nth-child(1) {
+        margin-top: 5rem;
+      }
+
+      .nav-link {
+        text-align: center;
+        color: $light;
+        font-size: 2rem;
+      }
+    }
   }
 }
 
