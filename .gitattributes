@@ -1,3 +1,12 @@
+# Enforce Unix newlines
+* text=auto eol=lf
+
+# Don't diff or textually merge source maps
+*.map binary
+
+# Remove lang stats for generated and compiled files
 *.js linguist-generated=true
-*.scss linguist-language=CSS
 *.css linguist-generated=true
+
+# Make sure scss counts as css
+*.scss linguist-language=CSS
