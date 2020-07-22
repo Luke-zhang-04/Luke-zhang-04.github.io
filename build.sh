@@ -21,9 +21,6 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" # Get location of this script
 . "${DIR}/colours.sh"
 
-# Files to browserify
-browserify=()
-src="\.\/src\/"
 index="\/index"
 scss="\.\/scss\/"
 
@@ -77,15 +74,6 @@ compileSass() {
 #   skipSass: boolean - if sass should compile
 #######################################
 buildDev() {
-    # Get all folders in ./ts, add to their index files to browserify list
-    for dir in ./src/*/ ; do
-        formattedDir=$(formatDir $dir "index" $src)
-        
-        if [[ ${formattedDir:0:1} != "_" ]]; then
-            browserify+=( "$formattedDir" )
-        fi
-    done
-
     if [[ ! $1 ]]; then
         compileSass &
     fi
@@ -94,13 +82,9 @@ buildDev() {
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
-    npx tsc -p . --target ES5 &
+    npx tsc -p . &
 
     wait
-
-    # Compile w/ Babel
-    # printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
-    # npx babel lib --out-dir lib
 
     # Remove new JS_new directory
     printf "${BIRed}Removing ${Yellow}./js_new/${Purple} ${Red}(if exists)${Purple}\n"
@@ -112,21 +96,9 @@ buildDev() {
     printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new/${Purple} ${Cyan}directory${Purple}\n"
     mkdir js_new
 
-    # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
-    for script in "${browserify[@]}"; do
-        formattedDir=$(formatDir $script "" $index)
-
-        printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
-
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js &
-    done
-
-    wait
-
-    # Compile w/ Babel
-    # printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
-    # npx babel js_new --out-dir js_new --minified --compact true --no-comments
+    # Pack lib files w/ webpack
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}webpack${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
+    npx webpack --mode none
 
     printf "${BGreen}Cleaning up...${Purple}\n"
 
@@ -153,15 +125,6 @@ buildDev() {
 #   none
 #######################################
 build() {
-    # Get all folders in ./ts, add to their index files to browserify list
-    for dir in ./src/*/ ; do
-        formattedDir=$(formatDir $dir "index" $src)
-        
-        if [[ ${formattedDir:0:1} != "_" ]]; then
-            browserify+=( "$formattedDir" )
-        fi
-    done
-
     # Compile SASS
     compileSass &
 
@@ -185,17 +148,9 @@ build() {
     printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new/${Purple} ${Cyan}directory${Purple}\n"
     mkdir js_new
 
-    # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
-    for script in "${browserify[@]}"; do
-        formattedDir=$(formatDir $script "" $index)
-
-        printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
-
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js &
-    done
-
-    wait
+    # Pack lib files w/ webpack
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}webpack${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
+    npx webpack
 
     # Compile w/ Babel
     printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
@@ -212,11 +167,31 @@ build() {
         rm -r js
     fi
 
-    # Create new ./js/ dir
-    # mkdir js
-
     # Move ./js_new to ./js
     mv ./js_new/ ./js/
+
+        # build
+    for file in ./js/*.js; do
+        echo "/**
+ * Luke Zhang's developer portfolio
+ * @copyright Copyright (C) 2020 Luke Zhang
+ * @author Luke Zhang Luke-zhang-04.github.io
+ * @license AGPL-3.0
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */ $(cat "$file")" > $file
+    done
 }
 
 #######################################
