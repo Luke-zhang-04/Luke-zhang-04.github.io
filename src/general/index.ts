@@ -17,15 +17,20 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 ((): void => {
     const navbarToggler = document.querySelector("#navbar .navbar-toggler"),
-        navbarMenu = document.getElementById("navbarNav") as HTMLElement
+        navbarMenu = document.getElementById("navbarNav")
 
-    navbarToggler!.addEventListener("click", (): void => {
-        if (navbarMenu.classList.contains("active")) {
-            navbarMenu.classList.remove("active")
+    navbarToggler?.addEventListener("click", (): void => {
+        if (navbarMenu?.classList.contains("active")) {
+            navbarMenu?.classList.remove("active")
+            navbarToggler?.classList.remove("open")
+            navbarToggler?.querySelector(".burger")?.classList.remove("open")
         } else {
-            navbarMenu.classList.add("active")
+            navbarMenu?.classList.add("active")
+            navbarToggler?.classList.add("open")
+            navbarToggler?.querySelector(".burger")?.classList.add("open")
         }
     })
 })()

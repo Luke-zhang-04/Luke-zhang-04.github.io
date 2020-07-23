@@ -2,9 +2,11 @@
  * Universal styling for luke-zhang-04.github.io
  * Includes Normalize.css, Bootstrap SASS, and other styles that apply to all pages
  */
-@use "variables" as variables;
+@use "variables";
 
 @import "bootstrap";
+@import "../node_modules/@animated-burgers/burger-squeeze/styles.scss";
+@import "../node_modules/@animated-burgers/burger/styles.scss";
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import "../node_modules/normalize.css/normalize";
 
@@ -91,17 +93,20 @@ body {
     }
 
     .navbar-toggler {
-      position: absolute;
+      position: fixed;
       outline: none;
       border: none;
-      right: 1rem;
+      top: -25vw;
+      right: -25vw;
+      border-radius: 100%;
+      width: 50vw;
+      height: 50vw;
       z-index: 1000;
-  
-      img {
-        position: relative;
-        display: block;
-        margin-top: 0.75rem;
-        margin-bottom: 0.75rem;
+      background-color: $light;
+      transition: background-color 0.2s ease;
+
+      &.open {
+        background-color: $dark;
       }
     }
   }
@@ -110,17 +115,14 @@ body {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    left: 100vw;
     top: 0;
-    background-color: rgba($dark, 0.9);
+    left: 0;
+    background-color: variables.$light;
     z-index: 500;
-    color: $light;
+    color: variables.$light;
     opacity: 0;
-
-    &.active {
-      left: 0;
-      opacity: 1;
-    }
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    animation: to-top 0s linear 5s forwards;
 
     .nav-item {
       display: block;
@@ -137,7 +139,42 @@ body {
         font-size: 2rem;
       }
     }
+
+    &.active {
+      opacity: 1;
+      background-color: mix(white, variables.$dark, 5%);
+      animation: from-top 0s linear 5s forwards;
+
+      .nav-item {
+        opacity: 0;
+        
+        @for $i from 1 through 4 {
+          &:nth-child(#{$i}) {
+            animation: fade-in-down 0.2s ease 0.1 * $i + 0s forwards;
+          }
+        }
+      }
+    }
   }
+
+  .burger {
+    margin-top: 20vw;
+    margin-left: 10vw;
+
+    .burger-lines,
+    .burger-lines::after,
+    .burger-lines::before {
+      background-color: variables.$dark;
+    }
+  
+    &.open {
+      .burger-lines,
+      .burger-lines::after,
+      .burger-lines::before {
+        background-color: variables.$light;
+      }
+    }
+  }  
 }
 
 .spacer-vh {
@@ -146,20 +183,4 @@ body {
 
 .fade-out {
   animation: fade-out 0.25s ease;
-}
-
-@for $width from 1 through 100 {
-  .w-#{$width} {
-    width: percentage($width/100) !important;
-  }
-}
-
-@each $name, $value in variables.$grid-breakpoints {
-  @media (min-width: $value - 1px) {
-    @for $width from 1 through 100 {
-      .w-#{$name}-#{$width} {
-        width: percentage($width/100) !important;
-      }
-    }
-  }
 }

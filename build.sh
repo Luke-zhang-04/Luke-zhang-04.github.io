@@ -44,7 +44,7 @@ formatDir() {
 #   scss: string - scss file extension pattern
 #   formatDir: (string, string, stirng) => string - removes pattern from string adn adds suffix
 # Arguments:
-#   none
+#   compressed: boolean - minify sass or not
 #######################################
 compileSass() {
     # Compile SASS
@@ -57,7 +57,11 @@ compileSass() {
 
             printf "\t${BIYellow}Compiling ${Red}./scss/$fileName.scss ${Purple}to ${BIBlue}./css/$fileName.css ${Purple}with ${BIRed}SASS${Purple}\n"
 
-            sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed || npx sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed &
+            if $1; then
+                sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed || npx sass ./scss/"$fileName".scss ./css/"$fileName".css --style compressed &
+            else
+                sass ./scss/"$fileName".scss ./css/"$fileName".css || npx sass ./scss/"$fileName".scss ./css/"$fileName".css &
+            fi
         fi
     done
 
@@ -75,7 +79,7 @@ compileSass() {
 #######################################
 buildDev() {
     if [[ ! $1 ]]; then
-        compileSass &
+        compileSass false &
     fi
     # Compile SASS
     
@@ -126,7 +130,7 @@ buildDev() {
 #######################################
 build() {
     # Compile SASS
-    compileSass &
+    compileSass true &
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"

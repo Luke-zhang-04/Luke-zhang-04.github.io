@@ -28,7 +28,7 @@ const langDisplay = new LangDisplay(
         {parent: document.getElementById("langs-display") as HTMLElement}
     ),
 
-    homeFunc = (): void => {
+    windowResize = (): void => {
         if (window.innerWidth > globals.sizes.sm) {
             const home = document.getElementById("home")
             
@@ -55,6 +55,6 @@ const langDisplay = new LangDisplay(
         }
     }
 
-window.onresize = homeFunc
+window.onresize = windowResize
 
-homeFunc()
+windowResize()

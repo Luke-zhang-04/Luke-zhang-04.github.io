@@ -402,7 +402,10 @@
 
                 "@typescript-eslint/type-annotation-spacing": ["error", { "before": false, "after": true }],
 
-                "@typescript-eslint/unified-signatures": "error"
+                "@typescript-eslint/unified-signatures": "error",
+
+                "no-unused-expressions": "off",
+                "@typescript-eslint/no-unused-expressions": "error"
             }
         },
         {
