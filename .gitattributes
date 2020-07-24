@@ -13,4 +13,4 @@
 *.sass linguist-language=CSS
 
 # Colours.sh is vendored
-colours.sh linguist-vendored=false
+colours.sh linguist-vendored=true
