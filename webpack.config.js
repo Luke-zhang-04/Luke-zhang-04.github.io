@@ -5,18 +5,19 @@ const path = require("path"),
 
 const src = fs.readdirSync(path.resolve(__dirname, "lib"),)
 
-src.forEach((dir) => { 
+for (const dir of src) { 
     if (dir[0] !== "_" && !dir.includes(".")) {
         configs.push({
             entry: `./lib/${dir}/index.js`,
             output: {
                 path: path.resolve(__dirname, "js_new"),
                 filename: `${dir}.js`,
+                library: dir,
                 libraryTarget: "umd",
             },
             mode: "production",
         })
     }
-})
+}
 
 module.exports = configs

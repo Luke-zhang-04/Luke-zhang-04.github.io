@@ -87,6 +87,8 @@ body {
 
 @media (max-width: 766px) {
   .navbar {
+    z-index: 2000;
+
     .navbar-brand img {
       height: 5rem;
       max-height: 5rem;
@@ -101,7 +103,7 @@ body {
       border-radius: 100%;
       width: 50vw;
       height: 50vw;
-      z-index: 1000;
+      z-index: 2000;
       background-color: $light;
       transition: background-color 0.2s ease;
 
@@ -118,11 +120,11 @@ body {
     top: 0;
     left: 0;
     background-color: variables.$light;
-    z-index: 500;
+    z-index: 1050;
     color: variables.$light;
     opacity: 0;
     transition: background-color 0.2s ease, opacity 0.2s ease;
-    animation: to-top 0s linear 5s forwards;
+    animation: to-top 0s linear 0.2s forwards;
 
     .nav-item {
       display: block;
@@ -143,11 +145,11 @@ body {
     &.active {
       opacity: 1;
       background-color: mix(white, variables.$dark, 5%);
-      animation: from-top 0s linear 5s forwards;
+      animation: from-top 0s linear 0.2s forwards;
 
       .nav-item {
         opacity: 0;
-        
+
         @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
             animation: fade-in-down 0.2s ease 0.1 * $i + 0s forwards;
