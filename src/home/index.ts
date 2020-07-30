@@ -18,12 +18,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 import * as ScrollMagic from "scrollmagic"
-import LangDisplay, {bindLangStickEvent} from "./langs"
+import LangDisplay, {bindLangStickEvent, controller} from "./langs"
+import LangDisplaySm from "./langSm"
 import globals from "../_globals"
 
 let scrollmagicScene: ScrollMagic.Scene
 
 const langDisplay = new LangDisplay(
+        document.getElementById("langs-display") as HTMLElement,
+        {parent: document.getElementById("langs-display") as HTMLElement}
+    ),
+    langDisplaySM = new LangDisplaySm(
         document.getElementById("langs-display") as HTMLElement,
         {parent: document.getElementById("langs-display") as HTMLElement}
     ),
@@ -33,6 +38,7 @@ const langDisplay = new LangDisplay(
             const home = document.getElementById("home")
             
             langDisplay.unmount()
+            langDisplaySM.unmount()
             langDisplay.mount()
 
             if (home) {
@@ -41,6 +47,8 @@ const langDisplay = new LangDisplay(
                     home.getElementsByClassName("lang-img") &&
                     !scrollmagicScene
                 ) {
+                    controller.init()
+
                     scrollmagicScene = bindLangStickEvent(
                         home.querySelector(".languages #fixed") as
                             HTMLDivElement,
@@ -52,6 +60,8 @@ const langDisplay = new LangDisplay(
             }
         } else {
             langDisplay.unmount()
+            langDisplaySM.mount()
+            controller.destroy()
         }
     }
 

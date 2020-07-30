@@ -22,7 +22,7 @@ import * as utils from "../_utils"
 import DeStagnate, {createElement} from "destagnate"
 import {default as langData} from "./langData.json"
 
-interface LangData {
+export interface LangData {
     [index: string]: LangDisplayState,
     tsjs: LangDisplayState,
     frontend: LangDisplayState,
@@ -30,7 +30,7 @@ interface LangData {
     backend: LangDisplayState,
 }
 
-interface LangDisplayState {
+export interface LangDisplayState {
     [index: string]: string | number,
     key: string,
     title: string,
@@ -39,7 +39,7 @@ interface LangDisplayState {
     index: number,
 }
 
-interface LangDisplayProps {
+export interface LangDisplayProps {
     [index: string]: HTMLElement,
     parent: HTMLElement,
 }
@@ -106,7 +106,7 @@ export const bindLangStickEvent = (
     
     if (scene) {
         scene.setPin(container)
-            .addTo(utils.default)
+            .addTo(utils.default.controller)
     }
 
     let currentKey = "tsjs"
@@ -129,3 +129,5 @@ export const bindLangStickEvent = (
 
     return scene
 }
+
+export const controller = utils.default

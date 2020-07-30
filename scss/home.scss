@@ -72,6 +72,32 @@
       }
     }
   }
+
+  .languages {
+    position: relative;
+    display: block;
+
+    .stripes {
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 50vw;
+      background-image: url(../images/stripes.svg);
+      background-size: 2vw 2vw;
+      opacity: 0.25;
+      z-index: 0;
+    }
+
+    .content-container {
+      position: absolute;
+      background-color: white;
+      width: calc(100vw - 4rem);
+      height: 85vh;
+      left: 2rem;
+      top: 10vh;
+    }
+  }
 }
 
 @media (min-width: 767px) {

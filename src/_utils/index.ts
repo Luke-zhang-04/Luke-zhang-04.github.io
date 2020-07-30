@@ -19,6 +19,20 @@
  */
 import * as ScrollMagic from "scrollmagic"
 
-const controller = new ScrollMagic.Controller()
+let _controller = new ScrollMagic.Controller()
+
+const controller = {
+    controller: _controller,
+    destroy: (): void => _controller.destroy(true),
+    init: (
+        options?: ScrollMagic.ControllerConstructorOptions | undefined
+    ): ScrollMagic.Controller => {
+        _controller = new ScrollMagic.Controller(options)
+
+        controller.controller = _controller
+
+        return _controller
+    }
+}
 
 export default controller

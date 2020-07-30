@@ -73,10 +73,10 @@
         "camelcase": "error",
         "capitalized-comments": "warn",
         "class-methods-use-this": "error",
-        "comma-dangle": ["warn", {
+        "comma-dangle": ["error", {
             "arrays": "only-multiline",
             "objects": "only-multiline",
-            "imports": "never",
+            "imports": "only-multiline",
             "exports": "only-multiline",
             "functions": "only-multiline"
         }],
