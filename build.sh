@@ -140,7 +140,7 @@ build() {
 
     # Compile w/ Babel
     printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
-    npx babel lib --out-dir lib
+    npx babel lib --out-dir lib --minified
 
     # Remove new JS_new directory
     printf "${BIRed}Removing ${Yellow}./js_new/${Purple} ${Red}(if exists)${Purple}\n"
@@ -155,10 +155,6 @@ build() {
     # Pack lib files w/ webpack
     printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}webpack${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
     npx webpack
-
-    # Compile w/ Babel
-    printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
-    npx babel js_new --out-dir js_new --minified --compact true --no-comments
 
     printf "${BGreen}Cleaning up...${Purple}\n"
 

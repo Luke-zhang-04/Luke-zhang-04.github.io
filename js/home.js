@@ -1,8 +1,213 @@
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["home"] = factory();
+	else
+		root["home"] = factory();
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 /**
  * Luke Zhang's developer portfolio
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
+ *
+ * @license
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * @file main homepage script
+ */
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const langs_1 = __importStar(__webpack_require__(1));
+const langSm_1 = __importDefault(__webpack_require__(12));
+const projects_1 = __importDefault(__webpack_require__(13));
+const _globals_1 = __importDefault(__webpack_require__(15));
+projects_1.default();
+let scrollmagicScene;
+const langDisplay = new langs_1.default(document.getElementById("langs-display"), { parent: document.getElementById("langs-display") }), langDisplaySM = new langSm_1.default(document.getElementById("langs-display"), { parent: document.getElementById("langs-display") }), windowResize = () => {
+    if (window.innerWidth > _globals_1.default.sizes.sm) {
+        const home = document.getElementById("home");
+        langDisplay.unmount();
+        langDisplaySM.unmount();
+        langDisplay.mount();
+        if (home) {
+            if (home.querySelector(".languages #fixed") &&
+                home.getElementsByClassName("lang-img") &&
+                !scrollmagicScene) {
+                langs_1.controller.init();
+                scrollmagicScene = langs_1.bindLangStickEvent(home.querySelector(".languages #fixed"), home.getElementsByClassName("lang-img"), langDisplay);
+            }
+        }
+    }
+    else {
+        langDisplay.unmount();
+        langDisplaySM.mount();
+        langs_1.controller.destroy();
+    }
+};
+window.onresize = windowResize;
+windowResize();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvaG9tZS9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBb0JHOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFHSCxpREFBbUU7QUFDbkUsc0RBQW9DO0FBQ3BDLDBEQUF3QztBQUN4QywyREFBaUM7QUFFakMsa0JBQWUsRUFBRSxDQUFBO0FBRWpCLElBQUksZ0JBQW1DLENBQUE7QUFFdkMsTUFBTSxXQUFXLEdBQUcsSUFBSSxlQUFXLENBQzNCLFFBQVEsQ0FBQyxjQUFjLENBQUMsZUFBZSxDQUFnQixFQUN2RCxFQUFDLE1BQU0sRUFBRSxRQUFRLENBQUMsY0FBYyxDQUFDLGVBQWUsQ0FBZ0IsRUFBQyxDQUNwRSxFQUNELGFBQWEsR0FBRyxJQUFJLGdCQUFhLENBQzdCLFFBQVEsQ0FBQyxjQUFjLENBQUMsZUFBZSxDQUFnQixFQUN2RCxFQUFDLE1BQU0sRUFBRSxRQUFRLENBQUMsY0FBYyxDQUFDLGVBQWUsQ0FBZ0IsRUFBQyxDQUNwRSxFQUVELFlBQVksR0FBRyxHQUFTLEVBQUU7SUFDdEIsSUFBSSxNQUFNLENBQUMsVUFBVSxHQUFHLGtCQUFPLENBQUMsS0FBSyxDQUFDLEVBQUUsRUFBRTtRQUN0QyxNQUFNLElBQUksR0FBRyxRQUFRLENBQUMsY0FBYyxDQUFDLE1BQU0sQ0FBQyxDQUFBO1FBRTVDLFdBQVcsQ0FBQyxPQUFPLEVBQUUsQ0FBQTtRQUNyQixhQUFhLENBQUMsT0FBTyxFQUFFLENBQUE7UUFDdkIsV0FBVyxDQUFDLEtBQUssRUFBRSxDQUFBO1FBRW5CLElBQUksSUFBSSxFQUFFO1lBQ04sSUFDSSxJQUFJLENBQUMsYUFBYSxDQUFDLG1CQUFtQixDQUFDO2dCQUN2QyxJQUFJLENBQUMsc0JBQXNCLENBQUMsVUFBVSxDQUFDO2dCQUN2QyxDQUFDLGdCQUFnQixFQUNuQjtnQkFDRSxrQkFBVSxDQUFDLElBQUksRUFBRSxDQUFBO2dCQUVqQixnQkFBZ0IsR0FBRywwQkFBa0IsQ0FDakMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxtQkFBbUIsQ0FDcEIsRUFDbEIsSUFBSSxDQUFDLHNCQUFzQixDQUFDLFVBQVUsQ0FDQSxFQUN0QyxXQUFXLENBQ2QsQ0FBQTthQUNKO1NBQ0o7S0FDSjtTQUFNO1FBQ0gsV0FBVyxDQUFDLE9BQU8sRUFBRSxDQUFBO1FBQ3JCLGFBQWEsQ0FBQyxLQUFLLEVBQUUsQ0FBQTtRQUNyQixrQkFBVSxDQUFDLE9BQU8sRUFBRSxDQUFBO0tBQ3ZCO0FBQ0wsQ0FBQyxDQUFBO0FBRUwsTUFBTSxDQUFDLFFBQVEsR0FBRyxZQUFZLENBQUE7QUFFOUIsWUFBWSxFQUFFLENBQUEifQ==
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.controller = exports.bindLangStickEvent = void 0;
+/**
+ * Luke Zhang's developer portfolio
+ * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -16,7 +221,88 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */ "use strict";function _typeof(obj){"@babel/helpers - typeof";if(typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"){_typeof=function(obj){return typeof obj}}else{_typeof=function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj}}return _typeof(obj)}!function(e,t){"object"==(typeof exports==="undefined"?"undefined":_typeof(exports))&&"object"==(typeof module==="undefined"?"undefined":_typeof(module))?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==(typeof exports==="undefined"?"undefined":_typeof(exports))?exports.home=t():e.home=t()}(window,function(){return function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==_typeof(e)&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e){n.d(r,o,function(t){return e[t]}.bind(null,o))}return r},n.n=function(e){var t=e&&e.__esModule?function(){return e["default"]}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=4)}([function(e,t,n){var r,o;/*!
+ *
+ * @file languages display
+ */
+const ScrollMagic = __importStar(__webpack_require__(2));
+const utils = __importStar(__webpack_require__(3));
+const destagnate_1 = __importStar(__webpack_require__(4));
+const langData_json_1 = __importDefault(__webpack_require__(11));
+class LangDisplay extends destagnate_1.default {
+    constructor(parent, props) {
+        super(parent, props);
+        /**
+         * Sets state with slight delay (to fade out)
+         * @param {Object.<string, string>} obj - object of new state
+         * @returns {void} void
+         */
+        this.changeComponent = (obj) => {
+            this.props.parent.classList.add("fade-out");
+            setTimeout(() => {
+                this.setState(obj);
+                this.props.parent.classList.remove("fade-out");
+            }, 250);
+        };
+        this.render = () => [
+            destagnate_1.createElement("h2", { class: "my-3" }, this.state.title),
+            destagnate_1.createElement("span", { class: "line d-block" }),
+            destagnate_1.createElement("p", { class: "mb-4" }, this.state.text),
+            destagnate_1.createElement("button", {
+                class: "btn-box btn-box-primary d-none d-lg-block",
+                href: this.state.href,
+            }, [
+                "See projects ",
+                destagnate_1.createElement("span", { class: "material-icons" }, "trending_flat")
+            ]),
+            destagnate_1.createElement("button", {
+                class: "btn btn-outline-primary d-block d-lg-none",
+                href: this.state.href,
+            }, "See Projects"),
+        ];
+        this.state = Object.assign(Object.assign({}, langData_json_1.default.tsjs), { key: "tsjs", index: 0 });
+    }
+}
+exports.default = LangDisplay;
+/**
+ * Binds ScrollMagic to elements
+ * @param {HTMLDivElement} container - container of event
+ * @param {HTMLCollectionOf.<HTMLImageElement>} images - names of images
+ * @param {LangDisplay} langDisplay - language display component
+ * @returns {ScrollMagic.Scene} scrollmagic scene
+ */
+exports.bindLangStickEvent = (container, images, langDisplay) => {
+    const scene = new ScrollMagic.Scene({
+        triggerElement: images[0],
+        triggerHook: 0.5,
+        duration: images[images.length - 1].offsetTop +
+            window.innerHeight * 0.5,
+    }), increment = 1 / images.length, langs = ["tsjs", "frontend", "bash", "backend"];
+    if (scene) {
+        scene.setPin(container)
+            .addTo(utils.default.controller);
+    }
+    let currentKey = "tsjs";
+    scene.on("progress", (event) => {
+        for (const [index, lang] of langs.entries()) {
+            if (event.target.progress() <= increment * (index + 1)) {
+                if (currentKey !== lang) {
+                    currentKey = lang;
+                    langDisplay.changeComponent(Object.assign(Object.assign({}, langData_json_1.default[lang]), { key: lang, index }));
+                }
+                break;
+            }
+        }
+    });
+    return scene;
+};
+exports.controller = utils.default;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibGFuZ3MuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvaG9tZS9sYW5ncy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7OztHQWtCRztBQUNILHlEQUEwQztBQUMxQyxpREFBa0M7QUFDbEMseURBQW9EO0FBQ3BELG9FQUFtRDtBQXdCbkQsTUFBcUIsV0FBWSxTQUFRLG9CQUNEO0lBRXBDLFlBQW9CLE1BQW1CLEVBQUUsS0FBdUI7UUFDNUQsS0FBSyxDQUFDLE1BQU0sRUFBRSxLQUFLLENBQUMsQ0FBQTtRQVN4Qjs7OztXQUlHO1FBQ0ksb0JBQWUsR0FBRyxDQUFDLEdBQXFCLEVBQVEsRUFBRTtZQUNyRCxJQUFJLENBQUMsS0FBTSxDQUFDLE1BQU0sQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLFVBQVUsQ0FBQyxDQUFBO1lBRTVDLFVBQVUsQ0FBQyxHQUFHLEVBQUU7Z0JBQ1osSUFBSSxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQTtnQkFDbEIsSUFBSSxDQUFDLEtBQU0sQ0FBQyxNQUFNLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxVQUFVLENBQUMsQ0FBQTtZQUNuRCxDQUFDLEVBQUUsR0FBRyxDQUFDLENBQUE7UUFDWCxDQUFDLENBQUE7UUFFTSxXQUFNLEdBQUcsR0FBa0IsRUFBRSxDQUFDO1lBQ2pDLDBCQUFhLENBQUMsSUFBSSxFQUFFLEVBQUMsS0FBSyxFQUFFLE1BQU0sRUFBQyxFQUFFLElBQUksQ0FBQyxLQUFLLENBQUMsS0FBSyxDQUFDO1lBQ3RELDBCQUFhLENBQUMsTUFBTSxFQUFFLEVBQUMsS0FBSyxFQUFFLGNBQWMsRUFBQyxDQUFDO1lBQzlDLDBCQUFhLENBQUMsR0FBRyxFQUFFLEVBQUMsS0FBSyxFQUFFLE1BQU0sRUFBQyxFQUFFLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDO1lBQ3BELDBCQUFhLENBQUMsUUFBUSxFQUFFO2dCQUNwQixLQUFLLEVBQUUsMkNBQTJDO2dCQUNsRCxJQUFJLEVBQUUsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJO2FBQ3hCLEVBQUU7Z0JBQ0MsZUFBZTtnQkFDZiwwQkFBYSxDQUFDLE1BQU0sRUFBRSxFQUFDLEtBQUssRUFBRSxnQkFBZ0IsRUFBQyxFQUFFLGVBQWUsQ0FBQzthQUNwRSxDQUFDO1lBQ0YsMEJBQWEsQ0FBQyxRQUFRLEVBQUU7Z0JBQ3BCLEtBQUssRUFBRSwyQ0FBMkM7Z0JBQ2xELElBQUksRUFBRSxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUk7YUFDeEIsRUFBRSxjQUFjLENBQUM7U0FDckIsQ0FBQTtRQXBDRyxJQUFJLENBQUMsS0FBSyxtQ0FDRix1QkFBcUIsQ0FBQyxJQUFJLEtBQzlCLEdBQUcsRUFBRSxNQUFNLEVBQ1gsS0FBSyxFQUFFLENBQUMsR0FDWCxDQUFBO0lBQ0wsQ0FBQztDQWlDSjtBQTVDRCw4QkE0Q0M7QUFFRDs7Ozs7O0dBTUc7QUFDVSxRQUFBLGtCQUFrQixHQUFHLENBQzlCLFNBQXlCLEVBQ3pCLE1BQTBDLEVBQzFDLFdBQXdCLEVBQ1AsRUFBRTtJQUNuQixNQUFNLEtBQUssR0FBRyxJQUFJLFdBQVcsQ0FBQyxLQUFLLENBQUM7UUFDNUIsY0FBYyxFQUFFLE1BQU0sQ0FBQyxDQUFDLENBQUM7UUFDekIsV0FBVyxFQUFFLEdBQUc7UUFDaEIsUUFBUSxFQUFFLE1BQU0sQ0FBQyxNQUFNLENBQUMsTUFBTSxHQUFHLENBQUMsQ0FBQyxDQUFDLFNBQVM7WUFDekMsTUFBTSxDQUFDLFdBQVcsR0FBRyxHQUFHO0tBQy9CLENBQUMsRUFDRixTQUFTLEdBQUcsQ0FBQyxHQUFHLE1BQU0sQ0FBQyxNQUFNLEVBQzdCLEtBQUssR0FBRyxDQUFDLE1BQU0sRUFBRSxVQUFVLEVBQUUsTUFBTSxFQUFFLFNBQVMsQ0FBQyxDQUFBO0lBRW5ELElBQUksS0FBSyxFQUFFO1FBQ1AsS0FBSyxDQUFDLE1BQU0sQ0FBQyxTQUFTLENBQUM7YUFDbEIsS0FBSyxDQUFDLEtBQUssQ0FBQyxPQUFPLENBQUMsVUFBVSxDQUFDLENBQUE7S0FDdkM7SUFFRCxJQUFJLFVBQVUsR0FBRyxNQUFNLENBQUE7SUFFdkIsS0FBSyxDQUFDLEVBQUUsQ0FBQyxVQUFVLEVBQUUsQ0FBQyxLQUFLLEVBQUUsRUFBRTtRQUMzQixLQUFLLE1BQU0sQ0FBQyxLQUFLLEVBQUUsSUFBSSxDQUFDLElBQUksS0FBSyxDQUFDLE9BQU8sRUFBRSxFQUFFO1lBQ3pDLElBQUksS0FBSyxDQUFDLE1BQU0sQ0FBQyxRQUFRLEVBQUUsSUFBSSxTQUFTLEdBQUcsQ0FBQyxLQUFLLEdBQUcsQ0FBQyxDQUFDLEVBQUU7Z0JBQ3BELElBQUksVUFBVSxLQUFLLElBQUksRUFBRTtvQkFDckIsVUFBVSxHQUFHLElBQUksQ0FBQTtvQkFDakIsV0FBVyxDQUFDLGVBQWUsaUNBQ25CLHVCQUFxQixDQUFDLElBQUksQ0FBQyxLQUMvQixHQUFHLEVBQUUsSUFBSSxFQUNULEtBQUssSUFDUCxDQUFBO2lCQUNMO2dCQUNELE1BQUs7YUFDUjtTQUNKO0lBQ0wsQ0FBQyxDQUFDLENBQUE7SUFFRixPQUFPLEtBQUssQ0FBQTtBQUNoQixDQUFDLENBQUE7QUFFWSxRQUFBLFVBQVUsR0FBRyxLQUFLLENBQUMsT0FBTyxDQUFBIn0=
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * ScrollMagic v2.0.7 (2019-05-07)
  * The javascript library for magical scroll interactions.
  * (c) 2019 Jan Paepke (@janpaepke)
@@ -27,98 +313,4003 @@
  * @author Jan Paepke - e-mail@janpaepke.de
  *
  * @file ScrollMagic main library.
- */void 0===(o="function"==typeof(r=function(){"use strict";var e=function(){r.log(2,"(COMPATIBILITY NOTICE) -> As of ScrollMagic 2.0.0 you need to use 'new ScrollMagic.Controller()' to create a new controller instance. Use 'new ScrollMagic.Scene()' to instance a scene.")};e.version="2.0.7",window.addEventListener("mousewheel",function(){}),e.Controller=function(n){var o,i,l=t.defaults,c=this,s=r.extend({},l,n),u=[],f=!1,d=0,p="PAUSED",h=!0,m=0,g=!0,v=function(){s.refreshInterval>0&&(i=window.setTimeout(O,s.refreshInterval))},y=function(){return s.vertical?r.get.scrollTop(s.container):r.get.scrollLeft(s.container)},b=function(){return s.vertical?r.get.height(s.container):r.get.width(s.container)},w=this._setScrollPos=function(e){s.vertical?h?window.scrollTo(r.get.scrollLeft(),e):s.container.scrollTop=e:h?window.scrollTo(e,r.get.scrollTop()):s.container.scrollLeft=e},S=function(){if(g&&f){var e=r.type.Array(f)?f:u.slice(0);f=!1;var t=d,n=(d=c.scrollPos())-t;0!==n&&(p=n>0?"FORWARD":"REVERSE"),"REVERSE"===p&&e.reverse(),e.forEach(function(t,n){R(3,"updating Scene "+(n+1)+"/"+e.length+" ("+u.length+" total)"),t.update(!0)}),0===e.length&&s.loglevel>=3&&R(3,"updating 0 Scenes (nothing added to controller)")}},_=function(){o=r.rAF(S)},E=function(e){R(3,"event fired causing an update:",e.type),"resize"==e.type&&(m=b(),p="PAUSED"),!0!==f&&(f=!0,_())},O=function(){if(!h&&m!=b()){var e;try{e=new Event("resize",{bubbles:!1,cancelable:!1})}catch(t){(e=document.createEvent("Event")).initEvent("resize",!1,!1)}s.container.dispatchEvent(e)}u.forEach(function(e){e.refresh()}),v()},R=this._log=function(e){s.loglevel>=e&&(Array.prototype.splice.call(arguments,1,0,"(ScrollMagic.Controller) ->"),r.log.apply(window,arguments))};this._options=s;var j=function(e){if(e.length<=1)return e;var t=e.slice(0);return t.sort(function(e,t){return e.scrollOffset()>t.scrollOffset()?1:-1}),t};return this.addScene=function(t){if(r.type.Array(t))t.forEach(function(e){c.addScene(e)});else if(t instanceof e.Scene){if(t.controller()!==c)t.addTo(c);else if(u.indexOf(t)<0){for(var n in u.push(t),u=j(u),t.on("shift.controller_sort",function(){u=j(u)}),s.globalSceneOptions){t[n]&&t[n].call(t,s.globalSceneOptions[n])}R(3,"adding Scene (now "+u.length+" total)")}}else R(1,"ERROR: invalid argument supplied for '.addScene()'");return c},this.removeScene=function(e){if(r.type.Array(e))e.forEach(function(e){c.removeScene(e)});else{var t=u.indexOf(e);t>-1&&(e.off("shift.controller_sort"),u.splice(t,1),R(3,"removing Scene (now "+u.length+" left)"),e.remove())}return c},this.updateScene=function(t,n){return r.type.Array(t)?t.forEach(function(e){c.updateScene(e,n)}):n?t.update(!0):!0!==f&&t instanceof e.Scene&&(-1==(f=f||[]).indexOf(t)&&f.push(t),f=j(f),_()),c},this.update=function(e){return E({type:"resize"}),e&&S(),c},this.scrollTo=function(t,n){if(r.type.Number(t))w.call(s.container,t,n);else if(t instanceof e.Scene)t.controller()===c?c.scrollTo(t.scrollOffset(),n):R(2,"scrollTo(): The supplied scene does not belong to this controller. Scroll cancelled.",t);else if(r.type.Function(t))w=t;else{var o=r.get.elements(t)[0];if(o){for(;o.parentNode.hasAttribute("data-scrollmagic-pin-spacer");){o=o.parentNode}var i=s.vertical?"top":"left",a=r.get.offset(s.container),l=r.get.offset(o);h||(a[i]-=c.scrollPos()),c.scrollTo(l[i]-a[i],n)}else R(2,"scrollTo(): The supplied argument is invalid. Scroll cancelled.",t)}return c},this.scrollPos=function(e){return arguments.length?(r.type.Function(e)?y=e:R(2,"Provided value for method 'scrollPos' is not a function. To change the current scroll position use 'scrollTo()'."),c):y.call(c)},this.info=function(e){var t={size:m,vertical:s.vertical,scrollPos:d,scrollDirection:p,container:s.container,isDocument:h};return arguments.length?void 0!==t[e]?t[e]:void R(1,"ERROR: option \""+e+"\" is not available"):t},this.loglevel=function(e){return arguments.length?(s.loglevel!=e&&(s.loglevel=e),c):s.loglevel},this.enabled=function(e){return arguments.length?(g!=e&&(g=!!e,c.updateScene(u,!0)),c):g},this.destroy=function(e){window.clearTimeout(i);for(var t=u.length;t--;){u[t].destroy(e)}return s.container.removeEventListener("resize",E),s.container.removeEventListener("scroll",E),r.cAF(o),R(3,"destroyed ScrollMagic.Controller (reset: "+(e?"true":"false")+")"),null},function(){for(var t in s){l.hasOwnProperty(t)||(R(2,"WARNING: Unknown option \""+t+"\""),delete s[t])}if(s.container=r.get.elements(s.container)[0],!s.container)throw R(1,"ERROR creating object ScrollMagic.Controller: No valid scroll container supplied"),"ScrollMagic.Controller init failed.";(h=s.container===window||s.container===document.body||!document.body.contains(s.container))&&(s.container=window),m=b(),s.container.addEventListener("resize",E),s.container.addEventListener("scroll",E);var n=parseInt(s.refreshInterval,10);s.refreshInterval=r.type.Number(n)?n:l.refreshInterval,v(),R(3,"added new ScrollMagic.Controller controller (v"+e.version+")")}(),c};var t={defaults:{container:window,vertical:!0,globalSceneOptions:{},loglevel:2,refreshInterval:100}};e.Controller.addOption=function(e,n){t.defaults[e]=n},e.Controller.extend=function(t){var n=this;e.Controller=function(){return n.apply(this,arguments),this.$super=r.extend({},this),t.apply(this,arguments)||this},r.extend(e.Controller,n),e.Controller.prototype=n.prototype,e.Controller.prototype.constructor=e.Controller},e.Scene=function(t){var o,i,l=n.defaults,c=this,s=r.extend({},l,t),u="BEFORE",f=0,d={start:0,end:0},p=0,h=!0,m={};this.on=function(e,t){return r.type.Function(t)?(e=e.trim().split(" ")).forEach(function(e){var n=e.split("."),r=n[0],o=n[1];"*"!=r&&(m[r]||(m[r]=[]),m[r].push({namespace:o||"",callback:t}))}):g(1,"ERROR when calling '.on()': Supplied callback for '"+e+"' is not a valid function!"),c},this.off=function(e,t){return e?((e=e.trim().split(" ")).forEach(function(e){var r=e.split("."),o=r[0],i=r[1]||"";("*"===o?Object.keys(m):[o]).forEach(function(e){for(var n=m[e]||[],r=n.length,o;r--;){o=n[r];!o||i!==o.namespace&&"*"!==i||t&&t!=o.callback||n.splice(r,1)}n.length||delete m[e]})}),c):(g(1,"ERROR: Invalid event name supplied."),c)},this.trigger=function(t,n){if(t){var r=t.trim().split("."),o=r[0],i=r[1],a=m[o];g(3,"event fired:",o,n?"->":"",n||""),a&&a.forEach(function(t){i&&i!==t.namespace||t.callback.call(c,new e.Event(o,t.namespace,c,n))})}else g(1,"ERROR: Invalid event name supplied.");return c},c.on("change.internal",function(e){"loglevel"!==e.what&&"tweenChanges"!==e.what&&("triggerElement"===e.what?S():"reverse"===e.what&&c.update())}).on("shift.internal",function(){b(),c.update()});var g=this._log=function(e){s.loglevel>=e&&(Array.prototype.splice.call(arguments,1,0,"(ScrollMagic.Scene) ->"),r.log.apply(window,arguments))};this.addTo=function(t){return t instanceof e.Controller?i!=t&&(i&&i.removeScene(c),i=t,O(),w(!0),S(!0),b(),i.info("container").addEventListener("resize",_),t.addScene(c),c.trigger("add",{controller:i}),g(3,"added ScrollMagic.Scene to controller"),c.update()):g(1,"ERROR: supplied argument of 'addTo()' is not a valid ScrollMagic Controller"),c},this.enabled=function(e){return arguments.length?(h!=e&&(h=!!e,c.update(!0)),c):h},this.remove=function(){if(i){i.info("container").removeEventListener("resize",_);var e=i;i=void 0,e.removeScene(c),c.trigger("remove"),g(3,"removed ScrollMagic.Scene from controller")}return c},this.destroy=function(e){return c.trigger("destroy",{reset:e}),c.remove(),c.off("*.*"),g(3,"destroyed ScrollMagic.Scene (reset: "+(e?"true":"false")+")"),null},this.update=function(e){if(i)if(e){if(i.enabled()&&h){var t,n=i.info("scrollPos");t=s.duration>0?(n-d.start)/(d.end-d.start):n>=d.start?1:0,c.trigger("update",{startPos:d.start,endPos:d.end,scrollPos:n}),c.progress(t)}else v&&"DURING"===u&&C(!0);}else i.updateScene(c,!1);return c},this.refresh=function(){return w(),S(),c},this.progress=function(e){if(arguments.length){var t=!1,n=u,r=i?i.info("scrollDirection"):"PAUSED",o=s.reverse||e>=f;if(0===s.duration?(t=f!=e,u=0==(f=e<1&&o?0:1)?"BEFORE":"DURING"):e<0&&"BEFORE"!==u&&o?(f=0,u="BEFORE",t=!0):e>=0&&e<1&&o?(f=e,u="DURING",t=!0):e>=1&&"AFTER"!==u?(f=1,u="AFTER",t=!0):"DURING"!==u||o||C(),t){var a={progress:f,state:u,scrollDirection:r},l=u!=n,d=function(e){c.trigger(e,a)};l&&"DURING"!==n&&(d("enter"),d("BEFORE"===n?"start":"end")),d("progress"),l&&"DURING"!==u&&(d("BEFORE"===u?"start":"end"),d("leave"))}return c}return f};var v,y,b=function(){d={start:p+s.offset},i&&s.triggerElement&&(d.start-=i.info("size")*s.triggerHook),d.end=d.start+s.duration},w=function(e){o&&R("duration",o.call(c))&&!e&&(c.trigger("change",{what:"duration",newval:s.duration}),c.trigger("shift",{reason:"duration"}))},S=function(e){var t=0,n=s.triggerElement;if(i&&(n||p>0)){if(n)if(n.parentNode){for(var o=i.info(),a=r.get.offset(o.container),l=o.vertical?"top":"left";n.parentNode.hasAttribute("data-scrollmagic-pin-spacer");){n=n.parentNode}var u=r.get.offset(n);o.isDocument||(a[l]-=i.scrollPos()),t=u[l]-a[l]}else g(2,"WARNING: triggerElement was removed from DOM and will be reset to",void 0),c.triggerElement(void 0);var f=t!=p;p=t,f&&!e&&c.trigger("shift",{reason:"triggerElementPosition"})}},_=function(){s.triggerHook>0&&c.trigger("shift",{reason:"containerResize"})},E=r.extend(n.validate,{duration:function duration(e){if(r.type.String(e)&&e.match(/^(\.|\d)*\d+%$/)){var t=parseFloat(e)/100;e=function(){return i?i.info("size")*t:0}}if(r.type.Function(e)){o=e;try{e=parseFloat(o.call(c))}catch(t){e=-1}}if(e=parseFloat(e),!r.type.Number(e)||e<0)throw o?(o=void 0,["Invalid return value of supplied function for option \"duration\":",e]):["Invalid value for option \"duration\":",e];return e}}),O=function(e){(e=arguments.length?[e]:Object.keys(E)).forEach(function(e){var n;if(E[e])try{n=E[e](s[e])}catch(t){n=l[e];var o=r.type.String(t)?[t]:t;r.type.Array(o)?(o[0]="ERROR: "+o[0],o.unshift(1),g.apply(this,o)):g(1,"ERROR: Problem executing validation callback for option '"+e+"':",t.message)}finally{s[e]=n}})},R=function(e,t){var n=!1,r=s[e];return s[e]!=t&&(s[e]=t,O(e),n=r!=s[e]),n},j=function(e){c[e]||(c[e]=function(t){return arguments.length?("duration"===e&&(o=void 0),R(e,t)&&(c.trigger("change",{what:e,newval:s[e]}),n.shifts.indexOf(e)>-1&&c.trigger("shift",{reason:e})),c):s[e]})};this.controller=function(){return i},this.state=function(){return u},this.scrollOffset=function(){return d.start},this.triggerPosition=function(){var e=s.offset;return i&&(s.triggerElement?e+=p:e+=i.info("size")*c.triggerHook()),e},c.on("shift.internal",function(e){var t="duration"===e.reason;("AFTER"===u&&t||"DURING"===u&&0===s.duration)&&C(),t&&x()}).on("progress.internal",function(){C()}).on("add.internal",function(){x()}).on("destroy.internal",function(e){c.removePin(e.reset)});var C=function(e){if(v&&i){var t=i.info(),n=y.spacer.firstChild;if(e||"DURING"!==u){var o={position:y.inFlow?"relative":"absolute",top:0,left:0},a=r.css(n,"position")!=o.position;y.pushFollowers?s.duration>0&&("AFTER"===u&&0===parseFloat(r.css(y.spacer,"padding-top"))||"BEFORE"===u&&0===parseFloat(r.css(y.spacer,"padding-bottom")))&&(a=!0):o[t.vertical?"top":"left"]=s.duration*f,r.css(n,o),a&&x()}else{"fixed"!=r.css(n,"position")&&(r.css(n,{position:"fixed"}),x());var l=r.get.offset(y.spacer,!0),c=s.reverse||0===s.duration?t.scrollPos-d.start:Math.round(f*s.duration*10)/10;l[t.vertical?"top":"left"]+=c,r.css(y.spacer.firstChild,{top:l.top,left:l.left})}}},x=function(){if(v&&i&&y.inFlow){var e="DURING"===u,t=i.info("vertical"),n=y.spacer.firstChild,o=r.isMarginCollapseType(r.css(y.spacer,"display")),a={};y.relSize.width||y.relSize.autoFullWidth?e?r.css(v,{width:r.get.width(y.spacer)}):r.css(v,{width:"100%"}):(a["min-width"]=r.get.width(t?v:n,!0,!0),a.width=e?a["min-width"]:"auto"),y.relSize.height?e?r.css(v,{height:r.get.height(y.spacer)-(y.pushFollowers?s.duration:0)}):r.css(v,{height:"100%"}):(a["min-height"]=r.get.height(t?n:v,!0,!o),a.height=e?a["min-height"]:"auto"),y.pushFollowers&&(a["padding"+(t?"Top":"Left")]=s.duration*f,a["padding"+(t?"Bottom":"Right")]=s.duration*(1-f)),r.css(y.spacer,a)}},P=function(){i&&v&&"DURING"===u&&!i.info("isDocument")&&C()},k=function(){i&&v&&"DURING"===u&&((y.relSize.width||y.relSize.autoFullWidth)&&r.get.width(window)!=r.get.width(y.spacer.parentNode)||y.relSize.height&&r.get.height(window)!=r.get.height(y.spacer.parentNode))&&x()},T=function(e){i&&v&&"DURING"===u&&!i.info("isDocument")&&(e.preventDefault(),i._setScrollPos(i.info("scrollPos")-((e.wheelDelta||e[i.info("vertical")?"wheelDeltaY":"wheelDeltaX"])/3||30*-e.detail)))};this.setPin=function(e,t){var n=t&&t.hasOwnProperty("pushFollowers");if(t=r.extend({},{pushFollowers:!0,spacerClass:"scrollmagic-pin-spacer"},t),!(e=r.get.elements(e)[0]))return g(1,"ERROR calling method 'setPin()': Invalid pin element supplied."),c;if("fixed"===r.css(e,"position"))return g(1,"ERROR calling method 'setPin()': Pin does not work with elements that are positioned 'fixed'."),c;if(v){if(v===e)return c;c.removePin()}var o=(v=e).parentNode.style.display,i=["top","left","bottom","right","margin","marginLeft","marginRight","marginTop","marginBottom"];v.parentNode.style.display="none";var a="absolute"!=r.css(v,"position"),l=r.css(v,i.concat(["display"])),u=r.css(v,["width","height"]);v.parentNode.style.display=o,!a&&t.pushFollowers&&(g(2,"WARNING: If the pinned element is positioned absolutely pushFollowers will be disabled."),t.pushFollowers=!1),window.setTimeout(function(){v&&0===s.duration&&n&&t.pushFollowers&&g(2,"WARNING: pushFollowers =",!0,"has no effect, when scene duration is 0.")},0);var f=v.parentNode.insertBefore(document.createElement("div"),v),d=r.extend(l,{position:a?"relative":"absolute",boxSizing:"content-box",mozBoxSizing:"content-box",webkitBoxSizing:"content-box"});if(a||r.extend(d,r.css(v,["width","height"])),r.css(f,d),f.setAttribute("data-scrollmagic-pin-spacer",""),r.addClass(f,t.spacerClass),y={spacer:f,relSize:{width:"%"===u.width.slice(-1),height:"%"===u.height.slice(-1),autoFullWidth:"auto"===u.width&&a&&r.isMarginCollapseType(l.display)},pushFollowers:t.pushFollowers,inFlow:a},!v.___origStyle){v.___origStyle={};var p=v.style;i.concat(["width","height","position","boxSizing","mozBoxSizing","webkitBoxSizing"]).forEach(function(e){v.___origStyle[e]=p[e]||""})}return y.relSize.width&&r.css(f,{width:u.width}),y.relSize.height&&r.css(f,{height:u.height}),f.appendChild(v),r.css(v,{position:a?"relative":"absolute",margin:"auto",top:"auto",left:"auto",bottom:"auto",right:"auto"}),(y.relSize.width||y.relSize.autoFullWidth)&&r.css(v,{boxSizing:"border-box",mozBoxSizing:"border-box",webkitBoxSizing:"border-box"}),window.addEventListener("scroll",P),window.addEventListener("resize",P),window.addEventListener("resize",k),v.addEventListener("mousewheel",T),v.addEventListener("DOMMouseScroll",T),g(3,"added pin"),C(),c},this.removePin=function(e){if(v){if("DURING"===u&&C(!0),e||!i){var t=y.spacer.firstChild;if(t.hasAttribute("data-scrollmagic-pin-spacer")){var n=y.spacer.style,o={};["margin","marginLeft","marginRight","marginTop","marginBottom"].forEach(function(e){o[e]=n[e]||""}),r.css(t,o)}y.spacer.parentNode.insertBefore(t,y.spacer),y.spacer.parentNode.removeChild(y.spacer),v.parentNode.hasAttribute("data-scrollmagic-pin-spacer")||(r.css(v,v.___origStyle),delete v.___origStyle)}window.removeEventListener("scroll",P),window.removeEventListener("resize",P),window.removeEventListener("resize",k),v.removeEventListener("mousewheel",T),v.removeEventListener("DOMMouseScroll",T),v=void 0,g(3,"removed pin (reset: "+(e?"true":"false")+")")}return c};var M,A=[];return c.on("destroy.internal",function(e){c.removeClassToggle(e.reset)}),this.setClassToggle=function(e,t){var n=r.get.elements(e);return 0!==n.length&&r.type.String(t)?(A.length>0&&c.removeClassToggle(),M=t,A=n,c.on("enter.internal_class leave.internal_class",function(e){var t="enter"===e.type?r.addClass:r.removeClass;A.forEach(function(e){t(e,M)})}),c):(g(1,"ERROR calling method 'setClassToggle()': Invalid "+(0===n.length?"element":"classes")+" supplied."),c)},this.removeClassToggle=function(e){return e&&A.forEach(function(e){r.removeClass(e,M)}),c.off("start.internal_class end.internal_class"),M=void 0,A=[],c},function(){for(var e in s){l.hasOwnProperty(e)||(g(2,"WARNING: Unknown option \""+e+"\""),delete s[e])}for(var t in l){j(t)}O()}(),c};var n={defaults:{duration:0,offset:0,triggerElement:void 0,triggerHook:.5,reverse:!0,loglevel:2},validate:{offset:function offset(e){if(e=parseFloat(e),!r.type.Number(e))throw["Invalid value for option \"offset\":",e];return e},triggerElement:function triggerElement(e){if(e=e||void 0){var t=r.get.elements(e)[0];if(!t||!t.parentNode)throw["Element defined in option \"triggerElement\" was not found:",e];e=t}return e},triggerHook:function triggerHook(e){var t={onCenter:.5,onEnter:1,onLeave:0};if(r.type.Number(e))e=Math.max(0,Math.min(parseFloat(e),1));else{if(!(e in t))throw["Invalid value for option \"triggerHook\": ",e];e=t[e]}return e},reverse:function reverse(e){return!!e},loglevel:function loglevel(e){if(e=parseInt(e),!r.type.Number(e)||e<0||e>3)throw["Invalid value for option \"loglevel\":",e];return e}},shifts:["duration","offset","triggerHook"]};e.Scene.addOption=function(t,r,o,i){t in n.defaults?e._util.log(1,"[static] ScrollMagic.Scene -> Cannot add Scene option '"+t+"', because it already exists."):(n.defaults[t]=r,n.validate[t]=o,i&&n.shifts.push(t))},e.Scene.extend=function(t){var n=this;e.Scene=function(){return n.apply(this,arguments),this.$super=r.extend({},this),t.apply(this,arguments)||this},r.extend(e.Scene,n),e.Scene.prototype=n.prototype,e.Scene.prototype.constructor=e.Scene},e.Event=function(e,t,n,r){for(var o in r=r||{}){this[o]=r[o]}return this.type=e,this.target=this.currentTarget=n,this.namespace=t||"",this.timeStamp=this.timestamp=Date.now(),this};var r=e._util=function(e){var t,n={},r=function(e){return parseFloat(e)||0},o=function(t){return t.currentStyle?t.currentStyle:e.getComputedStyle(t)},i=function(t,n,_i,a){if((n=n===document?e:n)===e)a=!1;else if(!h.DomElement(n))return 0;t=t.charAt(0).toUpperCase()+t.substr(1).toLowerCase();var l=(_i?n["offset"+t]||n["outer"+t]:n["client"+t]||n["inner"+t])||0;if(_i&&a){var c=o(n);l+="Height"===t?r(c.marginTop)+r(c.marginBottom):r(c.marginLeft)+r(c.marginRight)}return l},a=function(e){return e.replace(/^[^a-z]+([a-z])/g,"$1").replace(/-([a-z])/g,function(e){return e[1].toUpperCase()})};n.extend=function(e){for(e=e||{},t=1;t<arguments.length;t++){if(arguments[t])for(var n in arguments[t]){arguments[t].hasOwnProperty(n)&&(e[n]=arguments[t][n])}}return e},n.isMarginCollapseType=function(e){return["block","flex","list-item","table","-webkit-box"].indexOf(e)>-1};var l=0,c=["ms","moz","webkit","o"],s=e.requestAnimationFrame,u=e.cancelAnimationFrame;for(t=0;!s&&t<c.length;++t){s=e[c[t]+"RequestAnimationFrame"],u=e[c[t]+"CancelAnimationFrame"]||e[c[t]+"CancelRequestAnimationFrame"]}s||(s=function(t){var n=new Date().getTime(),r=Math.max(0,16-(n-l)),o=e.setTimeout(function(){t(n+r)},r);return l=n+r,o}),u||(u=function(t){e.clearTimeout(t)}),n.rAF=s.bind(e),n.cAF=u.bind(e);var f=["error","warn","log"],d=e.console||{};for(d.log=d.log||function(){},t=0;t<f.length;t++){var p=f[t];d[p]||(d[p]=d.log)}n.log=function(e){(e>f.length||e<=0)&&(e=f.length);var t=new Date,n=("0"+t.getHours()).slice(-2)+":"+("0"+t.getMinutes()).slice(-2)+":"+("0"+t.getSeconds()).slice(-2)+":"+("00"+t.getMilliseconds()).slice(-3),r=f[e-1],o=Array.prototype.splice.call(arguments,1),i=Function.prototype.bind.call(d[r],d);o.unshift(n),i.apply(d,o)};var h=n.type=function(e){return Object.prototype.toString.call(e).replace(/^\[object (.+)\]$/,"$1").toLowerCase()};h.String=function(e){return"string"===h(e)},h.Function=function(e){return"function"===h(e)},h.Array=function(e){return Array.isArray(e)},h.Number=function(e){return!h.Array(e)&&e-parseFloat(e)+1>=0},h.DomElement=function(e){return"object"==(typeof HTMLElement==="undefined"?"undefined":_typeof(HTMLElement))||"function"==typeof HTMLElement?e instanceof HTMLElement||e instanceof SVGElement:e&&"object"==_typeof(e)&&null!==e&&1===e.nodeType&&"string"==typeof e.nodeName};var m=n.get={};return m.elements=function(t){var n=[];if(h.String(t))try{t=document.querySelectorAll(t)}catch(e){return n}if("nodelist"===h(t)||h.Array(t)||t instanceof NodeList)for(var r=0,o=n.length=t.length,i;r<o;r++){i=t[r];n[r]=h.DomElement(i)?i:m.elements(i)}else(h.DomElement(t)||t===document||t===e)&&(n=[t]);return n},m.scrollTop=function(t){return t&&"number"==typeof t.scrollTop?t.scrollTop:e.pageYOffset||0},m.scrollLeft=function(t){return t&&"number"==typeof t.scrollLeft?t.scrollLeft:e.pageXOffset||0},m.width=function(e,t,n){return i("width",e,t,n)},m.height=function(e,t,n){return i("height",e,t,n)},m.offset=function(e,t){var n={top:0,left:0};if(e&&e.getBoundingClientRect){var r=e.getBoundingClientRect();n.top=r.top,n.left=r.left,t||(n.top+=m.scrollTop(),n.left+=m.scrollLeft())}return n},n.addClass=function(e,t){t&&(e.classList?e.classList.add(t):e.className+=" "+t)},n.removeClass=function(e,t){t&&(e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp("(^|\\b)"+t.split(" ").join("|")+"(\\b|$)","gi")," "))},n.css=function(e,t){if(h.String(t))return o(e)[a(t)];if(h.Array(t)){var n={},r=o(e);return t.forEach(function(e){n[e]=r[a(e)]}),n}for(var i in t){var l=t[i];l==parseFloat(l)&&(l+="px"),e.style[a(i)]=l}},n}(window||{});return e.Scene.prototype.addIndicators=function(){return e._util.log(1,"(ScrollMagic.Scene) -> ERROR calling addIndicators() due to missing Plugin 'debug.addIndicators'. Please make sure to include plugins/debug.addIndicators.js"),this},e.Scene.prototype.removeIndicators=function(){return e._util.log(1,"(ScrollMagic.Scene) -> ERROR calling removeIndicators() due to missing Plugin 'debug.addIndicators'. Please make sure to include plugins/debug.addIndicators.js"),this},e.Scene.prototype.setTween=function(){return e._util.log(1,"(ScrollMagic.Scene) -> ERROR calling setTween() due to missing Plugin 'animation.gsap'. Please make sure to include plugins/animation.gsap.js"),this},e.Scene.prototype.removeTween=function(){return e._util.log(1,"(ScrollMagic.Scene) -> ERROR calling removeTween() due to missing Plugin 'animation.gsap'. Please make sure to include plugins/animation.gsap.js"),this},e.Scene.prototype.setVelocity=function(){return e._util.log(1,"(ScrollMagic.Scene) -> ERROR calling setVelocity() due to missing Plugin 'animation.velocity'. Please make sure to include plugins/animation.velocity.js"),this},e.Scene.prototype.removeVelocity=function(){return e._util.log(1,"(ScrollMagic.Scene) -> ERROR calling removeVelocity() due to missing Plugin 'animation.velocity'. Please make sure to include plugins/animation.velocity.js"),this},e})?r.call(t,n,t,e):r)||(e.exports=o)},function(e,t,n){"use strict";/**
+ */
+/**
+ * @namespace ScrollMagic
+ */
+(function (root, factory) {
+	if (true) {
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}(this, function () {
+	"use strict";
+
+	var ScrollMagic = function () {
+		_util.log(2, '(COMPATIBILITY NOTICE) -> As of ScrollMagic 2.0.0 you need to use \'new ScrollMagic.Controller()\' to create a new controller instance. Use \'new ScrollMagic.Scene()\' to instance a scene.');
+	};
+
+	ScrollMagic.version = "2.0.7";
+
+	// TODO: temporary workaround for chrome's scroll jitter bug
+	window.addEventListener("mousewheel", function () {});
+
+	// global const
+	var PIN_SPACER_ATTRIBUTE = "data-scrollmagic-pin-spacer";
+
+	/**
+	 * The main class that is needed once per scroll container.
+	 *
+	 * @class
+	 *
+	 * @example
+	 * // basic initialization
+	 * var controller = new ScrollMagic.Controller();
+	 *
+	 * // passing options
+	 * var controller = new ScrollMagic.Controller({container: "#myContainer", loglevel: 3});
+	 *
+	 * @param {object} [options] - An object containing one or more options for the controller.
+	 * @param {(string|object)} [options.container=window] - A selector, DOM object that references the main container for scrolling.
+	 * @param {boolean} [options.vertical=true] - Sets the scroll mode to vertical (`true`) or horizontal (`false`) scrolling.
+	 * @param {object} [options.globalSceneOptions={}] - These options will be passed to every Scene that is added to the controller using the addScene method. For more information on Scene options see {@link ScrollMagic.Scene}.
+	 * @param {number} [options.loglevel=2] Loglevel for debugging. Note that logging is disabled in the minified version of ScrollMagic.
+											 ** `0` => silent
+											 ** `1` => errors
+											 ** `2` => errors, warnings
+											 ** `3` => errors, warnings, debuginfo
+	 * @param {boolean} [options.refreshInterval=100] - Some changes don't call events by default, like changing the container size or moving a scene trigger element.  
+	 																										 This interval polls these parameters to fire the necessary events.  
+	 																										 If you don't use custom containers, trigger elements or have static layouts, where the positions of the trigger elements don't change, you can set this to 0 disable interval checking and improve performance.
+	 *
+	 */
+	ScrollMagic.Controller = function (options) {
+		/*
+		 * ----------------------------------------------------------------
+		 * settings
+		 * ----------------------------------------------------------------
+		 */
+		var
+			NAMESPACE = 'ScrollMagic.Controller',
+			SCROLL_DIRECTION_FORWARD = 'FORWARD',
+			SCROLL_DIRECTION_REVERSE = 'REVERSE',
+			SCROLL_DIRECTION_PAUSED = 'PAUSED',
+			DEFAULT_OPTIONS = CONTROLLER_OPTIONS.defaults;
+
+		/*
+		 * ----------------------------------------------------------------
+		 * private vars
+		 * ----------------------------------------------------------------
+		 */
+		var
+			Controller = this,
+			_options = _util.extend({}, DEFAULT_OPTIONS, options),
+			_sceneObjects = [],
+			_updateScenesOnNextCycle = false, // can be boolean (true => all scenes) or an array of scenes to be updated
+			_scrollPos = 0,
+			_scrollDirection = SCROLL_DIRECTION_PAUSED,
+			_isDocument = true,
+			_viewPortSize = 0,
+			_enabled = true,
+			_updateTimeout,
+			_refreshTimeout;
+
+		/*
+		 * ----------------------------------------------------------------
+		 * private functions
+		 * ----------------------------------------------------------------
+		 */
+
+		/**
+		 * Internal constructor function of the ScrollMagic Controller
+		 * @private
+		 */
+		var construct = function () {
+			for (var key in _options) {
+				if (!DEFAULT_OPTIONS.hasOwnProperty(key)) {
+					log(2, "WARNING: Unknown option \"" + key + "\"");
+					delete _options[key];
+				}
+			}
+			_options.container = _util.get.elements(_options.container)[0];
+			// check ScrollContainer
+			if (!_options.container) {
+				log(1, "ERROR creating object " + NAMESPACE + ": No valid scroll container supplied");
+				throw NAMESPACE + " init failed."; // cancel
+			}
+			_isDocument = _options.container === window || _options.container === document.body || !document.body.contains(_options.container);
+			// normalize to window
+			if (_isDocument) {
+				_options.container = window;
+			}
+			// update container size immediately
+			_viewPortSize = getViewportSize();
+			// set event handlers
+			_options.container.addEventListener("resize", onChange);
+			_options.container.addEventListener("scroll", onChange);
+
+			var ri = parseInt(_options.refreshInterval, 10);
+			_options.refreshInterval = _util.type.Number(ri) ? ri : DEFAULT_OPTIONS.refreshInterval;
+			scheduleRefresh();
+
+			log(3, "added new " + NAMESPACE + " controller (v" + ScrollMagic.version + ")");
+		};
+
+		/**
+		 * Schedule the next execution of the refresh function
+		 * @private
+		 */
+		var scheduleRefresh = function () {
+			if (_options.refreshInterval > 0) {
+				_refreshTimeout = window.setTimeout(refresh, _options.refreshInterval);
+			}
+		};
+
+		/**
+		 * Default function to get scroll pos - overwriteable using `Controller.scrollPos(newFunction)`
+		 * @private
+		 */
+		var getScrollPos = function () {
+			return _options.vertical ? _util.get.scrollTop(_options.container) : _util.get.scrollLeft(_options.container);
+		};
+
+		/**
+		 * Returns the current viewport Size (width vor horizontal, height for vertical)
+		 * @private
+		 */
+		var getViewportSize = function () {
+			return _options.vertical ? _util.get.height(_options.container) : _util.get.width(_options.container);
+		};
+
+		/**
+		 * Default function to set scroll pos - overwriteable using `Controller.scrollTo(newFunction)`
+		 * Make available publicly for pinned mousewheel workaround.
+		 * @private
+		 */
+		var setScrollPos = this._setScrollPos = function (pos) {
+			if (_options.vertical) {
+				if (_isDocument) {
+					window.scrollTo(_util.get.scrollLeft(), pos);
+				} else {
+					_options.container.scrollTop = pos;
+				}
+			} else {
+				if (_isDocument) {
+					window.scrollTo(pos, _util.get.scrollTop());
+				} else {
+					_options.container.scrollLeft = pos;
+				}
+			}
+		};
+
+		/**
+		 * Handle updates in cycles instead of on scroll (performance)
+		 * @private
+		 */
+		var updateScenes = function () {
+			if (_enabled && _updateScenesOnNextCycle) {
+				// determine scenes to update
+				var scenesToUpdate = _util.type.Array(_updateScenesOnNextCycle) ? _updateScenesOnNextCycle : _sceneObjects.slice(0);
+				// reset scenes
+				_updateScenesOnNextCycle = false;
+				var oldScrollPos = _scrollPos;
+				// update scroll pos now instead of onChange, as it might have changed since scheduling (i.e. in-browser smooth scroll)
+				_scrollPos = Controller.scrollPos();
+				var deltaScroll = _scrollPos - oldScrollPos;
+				if (deltaScroll !== 0) { // scroll position changed?
+					_scrollDirection = (deltaScroll > 0) ? SCROLL_DIRECTION_FORWARD : SCROLL_DIRECTION_REVERSE;
+				}
+				// reverse order of scenes if scrolling reverse
+				if (_scrollDirection === SCROLL_DIRECTION_REVERSE) {
+					scenesToUpdate.reverse();
+				}
+				// update scenes
+				scenesToUpdate.forEach(function (scene, index) {
+					log(3, "updating Scene " + (index + 1) + "/" + scenesToUpdate.length + " (" + _sceneObjects.length + " total)");
+					scene.update(true);
+				});
+				if (scenesToUpdate.length === 0 && _options.loglevel >= 3) {
+					log(3, "updating 0 Scenes (nothing added to controller)");
+				}
+			}
+		};
+
+		/**
+		 * Initializes rAF callback
+		 * @private
+		 */
+		var debounceUpdate = function () {
+			_updateTimeout = _util.rAF(updateScenes);
+		};
+
+		/**
+		 * Handles Container changes
+		 * @private
+		 */
+		var onChange = function (e) {
+			log(3, "event fired causing an update:", e.type);
+			if (e.type == "resize") {
+				// resize
+				_viewPortSize = getViewportSize();
+				_scrollDirection = SCROLL_DIRECTION_PAUSED;
+			}
+			// schedule update
+			if (_updateScenesOnNextCycle !== true) {
+				_updateScenesOnNextCycle = true;
+				debounceUpdate();
+			}
+		};
+
+		var refresh = function () {
+			if (!_isDocument) {
+				// simulate resize event. Only works for viewport relevant param (performance)
+				if (_viewPortSize != getViewportSize()) {
+					var resizeEvent;
+					try {
+						resizeEvent = new Event('resize', {
+							bubbles: false,
+							cancelable: false
+						});
+					} catch (e) { // stupid IE
+						resizeEvent = document.createEvent("Event");
+						resizeEvent.initEvent("resize", false, false);
+					}
+					_options.container.dispatchEvent(resizeEvent);
+				}
+			}
+			_sceneObjects.forEach(function (scene, index) { // refresh all scenes
+				scene.refresh();
+			});
+			scheduleRefresh();
+		};
+
+		/**
+		 * Send a debug message to the console.
+		 * provided publicly with _log for plugins
+		 * @private
+		 *
+		 * @param {number} loglevel - The loglevel required to initiate output for the message.
+		 * @param {...mixed} output - One or more variables that should be passed to the console.
+		 */
+		var log = this._log = function (loglevel, output) {
+			if (_options.loglevel >= loglevel) {
+				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");
+				_util.log.apply(window, arguments);
+			}
+		};
+		// for scenes we have getters for each option, but for the controller we don't, so we need to make it available externally for plugins
+		this._options = _options;
+
+		/**
+		 * Sort scenes in ascending order of their start offset.
+		 * @private
+		 *
+		 * @param {array} ScenesArray - an array of ScrollMagic Scenes that should be sorted
+		 * @return {array} The sorted array of Scenes.
+		 */
+		var sortScenes = function (ScenesArray) {
+			if (ScenesArray.length <= 1) {
+				return ScenesArray;
+			} else {
+				var scenes = ScenesArray.slice(0);
+				scenes.sort(function (a, b) {
+					return a.scrollOffset() > b.scrollOffset() ? 1 : -1;
+				});
+				return scenes;
+			}
+		};
+
+		/**
+		 * ----------------------------------------------------------------
+		 * public functions
+		 * ----------------------------------------------------------------
+		 */
+
+		/**
+		 * Add one ore more scene(s) to the controller.  
+		 * This is the equivalent to `Scene.addTo(controller)`.
+		 * @public
+		 * @example
+		 * // with a previously defined scene
+		 * controller.addScene(scene);
+		 *
+		 * // with a newly created scene.
+		 * controller.addScene(new ScrollMagic.Scene({duration : 0}));
+		 *
+		 * // adding multiple scenes
+		 * controller.addScene([scene, scene2, new ScrollMagic.Scene({duration : 0})]);
+		 *
+		 * @param {(ScrollMagic.Scene|array)} newScene - ScrollMagic Scene or Array of Scenes to be added to the controller.
+		 * @return {Controller} Parent object for chaining.
+		 */
+		this.addScene = function (newScene) {
+			if (_util.type.Array(newScene)) {
+				newScene.forEach(function (scene, index) {
+					Controller.addScene(scene);
+				});
+			} else if (newScene instanceof ScrollMagic.Scene) {
+				if (newScene.controller() !== Controller) {
+					newScene.addTo(Controller);
+				} else if (_sceneObjects.indexOf(newScene) < 0) {
+					// new scene
+					_sceneObjects.push(newScene); // add to array
+					_sceneObjects = sortScenes(_sceneObjects); // sort
+					newScene.on("shift.controller_sort", function () { // resort whenever scene moves
+						_sceneObjects = sortScenes(_sceneObjects);
+					});
+					// insert Global defaults.
+					for (var key in _options.globalSceneOptions) {
+						if (newScene[key]) {
+							newScene[key].call(newScene, _options.globalSceneOptions[key]);
+						}
+					}
+					log(3, "adding Scene (now " + _sceneObjects.length + " total)");
+				}
+			} else {
+				log(1, "ERROR: invalid argument supplied for '.addScene()'");
+			}
+			return Controller;
+		};
+
+		/**
+		 * Remove one ore more scene(s) from the controller.  
+		 * This is the equivalent to `Scene.remove()`.
+		 * @public
+		 * @example
+		 * // remove a scene from the controller
+		 * controller.removeScene(scene);
+		 *
+		 * // remove multiple scenes from the controller
+		 * controller.removeScene([scene, scene2, scene3]);
+		 *
+		 * @param {(ScrollMagic.Scene|array)} Scene - ScrollMagic Scene or Array of Scenes to be removed from the controller.
+		 * @returns {Controller} Parent object for chaining.
+		 */
+		this.removeScene = function (Scene) {
+			if (_util.type.Array(Scene)) {
+				Scene.forEach(function (scene, index) {
+					Controller.removeScene(scene);
+				});
+			} else {
+				var index = _sceneObjects.indexOf(Scene);
+				if (index > -1) {
+					Scene.off("shift.controller_sort");
+					_sceneObjects.splice(index, 1);
+					log(3, "removing Scene (now " + _sceneObjects.length + " left)");
+					Scene.remove();
+				}
+			}
+			return Controller;
+		};
+
+		/**
+	 * Update one ore more scene(s) according to the scroll position of the container.  
+	 * This is the equivalent to `Scene.update()`.  
+	 * The update method calculates the scene's start and end position (based on the trigger element, trigger hook, duration and offset) and checks it against the current scroll position of the container.  
+	 * It then updates the current scene state accordingly (or does nothing, if the state is already correct) – Pins will be set to their correct position and tweens will be updated to their correct progress.  
+	 * _**Note:** This method gets called constantly whenever Controller detects a change. The only application for you is if you change something outside of the realm of ScrollMagic, like moving the trigger or changing tween parameters._
+	 * @public
+	 * @example
+	 * // update a specific scene on next cycle
+ 	 * controller.updateScene(scene);
+ 	 *
+	 * // update a specific scene immediately
+	 * controller.updateScene(scene, true);
+ 	 *
+	 * // update multiple scenes scene on next cycle
+	 * controller.updateScene([scene1, scene2, scene3]);
+	 *
+	 * @param {ScrollMagic.Scene} Scene - ScrollMagic Scene or Array of Scenes that is/are supposed to be updated.
+	 * @param {boolean} [immediately=false] - If `true` the update will be instant, if `false` it will wait until next update cycle.  
+	 										  This is useful when changing multiple properties of the scene - this way it will only be updated once all new properties are set (updateScenes).
+	 * @return {Controller} Parent object for chaining.
+	 */
+		this.updateScene = function (Scene, immediately) {
+			if (_util.type.Array(Scene)) {
+				Scene.forEach(function (scene, index) {
+					Controller.updateScene(scene, immediately);
+				});
+			} else {
+				if (immediately) {
+					Scene.update(true);
+				} else if (_updateScenesOnNextCycle !== true && Scene instanceof ScrollMagic.Scene) { // if _updateScenesOnNextCycle is true, all connected scenes are already scheduled for update
+					// prep array for next update cycle
+					_updateScenesOnNextCycle = _updateScenesOnNextCycle || [];
+					if (_updateScenesOnNextCycle.indexOf(Scene) == -1) {
+						_updateScenesOnNextCycle.push(Scene);
+					}
+					_updateScenesOnNextCycle = sortScenes(_updateScenesOnNextCycle); // sort
+					debounceUpdate();
+				}
+			}
+			return Controller;
+		};
+
+		/**
+		 * Updates the controller params and calls updateScene on every scene, that is attached to the controller.  
+		 * See `Controller.updateScene()` for more information about what this means.  
+		 * In most cases you will not need this function, as it is called constantly, whenever ScrollMagic detects a state change event, like resize or scroll.  
+		 * The only application for this method is when ScrollMagic fails to detect these events.  
+		 * One application is with some external scroll libraries (like iScroll) that move an internal container to a negative offset instead of actually scrolling. In this case the update on the controller needs to be called whenever the child container's position changes.
+		 * For this case there will also be the need to provide a custom function to calculate the correct scroll position. See `Controller.scrollPos()` for details.
+		 * @public
+		 * @example
+		 * // update the controller on next cycle (saves performance due to elimination of redundant updates)
+		 * controller.update();
+		 *
+		 * // update the controller immediately
+		 * controller.update(true);
+		 *
+		 * @param {boolean} [immediately=false] - If `true` the update will be instant, if `false` it will wait until next update cycle (better performance)
+		 * @return {Controller} Parent object for chaining.
+		 */
+		this.update = function (immediately) {
+			onChange({
+				type: "resize"
+			}); // will update size and set _updateScenesOnNextCycle to true
+			if (immediately) {
+				updateScenes();
+			}
+			return Controller;
+		};
+
+		/**
+		 * Scroll to a numeric scroll offset, a DOM element, the start of a scene or provide an alternate method for scrolling.  
+		 * For vertical controllers it will change the top scroll offset and for horizontal applications it will change the left offset.
+		 * @public
+		 *
+		 * @since 1.1.0
+		 * @example
+		 * // scroll to an offset of 100
+		 * controller.scrollTo(100);
+		 *
+		 * // scroll to a DOM element
+		 * controller.scrollTo("#anchor");
+		 *
+		 * // scroll to the beginning of a scene
+		 * var scene = new ScrollMagic.Scene({offset: 200});
+		 * controller.scrollTo(scene);
+		 *
+		 * // define a new scroll position modification function (jQuery animate instead of jump)
+		 * controller.scrollTo(function (newScrollPos) {
+		 *	$("html, body").animate({scrollTop: newScrollPos});
+		 * });
+		 * controller.scrollTo(100); // call as usual, but the new function will be used instead
+		 *
+		 * // define a new scroll function with an additional parameter
+		 * controller.scrollTo(function (newScrollPos, message) {
+		 *  console.log(message);
+		 *	$(this).animate({scrollTop: newScrollPos});
+		 * });
+		 * // call as usual, but supply an extra parameter to the defined custom function
+		 * controller.scrollTo(100, "my message");
+		 *
+		 * // define a new scroll function with an additional parameter containing multiple variables
+		 * controller.scrollTo(function (newScrollPos, options) {
+		 *  someGlobalVar = options.a + options.b;
+		 *	$(this).animate({scrollTop: newScrollPos});
+		 * });
+		 * // call as usual, but supply an extra parameter containing multiple options
+		 * controller.scrollTo(100, {a: 1, b: 2});
+		 *
+		 * // define a new scroll function with a callback supplied as an additional parameter
+		 * controller.scrollTo(function (newScrollPos, callback) {
+		 *	$(this).animate({scrollTop: newScrollPos}, 400, "swing", callback);
+		 * });
+		 * // call as usual, but supply an extra parameter, which is used as a callback in the previously defined custom scroll function
+		 * controller.scrollTo(100, function() {
+		 *	console.log("scroll has finished.");
+		 * });
+		 *
+		 * @param {mixed} scrollTarget - The supplied argument can be one of these types:
+		 * 1. `number` -> The container will scroll to this new scroll offset.
+		 * 2. `string` or `object` -> Can be a selector or a DOM object.  
+		 *  The container will scroll to the position of this element.
+		 * 3. `ScrollMagic Scene` -> The container will scroll to the start of this scene.
+		 * 4. `function` -> This function will be used for future scroll position modifications.  
+		 *  This provides a way for you to change the behaviour of scrolling and adding new behaviour like animation. The function receives the new scroll position as a parameter and a reference to the container element using `this`.  
+		 *  It may also optionally receive an optional additional parameter (see below)  
+		 *  _**NOTE:**  
+		 *  All other options will still work as expected, using the new function to scroll._
+		 * @param {mixed} [additionalParameter] - If a custom scroll function was defined (see above 4.), you may want to supply additional parameters to it, when calling it. You can do this using this parameter – see examples for details. Please note, that this parameter will have no effect, if you use the default scrolling function.
+		 * @returns {Controller} Parent object for chaining.
+		 */
+		this.scrollTo = function (scrollTarget, additionalParameter) {
+			if (_util.type.Number(scrollTarget)) { // excecute
+				setScrollPos.call(_options.container, scrollTarget, additionalParameter);
+			} else if (scrollTarget instanceof ScrollMagic.Scene) { // scroll to scene
+				if (scrollTarget.controller() === Controller) { // check if the controller is associated with this scene
+					Controller.scrollTo(scrollTarget.scrollOffset(), additionalParameter);
+				} else {
+					log(2, "scrollTo(): The supplied scene does not belong to this controller. Scroll cancelled.", scrollTarget);
+				}
+			} else if (_util.type.Function(scrollTarget)) { // assign new scroll function
+				setScrollPos = scrollTarget;
+			} else { // scroll to element
+				var elem = _util.get.elements(scrollTarget)[0];
+				if (elem) {
+					// if parent is pin spacer, use spacer position instead so correct start position is returned for pinned elements.
+					while (elem.parentNode.hasAttribute(PIN_SPACER_ATTRIBUTE)) {
+						elem = elem.parentNode;
+					}
+
+					var
+						param = _options.vertical ? "top" : "left", // which param is of interest ?
+						containerOffset = _util.get.offset(_options.container), // container position is needed because element offset is returned in relation to document, not in relation to container.
+						elementOffset = _util.get.offset(elem);
+
+					if (!_isDocument) { // container is not the document root, so substract scroll Position to get correct trigger element position relative to scrollcontent
+						containerOffset[param] -= Controller.scrollPos();
+					}
+
+					Controller.scrollTo(elementOffset[param] - containerOffset[param], additionalParameter);
+				} else {
+					log(2, "scrollTo(): The supplied argument is invalid. Scroll cancelled.", scrollTarget);
+				}
+			}
+			return Controller;
+		};
+
+		/**
+		 * **Get** the current scrollPosition or **Set** a new method to calculate it.  
+		 * -> **GET**:
+		 * When used as a getter this function will return the current scroll position.  
+		 * To get a cached value use Controller.info("scrollPos"), which will be updated in the update cycle.  
+		 * For vertical controllers it will return the top scroll offset and for horizontal applications it will return the left offset.
+		 *
+		 * -> **SET**:
+		 * When used as a setter this method prodes a way to permanently overwrite the controller's scroll position calculation.  
+		 * A typical usecase is when the scroll position is not reflected by the containers scrollTop or scrollLeft values, but for example by the inner offset of a child container.  
+		 * Moving a child container inside a parent is a commonly used method for several scrolling frameworks, including iScroll.  
+		 * By providing an alternate calculation function you can make sure ScrollMagic receives the correct scroll position.  
+		 * Please also bear in mind that your function should return y values for vertical scrolls an x for horizontals.
+		 *
+		 * To change the current scroll position please use `Controller.scrollTo()`.
+		 * @public
+		 *
+		 * @example
+		 * // get the current scroll Position
+		 * var scrollPos = controller.scrollPos();
+		 *
+		 * // set a new scroll position calculation method
+		 * controller.scrollPos(function () {
+		 *	return this.info("vertical") ? -mychildcontainer.y : -mychildcontainer.x
+		 * });
+		 *
+		 * @param {function} [scrollPosMethod] - The function to be used for the scroll position calculation of the container.
+		 * @returns {(number|Controller)} Current scroll position or parent object for chaining.
+		 */
+		this.scrollPos = function (scrollPosMethod) {
+			if (!arguments.length) { // get
+				return getScrollPos.call(Controller);
+			} else { // set
+				if (_util.type.Function(scrollPosMethod)) {
+					getScrollPos = scrollPosMethod;
+				} else {
+					log(2, "Provided value for method 'scrollPos' is not a function. To change the current scroll position use 'scrollTo()'.");
+				}
+			}
+			return Controller;
+		};
+
+		/**
+		 * **Get** all infos or one in particular about the controller.
+		 * @public
+		 * @example
+		 * // returns the current scroll position (number)
+		 * var scrollPos = controller.info("scrollPos");
+		 *
+		 * // returns all infos as an object
+		 * var infos = controller.info();
+		 *
+		 * @param {string} [about] - If passed only this info will be returned instead of an object containing all.  
+		 							 Valid options are:
+		 							 ** `"size"` => the current viewport size of the container
+		 							 ** `"vertical"` => true if vertical scrolling, otherwise false
+		 							 ** `"scrollPos"` => the current scroll position
+		 							 ** `"scrollDirection"` => the last known direction of the scroll
+		 							 ** `"container"` => the container element
+		 							 ** `"isDocument"` => true if container element is the document.
+		 * @returns {(mixed|object)} The requested info(s).
+		 */
+		this.info = function (about) {
+			var values = {
+				size: _viewPortSize, // contains height or width (in regard to orientation);
+				vertical: _options.vertical,
+				scrollPos: _scrollPos,
+				scrollDirection: _scrollDirection,
+				container: _options.container,
+				isDocument: _isDocument
+			};
+			if (!arguments.length) { // get all as an object
+				return values;
+			} else if (values[about] !== undefined) {
+				return values[about];
+			} else {
+				log(1, "ERROR: option \"" + about + "\" is not available");
+				return;
+			}
+		};
+
+		/**
+		 * **Get** or **Set** the current loglevel option value.
+		 * @public
+		 *
+		 * @example
+		 * // get the current value
+		 * var loglevel = controller.loglevel();
+		 *
+		 * // set a new value
+		 * controller.loglevel(3);
+		 *
+		 * @param {number} [newLoglevel] - The new loglevel setting of the Controller. `[0-3]`
+		 * @returns {(number|Controller)} Current loglevel or parent object for chaining.
+		 */
+		this.loglevel = function (newLoglevel) {
+			if (!arguments.length) { // get
+				return _options.loglevel;
+			} else if (_options.loglevel != newLoglevel) { // set
+				_options.loglevel = newLoglevel;
+			}
+			return Controller;
+		};
+
+		/**
+		 * **Get** or **Set** the current enabled state of the controller.  
+		 * This can be used to disable all Scenes connected to the controller without destroying or removing them.
+		 * @public
+		 *
+		 * @example
+		 * // get the current value
+		 * var enabled = controller.enabled();
+		 *
+		 * // disable the controller
+		 * controller.enabled(false);
+		 *
+		 * @param {boolean} [newState] - The new enabled state of the controller `true` or `false`.
+		 * @returns {(boolean|Controller)} Current enabled state or parent object for chaining.
+		 */
+		this.enabled = function (newState) {
+			if (!arguments.length) { // get
+				return _enabled;
+			} else if (_enabled != newState) { // set
+				_enabled = !!newState;
+				Controller.updateScene(_sceneObjects, true);
+			}
+			return Controller;
+		};
+
+		/**
+		 * Destroy the Controller, all Scenes and everything.
+		 * @public
+		 *
+		 * @example
+		 * // without resetting the scenes
+		 * controller = controller.destroy();
+		 *
+		 * // with scene reset
+		 * controller = controller.destroy(true);
+		 *
+		 * @param {boolean} [resetScenes=false] - If `true` the pins and tweens (if existent) of all scenes will be reset.
+		 * @returns {null} Null to unset handler variables.
+		 */
+		this.destroy = function (resetScenes) {
+			window.clearTimeout(_refreshTimeout);
+			var i = _sceneObjects.length;
+			while (i--) {
+				_sceneObjects[i].destroy(resetScenes);
+			}
+			_options.container.removeEventListener("resize", onChange);
+			_options.container.removeEventListener("scroll", onChange);
+			_util.cAF(_updateTimeout);
+			log(3, "destroyed " + NAMESPACE + " (reset: " + (resetScenes ? "true" : "false") + ")");
+			return null;
+		};
+
+		// INIT
+		construct();
+		return Controller;
+	};
+
+	// store pagewide controller options
+	var CONTROLLER_OPTIONS = {
+		defaults: {
+			container: window,
+			vertical: true,
+			globalSceneOptions: {},
+			loglevel: 2,
+			refreshInterval: 100
+		}
+	};
+	/*
+	 * method used to add an option to ScrollMagic Scenes.
+	 */
+	ScrollMagic.Controller.addOption = function (name, defaultValue) {
+		CONTROLLER_OPTIONS.defaults[name] = defaultValue;
+	};
+	// instance extension function for plugins
+	ScrollMagic.Controller.extend = function (extension) {
+		var oldClass = this;
+		ScrollMagic.Controller = function () {
+			oldClass.apply(this, arguments);
+			this.$super = _util.extend({}, this); // copy parent state
+			return extension.apply(this, arguments) || this;
+		};
+		_util.extend(ScrollMagic.Controller, oldClass); // copy properties
+		ScrollMagic.Controller.prototype = oldClass.prototype; // copy prototype
+		ScrollMagic.Controller.prototype.constructor = ScrollMagic.Controller; // restore constructor
+	};
+
+
+	/**
+	 * A Scene defines where the controller should react and how.
+	 *
+	 * @class
+	 *
+	 * @example
+	 * // create a standard scene and add it to a controller
+	 * new ScrollMagic.Scene()
+	 *		.addTo(controller);
+	 *
+	 * // create a scene with custom options and assign a handler to it.
+	 * var scene = new ScrollMagic.Scene({
+	 * 		duration: 100,
+	 *		offset: 200,
+	 *		triggerHook: "onEnter",
+	 *		reverse: false
+	 * });
+	 *
+	 * @param {object} [options] - Options for the Scene. The options can be updated at any time.  
+	 							   Instead of setting the options for each scene individually you can also set them globally in the controller as the controllers `globalSceneOptions` option. The object accepts the same properties as the ones below.  
+	 							   When a scene is added to the controller the options defined using the Scene constructor will be overwritten by those set in `globalSceneOptions`.
+	 * @param {(number|string|function)} [options.duration=0] - The duration of the scene. 
+	 					Please see `Scene.duration()` for details.
+	 * @param {number} [options.offset=0] - Offset Value for the Trigger Position. If no triggerElement is defined this will be the scroll distance from the start of the page, after which the scene will start.
+	 * @param {(string|object)} [options.triggerElement=null] - Selector or DOM object that defines the start of the scene. If undefined the scene will start right at the start of the page (unless an offset is set).
+	 * @param {(number|string)} [options.triggerHook="onCenter"] - Can be a number between 0 and 1 defining the position of the trigger Hook in relation to the viewport.  
+	 															  Can also be defined using a string:
+	 															  ** `"onEnter"` => `1`
+	 															  ** `"onCenter"` => `0.5`
+	 															  ** `"onLeave"` => `0`
+	 * @param {boolean} [options.reverse=true] - Should the scene reverse, when scrolling up?
+	 * @param {number} [options.loglevel=2] - Loglevel for debugging. Note that logging is disabled in the minified version of ScrollMagic.
+	 										  ** `0` => silent
+	 										  ** `1` => errors
+	 										  ** `2` => errors, warnings
+	 										  ** `3` => errors, warnings, debuginfo
+	 * 
+	 */
+	ScrollMagic.Scene = function (options) {
+
+		/*
+		 * ----------------------------------------------------------------
+		 * settings
+		 * ----------------------------------------------------------------
+		 */
+
+		var
+			NAMESPACE = 'ScrollMagic.Scene',
+			SCENE_STATE_BEFORE = 'BEFORE',
+			SCENE_STATE_DURING = 'DURING',
+			SCENE_STATE_AFTER = 'AFTER',
+			DEFAULT_OPTIONS = SCENE_OPTIONS.defaults;
+
+		/*
+		 * ----------------------------------------------------------------
+		 * private vars
+		 * ----------------------------------------------------------------
+		 */
+
+		var
+			Scene = this,
+			_options = _util.extend({}, DEFAULT_OPTIONS, options),
+			_state = SCENE_STATE_BEFORE,
+			_progress = 0,
+			_scrollOffset = {
+				start: 0,
+				end: 0
+			}, // reflects the controllers's scroll position for the start and end of the scene respectively
+			_triggerPos = 0,
+			_enabled = true,
+			_durationUpdateMethod,
+			_controller;
+
+		/**
+		 * Internal constructor function of the ScrollMagic Scene
+		 * @private
+		 */
+		var construct = function () {
+			for (var key in _options) { // check supplied options
+				if (!DEFAULT_OPTIONS.hasOwnProperty(key)) {
+					log(2, "WARNING: Unknown option \"" + key + "\"");
+					delete _options[key];
+				}
+			}
+			// add getters/setters for all possible options
+			for (var optionName in DEFAULT_OPTIONS) {
+				addSceneOption(optionName);
+			}
+			// validate all options
+			validateOption();
+		};
+
+		/*
+		 * ----------------------------------------------------------------
+		 * Event Management
+		 * ----------------------------------------------------------------
+		 */
+
+		var _listeners = {};
+		/**
+		 * Scene start event.  
+		 * Fires whenever the scroll position its the starting point of the scene.  
+		 * It will also fire when scrolling back up going over the start position of the scene. If you want something to happen only when scrolling down/right, use the scrollDirection parameter passed to the callback.
+		 *
+		 * For details on this event and the order in which it is fired, please review the {@link Scene.progress} method.
+		 *
+		 * @event ScrollMagic.Scene#start
+		 *
+		 * @example
+		 * scene.on("start", function (event) {
+		 * 	console.log("Hit start point of scene.");
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {number} event.progress - Reflects the current progress of the scene
+		 * @property {string} event.state - The current state of the scene `"BEFORE"` or `"DURING"`
+		 * @property {string} event.scrollDirection - Indicates which way we are scrolling `"PAUSED"`, `"FORWARD"` or `"REVERSE"`
+		 */
+		/**
+		 * Scene end event.  
+		 * Fires whenever the scroll position its the ending point of the scene.  
+		 * It will also fire when scrolling back up from after the scene and going over its end position. If you want something to happen only when scrolling down/right, use the scrollDirection parameter passed to the callback.
+		 *
+		 * For details on this event and the order in which it is fired, please review the {@link Scene.progress} method.
+		 *
+		 * @event ScrollMagic.Scene#end
+		 *
+		 * @example
+		 * scene.on("end", function (event) {
+		 * 	console.log("Hit end point of scene.");
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {number} event.progress - Reflects the current progress of the scene
+		 * @property {string} event.state - The current state of the scene `"DURING"` or `"AFTER"`
+		 * @property {string} event.scrollDirection - Indicates which way we are scrolling `"PAUSED"`, `"FORWARD"` or `"REVERSE"`
+		 */
+		/**
+		 * Scene enter event.  
+		 * Fires whenever the scene enters the "DURING" state.  
+		 * Keep in mind that it doesn't matter if the scene plays forward or backward: This event always fires when the scene enters its active scroll timeframe, regardless of the scroll-direction.
+		 *
+		 * For details on this event and the order in which it is fired, please review the {@link Scene.progress} method.
+		 *
+		 * @event ScrollMagic.Scene#enter
+		 *
+		 * @example
+		 * scene.on("enter", function (event) {
+		 * 	console.log("Scene entered.");
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {number} event.progress - Reflects the current progress of the scene
+		 * @property {string} event.state - The current state of the scene - always `"DURING"`
+		 * @property {string} event.scrollDirection - Indicates which way we are scrolling `"PAUSED"`, `"FORWARD"` or `"REVERSE"`
+		 */
+		/**
+		 * Scene leave event.  
+		 * Fires whenever the scene's state goes from "DURING" to either "BEFORE" or "AFTER".  
+		 * Keep in mind that it doesn't matter if the scene plays forward or backward: This event always fires when the scene leaves its active scroll timeframe, regardless of the scroll-direction.
+		 *
+		 * For details on this event and the order in which it is fired, please review the {@link Scene.progress} method.
+		 *
+		 * @event ScrollMagic.Scene#leave
+		 *
+		 * @example
+		 * scene.on("leave", function (event) {
+		 * 	console.log("Scene left.");
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {number} event.progress - Reflects the current progress of the scene
+		 * @property {string} event.state - The current state of the scene `"BEFORE"` or `"AFTER"`
+		 * @property {string} event.scrollDirection - Indicates which way we are scrolling `"PAUSED"`, `"FORWARD"` or `"REVERSE"`
+		 */
+		/**
+		 * Scene update event.  
+		 * Fires whenever the scene is updated (but not necessarily changes the progress).
+		 *
+		 * @event ScrollMagic.Scene#update
+		 *
+		 * @example
+		 * scene.on("update", function (event) {
+		 * 	console.log("Scene updated.");
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {number} event.startPos - The starting position of the scene (in relation to the conainer)
+		 * @property {number} event.endPos - The ending position of the scene (in relation to the conainer)
+		 * @property {number} event.scrollPos - The current scroll position of the container
+		 */
+		/**
+		 * Scene progress event.  
+		 * Fires whenever the progress of the scene changes.
+		 *
+		 * For details on this event and the order in which it is fired, please review the {@link Scene.progress} method.
+		 *
+		 * @event ScrollMagic.Scene#progress
+		 *
+		 * @example
+		 * scene.on("progress", function (event) {
+		 * 	console.log("Scene progress changed to " + event.progress);
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {number} event.progress - Reflects the current progress of the scene
+		 * @property {string} event.state - The current state of the scene `"BEFORE"`, `"DURING"` or `"AFTER"`
+		 * @property {string} event.scrollDirection - Indicates which way we are scrolling `"PAUSED"`, `"FORWARD"` or `"REVERSE"`
+		 */
+		/**
+		 * Scene change event.  
+		 * Fires whenvever a property of the scene is changed.
+		 *
+		 * @event ScrollMagic.Scene#change
+		 *
+		 * @example
+		 * scene.on("change", function (event) {
+		 * 	console.log("Scene Property \"" + event.what + "\" changed to " + event.newval);
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {string} event.what - Indicates what value has been changed
+		 * @property {mixed} event.newval - The new value of the changed property
+		 */
+		/**
+		 * Scene shift event.  
+		 * Fires whenvever the start or end **scroll offset** of the scene change.
+		 * This happens explicitely, when one of these values change: `offset`, `duration` or `triggerHook`.
+		 * It will fire implicitly when the `triggerElement` changes, if the new element has a different position (most cases).
+		 * It will also fire implicitly when the size of the container changes and the triggerHook is anything other than `onLeave`.
+		 *
+		 * @event ScrollMagic.Scene#shift
+		 * @since 1.1.0
+		 *
+		 * @example
+		 * scene.on("shift", function (event) {
+		 * 	console.log("Scene moved, because the " + event.reason + " has changed.)");
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {string} event.reason - Indicates why the scene has shifted
+		 */
+		/**
+		 * Scene destroy event.  
+		 * Fires whenvever the scene is destroyed.
+		 * This can be used to tidy up custom behaviour used in events.
+		 *
+		 * @event ScrollMagic.Scene#destroy
+		 * @since 1.1.0
+		 *
+		 * @example
+		 * scene.on("enter", function (event) {
+		 *        // add custom action
+		 *        $("#my-elem").left("200");
+		 *      })
+		 *      .on("destroy", function (event) {
+		 *        // reset my element to start position
+		 *        if (event.reset) {
+		 *          $("#my-elem").left("0");
+		 *        }
+		 *      });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {boolean} event.reset - Indicates if the destroy method was called with reset `true` or `false`.
+		 */
+		/**
+		 * Scene add event.  
+		 * Fires when the scene is added to a controller.
+		 * This is mostly used by plugins to know that change might be due.
+		 *
+		 * @event ScrollMagic.Scene#add
+		 * @since 2.0.0
+		 *
+		 * @example
+		 * scene.on("add", function (event) {
+		 * 	console.log('Scene was added to a new controller.');
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 * @property {boolean} event.controller - The controller object the scene was added to.
+		 */
+		/**
+		 * Scene remove event.  
+		 * Fires when the scene is removed from a controller.
+		 * This is mostly used by plugins to know that change might be due.
+		 *
+		 * @event ScrollMagic.Scene#remove
+		 * @since 2.0.0
+		 *
+		 * @example
+		 * scene.on("remove", function (event) {
+		 * 	console.log('Scene was removed from its controller.');
+		 * });
+		 *
+		 * @property {object} event - The event Object passed to each callback
+		 * @property {string} event.type - The name of the event
+		 * @property {Scene} event.target - The Scene object that triggered this event
+		 */
+
+		/**
+		 * Add one ore more event listener.  
+		 * The callback function will be fired at the respective event, and an object containing relevant data will be passed to the callback.
+		 * @method ScrollMagic.Scene#on
+		 *
+		 * @example
+		 * function callback (event) {
+		 * 		console.log("Event fired! (" + event.type + ")");
+		 * }
+		 * // add listeners
+		 * scene.on("change update progress start end enter leave", callback);
+		 *
+		 * @param {string} names - The name or names of the event the callback should be attached to.
+		 * @param {function} callback - A function that should be executed, when the event is dispatched. An event object will be passed to the callback.
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.on = function (names, callback) {
+			if (_util.type.Function(callback)) {
+				names = names.trim().split(' ');
+				names.forEach(function (fullname) {
+					var
+						nameparts = fullname.split('.'),
+						eventname = nameparts[0],
+						namespace = nameparts[1];
+					if (eventname != "*") { // disallow wildcards
+						if (!_listeners[eventname]) {
+							_listeners[eventname] = [];
+						}
+						_listeners[eventname].push({
+							namespace: namespace || '',
+							callback: callback
+						});
+					}
+				});
+			} else {
+				log(1, "ERROR when calling '.on()': Supplied callback for '" + names + "' is not a valid function!");
+			}
+			return Scene;
+		};
+
+		/**
+		 * Remove one or more event listener.
+		 * @method ScrollMagic.Scene#off
+		 *
+		 * @example
+		 * function callback (event) {
+		 * 		console.log("Event fired! (" + event.type + ")");
+		 * }
+		 * // add listeners
+		 * scene.on("change update", callback);
+		 * // remove listeners
+		 * scene.off("change update", callback);
+		 *
+		 * @param {string} names - The name or names of the event that should be removed.
+		 * @param {function} [callback] - A specific callback function that should be removed. If none is passed all callbacks to the event listener will be removed.
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.off = function (names, callback) {
+			if (!names) {
+				log(1, "ERROR: Invalid event name supplied.");
+				return Scene;
+			}
+			names = names.trim().split(' ');
+			names.forEach(function (fullname, key) {
+				var
+					nameparts = fullname.split('.'),
+					eventname = nameparts[0],
+					namespace = nameparts[1] || '',
+					removeList = eventname === '*' ? Object.keys(_listeners) : [eventname];
+				removeList.forEach(function (remove) {
+					var
+						list = _listeners[remove] || [],
+						i = list.length;
+					while (i--) {
+						var listener = list[i];
+						if (listener && (namespace === listener.namespace || namespace === '*') && (!callback || callback == listener.callback)) {
+							list.splice(i, 1);
+						}
+					}
+					if (!list.length) {
+						delete _listeners[remove];
+					}
+				});
+			});
+			return Scene;
+		};
+
+		/**
+		 * Trigger an event.
+		 * @method ScrollMagic.Scene#trigger
+		 *
+		 * @example
+		 * this.trigger("change");
+		 *
+		 * @param {string} name - The name of the event that should be triggered.
+		 * @param {object} [vars] - An object containing info that should be passed to the callback.
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.trigger = function (name, vars) {
+			if (name) {
+				var
+					nameparts = name.trim().split('.'),
+					eventname = nameparts[0],
+					namespace = nameparts[1],
+					listeners = _listeners[eventname];
+				log(3, 'event fired:', eventname, vars ? "->" : '', vars || '');
+				if (listeners) {
+					listeners.forEach(function (listener, key) {
+						if (!namespace || namespace === listener.namespace) {
+							listener.callback.call(Scene, new ScrollMagic.Event(eventname, listener.namespace, Scene, vars));
+						}
+					});
+				}
+			} else {
+				log(1, "ERROR: Invalid event name supplied.");
+			}
+			return Scene;
+		};
+
+		// set event listeners
+		Scene
+			.on("change.internal", function (e) {
+				if (e.what !== "loglevel" && e.what !== "tweenChanges") { // no need for a scene update scene with these options...
+					if (e.what === "triggerElement") {
+						updateTriggerElementPosition();
+					} else if (e.what === "reverse") { // the only property left that may have an impact on the current scene state. Everything else is handled by the shift event.
+						Scene.update();
+					}
+				}
+			})
+			.on("shift.internal", function (e) {
+				updateScrollOffset();
+				Scene.update(); // update scene to reflect new position
+			});
+
+		/**
+		 * Send a debug message to the console.
+		 * @private
+		 * but provided publicly with _log for plugins
+		 *
+		 * @param {number} loglevel - The loglevel required to initiate output for the message.
+		 * @param {...mixed} output - One or more variables that should be passed to the console.
+		 */
+		var log = this._log = function (loglevel, output) {
+			if (_options.loglevel >= loglevel) {
+				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");
+				_util.log.apply(window, arguments);
+			}
+		};
+
+		/**
+		 * Add the scene to a controller.  
+		 * This is the equivalent to `Controller.addScene(scene)`.
+		 * @method ScrollMagic.Scene#addTo
+		 *
+		 * @example
+		 * // add a scene to a ScrollMagic Controller
+		 * scene.addTo(controller);
+		 *
+		 * @param {ScrollMagic.Controller} controller - The controller to which the scene should be added.
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.addTo = function (controller) {
+			if (!(controller instanceof ScrollMagic.Controller)) {
+				log(1, "ERROR: supplied argument of 'addTo()' is not a valid ScrollMagic Controller");
+			} else if (_controller != controller) {
+				// new controller
+				if (_controller) { // was associated to a different controller before, so remove it...
+					_controller.removeScene(Scene);
+				}
+				_controller = controller;
+				validateOption();
+				updateDuration(true);
+				updateTriggerElementPosition(true);
+				updateScrollOffset();
+				_controller.info("container").addEventListener('resize', onContainerResize);
+				controller.addScene(Scene);
+				Scene.trigger("add", {
+					controller: _controller
+				});
+				log(3, "added " + NAMESPACE + " to controller");
+				Scene.update();
+			}
+			return Scene;
+		};
+
+		/**
+		 * **Get** or **Set** the current enabled state of the scene.  
+		 * This can be used to disable this scene without removing or destroying it.
+		 * @method ScrollMagic.Scene#enabled
+		 *
+		 * @example
+		 * // get the current value
+		 * var enabled = scene.enabled();
+		 *
+		 * // disable the scene
+		 * scene.enabled(false);
+		 *
+		 * @param {boolean} [newState] - The new enabled state of the scene `true` or `false`.
+		 * @returns {(boolean|Scene)} Current enabled state or parent object for chaining.
+		 */
+		this.enabled = function (newState) {
+			if (!arguments.length) { // get
+				return _enabled;
+			} else if (_enabled != newState) { // set
+				_enabled = !!newState;
+				Scene.update(true);
+			}
+			return Scene;
+		};
+
+		/**
+		 * Remove the scene from the controller.  
+		 * This is the equivalent to `Controller.removeScene(scene)`.
+		 * The scene will not be updated anymore until you readd it to a controller.
+		 * To remove the pin or the tween you need to call removeTween() or removePin() respectively.
+		 * @method ScrollMagic.Scene#remove
+		 * @example
+		 * // remove the scene from its controller
+		 * scene.remove();
+		 *
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.remove = function () {
+			if (_controller) {
+				_controller.info("container").removeEventListener('resize', onContainerResize);
+				var tmpParent = _controller;
+				_controller = undefined;
+				tmpParent.removeScene(Scene);
+				Scene.trigger("remove");
+				log(3, "removed " + NAMESPACE + " from controller");
+			}
+			return Scene;
+		};
+
+		/**
+		 * Destroy the scene and everything.
+		 * @method ScrollMagic.Scene#destroy
+		 * @example
+		 * // destroy the scene without resetting the pin and tween to their initial positions
+		 * scene = scene.destroy();
+		 *
+		 * // destroy the scene and reset the pin and tween
+		 * scene = scene.destroy(true);
+		 *
+		 * @param {boolean} [reset=false] - If `true` the pin and tween (if existent) will be reset.
+		 * @returns {null} Null to unset handler variables.
+		 */
+		this.destroy = function (reset) {
+			Scene.trigger("destroy", {
+				reset: reset
+			});
+			Scene.remove();
+			Scene.off("*.*");
+			log(3, "destroyed " + NAMESPACE + " (reset: " + (reset ? "true" : "false") + ")");
+			return null;
+		};
+
+
+		/**
+		 * Updates the Scene to reflect the current state.  
+		 * This is the equivalent to `Controller.updateScene(scene, immediately)`.  
+		 * The update method calculates the scene's start and end position (based on the trigger element, trigger hook, duration and offset) and checks it against the current scroll position of the container.  
+		 * It then updates the current scene state accordingly (or does nothing, if the state is already correct) – Pins will be set to their correct position and tweens will be updated to their correct progress.
+		 * This means an update doesn't necessarily result in a progress change. The `progress` event will be fired if the progress has indeed changed between this update and the last.  
+		 * _**NOTE:** This method gets called constantly whenever ScrollMagic detects a change. The only application for you is if you change something outside of the realm of ScrollMagic, like moving the trigger or changing tween parameters._
+		 * @method ScrollMagic.Scene#update
+		 * @example
+		 * // update the scene on next tick
+		 * scene.update();
+		 *
+		 * // update the scene immediately
+		 * scene.update(true);
+		 *
+		 * @fires Scene.update
+		 *
+		 * @param {boolean} [immediately=false] - If `true` the update will be instant, if `false` it will wait until next update cycle (better performance).
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.update = function (immediately) {
+			if (_controller) {
+				if (immediately) {
+					if (_controller.enabled() && _enabled) {
+						var
+							scrollPos = _controller.info("scrollPos"),
+							newProgress;
+
+						if (_options.duration > 0) {
+							newProgress = (scrollPos - _scrollOffset.start) / (_scrollOffset.end - _scrollOffset.start);
+						} else {
+							newProgress = scrollPos >= _scrollOffset.start ? 1 : 0;
+						}
+
+						Scene.trigger("update", {
+							startPos: _scrollOffset.start,
+							endPos: _scrollOffset.end,
+							scrollPos: scrollPos
+						});
+
+						Scene.progress(newProgress);
+					} else if (_pin && _state === SCENE_STATE_DURING) {
+						updatePinState(true); // unpin in position
+					}
+				} else {
+					_controller.updateScene(Scene, false);
+				}
+			}
+			return Scene;
+		};
+
+		/**
+		 * Updates dynamic scene variables like the trigger element position or the duration.
+		 * This method is automatically called in regular intervals from the controller. See {@link ScrollMagic.Controller} option `refreshInterval`.
+		 * 
+		 * You can call it to minimize lag, for example when you intentionally change the position of the triggerElement.
+		 * If you don't it will simply be updated in the next refresh interval of the container, which is usually sufficient.
+		 *
+		 * @method ScrollMagic.Scene#refresh
+		 * @since 1.1.0
+		 * @example
+		 * scene = new ScrollMagic.Scene({triggerElement: "#trigger"});
+		 * 
+		 * // change the position of the trigger
+		 * $("#trigger").css("top", 500);
+		 * // immediately let the scene know of this change
+		 * scene.refresh();
+		 *
+		 * @fires {@link Scene.shift}, if the trigger element position or the duration changed
+		 * @fires {@link Scene.change}, if the duration changed
+		 *
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.refresh = function () {
+			updateDuration();
+			updateTriggerElementPosition();
+			// update trigger element position
+			return Scene;
+		};
+
+		/**
+		 * **Get** or **Set** the scene's progress.  
+		 * Usually it shouldn't be necessary to use this as a setter, as it is set automatically by scene.update().  
+		 * The order in which the events are fired depends on the duration of the scene:
+		 *  1. Scenes with `duration == 0`:  
+		 *  Scenes that have no duration by definition have no ending. Thus the `end` event will never be fired.  
+		 *  When the trigger position of the scene is passed the events are always fired in this order:  
+		 *  `enter`, `start`, `progress` when scrolling forward  
+		 *  and  
+		 *  `progress`, `start`, `leave` when scrolling in reverse
+		 *  2. Scenes with `duration > 0`:  
+		 *  Scenes with a set duration have a defined start and end point.  
+		 *  When scrolling past the start position of the scene it will fire these events in this order:  
+		 *  `enter`, `start`, `progress`  
+		 *  When continuing to scroll and passing the end point it will fire these events:  
+		 *  `progress`, `end`, `leave`  
+		 *  When reversing through the end point these events are fired:  
+		 *  `enter`, `end`, `progress`  
+		 *  And when continuing to scroll past the start position in reverse it will fire:  
+		 *  `progress`, `start`, `leave`  
+		 *  In between start and end the `progress` event will be called constantly, whenever the progress changes.
+		 * 
+		 * In short:  
+		 * `enter` events will always trigger **before** the progress update and `leave` envents will trigger **after** the progress update.  
+		 * `start` and `end` will always trigger at their respective position.
+		 * 
+		 * Please review the event descriptions for details on the events and the event object that is passed to the callback.
+		 * 
+		 * @method ScrollMagic.Scene#progress
+		 * @example
+		 * // get the current scene progress
+		 * var progress = scene.progress();
+		 *
+		 * // set new scene progress
+		 * scene.progress(0.3);
+		 *
+		 * @fires {@link Scene.enter}, when used as setter
+		 * @fires {@link Scene.start}, when used as setter
+		 * @fires {@link Scene.progress}, when used as setter
+		 * @fires {@link Scene.end}, when used as setter
+		 * @fires {@link Scene.leave}, when used as setter
+		 *
+		 * @param {number} [progress] - The new progress value of the scene `[0-1]`.
+		 * @returns {number} `get` -  Current scene progress.
+		 * @returns {Scene} `set` -  Parent object for chaining.
+		 */
+		this.progress = function (progress) {
+			if (!arguments.length) { // get
+				return _progress;
+			} else { // set
+				var
+					doUpdate = false,
+					oldState = _state,
+					scrollDirection = _controller ? _controller.info("scrollDirection") : 'PAUSED',
+					reverseOrForward = _options.reverse || progress >= _progress;
+				if (_options.duration === 0) {
+					// zero duration scenes
+					doUpdate = _progress != progress;
+					_progress = progress < 1 && reverseOrForward ? 0 : 1;
+					_state = _progress === 0 ? SCENE_STATE_BEFORE : SCENE_STATE_DURING;
+				} else {
+					// scenes with start and end
+					if (progress < 0 && _state !== SCENE_STATE_BEFORE && reverseOrForward) {
+						// go back to initial state
+						_progress = 0;
+						_state = SCENE_STATE_BEFORE;
+						doUpdate = true;
+					} else if (progress >= 0 && progress < 1 && reverseOrForward) {
+						_progress = progress;
+						_state = SCENE_STATE_DURING;
+						doUpdate = true;
+					} else if (progress >= 1 && _state !== SCENE_STATE_AFTER) {
+						_progress = 1;
+						_state = SCENE_STATE_AFTER;
+						doUpdate = true;
+					} else if (_state === SCENE_STATE_DURING && !reverseOrForward) {
+						updatePinState(); // in case we scrolled backwards mid-scene and reverse is disabled => update the pin position, so it doesn't move back as well.
+					}
+				}
+				if (doUpdate) {
+					// fire events
+					var
+						eventVars = {
+							progress: _progress,
+							state: _state,
+							scrollDirection: scrollDirection
+						},
+						stateChanged = _state != oldState;
+
+					var trigger = function (eventName) { // tmp helper to simplify code
+						Scene.trigger(eventName, eventVars);
+					};
+
+					if (stateChanged) { // enter events
+						if (oldState !== SCENE_STATE_DURING) {
+							trigger("enter");
+							trigger(oldState === SCENE_STATE_BEFORE ? "start" : "end");
+						}
+					}
+					trigger("progress");
+					if (stateChanged) { // leave events
+						if (_state !== SCENE_STATE_DURING) {
+							trigger(_state === SCENE_STATE_BEFORE ? "start" : "end");
+							trigger("leave");
+						}
+					}
+				}
+
+				return Scene;
+			}
+		};
+
+
+		/**
+		 * Update the start and end scrollOffset of the container.
+		 * The positions reflect what the controller's scroll position will be at the start and end respectively.
+		 * Is called, when:
+		 *   - Scene event "change" is called with: offset, triggerHook, duration 
+		 *   - scroll container event "resize" is called
+		 *   - the position of the triggerElement changes
+		 *   - the controller changes -> addTo()
+		 * @private
+		 */
+		var updateScrollOffset = function () {
+			_scrollOffset = {
+				start: _triggerPos + _options.offset
+			};
+			if (_controller && _options.triggerElement) {
+				// take away triggerHook portion to get relative to top
+				_scrollOffset.start -= _controller.info("size") * _options.triggerHook;
+			}
+			_scrollOffset.end = _scrollOffset.start + _options.duration;
+		};
+
+		/**
+		 * Updates the duration if set to a dynamic function.
+		 * This method is called when the scene is added to a controller and in regular intervals from the controller through scene.refresh().
+		 * 
+		 * @fires {@link Scene.change}, if the duration changed
+		 * @fires {@link Scene.shift}, if the duration changed
+		 *
+		 * @param {boolean} [suppressEvents=false] - If true the shift event will be suppressed.
+		 * @private
+		 */
+		var updateDuration = function (suppressEvents) {
+			// update duration
+			if (_durationUpdateMethod) {
+				var varname = "duration";
+				if (changeOption(varname, _durationUpdateMethod.call(Scene)) && !suppressEvents) { // set
+					Scene.trigger("change", {
+						what: varname,
+						newval: _options[varname]
+					});
+					Scene.trigger("shift", {
+						reason: varname
+					});
+				}
+			}
+		};
+
+		/**
+		 * Updates the position of the triggerElement, if present.
+		 * This method is called ...
+		 *  - ... when the triggerElement is changed
+		 *  - ... when the scene is added to a (new) controller
+		 *  - ... in regular intervals from the controller through scene.refresh().
+		 * 
+		 * @fires {@link Scene.shift}, if the position changed
+		 *
+		 * @param {boolean} [suppressEvents=false] - If true the shift event will be suppressed.
+		 * @private
+		 */
+		var updateTriggerElementPosition = function (suppressEvents) {
+			var
+				elementPos = 0,
+				telem = _options.triggerElement;
+			if (_controller && (telem || _triggerPos > 0)) { // either an element exists or was removed and the triggerPos is still > 0
+				if (telem) { // there currently a triggerElement set
+					if (telem.parentNode) { // check if element is still attached to DOM
+						var
+							controllerInfo = _controller.info(),
+							containerOffset = _util.get.offset(controllerInfo.container), // container position is needed because element offset is returned in relation to document, not in relation to container.
+							param = controllerInfo.vertical ? "top" : "left"; // which param is of interest ?
+
+						// if parent is spacer, use spacer position instead so correct start position is returned for pinned elements.
+						while (telem.parentNode.hasAttribute(PIN_SPACER_ATTRIBUTE)) {
+							telem = telem.parentNode;
+						}
+
+						var elementOffset = _util.get.offset(telem);
+
+						if (!controllerInfo.isDocument) { // container is not the document root, so substract scroll Position to get correct trigger element position relative to scrollcontent
+							containerOffset[param] -= _controller.scrollPos();
+						}
+
+						elementPos = elementOffset[param] - containerOffset[param];
+
+					} else { // there was an element, but it was removed from DOM
+						log(2, "WARNING: triggerElement was removed from DOM and will be reset to", undefined);
+						Scene.triggerElement(undefined); // unset, so a change event is triggered
+					}
+				}
+
+				var changed = elementPos != _triggerPos;
+				_triggerPos = elementPos;
+				if (changed && !suppressEvents) {
+					Scene.trigger("shift", {
+						reason: "triggerElementPosition"
+					});
+				}
+			}
+		};
+
+		/**
+		 * Trigger a shift event, when the container is resized and the triggerHook is > 1.
+		 * @private
+		 */
+		var onContainerResize = function (e) {
+			if (_options.triggerHook > 0) {
+				Scene.trigger("shift", {
+					reason: "containerResize"
+				});
+			}
+		};
+
+
+		var _validate = _util.extend(SCENE_OPTIONS.validate, {
+			// validation for duration handled internally for reference to private var _durationMethod
+			duration: function (val) {
+				if (_util.type.String(val) && val.match(/^(\.|\d)*\d+%$/)) {
+					// percentage value
+					var perc = parseFloat(val) / 100;
+					val = function () {
+						return _controller ? _controller.info("size") * perc : 0;
+					};
+				}
+				if (_util.type.Function(val)) {
+					// function
+					_durationUpdateMethod = val;
+					try {
+						val = parseFloat(_durationUpdateMethod.call(Scene));
+					} catch (e) {
+						val = -1; // will cause error below
+					}
+				}
+				// val has to be float
+				val = parseFloat(val);
+				if (!_util.type.Number(val) || val < 0) {
+					if (_durationUpdateMethod) {
+						_durationUpdateMethod = undefined;
+						throw ["Invalid return value of supplied function for option \"duration\":", val];
+					} else {
+						throw ["Invalid value for option \"duration\":", val];
+					}
+				}
+				return val;
+			}
+		});
+
+		/**
+		 * Checks the validity of a specific or all options and reset to default if neccessary.
+		 * @private
+		 */
+		var validateOption = function (check) {
+			check = arguments.length ? [check] : Object.keys(_validate);
+			check.forEach(function (optionName, key) {
+				var value;
+				if (_validate[optionName]) { // there is a validation method for this option
+					try { // validate value
+						value = _validate[optionName](_options[optionName]);
+					} catch (e) { // validation failed -> reset to default
+						value = DEFAULT_OPTIONS[optionName];
+						var logMSG = _util.type.String(e) ? [e] : e;
+						if (_util.type.Array(logMSG)) {
+							logMSG[0] = "ERROR: " + logMSG[0];
+							logMSG.unshift(1); // loglevel 1 for error msg
+							log.apply(this, logMSG);
+						} else {
+							log(1, "ERROR: Problem executing validation callback for option '" + optionName + "':", e.message);
+						}
+					} finally {
+						_options[optionName] = value;
+					}
+				}
+			});
+		};
+
+		/**
+		 * Helper used by the setter/getters for scene options
+		 * @private
+		 */
+		var changeOption = function (varname, newval) {
+			var
+				changed = false,
+				oldval = _options[varname];
+			if (_options[varname] != newval) {
+				_options[varname] = newval;
+				validateOption(varname); // resets to default if necessary
+				changed = oldval != _options[varname];
+			}
+			return changed;
+		};
+
+		// generate getters/setters for all options
+		var addSceneOption = function (optionName) {
+			if (!Scene[optionName]) {
+				Scene[optionName] = function (newVal) {
+					if (!arguments.length) { // get
+						return _options[optionName];
+					} else {
+						if (optionName === "duration") { // new duration is set, so any previously set function must be unset
+							_durationUpdateMethod = undefined;
+						}
+						if (changeOption(optionName, newVal)) { // set
+							Scene.trigger("change", {
+								what: optionName,
+								newval: _options[optionName]
+							});
+							if (SCENE_OPTIONS.shifts.indexOf(optionName) > -1) {
+								Scene.trigger("shift", {
+									reason: optionName
+								});
+							}
+						}
+					}
+					return Scene;
+				};
+			}
+		};
+
+		/**
+		 * **Get** or **Set** the duration option value.
+		 *
+		 * As a **setter** it accepts three types of parameters:
+		 * 1. `number`: Sets the duration of the scene to exactly this amount of pixels.  
+		 *   This means the scene will last for exactly this amount of pixels scrolled. Sub-Pixels are also valid.
+		 *   A value of `0` means that the scene is 'open end' and no end will be triggered. Pins will never unpin and animations will play independently of scroll progress.
+		 * 2. `string`: Always updates the duration relative to parent scroll container.  
+		 *   For example `"100%"` will keep the duration always exactly at the inner height of the scroll container.
+		 *   When scrolling vertically the width is used for reference respectively.
+		 * 3. `function`: The supplied function will be called to return the scene duration.
+		 *   This is useful in setups where the duration depends on other elements who might change size. By supplying a function you can return a value instead of updating potentially multiple scene durations.  
+		 *   The scene can be referenced inside the callback using `this`.
+		 *   _**WARNING:** This is an easy way to kill performance, as the callback will be executed every time `Scene.refresh()` is called, which happens a lot. The interval is defined by the controller (see ScrollMagic.Controller option `refreshInterval`).  
+		 *   It's recomended to avoid calculations within the function and use cached variables as return values.  
+		 *   This counts double if you use the same function for multiple scenes._
+		 *
+		 * @method ScrollMagic.Scene#duration
+		 * @example
+		 * // get the current duration value
+		 * var duration = scene.duration();
+		 *
+		 * // set a new duration
+		 * scene.duration(300);
+		 *
+		 * // set duration responsively to container size
+		 * scene.duration("100%");
+		 *
+		 * // use a function to randomize the duration for some reason.
+		 * var durationValueCache;
+		 * function durationCallback () {
+		 *   return durationValueCache;
+		 * }
+		 * function updateDuration () {
+		 *   durationValueCache = Math.random() * 100;
+		 * }
+		 * updateDuration(); // set to initial value
+		 * scene.duration(durationCallback); // set duration callback
+		 *
+		 * @fires {@link Scene.change}, when used as setter
+		 * @fires {@link Scene.shift}, when used as setter
+		 * @param {(number|string|function)} [newDuration] - The new duration setting for the scene.
+		 * @returns {number} `get` -  Current scene duration.
+		 * @returns {Scene} `set` -  Parent object for chaining.
+		 */
+
+		/**
+		 * **Get** or **Set** the offset option value.
+		 * @method ScrollMagic.Scene#offset
+		 * @example
+		 * // get the current offset
+		 * var offset = scene.offset();
+		 *
+		 * // set a new offset
+		 * scene.offset(100);
+		 *
+		 * @fires {@link Scene.change}, when used as setter
+		 * @fires {@link Scene.shift}, when used as setter
+		 * @param {number} [newOffset] - The new offset of the scene.
+		 * @returns {number} `get` -  Current scene offset.
+		 * @returns {Scene} `set` -  Parent object for chaining.
+		 */
+
+		/**
+		 * **Get** or **Set** the triggerElement option value.
+		 * Does **not** fire `Scene.shift`, because changing the trigger Element doesn't necessarily mean the start position changes. This will be determined in `Scene.refresh()`, which is automatically triggered.
+		 * @method ScrollMagic.Scene#triggerElement
+		 * @example
+		 * // get the current triggerElement
+		 * var triggerElement = scene.triggerElement();
+		 *
+		 * // set a new triggerElement using a selector
+		 * scene.triggerElement("#trigger");
+		 * // set a new triggerElement using a DOM object
+		 * scene.triggerElement(document.getElementById("trigger"));
+		 *
+		 * @fires {@link Scene.change}, when used as setter
+		 * @param {(string|object)} [newTriggerElement] - The new trigger element for the scene.
+		 * @returns {(string|object)} `get` -  Current triggerElement.
+		 * @returns {Scene} `set` -  Parent object for chaining.
+		 */
+
+		/**
+		 * **Get** or **Set** the triggerHook option value.
+		 * @method ScrollMagic.Scene#triggerHook
+		 * @example
+		 * // get the current triggerHook value
+		 * var triggerHook = scene.triggerHook();
+		 *
+		 * // set a new triggerHook using a string
+		 * scene.triggerHook("onLeave");
+		 * // set a new triggerHook using a number
+		 * scene.triggerHook(0.7);
+		 *
+		 * @fires {@link Scene.change}, when used as setter
+		 * @fires {@link Scene.shift}, when used as setter
+		 * @param {(number|string)} [newTriggerHook] - The new triggerHook of the scene. See {@link Scene} parameter description for value options.
+		 * @returns {number} `get` -  Current triggerHook (ALWAYS numerical).
+		 * @returns {Scene} `set` -  Parent object for chaining.
+		 */
+
+		/**
+		 * **Get** or **Set** the reverse option value.
+		 * @method ScrollMagic.Scene#reverse
+		 * @example
+		 * // get the current reverse option
+		 * var reverse = scene.reverse();
+		 *
+		 * // set new reverse option
+		 * scene.reverse(false);
+		 *
+		 * @fires {@link Scene.change}, when used as setter
+		 * @param {boolean} [newReverse] - The new reverse setting of the scene.
+		 * @returns {boolean} `get` -  Current reverse option value.
+		 * @returns {Scene} `set` -  Parent object for chaining.
+		 */
+
+		/**
+		 * **Get** or **Set** the loglevel option value.
+		 * @method ScrollMagic.Scene#loglevel
+		 * @example
+		 * // get the current loglevel
+		 * var loglevel = scene.loglevel();
+		 *
+		 * // set new loglevel
+		 * scene.loglevel(3);
+		 *
+		 * @fires {@link Scene.change}, when used as setter
+		 * @param {number} [newLoglevel] - The new loglevel setting of the scene. `[0-3]`
+		 * @returns {number} `get` -  Current loglevel.
+		 * @returns {Scene} `set` -  Parent object for chaining.
+		 */
+
+		/**
+		 * **Get** the associated controller.
+		 * @method ScrollMagic.Scene#controller
+		 * @example
+		 * // get the controller of a scene
+		 * var controller = scene.controller();
+		 *
+		 * @returns {ScrollMagic.Controller} Parent controller or `undefined`
+		 */
+		this.controller = function () {
+			return _controller;
+		};
+
+		/**
+		 * **Get** the current state.
+		 * @method ScrollMagic.Scene#state
+		 * @example
+		 * // get the current state
+		 * var state = scene.state();
+		 *
+		 * @returns {string} `"BEFORE"`, `"DURING"` or `"AFTER"`
+		 */
+		this.state = function () {
+			return _state;
+		};
+
+		/**
+		 * **Get** the current scroll offset for the start of the scene.  
+		 * Mind, that the scrollOffset is related to the size of the container, if `triggerHook` is bigger than `0` (or `"onLeave"`).  
+		 * This means, that resizing the container or changing the `triggerHook` will influence the scene's start offset.
+		 * @method ScrollMagic.Scene#scrollOffset
+		 * @example
+		 * // get the current scroll offset for the start and end of the scene.
+		 * var start = scene.scrollOffset();
+		 * var end = scene.scrollOffset() + scene.duration();
+		 * console.log("the scene starts at", start, "and ends at", end);
+		 *
+		 * @returns {number} The scroll offset (of the container) at which the scene will trigger. Y value for vertical and X value for horizontal scrolls.
+		 */
+		this.scrollOffset = function () {
+			return _scrollOffset.start;
+		};
+
+		/**
+		 * **Get** the trigger position of the scene (including the value of the `offset` option).  
+		 * @method ScrollMagic.Scene#triggerPosition
+		 * @example
+		 * // get the scene's trigger position
+		 * var triggerPosition = scene.triggerPosition();
+		 *
+		 * @returns {number} Start position of the scene. Top position value for vertical and left position value for horizontal scrolls.
+		 */
+		this.triggerPosition = function () {
+			var pos = _options.offset; // the offset is the basis
+			if (_controller) {
+				// get the trigger position
+				if (_options.triggerElement) {
+					// Element as trigger
+					pos += _triggerPos;
+				} else {
+					// return the height of the triggerHook to start at the beginning
+					pos += _controller.info("size") * Scene.triggerHook();
+				}
+			}
+			return pos;
+		};
+
+
+		var
+			_pin,
+			_pinOptions;
+
+		Scene
+			.on("shift.internal", function (e) {
+				var durationChanged = e.reason === "duration";
+				if ((_state === SCENE_STATE_AFTER && durationChanged) || (_state === SCENE_STATE_DURING && _options.duration === 0)) {
+					// if [duration changed after a scene (inside scene progress updates pin position)] or [duration is 0, we are in pin phase and some other value changed].
+					updatePinState();
+				}
+				if (durationChanged) {
+					updatePinDimensions();
+				}
+			})
+			.on("progress.internal", function (e) {
+				updatePinState();
+			})
+			.on("add.internal", function (e) {
+				updatePinDimensions();
+			})
+			.on("destroy.internal", function (e) {
+				Scene.removePin(e.reset);
+			});
+		/**
+		 * Update the pin state.
+		 * @private
+		 */
+		var updatePinState = function (forceUnpin) {
+			if (_pin && _controller) {
+				var
+					containerInfo = _controller.info(),
+					pinTarget = _pinOptions.spacer.firstChild; // may be pin element or another spacer, if cascading pins
+
+				if (!forceUnpin && _state === SCENE_STATE_DURING) { // during scene or if duration is 0 and we are past the trigger
+					// pinned state
+					if (_util.css(pinTarget, "position") != "fixed") {
+						// change state before updating pin spacer (position changes due to fixed collapsing might occur.)
+						_util.css(pinTarget, {
+							"position": "fixed"
+						});
+						// update pin spacer
+						updatePinDimensions();
+					}
+
+					var
+						fixedPos = _util.get.offset(_pinOptions.spacer, true), // get viewport position of spacer
+						scrollDistance = _options.reverse || _options.duration === 0 ?
+						containerInfo.scrollPos - _scrollOffset.start // quicker
+						:
+						Math.round(_progress * _options.duration * 10) / 10; // if no reverse and during pin the position needs to be recalculated using the progress
+
+					// add scrollDistance
+					fixedPos[containerInfo.vertical ? "top" : "left"] += scrollDistance;
+
+					// set new values
+					_util.css(_pinOptions.spacer.firstChild, {
+						top: fixedPos.top,
+						left: fixedPos.left
+					});
+				} else {
+					// unpinned state
+					var
+						newCSS = {
+							position: _pinOptions.inFlow ? "relative" : "absolute",
+							top: 0,
+							left: 0
+						},
+						change = _util.css(pinTarget, "position") != newCSS.position;
+
+					if (!_pinOptions.pushFollowers) {
+						newCSS[containerInfo.vertical ? "top" : "left"] = _options.duration * _progress;
+					} else if (_options.duration > 0) { // only concerns scenes with duration
+						if (_state === SCENE_STATE_AFTER && parseFloat(_util.css(_pinOptions.spacer, "padding-top")) === 0) {
+							change = true; // if in after state but havent updated spacer yet (jumped past pin)
+						} else if (_state === SCENE_STATE_BEFORE && parseFloat(_util.css(_pinOptions.spacer, "padding-bottom")) === 0) { // before
+							change = true; // jumped past fixed state upward direction
+						}
+					}
+					// set new values
+					_util.css(pinTarget, newCSS);
+					if (change) {
+						// update pin spacer if state changed
+						updatePinDimensions();
+					}
+				}
+			}
+		};
+
+		/**
+		 * Update the pin spacer and/or element size.
+		 * The size of the spacer needs to be updated whenever the duration of the scene changes, if it is to push down following elements.
+		 * @private
+		 */
+		var updatePinDimensions = function () {
+			if (_pin && _controller && _pinOptions.inFlow) { // no spacerresize, if original position is absolute
+				var
+					after = (_state === SCENE_STATE_AFTER),
+					before = (_state === SCENE_STATE_BEFORE),
+					during = (_state === SCENE_STATE_DURING),
+					vertical = _controller.info("vertical"),
+					pinTarget = _pinOptions.spacer.firstChild, // usually the pined element but can also be another spacer (cascaded pins)
+					marginCollapse = _util.isMarginCollapseType(_util.css(_pinOptions.spacer, "display")),
+					css = {};
+
+				// set new size
+				// if relsize: spacer -> pin | else: pin -> spacer
+				if (_pinOptions.relSize.width || _pinOptions.relSize.autoFullWidth) {
+					if (during) {
+						_util.css(_pin, {
+							"width": _util.get.width(_pinOptions.spacer)
+						});
+					} else {
+						_util.css(_pin, {
+							"width": "100%"
+						});
+					}
+				} else {
+					// minwidth is needed for cascaded pins.
+					css["min-width"] = _util.get.width(vertical ? _pin : pinTarget, true, true);
+					css.width = during ? css["min-width"] : "auto";
+				}
+				if (_pinOptions.relSize.height) {
+					if (during) {
+						// the only padding the spacer should ever include is the duration (if pushFollowers = true), so we need to substract that.
+						_util.css(_pin, {
+							"height": _util.get.height(_pinOptions.spacer) - (_pinOptions.pushFollowers ? _options.duration : 0)
+						});
+					} else {
+						_util.css(_pin, {
+							"height": "100%"
+						});
+					}
+				} else {
+					// margin is only included if it's a cascaded pin to resolve an IE9 bug
+					css["min-height"] = _util.get.height(vertical ? pinTarget : _pin, true, !marginCollapse); // needed for cascading pins
+					css.height = during ? css["min-height"] : "auto";
+				}
+
+				// add space for duration if pushFollowers is true
+				if (_pinOptions.pushFollowers) {
+					css["padding" + (vertical ? "Top" : "Left")] = _options.duration * _progress;
+					css["padding" + (vertical ? "Bottom" : "Right")] = _options.duration * (1 - _progress);
+				}
+				_util.css(_pinOptions.spacer, css);
+			}
+		};
+
+		/**
+		 * Updates the Pin state (in certain scenarios)
+		 * If the controller container is not the document and we are mid-pin-phase scrolling or resizing the main document can result to wrong pin positions.
+		 * So this function is called on resize and scroll of the document.
+		 * @private
+		 */
+		var updatePinInContainer = function () {
+			if (_controller && _pin && _state === SCENE_STATE_DURING && !_controller.info("isDocument")) {
+				updatePinState();
+			}
+		};
+
+		/**
+		 * Updates the Pin spacer size state (in certain scenarios)
+		 * If container is resized during pin and relatively sized the size of the pin might need to be updated...
+		 * So this function is called on resize of the container.
+		 * @private
+		 */
+		var updateRelativePinSpacer = function () {
+			if (_controller && _pin && // well, duh
+				_state === SCENE_STATE_DURING && // element in pinned state?
+				( // is width or height relatively sized, but not in relation to body? then we need to recalc.
+					((_pinOptions.relSize.width || _pinOptions.relSize.autoFullWidth) && _util.get.width(window) != _util.get.width(_pinOptions.spacer.parentNode)) ||
+					(_pinOptions.relSize.height && _util.get.height(window) != _util.get.height(_pinOptions.spacer.parentNode))
+				)
+			) {
+				updatePinDimensions();
+			}
+		};
+
+		/**
+		 * Is called, when the mousewhel is used while over a pinned element inside a div container.
+		 * If the scene is in fixed state scroll events would be counted towards the body. This forwards the event to the scroll container.
+		 * @private
+		 */
+		var onMousewheelOverPin = function (e) {
+			if (_controller && _pin && _state === SCENE_STATE_DURING && !_controller.info("isDocument")) { // in pin state
+				e.preventDefault();
+				_controller._setScrollPos(_controller.info("scrollPos") - ((e.wheelDelta || e[_controller.info("vertical") ? "wheelDeltaY" : "wheelDeltaX"]) / 3 || -e.detail * 30));
+			}
+		};
+
+		/**
+		 * Pin an element for the duration of the scene.
+		 * If the scene duration is 0 the element will only be unpinned, if the user scrolls back past the start position.  
+		 * Make sure only one pin is applied to an element at the same time.
+		 * An element can be pinned multiple times, but only successively.
+		 * _**NOTE:** The option `pushFollowers` has no effect, when the scene duration is 0._
+		 * @method ScrollMagic.Scene#setPin
+		 * @example
+		 * // pin element and push all following elements down by the amount of the pin duration.
+		 * scene.setPin("#pin");
+		 *
+		 * // pin element and keeping all following elements in their place. The pinned element will move past them.
+		 * scene.setPin("#pin", {pushFollowers: false});
+		 *
+		 * @param {(string|object)} element - A Selector targeting an element or a DOM object that is supposed to be pinned.
+		 * @param {object} [settings] - settings for the pin
+		 * @param {boolean} [settings.pushFollowers=true] - If `true` following elements will be "pushed" down for the duration of the pin, if `false` the pinned element will just scroll past them.  
+		 												   Ignored, when duration is `0`.
+		 * @param {string} [settings.spacerClass="scrollmagic-pin-spacer"] - Classname of the pin spacer element, which is used to replace the element.
+		 *
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.setPin = function (element, settings) {
+			var
+				defaultSettings = {
+					pushFollowers: true,
+					spacerClass: "scrollmagic-pin-spacer"
+				};
+			var pushFollowersActivelySet = settings && settings.hasOwnProperty('pushFollowers');
+			settings = _util.extend({}, defaultSettings, settings);
+
+			// validate Element
+			element = _util.get.elements(element)[0];
+			if (!element) {
+				log(1, "ERROR calling method 'setPin()': Invalid pin element supplied.");
+				return Scene; // cancel
+			} else if (_util.css(element, "position") === "fixed") {
+				log(1, "ERROR calling method 'setPin()': Pin does not work with elements that are positioned 'fixed'.");
+				return Scene; // cancel
+			}
+
+			if (_pin) { // preexisting pin?
+				if (_pin === element) {
+					// same pin we already have -> do nothing
+					return Scene; // cancel
+				} else {
+					// kill old pin
+					Scene.removePin();
+				}
+
+			}
+			_pin = element;
+
+			var
+				parentDisplay = _pin.parentNode.style.display,
+				boundsParams = ["top", "left", "bottom", "right", "margin", "marginLeft", "marginRight", "marginTop", "marginBottom"];
+
+			_pin.parentNode.style.display = 'none'; // hack start to force css to return stylesheet values instead of calculated px values.
+			var
+				inFlow = _util.css(_pin, "position") != "absolute",
+				pinCSS = _util.css(_pin, boundsParams.concat(["display"])),
+				sizeCSS = _util.css(_pin, ["width", "height"]);
+			_pin.parentNode.style.display = parentDisplay; // hack end.
+
+			if (!inFlow && settings.pushFollowers) {
+				log(2, "WARNING: If the pinned element is positioned absolutely pushFollowers will be disabled.");
+				settings.pushFollowers = false;
+			}
+			window.setTimeout(function () { // wait until all finished, because with responsive duration it will only be set after scene is added to controller
+				if (_pin && _options.duration === 0 && pushFollowersActivelySet && settings.pushFollowers) {
+					log(2, "WARNING: pushFollowers =", true, "has no effect, when scene duration is 0.");
+				}
+			}, 0);
+
+			// create spacer and insert
+			var
+				spacer = _pin.parentNode.insertBefore(document.createElement('div'), _pin),
+				spacerCSS = _util.extend(pinCSS, {
+					position: inFlow ? "relative" : "absolute",
+					boxSizing: "content-box",
+					mozBoxSizing: "content-box",
+					webkitBoxSizing: "content-box"
+				});
+
+			if (!inFlow) { // copy size if positioned absolutely, to work for bottom/right positioned elements.
+				_util.extend(spacerCSS, _util.css(_pin, ["width", "height"]));
+			}
+
+			_util.css(spacer, spacerCSS);
+			spacer.setAttribute(PIN_SPACER_ATTRIBUTE, "");
+			_util.addClass(spacer, settings.spacerClass);
+
+			// set the pin Options
+			_pinOptions = {
+				spacer: spacer,
+				relSize: { // save if size is defined using % values. if so, handle spacer resize differently...
+					width: sizeCSS.width.slice(-1) === "%",
+					height: sizeCSS.height.slice(-1) === "%",
+					autoFullWidth: sizeCSS.width === "auto" && inFlow && _util.isMarginCollapseType(pinCSS.display)
+				},
+				pushFollowers: settings.pushFollowers,
+				inFlow: inFlow, // stores if the element takes up space in the document flow
+			};
+
+			if (!_pin.___origStyle) {
+				_pin.___origStyle = {};
+				var
+					pinInlineCSS = _pin.style,
+					copyStyles = boundsParams.concat(["width", "height", "position", "boxSizing", "mozBoxSizing", "webkitBoxSizing"]);
+				copyStyles.forEach(function (val) {
+					_pin.___origStyle[val] = pinInlineCSS[val] || "";
+				});
+			}
+
+			// if relative size, transfer it to spacer and make pin calculate it...
+			if (_pinOptions.relSize.width) {
+				_util.css(spacer, {
+					width: sizeCSS.width
+				});
+			}
+			if (_pinOptions.relSize.height) {
+				_util.css(spacer, {
+					height: sizeCSS.height
+				});
+			}
+
+			// now place the pin element inside the spacer	
+			spacer.appendChild(_pin);
+			// and set new css
+			_util.css(_pin, {
+				position: inFlow ? "relative" : "absolute",
+				margin: "auto",
+				top: "auto",
+				left: "auto",
+				bottom: "auto",
+				right: "auto"
+			});
+
+			if (_pinOptions.relSize.width || _pinOptions.relSize.autoFullWidth) {
+				_util.css(_pin, {
+					boxSizing: "border-box",
+					mozBoxSizing: "border-box",
+					webkitBoxSizing: "border-box"
+				});
+			}
+
+			// add listener to document to update pin position in case controller is not the document.
+			window.addEventListener('scroll', updatePinInContainer);
+			window.addEventListener('resize', updatePinInContainer);
+			window.addEventListener('resize', updateRelativePinSpacer);
+			// add mousewheel listener to catch scrolls over fixed elements
+			_pin.addEventListener("mousewheel", onMousewheelOverPin);
+			_pin.addEventListener("DOMMouseScroll", onMousewheelOverPin);
+
+			log(3, "added pin");
+
+			// finally update the pin to init
+			updatePinState();
+
+			return Scene;
+		};
+
+		/**
+		 * Remove the pin from the scene.
+		 * @method ScrollMagic.Scene#removePin
+		 * @example
+		 * // remove the pin from the scene without resetting it (the spacer is not removed)
+		 * scene.removePin();
+		 *
+		 * // remove the pin from the scene and reset the pin element to its initial position (spacer is removed)
+		 * scene.removePin(true);
+		 *
+		 * @param {boolean} [reset=false] - If `false` the spacer will not be removed and the element's position will not be reset.
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.removePin = function (reset) {
+			if (_pin) {
+				if (_state === SCENE_STATE_DURING) {
+					updatePinState(true); // force unpin at position
+				}
+				if (reset || !_controller) { // if there's no controller no progress was made anyway...
+					var pinTarget = _pinOptions.spacer.firstChild; // usually the pin element, but may be another spacer (cascaded pins)...
+					if (pinTarget.hasAttribute(PIN_SPACER_ATTRIBUTE)) { // copy margins to child spacer
+						var
+							style = _pinOptions.spacer.style,
+							values = ["margin", "marginLeft", "marginRight", "marginTop", "marginBottom"],
+							margins = {};
+						values.forEach(function (val) {
+							margins[val] = style[val] || "";
+						});
+						_util.css(pinTarget, margins);
+					}
+					_pinOptions.spacer.parentNode.insertBefore(pinTarget, _pinOptions.spacer);
+					_pinOptions.spacer.parentNode.removeChild(_pinOptions.spacer);
+					if (!_pin.parentNode.hasAttribute(PIN_SPACER_ATTRIBUTE)) { // if it's the last pin for this element -> restore inline styles
+						// TODO: only correctly set for first pin (when cascading) - how to fix?
+						_util.css(_pin, _pin.___origStyle);
+						delete _pin.___origStyle;
+					}
+				}
+				window.removeEventListener('scroll', updatePinInContainer);
+				window.removeEventListener('resize', updatePinInContainer);
+				window.removeEventListener('resize', updateRelativePinSpacer);
+				_pin.removeEventListener("mousewheel", onMousewheelOverPin);
+				_pin.removeEventListener("DOMMouseScroll", onMousewheelOverPin);
+				_pin = undefined;
+				log(3, "removed pin (reset: " + (reset ? "true" : "false") + ")");
+			}
+			return Scene;
+		};
+
+
+		var
+			_cssClasses,
+			_cssClassElems = [];
+
+		Scene
+			.on("destroy.internal", function (e) {
+				Scene.removeClassToggle(e.reset);
+			});
+		/**
+		 * Define a css class modification while the scene is active.  
+		 * When the scene triggers the classes will be added to the supplied element and removed, when the scene is over.
+		 * If the scene duration is 0 the classes will only be removed if the user scrolls back past the start position.
+		 * @method ScrollMagic.Scene#setClassToggle
+		 * @example
+		 * // add the class 'myclass' to the element with the id 'my-elem' for the duration of the scene
+		 * scene.setClassToggle("#my-elem", "myclass");
+		 *
+		 * // add multiple classes to multiple elements defined by the selector '.classChange'
+		 * scene.setClassToggle(".classChange", "class1 class2 class3");
+		 *
+		 * @param {(string|object)} element - A Selector targeting one or more elements or a DOM object that is supposed to be modified.
+		 * @param {string} classes - One or more Classnames (separated by space) that should be added to the element during the scene.
+		 *
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.setClassToggle = function (element, classes) {
+			var elems = _util.get.elements(element);
+			if (elems.length === 0 || !_util.type.String(classes)) {
+				log(1, "ERROR calling method 'setClassToggle()': Invalid " + (elems.length === 0 ? "element" : "classes") + " supplied.");
+				return Scene;
+			}
+			if (_cssClassElems.length > 0) {
+				// remove old ones
+				Scene.removeClassToggle();
+			}
+			_cssClasses = classes;
+			_cssClassElems = elems;
+			Scene.on("enter.internal_class leave.internal_class", function (e) {
+				var toggle = e.type === "enter" ? _util.addClass : _util.removeClass;
+				_cssClassElems.forEach(function (elem, key) {
+					toggle(elem, _cssClasses);
+				});
+			});
+			return Scene;
+		};
+
+		/**
+		 * Remove the class binding from the scene.
+		 * @method ScrollMagic.Scene#removeClassToggle
+		 * @example
+		 * // remove class binding from the scene without reset
+		 * scene.removeClassToggle();
+		 *
+		 * // remove class binding and remove the changes it caused
+		 * scene.removeClassToggle(true);
+		 *
+		 * @param {boolean} [reset=false] - If `false` and the classes are currently active, they will remain on the element. If `true` they will be removed.
+		 * @returns {Scene} Parent object for chaining.
+		 */
+		this.removeClassToggle = function (reset) {
+			if (reset) {
+				_cssClassElems.forEach(function (elem, key) {
+					_util.removeClass(elem, _cssClasses);
+				});
+			}
+			Scene.off("start.internal_class end.internal_class");
+			_cssClasses = undefined;
+			_cssClassElems = [];
+			return Scene;
+		};
+
+		// INIT
+		construct();
+		return Scene;
+	};
+
+	// store pagewide scene options
+	var SCENE_OPTIONS = {
+		defaults: {
+			duration: 0,
+			offset: 0,
+			triggerElement: undefined,
+			triggerHook: 0.5,
+			reverse: true,
+			loglevel: 2
+		},
+		validate: {
+			offset: function (val) {
+				val = parseFloat(val);
+				if (!_util.type.Number(val)) {
+					throw ["Invalid value for option \"offset\":", val];
+				}
+				return val;
+			},
+			triggerElement: function (val) {
+				val = val || undefined;
+				if (val) {
+					var elem = _util.get.elements(val)[0];
+					if (elem && elem.parentNode) {
+						val = elem;
+					} else {
+						throw ["Element defined in option \"triggerElement\" was not found:", val];
+					}
+				}
+				return val;
+			},
+			triggerHook: function (val) {
+				var translate = {
+					"onCenter": 0.5,
+					"onEnter": 1,
+					"onLeave": 0
+				};
+				if (_util.type.Number(val)) {
+					val = Math.max(0, Math.min(parseFloat(val), 1)); //  make sure its betweeen 0 and 1
+				} else if (val in translate) {
+					val = translate[val];
+				} else {
+					throw ["Invalid value for option \"triggerHook\": ", val];
+				}
+				return val;
+			},
+			reverse: function (val) {
+				return !!val; // force boolean
+			},
+			loglevel: function (val) {
+				val = parseInt(val);
+				if (!_util.type.Number(val) || val < 0 || val > 3) {
+					throw ["Invalid value for option \"loglevel\":", val];
+				}
+				return val;
+			}
+		}, // holder for  validation methods. duration validation is handled in 'getters-setters.js'
+		shifts: ["duration", "offset", "triggerHook"], // list of options that trigger a `shift` event
+	};
+	/*
+	 * method used to add an option to ScrollMagic Scenes.
+	 * TODO: DOC (private for dev)
+	 */
+	ScrollMagic.Scene.addOption = function (name, defaultValue, validationCallback, shifts) {
+		if (!(name in SCENE_OPTIONS.defaults)) {
+			SCENE_OPTIONS.defaults[name] = defaultValue;
+			SCENE_OPTIONS.validate[name] = validationCallback;
+			if (shifts) {
+				SCENE_OPTIONS.shifts.push(name);
+			}
+		} else {
+			ScrollMagic._util.log(1, "[static] ScrollMagic.Scene -> Cannot add Scene option '" + name + "', because it already exists.");
+		}
+	};
+	// instance extension function for plugins
+	// TODO: DOC (private for dev)
+	ScrollMagic.Scene.extend = function (extension) {
+		var oldClass = this;
+		ScrollMagic.Scene = function () {
+			oldClass.apply(this, arguments);
+			this.$super = _util.extend({}, this); // copy parent state
+			return extension.apply(this, arguments) || this;
+		};
+		_util.extend(ScrollMagic.Scene, oldClass); // copy properties
+		ScrollMagic.Scene.prototype = oldClass.prototype; // copy prototype
+		ScrollMagic.Scene.prototype.constructor = ScrollMagic.Scene; // restore constructor
+	};
+
+
+
+	/**
+	 * TODO: DOCS (private for dev)
+	 * @class
+	 * @private
+	 */
+
+	ScrollMagic.Event = function (type, namespace, target, vars) {
+		vars = vars || {};
+		for (var key in vars) {
+			this[key] = vars[key];
+		}
+		this.type = type;
+		this.target = this.currentTarget = target;
+		this.namespace = namespace || '';
+		this.timeStamp = this.timestamp = Date.now();
+		return this;
+	};
+
+	/*
+	 * TODO: DOCS (private for dev)
+	 */
+
+	var _util = ScrollMagic._util = (function (window) {
+		var U = {},
+			i;
+
+		/**
+		 * ------------------------------
+		 * internal helpers
+		 * ------------------------------
+		 */
+
+		// parse float and fall back to 0.
+		var floatval = function (number) {
+			return parseFloat(number) || 0;
+		};
+		// get current style IE safe (otherwise IE would return calculated values for 'auto')
+		var _getComputedStyle = function (elem) {
+			return elem.currentStyle ? elem.currentStyle : window.getComputedStyle(elem);
+		};
+
+		// get element dimension (width or height)
+		var _dimension = function (which, elem, outer, includeMargin) {
+			elem = (elem === document) ? window : elem;
+			if (elem === window) {
+				includeMargin = false;
+			} else if (!_type.DomElement(elem)) {
+				return 0;
+			}
+			which = which.charAt(0).toUpperCase() + which.substr(1).toLowerCase();
+			var dimension = (outer ? elem['offset' + which] || elem['outer' + which] : elem['client' + which] || elem['inner' + which]) || 0;
+			if (outer && includeMargin) {
+				var style = _getComputedStyle(elem);
+				dimension += which === 'Height' ? floatval(style.marginTop) + floatval(style.marginBottom) : floatval(style.marginLeft) + floatval(style.marginRight);
+			}
+			return dimension;
+		};
+		// converts 'margin-top' into 'marginTop'
+		var _camelCase = function (str) {
+			return str.replace(/^[^a-z]+([a-z])/g, '$1').replace(/-([a-z])/g, function (g) {
+				return g[1].toUpperCase();
+			});
+		};
+
+		/**
+		 * ------------------------------
+		 * external helpers
+		 * ------------------------------
+		 */
+
+		// extend obj – same as jQuery.extend({}, objA, objB)
+		U.extend = function (obj) {
+			obj = obj || {};
+			for (i = 1; i < arguments.length; i++) {
+				if (!arguments[i]) {
+					continue;
+				}
+				for (var key in arguments[i]) {
+					if (arguments[i].hasOwnProperty(key)) {
+						obj[key] = arguments[i][key];
+					}
+				}
+			}
+			return obj;
+		};
+
+		// check if a css display type results in margin-collapse or not
+		U.isMarginCollapseType = function (str) {
+			return ["block", "flex", "list-item", "table", "-webkit-box"].indexOf(str) > -1;
+		};
+
+		// implementation of requestAnimationFrame
+		// based on https://gist.github.com/paulirish/1579671
+		var
+			lastTime = 0,
+			vendors = ['ms', 'moz', 'webkit', 'o'];
+		var _requestAnimationFrame = window.requestAnimationFrame;
+		var _cancelAnimationFrame = window.cancelAnimationFrame;
+		// try vendor prefixes if the above doesn't work
+		for (i = 0; !_requestAnimationFrame && i < vendors.length; ++i) {
+			_requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
+			_cancelAnimationFrame = window[vendors[i] + 'CancelAnimationFrame'] || window[vendors[i] + 'CancelRequestAnimationFrame'];
+		}
+
+		// fallbacks
+		if (!_requestAnimationFrame) {
+			_requestAnimationFrame = function (callback) {
+				var
+					currTime = new Date().getTime(),
+					timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+					id = window.setTimeout(function () {
+						callback(currTime + timeToCall);
+					}, timeToCall);
+				lastTime = currTime + timeToCall;
+				return id;
+			};
+		}
+		if (!_cancelAnimationFrame) {
+			_cancelAnimationFrame = function (id) {
+				window.clearTimeout(id);
+			};
+		}
+		U.rAF = _requestAnimationFrame.bind(window);
+		U.cAF = _cancelAnimationFrame.bind(window);
+
+		var
+			loglevels = ["error", "warn", "log"],
+			console = window.console || {};
+
+		console.log = console.log || function () {}; // no console log, well - do nothing then...
+		// make sure methods for all levels exist.
+		for (i = 0; i < loglevels.length; i++) {
+			var method = loglevels[i];
+			if (!console[method]) {
+				console[method] = console.log; // prefer .log over nothing
+			}
+		}
+		U.log = function (loglevel) {
+			if (loglevel > loglevels.length || loglevel <= 0) loglevel = loglevels.length;
+			var now = new Date(),
+				time = ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2) + ":" + ("00" + now.getMilliseconds()).slice(-3),
+				method = loglevels[loglevel - 1],
+				args = Array.prototype.splice.call(arguments, 1),
+				func = Function.prototype.bind.call(console[method], console);
+			args.unshift(time);
+			func.apply(console, args);
+		};
+
+		/**
+		 * ------------------------------
+		 * type testing
+		 * ------------------------------
+		 */
+
+		var _type = U.type = function (v) {
+			return Object.prototype.toString.call(v).replace(/^\[object (.+)\]$/, "$1").toLowerCase();
+		};
+		_type.String = function (v) {
+			return _type(v) === 'string';
+		};
+		_type.Function = function (v) {
+			return _type(v) === 'function';
+		};
+		_type.Array = function (v) {
+			return Array.isArray(v);
+		};
+		_type.Number = function (v) {
+			return !_type.Array(v) && (v - parseFloat(v) + 1) >= 0;
+		};
+		_type.DomElement = function (o) {
+			return (
+				typeof HTMLElement === "object" || typeof HTMLElement === "function" ? o instanceof HTMLElement || o instanceof SVGElement : //DOM2
+				o && typeof o === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName === "string"
+			);
+		};
+
+		/**
+		 * ------------------------------
+		 * DOM Element info
+		 * ------------------------------
+		 */
+		// always returns a list of matching DOM elements, from a selector, a DOM element or an list of elements or even an array of selectors
+		var _get = U.get = {};
+		_get.elements = function (selector) {
+			var arr = [];
+			if (_type.String(selector)) {
+				try {
+					selector = document.querySelectorAll(selector);
+				} catch (e) { // invalid selector
+					return arr;
+				}
+			}
+			if (_type(selector) === 'nodelist' || _type.Array(selector) || selector instanceof NodeList) {
+				for (var i = 0, ref = arr.length = selector.length; i < ref; i++) { // list of elements
+					var elem = selector[i];
+					arr[i] = _type.DomElement(elem) ? elem : _get.elements(elem); // if not an element, try to resolve recursively
+				}
+			} else if (_type.DomElement(selector) || selector === document || selector === window) {
+				arr = [selector]; // only the element
+			}
+			return arr;
+		};
+		// get scroll top value
+		_get.scrollTop = function (elem) {
+			return (elem && typeof elem.scrollTop === 'number') ? elem.scrollTop : window.pageYOffset || 0;
+		};
+		// get scroll left value
+		_get.scrollLeft = function (elem) {
+			return (elem && typeof elem.scrollLeft === 'number') ? elem.scrollLeft : window.pageXOffset || 0;
+		};
+		// get element height
+		_get.width = function (elem, outer, includeMargin) {
+			return _dimension('width', elem, outer, includeMargin);
+		};
+		// get element width
+		_get.height = function (elem, outer, includeMargin) {
+			return _dimension('height', elem, outer, includeMargin);
+		};
+
+		// get element position (optionally relative to viewport)
+		_get.offset = function (elem, relativeToViewport) {
+			var offset = {
+				top: 0,
+				left: 0
+			};
+			if (elem && elem.getBoundingClientRect) { // check if available
+				var rect = elem.getBoundingClientRect();
+				offset.top = rect.top;
+				offset.left = rect.left;
+				if (!relativeToViewport) { // clientRect is by default relative to viewport...
+					offset.top += _get.scrollTop();
+					offset.left += _get.scrollLeft();
+				}
+			}
+			return offset;
+		};
+
+		/**
+		 * ------------------------------
+		 * DOM Element manipulation
+		 * ------------------------------
+		 */
+
+		U.addClass = function (elem, classname) {
+			if (classname) {
+				if (elem.classList)
+					elem.classList.add(classname);
+				else
+					elem.className += ' ' + classname;
+			}
+		};
+		U.removeClass = function (elem, classname) {
+			if (classname) {
+				if (elem.classList)
+					elem.classList.remove(classname);
+				else
+					elem.className = elem.className.replace(new RegExp('(^|\\b)' + classname.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+			}
+		};
+		// if options is string -> returns css value
+		// if options is array -> returns object with css value pairs
+		// if options is object -> set new css values
+		U.css = function (elem, options) {
+			if (_type.String(options)) {
+				return _getComputedStyle(elem)[_camelCase(options)];
+			} else if (_type.Array(options)) {
+				var
+					obj = {},
+					style = _getComputedStyle(elem);
+				options.forEach(function (option, key) {
+					obj[option] = style[_camelCase(option)];
+				});
+				return obj;
+			} else {
+				for (var option in options) {
+					var val = options[option];
+					if (val == parseFloat(val)) { // assume pixel for seemingly numerical values
+						val += 'px';
+					}
+					elem.style[_camelCase(option)] = val;
+				}
+			}
+		};
+
+		return U;
+	}(window || {}));
+
+
+	ScrollMagic.Scene.prototype.addIndicators = function () {
+		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling addIndicators() due to missing Plugin \'debug.addIndicators\'. Please make sure to include plugins/debug.addIndicators.js');
+		return this;
+	}
+	ScrollMagic.Scene.prototype.removeIndicators = function () {
+		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeIndicators() due to missing Plugin \'debug.addIndicators\'. Please make sure to include plugins/debug.addIndicators.js');
+		return this;
+	}
+	ScrollMagic.Scene.prototype.setTween = function () {
+		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling setTween() due to missing Plugin \'animation.gsap\'. Please make sure to include plugins/animation.gsap.js');
+		return this;
+	}
+	ScrollMagic.Scene.prototype.removeTween = function () {
+		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeTween() due to missing Plugin \'animation.gsap\'. Please make sure to include plugins/animation.gsap.js');
+		return this;
+	}
+	ScrollMagic.Scene.prototype.setVelocity = function () {
+		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling setVelocity() due to missing Plugin \'animation.velocity\'. Please make sure to include plugins/animation.velocity.js');
+		return this;
+	}
+	ScrollMagic.Scene.prototype.removeVelocity = function () {
+		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeVelocity() due to missing Plugin \'animation.velocity\'. Please make sure to include plugins/animation.velocity.js');
+		return this;
+	}
+
+	return ScrollMagic;
+}));
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Luke Zhang's developer portfolio
+ * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * @file houses univeral utilities which can be accessed from any file
+ */
+const ScrollMagic = __importStar(__webpack_require__(2));
+let _controller = new ScrollMagic.Controller();
+const controller = {
+    controller: _controller,
+    destroy: () => _controller.destroy(true),
+    init: (options) => {
+        _controller = new ScrollMagic.Controller(options);
+        controller.controller = _controller;
+        return _controller;
+    }
+};
+exports.default = controller;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvX3V0aWxzL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7R0FrQkc7QUFDSCx5REFBMEM7QUFFMUMsSUFBSSxXQUFXLEdBQUcsSUFBSSxXQUFXLENBQUMsVUFBVSxFQUFFLENBQUE7QUFFOUMsTUFBTSxVQUFVLEdBQUc7SUFDZixVQUFVLEVBQUUsV0FBVztJQUN2QixPQUFPLEVBQUUsR0FBUyxFQUFFLENBQUMsV0FBVyxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUM7SUFDOUMsSUFBSSxFQUFFLENBQ0YsT0FBOEQsRUFDeEMsRUFBRTtRQUN4QixXQUFXLEdBQUcsSUFBSSxXQUFXLENBQUMsVUFBVSxDQUFDLE9BQU8sQ0FBQyxDQUFBO1FBRWpELFVBQVUsQ0FBQyxVQUFVLEdBQUcsV0FBVyxDQUFBO1FBRW5DLE9BQU8sV0FBVyxDQUFBO0lBQ3RCLENBQUM7Q0FDSixDQUFBO0FBRUQsa0JBQWUsVUFBVSxDQUFBIn0=
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
  * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang luke-zhang-04.github.io
  * @license MIT
- * @version 1.5.2
+ * @version 1.5.3
  * @exports DeStagnate main destagnate class
  * @file main file for destagnate
- */var _r,o=this&&this.__extends||(_r=function r(e,t){return(_r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t){t.hasOwnProperty(n)&&(e[n]=t[n])}})(e,t)},function(e,t){function n(){this.constructor=e}_r(e,t),e.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}),i=this&&this.__values||function(e){var t="function"==typeof Symbol&&Symbol.iterator,n=t&&e[t],r=0;if(n)return n.call(e);if(e&&"number"==typeof e.length)return{next:function next(){return e&&r>=e.length&&(e=void 0),{value:e&&e[r++],done:!e}}};throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")},a=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{"default":e}};Object.defineProperty(t,"__esModule",{value:!0}),t.createRef=t.createElementNS=t.createElement=t.createDSComponent=void 0;var l=a(n(7)),c=a(n(9)),s=a(n(2)),u=a(n(10)),f=a(n(11)),d=function(e){function t(n,r){var o=e.call(this)||this;return o.props=r,o.createDSComponent=t.createDSComponent,o.createElement=t.createElement,o.createElementNS=t.createElementNS,o.createRef=t.createRef,o._state={},o._didSetInitialState=!1,o.getSnapshotBeforeUpdate=function(e,t){return[e,t]},o.setState=function(e){var t,n,r,a;try{o.componentWillUpdate();try{for(var l=i(Object.keys(e)),c=l.next(),s;!c.done;c=l.next()){s=c.value;Object.keys(o.state).includes(s)||console.warn("WARN: New key ("+s+") should not be set with setState, which has keys "+JSON.stringify(Object.keys(o.state))+". Declare all state variables in constructor as a best practice. Did you misspell a key?")}}catch(e){t={error:e}}finally{try{c&&!c.done&&(n=l["return"])&&n.call(l)}finally{if(t)throw t.error}}o.getSnapshotBeforeUpdate(o.props,o.state),Object.assign(o._state,e);var u=o._execRender();if("object"==_typeof(u)&&u instanceof Array)try{for(var f=i(u),d=f.next(),p;!d.done;d=f.next()){p=d.value;o._parent.appendChild(p)}}catch(e){r={error:e}}finally{try{d&&!d.done&&(a=f["return"])&&a.call(f)}finally{if(r)throw r.error}}else u&&o._parent.appendChild(u);o.componentDidUpdate()}catch(e){return o.componentDidCatch(e),e}},o.mountComponent=function(){try{var e=o.render();if(o._didSetInitialState=!0,o.componentWillMount(),null===e){throw new Error("Expected render method to be included in component class, no render method found, or render returned an empty array")}return o.bindEventListeners(o._parent),o.componentDidMount(),"object"==_typeof(e)&&e instanceof Array?e.map(function(e){return o._parent.appendChild(e)}):o._parent.appendChild(e)}catch(e){return o.componentDidCatch(e),e}},o.mount=o.mountComponent,o.unmountComponent=function(){try{o.componentWillUnmount(),o.unbindEventListeners(o._parent),o._removeChildren()}catch(e){o.componentDidCatch(e)}},o.unmount=o.unmountComponent,o._removeChildren=function(){for(;o._parent.firstChild&&o._parent.lastChild;){o._parent.removeChild(o._parent.lastChild)}},o._execRender=function(){return o._removeChildren(),o.render()},["body","html"].includes(n.tagName.toLowerCase())&&console.warn("WARN: Avoid using "+n.tagName.toLowerCase()+" as element parent, as all elements within "+n.tagName.toLowerCase()+" will be removed on re-render"),o._parent=n,o}return o(t,e),Object.defineProperty(t.prototype,"getState",{get:function get(){return this.state},enumerable:!1,configurable:!0}),Object.defineProperty(t.prototype,"state",{get:function get(){return this._state},set:function set(e){this._didSetInitialState?(this.componentDidCatch(new Error("Do not mutate state directly. Use setState instead.")),console.warn("DeStagnate protects you from mutating the entire state object. Avoid mutating state directly"),this.setState(e)):(this._state=e,this._didSetInitialState=!0)},enumerable:!1,configurable:!0}),Object.defineProperty(t.prototype,"getProps",{get:function get(){return this.props},enumerable:!1,configurable:!0}),t.createDSComponent=c["default"],t.createElement=s["default"],t.createElementNS=u["default"],t.createRef=f["default"],t}(l["default"]);t["default"]=d,t.createDSComponent=c["default"],t.createElement=s["default"],t.createElementNS=u["default"],t.createRef=f["default"]},function(e,t){"use strict";/**
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createRef = exports.createElementNS = exports.createElement = exports.createDSComponent = void 0;
+var _preset_1 = __importDefault(__webpack_require__(5));
+var createDSComponent_1 = __importDefault(__webpack_require__(7));
+var createElement_1 = __importDefault(__webpack_require__(8));
+var createElementNS_1 = __importDefault(__webpack_require__(9));
+var createRef_1 = __importDefault(__webpack_require__(10));
+/**
+ * DeStagnate
+ * @classdesc A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @class
+ * @namespace
+ * @abstract
+ */
+var DeStagnate = /** @class */ (function (_super) {
+    __extends(DeStagnate, _super);
+    /**
+     * Construct class component
+     * @public
+     * @constructor
+     * @param {HTMLElement} parent - parent of this element
+     * @param {undefined | Object.<string, string | number>} props - element properties; works like React Props
+     */
+    function DeStagnate(parent, props) {
+        var _this = _super.call(this) || this;
+        _this.props = props;
+        /**
+         * Creates nested DeStagnate component
+         * @public
+         * @instance
+         * @readonly
+         * @param {DeStagnateConstructor} Component - DeStagnate component
+         * @param {Object<string, unknown>} props - props of component
+         * @returns {HTMLDivElement} parent of component
+         */
+        _this.createDSComponent = DeStagnate.createDSComponent;
+        /**
+         * Creates a child element to DynamComponent
+         * @public
+         * @instance
+         * @readonly
+         * @param {string} tagName - name of HTML element
+         * @param {undefined | Object.<string, string | number | Element | Ref | Function>} props - element properties, such as class, innerHTML, id, style, etc
+         * @param {undefined | number | string | HTMLElement | Element | Array.<number | string | HTMLElement | Element>} children -  children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these  will create multiple children
+         * @param {...(number | string | HTMLElement | Element)} childrenArgs - rest parameter of children
+         * @returns {HTMLElement} html element
+         */
+        _this.createElement = DeStagnate.createElement;
+        /**
+         * Creates a child element to deStagnate
+         * @public
+         * @instance
+         * @readonly
+         * @param {string | null} namespaceURI - namespace uri
+         * @param {string} tagName - name of HTML element
+         * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+         * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+         * @param {...(HTMLElement | string | number)} childrenArgs - rest parameter of children
+         * @returns {HTMLElement} html element
+         */
+        _this.createElementNS = DeStagnate.createElementNS;
+        /**
+         * Creates a reference for a nested component
+         * @public
+         * @instance
+         * @readonly
+         * @returns {Object<string, null>} empty ref object
+         */
+        _this.createRef = DeStagnate.createRef;
+        /**
+         * State of component. Works similar React State
+         * @type {undefined | Object.<string, unknown>}
+         * @private
+         * @instance
+         */
+        _this._state = {};
+        /**
+         * If initial state was set in initializer
+         * Do not throw error with direct state setting
+         * @type {boolean}
+         * @private
+         */
+        _this._didSetInitialState = false;
+        /**
+         * What to call before component update (state mutation)
+         * @public
+         * @instance
+         * @param {Props} prevProps - previous props
+         * @param {State} prevState - previous state
+         * @returns {void} void
+         */
+        _this.getSnapshotBeforeUpdate = function (prevProps, prevState) { return [prevProps, prevState]; };
+        /**
+         * Sets state
+         * @public
+         * @instance
+         * @readonly
+         * @param {Partial<State>} obj - state to set
+         * @returns {void | Error} void
+         */
+        _this.setState = function (obj) {
+            var e_1, _a, e_2, _b;
+            try {
+                _this.componentWillUpdate();
+                try {
+                    for (var _c = __values(Object.keys(obj)), _d = _c.next(); !_d.done; _d = _c.next()) {
+                        var key = _d.value;
+                        if (!Object.keys(_this.state).includes(key)) {
+                            // eslint-disable-next-line
+                            console.warn("WARN: New key (" + key + ") should not be set with setState, which has keys " + JSON.stringify(Object.keys(_this.state)) + ". Declare all state variables in constructor as a best practice. Did you misspell a key?");
+                        }
+                    }
+                }
+                catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                finally {
+                    try {
+                        if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+                    }
+                    finally { if (e_1) throw e_1.error; }
+                }
+                _this.getSnapshotBeforeUpdate(_this.props, _this.state);
+                Object.assign(_this._state, obj);
+                var renderedContent = _this._execRender();
+                if (typeof (renderedContent) === "object" &&
+                    renderedContent instanceof Array) {
+                    try {
+                        for (var renderedContent_1 = __values(renderedContent), renderedContent_1_1 = renderedContent_1.next(); !renderedContent_1_1.done; renderedContent_1_1 = renderedContent_1.next()) {
+                            var element = renderedContent_1_1.value;
+                            _this._parent.appendChild(element);
+                        }
+                    }
+                    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+                    finally {
+                        try {
+                            if (renderedContent_1_1 && !renderedContent_1_1.done && (_b = renderedContent_1.return)) _b.call(renderedContent_1);
+                        }
+                        finally { if (e_2) throw e_2.error; }
+                    }
+                }
+                else if (renderedContent) {
+                    _this._parent.appendChild(renderedContent);
+                }
+                _this.componentDidUpdate();
+            }
+            catch (err) /* istanbul ignore next */ {
+                _this.componentDidCatch(err);
+                return err;
+            }
+        };
+        /* eslint-disable max-len, @typescript-eslint/member-ordering, max-lines */
+        /**
+         * Initial mounting to be manually called
+         * @public
+         * @instance
+         * @readonly
+         * @returns {HTMLElement | Array.<HTMLElement> | error} - result of append child to parent element
+         */
+        _this.mountComponent = function () {
+            try {
+                var component = _this.render();
+                _this._didSetInitialState = true;
+                _this.componentWillMount();
+                if (component === null) {
+                    var msg = "Expected render method to be included in component class, no render method found, or render returned an empty array";
+                    throw new Error(msg);
+                }
+                _this.bindEventListeners(_this._parent);
+                _this.componentDidMount();
+                if (typeof (component) === "object" && component instanceof Array) {
+                    return component.map(function (element) { return (_this._parent.appendChild(element)); });
+                }
+                return _this._parent.appendChild(component);
+            }
+            catch (err) /* istanbul ignore next */ {
+                _this.componentDidCatch(err);
+                return err;
+            }
+        };
+        /**
+         * Initial mounting to be manually called
+         * @public
+         * @instance
+         * @readonly
+         * @returns {HTMLElement} - result of append child to parent element
+         */
+        _this.mount = _this.mountComponent;
+        /**
+         * Unmounting to be manually called
+         * @public
+         * @instance
+         * @readonly
+         * @returns {void} - void
+         */
+        _this.unmountComponent = function () {
+            try {
+                _this.componentWillUnmount();
+                _this.unbindEventListeners(_this._parent);
+                _this._removeChildren();
+            }
+            catch (err) /* istanbul ignore next */ {
+                _this.componentDidCatch(err);
+            }
+        };
+        /**
+         * Unmounting to be manually called
+         * @public
+         * @instance
+         * @readonly
+         * @returns {void} - void
+         */
+        _this.unmount = _this.unmountComponent;
+        /* eslint-enable max-len, @typescript-eslint/member-ordering */
+        /**
+         * Removes children from this._parent
+         * @private
+         * @instance
+         * @return {void} void
+         */
+        _this._removeChildren = function () {
+            while (_this._parent.firstChild) {
+                if (_this._parent.lastChild) {
+                    _this._parent.removeChild(_this._parent.lastChild);
+                }
+                else {
+                    break;
+                }
+            }
+        };
+        /**
+         * Executes new render
+         * @returns {HTMLElement | Array.<HTMLElement> | null} rendered content
+         */
+        _this._execRender = function () {
+            _this._removeChildren();
+            return _this.render();
+        };
+        if (["body", "html"].includes(parent.tagName.toLowerCase())) {
+            console.warn("WARN: Avoid using " + parent.tagName.toLowerCase() + " as element parent, as all elements within " + parent.tagName.toLowerCase() + " will be removed on re-render");
+        }
+        _this._parent = parent;
+        return _this;
+    }
+    Object.defineProperty(DeStagnate.prototype, "getState", {
+        /**
+         * Public getState getter as this.state itself is protected
+         * @public
+         * @instance
+         * @returns {State} component state
+         */
+        get: function () {
+            return this.state;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DeStagnate.prototype, "state", {
+        /**
+         * Get component state
+         * @protected
+         * @instance
+         * @returns {State} component state
+         */
+        get: function () {
+            return this._state;
+        },
+        /**
+         * Sets component state
+         * WARN: do not use this method to mutate the state directly
+         * @protected
+         * @instance
+         * @param {State} obj - state to set
+         */
+        set: function (obj) {
+            if (this._didSetInitialState) {
+                this.componentDidCatch(new Error("Do not mutate state directly. Use setState instead."));
+                // eslint-disable-next-line
+                console.warn("DeStagnate protects you from mutating the entire state object. Avoid mutating state directly");
+                this.setState(obj);
+            }
+            else {
+                this._state = obj;
+                this._didSetInitialState = true;
+            }
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DeStagnate.prototype, "getProps", {
+        /**
+         * Public getProps getter as this.props itself is protected
+         * @public
+         * @instance
+         * @returns {Props | undefined} component state
+         */
+        get: function () {
+            return this.props;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    /**
+     * Creates nested DeStagnate component
+     * @public
+     * @static
+     * @readonly
+     * @param {DeStagnateConstructor} Component - DeStagnate component
+     * @param {Object<string, unknown>} props - props of component
+     * @returns {HTMLDivElement} parent of component
+     */
+    DeStagnate.createDSComponent = createDSComponent_1.default;
+    /**
+     * Creates a child element to DynamComponent
+     * @public
+     * @static
+     * @readonly
+     * @param {string} tagName - name of HTML element
+     * @param {undefined | Object.<string, string | number | Element | Ref | Function>} props - element properties, such as class, innerHTML, id, style, etc
+     * @param {undefined | number | string | HTMLElement | Element | Array.<number | string | HTMLElement | Element>} children -  children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these  will create multiple children
+     * @param {...(number | string | HTMLElement | Element)} childrenArgs - rest parameter of children
+     * @returns {HTMLElement} html element
+     */
+    DeStagnate.createElement = createElement_1.default;
+    /**
+     * Creates a child element to deStagnate
+     * @public
+     * @static
+     * @readonly
+     * @param {string | null} namespaceURI - namespace uri
+     * @param {string} tagName - name of HTML element
+     * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+     * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+     * @param {...(HTMLElement | string | number)} childrenArgs - rest parameter of children
+     * @returns {HTMLElement} html element
+     */
+    DeStagnate.createElementNS = createElementNS_1.default;
+    /**
+     * Creates a reference for a nested component
+     * @public
+     * @static
+     * @readonly
+     * @returns {Object<string, null>} empty ref object
+     */
+    DeStagnate.createRef = createRef_1.default;
+    return DeStagnate;
+}(_preset_1.default));
+exports.default = DeStagnate;
+/**
+ * Creates nested DeStagnate component
+ * @param {DeStagnateConstructor} Component - DeStagnate component
+ * @param {Object<string, unknown>} props - props of component
+ * @returns {HTMLDivElement} parent of component
+ */
+exports.createDSComponent = createDSComponent_1.default;
+/**
+ * Creates a child element to deStagnate
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+ * @returns {HTMLElement} html element
+ */
+exports.createElement = createElement_1.default;
+/**
+ * Creates a child element to DynamComponent
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number | Element | Ref | Function>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | number | string | HTMLElement | Element | Array.<number | string | HTMLElement | Element>} children -  children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these  will create multiple children
+ * @param {...(number | string | HTMLElement | Element)} childrenArgs - rest parameter of children
+ * @returns {HTMLElement} html element
+ */
+exports.createElementNS = createElementNS_1.default;
+/**
+ * Creates a reference for a nested component
+ * @returns {Object<string, undefined>} empty ref object
+ */
+exports.createRef = createRef_1.default;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7Ozs7R0FTRzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBRUgsc0RBQThCO0FBQzlCLDBFQUFpRTtBQUNqRSxrRUFBeUQ7QUFDekQsc0VBQTZEO0FBQzdELDBEQUFpRDtBQUlqRDs7Ozs7O0dBTUc7QUFDSDtJQUVZLDhCQUFNO0lBeUhkOzs7Ozs7T0FNRztJQUNILG9CQUNJLE1BQW1CLEVBQ1QsS0FBYTtRQUYzQixZQUlJLGlCQUFPLFNBTVY7UUFSYSxXQUFLLEdBQUwsS0FBSyxDQUFRO1FBaEYzQjs7Ozs7Ozs7V0FRRztRQUNhLHVCQUFpQixHQUFHLFVBQVUsQ0FBQyxpQkFBaUIsQ0FBQTtRQUVoRTs7Ozs7Ozs7OztXQVVHO1FBQ2EsbUJBQWEsR0FBRyxVQUFVLENBQUMsYUFBYSxDQUFBO1FBRXhEOzs7Ozs7Ozs7OztXQVdHO1FBQ2EscUJBQWUsR0FBRyxVQUFVLENBQUMsZUFBZSxDQUFBO1FBRTVEOzs7Ozs7V0FNRztRQUNhLGVBQVMsR0FBRyxVQUFVLENBQUMsU0FBUyxDQUFBO1FBRWhEOzs7OztXQUtHO1FBQ0ssWUFBTSxHQUFVLEVBQVcsQ0FBQTtRQUVuQzs7Ozs7V0FLRztRQUNLLHlCQUFtQixHQUFHLEtBQUssQ0FBQTtRQTZCbkM7Ozs7Ozs7V0FPRztRQUNJLDZCQUF1QixHQUFHLFVBQzdCLFNBQWdCLEVBQ2hCLFNBQWdCLElBQ0MsT0FBQSxDQUFDLFNBQVMsRUFBRSxTQUFTLENBQUMsRUFBdEIsQ0FBc0IsQ0FBQTtRQXFEM0M7Ozs7Ozs7V0FPRztRQUNhLGNBQVEsR0FBRyxVQUFDLEdBQW1COztZQUMzQyxJQUFJO2dCQUNBLEtBQUksQ0FBQyxtQkFBbUIsRUFBRSxDQUFBOztvQkFFMUIsS0FBa0IsSUFBQSxLQUFBLFNBQUEsTUFBTSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FB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
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
  * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang luke-zhang-04.github.io
- * @license MIT
- * @version 1.5.2
- * @exports createElement function for DOM manipulation
- */var r=this&&this.__values||function(e){var t="function"==typeof Symbol&&Symbol.iterator,n=t&&e[t],r=0;if(n)return n.call(e);if(e&&"number"==typeof e.length)return{next:function next(){return e&&r>=e.length&&(e=void 0),{value:e&&e[r++],done:!e}}};throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")},o=this&&this.__read||function(e,t){var n="function"==typeof Symbol&&e[Symbol.iterator];if(!n)return e;var r,o,i=n.call(e),a=[];try{for(;(void 0===t||t-->0)&&!(r=i.next()).done;){a.push(r.value)}}catch(e){o={error:e}}finally{try{r&&!r.done&&(n=i["return"])&&n.call(i)}finally{if(o)throw o.error}}return a},i=this&&this.__spread||function(){for(var e=[],t=0;t<arguments.length;t++){e=e.concat(o(arguments[t]))}return e};Object.defineProperty(t,"__esModule",{value:!0}),t._bindChildren=t._unpackChildren=t._bindProps=void 0,t._bindProps=function(e,t,n){var i,a;if(void 0===n&&(n=!1),t)try{for(var l=r(Object.entries(t)),c=l.next();!c.done;c=l.next()){var s=o(c.value,2),u=s[0],f=s[1];"string"==typeof f||"number"==typeof f?"innerHTML"===u?e.innerHTML=f.toString():n?e.setAttributeNS(null,u,f.toString()):e.setAttribute(u,f.toString()):"on"===u.slice(0,2)?"function"==typeof f&&e.addEventListener(u.slice(2).toLowerCase(),f):"ref"===u&&"object"==_typeof(f)&&"current"in f?f.current=e:console.warn("WARN: Invalid prop type \""+_typeof(f)+"\" for key \""+u+"\". Skipping prop.")}}catch(e){i={error:e}}finally{try{c&&!c.done&&(a=l["return"])&&a.call(l)}finally{if(i)throw i.error}}},t._unpackChildren=function(e){var n,o,a=[];try{for(var l=r(e),c=l.next(),s;!c.done;c=l.next()){s=c.value;"object"==_typeof(s)&&s instanceof Array?a.push.apply(a,i(t._unpackChildren(s))):a.push(s)}}catch(e){n={error:e}}finally{try{c&&!c.done&&(o=l["return"])&&o.call(l)}finally{if(n)throw n.error}}return a},t._bindChildren=function(e,n){var o,i;if(n||0===n)if(n instanceof Array)try{for(var a=r(n),l=a.next(),c;!l.done;l=a.next()){c=l.value;"string"==typeof c||"number"==typeof c?e.innerText=c.toString():"object"==_typeof(c)&&c instanceof Array?t._unpackChildren(c).forEach(function(n){return t._bindChildren(e,n)}):e.appendChild(c)}}catch(e){o={error:e}}finally{try{l&&!l.done&&(i=a["return"])&&i.call(a)}finally{if(o)throw o.error}}else"string"==typeof n||"number"==typeof n?e.innerText=n.toString():e.appendChild(n)};t["default"]=function(e,n,r){for(var o=[],a=3;a<arguments.length;a++){o[a-3]=arguments[a]}var l=document.createElement(e);t._bindProps(l,n);var c=r;return r&&o&&(c=i("object"==_typeof(r)&&r instanceof Array?t._unpackChildren(r):[r],t._unpackChildren(o))),t._bindChildren(l,c),l}},function(e){e.exports=JSON.parse("{\"tsjs\":{\"title\":\"TypeScript and JavaScript\",\"text\":\"Usage in static and dynamic websites with tools such as React and Webpack/Browserify, as well as usage with NodeJS backends.\",\"href\":\"/\"},\"frontend\":{\"title\":\"HTML, CSS, and SCSS\",\"text\":\"Usage in static and dynamic websites with tools such as React, Webpack/Browserify and Bootstrap.\",\"href\":\"/\"},\"bash\":{\"title\":\"Bash\",\"text\":\"Usage in everyday programming as well as writing shell scripts to build, compile, and start projects.\",\"href\":\"/\"},\"backend\":{\"title\":\"Python, C++, and GO\",\"text\":\"Usage in projects and backend applications, as well as extensive use of Python in competitive programming situations.\",\"href\":\"/\"}}")},function(e,t,n){"use strict";var r=Object.create?function(e,t,n,r){void 0===r&&(r=n),Object.defineProperty(e,r,{enumerable:!0,get:function get(){return t[n]}})}:function(e,t,n,r){void 0===r&&(r=n),e[r]=t[n]},o=Object.create?function(e,t){Object.defineProperty(e,"default",{enumerable:!0,value:t})}:function(e,t){e["default"]=t},a=function(e){return e&&e.__esModule?e:{"default":e}};Object.defineProperty(t,"__esModule",{value:!0});var l,c=function i(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e){"default"!==n&&Object.hasOwnProperty.call(e,n)&&r(t,e,n)}return o(t,e),t}(n(5)),s=a(n(12)),u=a(n(13)),f=new c["default"](document.getElementById("langs-display"),{parent:document.getElementById("langs-display")}),d=new s["default"](document.getElementById("langs-display"),{parent:document.getElementById("langs-display")}),p=function(){if(window.innerWidth>u["default"].sizes.sm){var e=document.getElementById("home");f.unmount(),d.unmount(),f.mount(),e&&e.querySelector(".languages #fixed")&&e.getElementsByClassName("lang-img")&&!l&&(c.controller.init(),l=c.bindLangStickEvent(e.querySelector(".languages #fixed"),e.getElementsByClassName("lang-img"),f))}else f.unmount(),d.mount(),c.controller.destroy()};window.onresize=p,p()},function(e,t,n){"use strict";function r(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if("undefined"==typeof Symbol||!(Symbol.iterator in Object(e)))return;var n=[],r=!0,o=!1,i=void 0;try{for(var a,l=e[Symbol.iterator]();!(r=(a=l.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0){}}catch(e){o=!0,i=e}finally{try{r||null==l["return"]||l["return"]()}finally{if(o)throw i}}return n}(e,t)||o(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function o(e,t){if(e){if("string"==typeof e)return i(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?i(e,t):void 0}}function i(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++){r[n]=e[n]}return r}function a(e){return(a="function"==typeof Symbol&&"symbol"==_typeof(Symbol.iterator)?function(e){return _typeof(e)}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":_typeof(e)})(e)}function l(e,t){return(l=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function c(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}();return function(){var n,r=u(e);if(t){var o=u(this).constructor;n=Reflect.construct(r,arguments,o)}else n=r.apply(this,arguments);return s(this,n)}}function s(e,t){return!t||"object"!==a(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function u(e){return(u=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var f=Object.create?function(e,t,n,r){void 0===r&&(r=n),Object.defineProperty(e,r,{enumerable:!0,get:function get(){return t[n]}})}:function(e,t,n,r){void 0===r&&(r=n),e[r]=t[n]},d=Object.create?function(e,t){Object.defineProperty(e,"default",{enumerable:!0,value:t})}:function(e,t){e["default"]=t},p=function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e){"default"!==n&&Object.hasOwnProperty.call(e,n)&&f(t,e,n)}return d(t,e),t};Object.defineProperty(t,"__esModule",{value:!0}),t.controller=t.bindLangStickEvent=void 0;/**
- * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Copyright (C) 2020 Luke Zhang luke-zhang-04.github.io
+ * MIT License
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */var m=p(n(0)),g=p(n(6)),v=p(n(1)),y=function h(e){return e&&e.__esModule?e:{"default":e}}(n(3)),b=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&l(e,t)}(n,e);var t=c(n);function n(e,r){var o;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,n),(o=t.call(this,e,r)).changeComponent=function(e){o.props.parent.classList.add("fade-out"),setTimeout(function(){o.setState(e),o.props.parent.classList.remove("fade-out")},250)},o.render=function(){return[v.createElement("h2",{"class":"my-3"},o.state.title),v.createElement("span",{"class":"line d-block"}),v.createElement("p",{"class":"mb-4"},o.state.text),v.createElement("button",{"class":"btn-box btn-box-primary d-none d-lg-block",href:o.state.href},["See projects ",v.createElement("span",{"class":"material-icons"},"trending_flat")]),v.createElement("button",{"class":"btn btn-outline-primary d-block d-lg-none",href:o.state.href},"See Projects")]},o.state=Object.assign(Object.assign({},y["default"].tsjs),{key:"tsjs",index:0}),o}return n}(v["default"]);t["default"]=b,t.bindLangStickEvent=function(e,t,n){var i=new m.Scene({triggerElement:t[0],triggerHook:.5,duration:t[t.length-1].offsetTop+.5*window.innerHeight}),a=1/t.length,l=["tsjs","frontend","bash","backend"];i&&i.setPin(e).addTo(g["default"].controller);var c="tsjs";return i.on("progress",function(e){var t,i=function(e,t){var _n;if("undefined"==typeof Symbol||null==e[Symbol.iterator]){if(Array.isArray(e)||(_n=o(e))||t&&e&&"number"==typeof e.length){_n&&(e=_n);var r=0,i=function(){};return{s:i,n:function(){return r>=e.length?{done:!0}:{done:!1,value:e[r++]}},e:function(_e){throw _e},f:i}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var a,l=!0,c=!1;return{s:function(){_n=e[Symbol.iterator]()},n:function(){var e=_n.next();return l=e.done,e},e:function(_e2){c=!0,a=_e2},f:function(){try{l||null==_n["return"]||_n["return"]()}finally{if(c)throw a}}}}(l.entries());try{for(i.s();!(t=i.n()).done;){var s=r(t.value,2),u=s[0],f=s[1];if(e.target.progress()<=a*(u+1)){c!==f&&(c=f,n.changeComponent(Object.assign(Object.assign({},y["default"][f]),{key:f,index:u})));break}}}catch(e){i.e(e)}finally{i.f()}}),i},t.controller=g["default"]},function(e,t,n){"use strict";var r=Object.create?function(e,t,n,r){void 0===r&&(r=n),Object.defineProperty(e,r,{enumerable:!0,get:function get(){return t[n]}})}:function(e,t,n,r){void 0===r&&(r=n),e[r]=t[n]},o=Object.create?function(e,t){Object.defineProperty(e,"default",{enumerable:!0,value:t})}:function(e,t){e["default"]=t};Object.defineProperty(t,"__esModule",{value:!0});/**
- * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */var a=function i(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e){"default"!==n&&Object.hasOwnProperty.call(e,n)&&r(t,e,n)}return o(t,e),t}(n(0)),l=new a.Controller,c={controller:l,destroy:function destroy(){return l.destroy(!0)},init:function init(e){return l=new a.Controller(e),c.controller=l,l}};t["default"]=c},function(e,t,n){"use strict";/**
- * DeStagnate
- * A simple, ReactJS inspired library to create dynamic components within static sites easier
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang luke-zhang-04.github.io
- * @license MIT
- * @version 1.5.2
+ * @version 1.5.3
  * @exports Preset
  * @package
- */var _r2,o=this&&this.__extends||(_r2=function r(e,t){return(_r2=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t){t.hasOwnProperty(n)&&(e[n]=t[n])}})(e,t)},function(e,t){function n(){this.constructor=e}_r2(e,t),e.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}),i=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{"default":e}};Object.defineProperty(t,"__esModule",{value:!0});var a=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.componentDidCatch=function(e){return console.error(e)},t.componentDidMount=function(){},t.componentDidUpdate=function(){},t.componentWillMount=function(){},t.componentWillUnmount=function(){},t.componentWillUpdate=function(){},t.render=function(){return null},t}return o(t,e),t}(i(n(8))["default"]);t["default"]=a},function(e,t){"use strict";/**
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var _events_1 = __importDefault(__webpack_require__(6));
+/* istanbul ignore next */
+/**
+ * Lifecycle member functions
+ */
+var Preset = /** @class */ (function (_super) {
+    __extends(Preset, _super);
+    function Preset() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        /**
+         * Called when component catches error. Default behaviour is console.error
+         * @param {Error} error - error object with info
+         * @returns {void} void
+         */
+        _this.componentDidCatch = function (error) { return console.error(error); };
+        /**
+         * What to call after component mounting
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        _this.componentDidMount = function () { return undefined; };
+        /**
+         * What to call after component update (state mutation)
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        _this.componentDidUpdate = function () { return undefined; };
+        /**
+         * What to call before component mounting
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        _this.componentWillMount = function () { return undefined; };
+        /**
+         * What to call before component unmounting
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        _this.componentWillUnmount = function () { return undefined; };
+        /**
+         * What to call before component update (state mutation)
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        _this.componentWillUpdate = function () { return undefined; };
+        /**
+         * Rendering HTML, must be part of extended class
+         * @public
+         * @instance
+         * @abstract
+         * @returns {null | HTMLElement | Array.<HTMLElement> | Element | Array.<Element>} if returns null error will be thrown
+         */
+        _this.render = function () { return null; };
+        return _this;
+    }
+    return Preset;
+}(_events_1.default));
+exports.default = Preset;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiX3ByZXNldC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9fcHJlc2V0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7OztHQVVHOzs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFJSCxzREFBOEI7QUFFOUIsMEJBQTBCO0FBQzFCOztHQUVHO0FBQ0g7SUFBNkMsMEJBQU07SUFBbkQ7UUFBQSxxRUEwREM7UUF4REc7Ozs7V0FJRztRQUNJLHVCQUFpQixHQUFHLFVBQUMsS0FBWSxJQUFXLE9BQUEsT0FBTyxDQUFDLEtBQUssQ0FBQyxLQUFLLENBQUMsRUFBcEIsQ0FBb0IsQ0FBQTtRQUV2RTs7Ozs7V0FLRztRQUNJLHVCQUFpQixHQUFHLGNBQVksT0FBQSxTQUFTLEVBQVQsQ0FBUyxDQUFBO1FBRWhEOzs7OztXQUtHO1FBQ0ksd0JBQWtCLEdBQUcsY0FBWSxPQUFBLFNBQVMsRUFBVCxDQUFTLENBQUE7UUFFakQ7Ozs7O1dBS0c7UUFDSSx3QkFBa0IsR0FBRyxjQUFZLE9BQUEsU0FBUyxFQUFULENBQVMsQ0FBQTtRQUVqRDs7Ozs7V0FLRztRQUNJLDBCQUFvQixHQUFHLGNBQVksT0FBQSxTQUFTLEVBQVQsQ0FBUyxDQUFBO1FBRW5EOzs7OztXQUtHO1FBQ0kseUJBQW1CLEdBQUcsY0FBWSxPQUFBLFNBQVMsRUFBVCxDQUFTLENBQUE7UUFFbEQ7Ozs7OztXQU1HO1FBQ2EsWUFBTSxHQUFHLGNBQWtCLE9BQUEsSUFBSSxFQUFKLENBQUksQ0FBQTs7SUFFbkQsQ0FBQztJQUFELGFBQUM7QUFBRCxDQUFDLEFBMURELENBQTZDLGlCQUFNLEdBMERsRCJ9
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
  * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang luke-zhang-04.github.io
- * @license MIT
- * @version 1.5.2
+ *
+ * Copyright (C) 2020 Luke Zhang luke-zhang-04.github.io
+ * MIT License
+ *
+ * @version 1.5.3
  * @exports Events
  * @package
- */var r=this&&this.__values||function(e){var t="function"==typeof Symbol&&Symbol.iterator,n=t&&e[t],r=0;if(n)return n.call(e);if(e&&"number"==typeof e.length)return{next:function next(){return e&&r>=e.length&&(e=void 0),{value:e&&e[r++],done:!e}}};throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")},o=this&&this.__read||function(e,t){var n="function"==typeof Symbol&&e[Symbol.iterator];if(!n)return e;var r,o,i=n.call(e),a=[];try{for(;(void 0===t||t-->0)&&!(r=i.next()).done;){a.push(r.value)}}catch(e){o={error:e}}finally{try{r&&!r.done&&(n=i["return"])&&n.call(i)}finally{if(o)throw o.error}}return a};Object.defineProperty(t,"__esModule",{value:!0});t["default"]=function i(){var e=this;this.bindEventListeners=function(t){e._eventListener(t.addEventListener)},this.unbindEventListeners=function(t){e._eventListener(t.removeEventListener)},this.onFocus=function(){},this.onBlur=function(){},this.onFocusIn=function(){},this.onFocusOut=function(){},this.onAnimationStart=function(){},this.onAnimationCancel=function(){},this.onAnimationEnd=function(){},this.onAnimationIteration=function(){},this.onTransitionStart=function(){},this.onTransitionCancel=function(){},this.onTransitionEnd=function(){},this.onTransitionRun=function(){},this.onAuxClick=function(){},this.onClick=function(){},this.onDblClick=function(){},this.onMouseDown=function(){},this.onMouseEnter=function(){},this.onMouseLeave=function(){},this.onMouseMove=function(){},this.onMouseOver=function(){},this.onMouseOut=function(){},this.onMouseUp=function(){},this._eventListener=function(t){var n,i;try{for(var a=r(Object.entries(e._events())),l=a.next(),c;!l.done;l=a.next()){c=o(l.value,2);t(c[0],c[1])}}catch(e){n={error:e}}finally{try{l&&!l.done&&(i=a["return"])&&i.call(a)}finally{if(n)throw n.error}}},this._events=function(){return{focus:e.onFocus,blur:e.onBlur,focusin:e.onFocusIn,focusout:e.onFocusOut,animationstart:e.onAnimationStart,animationcancel:e.onAnimationCancel,animationend:e.onAnimationEnd,animationiteration:e.onAnimationIteration,transitionstart:e.onTransitionStart,transitioncancel:e.onTransitionCancel,transitionend:e.onTransitionEnd,transitionrun:e.onTransitionRun,auxclick:e.onAuxClick,click:e.onClick,dblclick:e.onDblClick,mousedown:e.onMouseDown,mouseenter:e.onMouseEnter,mouseleave:e.onMouseLeave,mousemove:e.onMouseMove,mouseover:e.onMouseOver,mouseout:e.onMouseOut,mouseup:e.onMouseUp}}}},function(e,t){"use strict";/**
+ */
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/* istanbul ignore next */
+var Events = /** @class */ (function () {
+    function Events() {
+        var _this = this;
+        /**
+         * Binds event listeners event
+         * Do not call manually
+         * @protected
+         * @instance
+         * @pacakge
+         * @param {HTMLElement} element - element to bind listeners to
+         * @returns {void} void;
+         */
+        this.bindEventListeners = function (element) {
+            _this._eventListener(element.addEventListener);
+        };
+        /**
+         * Binds event listeners event
+         * Do not call manually
+         * @protected
+         * @instance
+         * @pacakge
+         * @param {HTMLElement} element - element to bind listeners to
+         * @returns {void} void;
+         */
+        this.unbindEventListeners = function (element) {
+            _this._eventListener(element.removeEventListener);
+        };
+        /**
+         * Focus event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onFocus = function () { return undefined; };
+        /**
+         * Blur event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onBlur = function () { return undefined; };
+        /**
+         * Focus in event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onFocusIn = function () { return undefined; };
+        /**
+         * Focus out event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onFocusOut = function () { return undefined; };
+        /**
+         * Animation start event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAnimationStart = function () { return undefined; };
+        /**
+         * Animation cancel event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAnimationCancel = function () { return undefined; };
+        /**
+         * Animation end event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAnimationEnd = function () { return undefined; };
+        /**
+         * Animation iteration event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAnimationIteration = function () { return undefined; };
+        /**
+         * Transition start event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onTransitionStart = function () { return undefined; };
+        /**
+         * Transition cancel event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onTransitionCancel = function () { return undefined; };
+        /**
+         * Transition end event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onTransitionEnd = function () { return undefined; };
+        /**
+         * Transition run event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onTransitionRun = function () { return undefined; };
+        /**
+         * Auxillary click event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAuxClick = function () { return undefined; };
+        /**
+         * Click event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onClick = function () { return undefined; };
+        /**
+         * Double click event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onDblClick = function () { return undefined; };
+        /**
+         * Mousedown event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseDown = function () { return undefined; };
+        /**
+         * Mouse enter event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseEnter = function () { return undefined; };
+        /**
+         * Mouse leave event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseLeave = function () { return undefined; };
+        /**
+         * Mouse move event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseMove = function () { return undefined; };
+        /**
+         * Mouseover event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseOver = function () { return undefined; };
+        /**
+         * Mouseout event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseOut = function () { return undefined; };
+        /**
+         * Mouseup event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseUp = function () { return undefined; };
+        this._eventListener = function (el) {
+            var e_1, _a;
+            try {
+                for (var _b = __values(Object.entries(_this._events())), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var _d = __read(_c.value, 2), event_1 = _d[0], callback = _d[1];
+                    el(event_1, callback);
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_1) throw e_1.error; }
+            }
+        };
+        this._events = function () { return ({
+            focus: _this.onFocus,
+            blur: _this.onBlur,
+            focusin: _this.onFocusIn,
+            focusout: _this.onFocusOut,
+            animationstart: _this.onAnimationStart,
+            animationcancel: _this.onAnimationCancel,
+            animationend: _this.onAnimationEnd,
+            animationiteration: _this.onAnimationIteration,
+            transitionstart: _this.onTransitionStart,
+            transitioncancel: _this.onTransitionCancel,
+            transitionend: _this.onTransitionEnd,
+            transitionrun: _this.onTransitionRun,
+            auxclick: _this.onAuxClick,
+            click: _this.onClick,
+            dblclick: _this.onDblClick,
+            mousedown: _this.onMouseDown,
+            mouseenter: _this.onMouseEnter,
+            mouseleave: _this.onMouseLeave,
+            mousemove: _this.onMouseMove,
+            mouseover: _this.onMouseOver,
+            mouseout: _this.onMouseOut,
+            mouseup: _this.onMouseUp,
+        }); };
+    }
+    return Events;
+}());
+exports.default = Events;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiX2V2ZW50cy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9fZXZlbnRzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7OztHQVVHOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQW9DSCwwQkFBMEI7QUFDMUI7SUFBQTtRQUFBLGlCQWdQQztRQTlPRzs7Ozs7Ozs7V0FRRztRQUNPLHVCQUFrQixHQUFHLFVBQUMsT0FBb0I7WUFDaEQsS0FBSSxDQUFDLGNBQWMsQ0FBQyxPQUFPLENBQUMsZ0JBQWdCLENBQUMsQ0FBQTtRQUNqRCxDQUFDLENBQUE7UUFFRDs7Ozs7Ozs7V0FRRztRQUNPLHlCQUFvQixHQUFHLFVBQUMsT0FBb0I7WUFDbEQsS0FBSSxDQUFDLGNBQWMsQ0FBQyxPQUFPLENBQUMsbUJBQW1CLENBQUMsQ0FBQTtRQUNwRCxDQUFDLENBQUE7UUFFRDs7Ozs7V0FLRztRQUNPLFlBQU8sR0FBRyxjQUFZLE9BQUEsU0FBUyxFQUFULENBQVMsQ0FBQTtRQUV6Qzs7Ozs7V0FLRztRQUNPLFdBQU0sR0FBRyxjQUFZLE9BQUEsU0FBUyxFQUFULENBQVMsQ0FBQTtRQUV4Qzs7Ozs7V0FLRztRQUNPLGNBQVMsR0FBRyxjQUFZLE9BQUEsU0FBUyxFQUFULENBQVMsQ0FBQTtRQUUzQzs7Ozs7V0FLRztRQUNPLGVBQVUsR0FBRyxjQUFZLE9BQUEsU0FBUyxFQUFULENBQVMsQ0FBQTtRQUU1Qzs7Ozs7V0FLRztRQUNPLHFCQUFnQixHQUFHLGNBQVksT0FBQSxTQUFTLEVBQVQsQ0FBUyxDQUFBO1FBRWxEOzs7OztXQUtHO1FBQ08sc0JBQWlCLEdBQUcsY0FBWSxPQUFBLFNBQVMsRUFBVCxDQUFTLENBQUE7UUFFbkQ7Ozs7O1dBS0c7UUFDTyxtQkFBYyxHQUFHLGNBQVksT0FBQSxTQUFTLEVBQVQsQ0FBUyxDQUFBO1FBRWhEOzs7OztXQUtHO1FBQ08seUJBQW9CLEdBQUcsY0FBWSxPQUFBLFNBQVMsRUFBVCxDQUFTLENB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
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
  * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang luke-zhang-04.github.io
- * @license MIT
- * @version 1.5.2
+ *
+ * Copyright (C) 2020 Luke Zhang luke-zhang-04.github.io
+ * MIT License
+ *
+ * @version 1.5.3
  * @exports createDSComponent add nested component for DeStagnate components
- */Object.defineProperty(t,"__esModule",{value:!0});t["default"]=function(e,t,n){var r=document.createElement("div");r.classList.add("DeStagnate-component-parent");var o=new e(r,t);return o.mount(),n&&(n.current=o),r}},function(e,t,n){"use strict";/**
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable @typescript-eslint/naming-convention */
+/**
+ * Creates nested DeStagnate component
+ * @param {DeStagnateConstructor} Component - DeStagnate component
+ * @param {Object<string, unknown>} props - props of component
+ * @param {Object<string, undefined | DeStagnate>} ref - ref object
+ * @returns {HTMLDivElement} parent of component
+ */
+var createDSComponent = function (Component, props, ref) {
+    var element = document.createElement("div");
+    element.classList.add("DeStagnate-component-parent");
+    var _component = new Component(element, props);
+    _component.mount();
+    if (ref) {
+        ref.current = _component;
+    }
+    return element;
+};
+exports.default = createDSComponent;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3JlYXRlRFNDb21wb25lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvY3JlYXRlRFNDb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7Ozs7R0FTRzs7QUFVSCx5REFBeUQ7QUFDekQ7Ozs7OztHQU1HO0FBQ0gsSUFBTSxpQkFBaUIsR0FBRyxVQUlsQixTQUE4QyxFQUM5QyxLQUFhLEVBQ2IsR0FBbUM7SUFFdkMsSUFBTSxPQUFPLEdBQUcsUUFBUSxDQUFDLGFBQWEsQ0FBQyxLQUFLLENBQUMsQ0FBQTtJQUU3QyxPQUFPLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyw2QkFBNkIsQ0FBQyxDQUFBO0lBRXBELElBQU0sVUFBVSxHQUFHLElBQUksU0FBUyxDQUFDLE9BQU8sRUFBRSxLQUFLLENBQUMsQ0FBQTtJQUVoRCxVQUFVLENBQUMsS0FBSyxFQUFFLENBQUE7SUFFbEIsSUFBSSxHQUFHLEVBQUU7UUFDTCxHQUFHLENBQUMsT0FBTyxHQUFHLFVBQVUsQ0FBQTtLQUMzQjtJQUVELE9BQU8sT0FBTyxDQUFBO0FBQ2xCLENBQUMsQ0FBQTtBQUVELGtCQUFlLGlCQUFpQixDQUFBIn0=
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
  * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang luke-zhang-04.github.io
- * @license MIT
- * @version 1.5.2
+ *
+ * Copyright (C) 2020 Luke Zhang luke-zhang-04.github.io
+ * MIT License
+ *
+ * @version 1.5.3
+ * @exports createElement function for DOM manipulation
+ */
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+var __spread = (this && this.__spread) || function () {
+    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
+    return ar;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports._bindChildren = exports._unpackChildren = exports._bindProps = void 0;
+/**
+ * Binds children to element
+ * @package
+ * @param {Element} element - element to bind
+ * @param {undefined | Object.<string, string | number>} props - props to bind with
+ * @param {boolean} ns - if namespace element
+ * @returns {void} void
+ */
+exports._bindProps = function (element, props, ns) {
+    var e_1, _a;
+    if (ns === void 0) { ns = false; }
+    if (props) {
+        try {
+            for (var _b = __values(Object.entries(props)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var _d = __read(_c.value, 2), key = _d[0], val = _d[1];
+                if (typeof (val) === "string" || typeof (val) === "number") {
+                    if (key === "innerHTML") {
+                        element.innerHTML = val.toString();
+                    }
+                    else if (ns) {
+                        element.setAttributeNS(null, key, val.toString());
+                    }
+                    else {
+                        element.setAttribute(key, val.toString());
+                    }
+                }
+                else if (key.slice(0, 2) === "on") { // Works such as onClick, onAnimationEnd, etc.
+                    if (typeof (val) === "function") {
+                        element.addEventListener(key.slice(2)
+                            .toLowerCase(), val);
+                    }
+                }
+                else if (key === "ref" &&
+                    typeof (val) === "object" &&
+                    "current" in val) {
+                    val.current = element;
+                }
+                else {
+                    console.warn("WARN: Invalid prop type \"" + typeof (val) + "\" for key \"" + key + "\". Skipping prop.");
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+    }
+};
+exports._unpackChildren = function (children) {
+    var e_2, _a;
+    var newChildren = [];
+    try {
+        for (var children_1 = __values(children), children_1_1 = children_1.next(); !children_1_1.done; children_1_1 = children_1.next()) {
+            var child = children_1_1.value;
+            if (typeof (child) === "object" && child instanceof Array) {
+                newChildren.push.apply(newChildren, __spread(exports._unpackChildren(child)));
+            }
+            else {
+                newChildren.push(child);
+            }
+        }
+    }
+    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+    finally {
+        try {
+            if (children_1_1 && !children_1_1.done && (_a = children_1.return)) _a.call(children_1);
+        }
+        finally { if (e_2) throw e_2.error; }
+    }
+    return newChildren;
+};
+/**
+ * Binds children to element
+ * @package
+ * @param {Element} element - element to bind
+ * @param {undefined | ChildrenType} children - children to bind with
+ * @returns {void} void
+ */
+exports._bindChildren = function (element, children) {
+    var e_3, _a;
+    if (children || children === 0) {
+        if (children instanceof Array) {
+            try {
+                for (var children_2 = __values(children), children_2_1 = children_2.next(); !children_2_1.done; children_2_1 = children_2.next()) {
+                    var child = children_2_1.value;
+                    if (typeof (child) === "string" ||
+                        typeof (child) === "number") {
+                        element.innerText = child.toString();
+                    }
+                    else if (typeof (child) === "object" &&
+                        child instanceof Array) {
+                        exports._unpackChildren(child)
+                            .forEach(function (_child) { return exports._bindChildren(element, _child); });
+                    }
+                    else {
+                        element.appendChild(child);
+                    }
+                }
+            }
+            catch (e_3_1) { e_3 = { error: e_3_1 }; }
+            finally {
+                try {
+                    if (children_2_1 && !children_2_1.done && (_a = children_2.return)) _a.call(children_2);
+                }
+                finally { if (e_3) throw e_3.error; }
+            }
+        }
+        else if (typeof (children) === "string" ||
+            typeof (children) === "number") {
+            element.innerText = children.toString();
+        }
+        else {
+            element.appendChild(children);
+        }
+    }
+};
+/**
+ * Creates a child element to DynamComponent
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number | Element | Ref | Function>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | number | string | HTMLElement | Element | Array.<number | string | HTMLElement | Element>} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+ * @param {...(number | string | HTMLElement | Element)} childrenArgs - rest parameter of children
+ * @returns {HTMLElement} html element
+ */
+var createElement = function (tagName, props, children) {
+    var childrenArgs = [];
+    for (var _i = 3; _i < arguments.length; _i++) {
+        childrenArgs[_i - 3] = arguments[_i];
+    }
+    var element = document.createElement(tagName);
+    exports._bindProps(element, props);
+    var _children = children;
+    if (children && childrenArgs) {
+        if (typeof (children) === "object" && children instanceof Array) {
+            _children = __spread(exports._unpackChildren(children), exports._unpackChildren(childrenArgs));
+        }
+        else {
+            _children = __spread([children], exports._unpackChildren(childrenArgs));
+        }
+    }
+    exports._bindChildren(element, _children);
+    return element;
+};
+exports.default = createElement;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3JlYXRlRWxlbWVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9jcmVhdGVFbGVtZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7O0dBU0c7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUEwQkg7Ozs7Ozs7R0FPRztBQUNVLFFBQUEsVUFBVSxHQUFHLFVBQ3RCLE9BQWdCLEVBQ2hCLEtBQW9FLEVBQ3BFLEVBQVU7O0lBQVYsbUJBQUEsRUFBQSxVQUFVO0lBRVYsSUFBSSxLQUFLLEVBQUU7O1lBQ1AsS0FBeUIsSUFBQSxLQUFBLFNBQUEsTUFBTSxDQUFDLE9BQU8sQ0FBQyxLQUFLLENBQUMsQ0FBQSxnQkFBQSw0QkFBRTtnQkFBckMsSUFBQSxLQUFBLG1CQUFVLEVBQVQsR0FBRyxRQUFBLEVBQUUsR0FBRyxRQUFBO2dCQUNoQixJQUFJLE9BQU0sQ0FBQyxHQUFHLENBQUMsS0FBSyxRQUFRLElBQUksT0FBTSxDQUFDLEdBQUcsQ0FBQyxLQUFLLFFBQVEsRUFBRTtvQkFDdEQsSUFBSSxHQUFHLEtBQUssV0FBVyxFQUFFO3dCQUNyQixPQUFPLENBQUMsU0FBUyxHQUFHLEdBQUcsQ0FBQyxRQUFRLEVBQUUsQ0FBQTtxQkFDckM7eUJBQU0sSUFBSSxFQUFFLEVBQUU7d0JBQ1gsT0FBTyxDQUFDLGNBQWMsQ0FBQyxJQUFJLEVBQUUsR0FBRyxFQUFFLEdBQUcsQ0FBQyxRQUFRLEVBQUUsQ0FBQyxDQUFBO3FCQUNwRDt5QkFBTTt3QkFDSCxPQUFPLENBQUMsWUFBWSxDQUFDLEdBQUcsRUFBRSxHQUFHLENBQUMsUUFBUSxFQUFFLENBQUMsQ0FBQTtxQkFDNUM7aUJBQ0o7cUJBQU0sSUFBSSxHQUFHLENBQUMsS0FBSyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsS0FBSyxJQUFJLEVBQUUsRUFBRSw4Q0FBOEM7b0JBQ2pGLElBQUksT0FBTSxDQUFDLEdBQUcsQ0FBQyxLQUFLLFVBQVUsRUFBRTt3QkFD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
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * DeStagnate
+ * A simple, ReactJS inspired library to create dynamic components within static sites easier
+ *
+ * Copyright (C) 2020 Luke Zhang luke-zhang-04.github.io
+ * MIT License
+ *
+ * @version 1.5.3
  * @exports createElementNS createElement for namespaced elements
- */var r=this&&this.__read||function(e,t){var n="function"==typeof Symbol&&e[Symbol.iterator];if(!n)return e;var r,o,i=n.call(e),a=[];try{for(;(void 0===t||t-->0)&&!(r=i.next()).done;){a.push(r.value)}}catch(e){o={error:e}}finally{try{r&&!r.done&&(n=i["return"])&&n.call(i)}finally{if(o)throw o.error}}return a},o=this&&this.__spread||function(){for(var e=[],t=0;t<arguments.length;t++){e=e.concat(r(arguments[t]))}return e};Object.defineProperty(t,"__esModule",{value:!0}),t.createElementNS=void 0;var i=n(2);t.createElementNS=function(e,t,n,r){for(var a=[],l=4;l<arguments.length;l++){a[l-4]=arguments[l]}var c=document.createElementNS(e,t);i._bindProps(c,n,!0);var s=r;return r&&a&&(s=o("object"==_typeof(r)&&r instanceof Array?i._unpackChildren(r):[r],i._unpackChildren(a))),i._bindChildren(c,s),c},t["default"]=t.createElementNS},function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});t["default"]=function(){return{current:null}}},function(e,t,n){"use strict";function r(e){return(r="function"==typeof Symbol&&"symbol"==_typeof(Symbol.iterator)?function(e){return _typeof(e)}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":_typeof(e)})(e)}function o(e,t){return(o=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function i(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}();return function(){var n,r=l(e);if(t){var o=l(this).constructor;n=Reflect.construct(r,arguments,o)}else n=r.apply(this,arguments);return a(this,n)}}function a(e,t){return!t||"object"!==r(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function l(e){return(l=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var c=Object.create?function(e,t,n,r){void 0===r&&(r=n),Object.defineProperty(e,r,{enumerable:!0,get:function get(){return t[n]}})}:function(e,t,n,r){void 0===r&&(r=n),e[r]=t[n]},s=Object.create?function(e,t){Object.defineProperty(e,"default",{enumerable:!0,value:t})}:function(e,t){e["default"]=t};Object.defineProperty(t,"__esModule",{value:!0});/**
+ */
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+var __spread = (this && this.__spread) || function () {
+    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
+    return ar;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createElementNS = void 0;
+var createElement_1 = __webpack_require__(8);
+/**
+ * Creates a child element to deStagnate
+ * @param {string | null} namespaceURI - namespace uri
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | Element | string | number | Array.<Element> | Array.<string> | Array.<number>} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+ * @param {...(HTMLElement | string | number)} childrenArgs - rest parameter of children
+ * @returns {HTMLElement} html element
+ */
+exports.createElementNS = function (namespaceURI, tagName, props, children) {
+    var childrenArgs = [];
+    for (var _i = 4; _i < arguments.length; _i++) {
+        childrenArgs[_i - 4] = arguments[_i];
+    }
+    var element = document.createElementNS(namespaceURI, tagName);
+    createElement_1._bindProps(element, props, true);
+    var _children = children;
+    if (children && childrenArgs) {
+        if (typeof (children) === "object" && children instanceof Array) {
+            _children = __spread(createElement_1._unpackChildren(children), createElement_1._unpackChildren(childrenArgs));
+        }
+        else {
+            _children = __spread([children], createElement_1._unpackChildren(childrenArgs));
+        }
+    }
+    createElement_1._bindChildren(element, _children);
+    return element;
+};
+exports.default = exports.createElementNS;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3JlYXRlRWxlbWVudE5TLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2NyZWF0ZUVsZW1lbnROUy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7OztHQVNHOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUVILGlEQU13QjtBQUV4Qjs7Ozs7Ozs7R0FRRztBQUNVLFFBQUEsZUFBZSxHQUFHLFVBQzNCLFlBQStHLEVBQy9HLE9BQTBDLEVBQzFDLEtBQXdDLEVBQ3hDLFFBQXVCO0lBQ3ZCLHNCQUFrQztTQUFsQyxVQUFrQyxFQUFsQyxxQkFBa0MsRUFBbEMsSUFBa0M7UUFBbEMscUNBQWtDOztJQUVsQyxJQUFNLE9BQU8sR0FBRyxRQUFRLENBQUMsZUFBZSxDQUFDLFlBQVksRUFBRSxPQUFPLENBQUMsQ0FBQTtJQUUvRCwwQkFBVSxDQUFDLE9BQU8sRUFBRSxLQUFLLEVBQUUsSUFBSSxDQUFDLENBQUE7SUFFaEMsSUFBSSxTQUFTLEdBQTZCLFFBQVEsQ0FBQTtJQUVsRCxJQUFJLFFBQVEsSUFBSSxZQUFZLEVBQUU7UUFDMUIsSUFBSSxPQUFNLENBQUMsUUFBUSxDQUFDLEtBQUssUUFBUSxJQUFJLFFBQVEsWUFBWSxLQUFLLEVBQUU7WUFDNUQsU0FBUyxZQUNGLCtCQUFlLENBQUMsUUFBUSxDQUFDLEVBQ3pCLCtCQUFlLENBQUMsWUFBWSxDQUFDLENBQ25DLENBQUE7U0FDSjthQUFNO1lBQ0gsU0FBUyxhQUFJLFFBQVEsR0FBSywrQkFBZSxDQUFDLFlBQVksQ0FBQyxDQUFDLENBQUE7U0FDM0Q7S0FDSjtJQUVELDZCQUFhLENBQUMsT0FBTyxFQUFFLFNBQVMsQ0FBQyxDQUFBO0lBRWpDLE9BQU8sT0FBTyxDQUFBO0FBQ2xCLENBQUMsQ0FBQTtBQUVELGtCQUFlLHVCQUFlLENBQUEifQ==
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Creates a reference for a nested component
+ * @returns {Object<string, null>} empty ref object
+ */
+var createRef = function () { return ({
+    current: null,
+}); };
+/**
+ * Creates a reference for a nested component
+ * @returns {Object<string, null>} empty ref object
+ */
+exports.default = createRef;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3JlYXRlUmVmLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2NyZWF0ZVJlZi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQWdCQTs7O0dBR0c7QUFDSCxJQUFNLFNBQVMsR0FBRyxjQUE0QyxPQUFBLENBQUM7SUFDM0QsT0FBTyxFQUFFLElBQUk7Q0FDaEIsQ0FBQyxFQUY0RCxDQUU1RCxDQUFBO0FBRUY7OztHQUdHO0FBQ0gsa0JBQWUsU0FBUyxDQUFBIn0=
+
+/***/ }),
+/* 11 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"tsjs\":{\"title\":\"TypeScript and JavaScript\",\"text\":\"Usage in static and dynamic websites with tools such as React and Webpack/Browserify, as well as usage with NodeJS backends.\",\"href\":\"/\"},\"frontend\":{\"title\":\"HTML, CSS, and SCSS\",\"text\":\"Usage in static and dynamic websites with tools such as React, Webpack/Browserify and Bootstrap.\",\"href\":\"/\"},\"bash\":{\"title\":\"Bash\",\"text\":\"Usage in everyday programming as well as writing shell scripts to build, compile, and start projects.\",\"href\":\"/\"},\"backend\":{\"title\":\"Python, C++, and GO\",\"text\":\"Usage in projects and backend applications, as well as extensive use of Python in competitive programming situations.\",\"href\":\"/\"}}");
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
  * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
+ * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -132,11 +4323,129 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */var d=function u(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e){"default"!==n&&Object.hasOwnProperty.call(e,n)&&c(t,e,n)}return s(t,e),t}(n(1)),p=function f(e){return e&&e.__esModule?e:{"default":e}}(n(3)),h=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&o(e,t)}(n,e);var t=i(n);function n(e,r){var o;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,n),(o=t.call(this,e,r))._contentRef=o.createRef(),o.render=function(){return[d.createElement("div",{"class":"change-buttons"},o._changeButtons()),d.createElement("div",{ref:o._contentRef},d.createElement("h2",{"class":"my-3"},o.state.title),d.createElement("span",{"class":"line d-block"}),d.createElement("p",{"class":"mb-4"},o.state.text),d.createElement("button",{"class":"btn btn-outline-primary d-block d-lg-none",href:o.state.href},"See Projects"))]},o._incrementData=function(e){var t;null===(t=o._contentRef.current)||void 0===t||t.classList.add("fade-out"),setTimeout(function(){var t;o.state.index+e>=Object.keys(p["default"]).length?o.setState({index:0,key:Object.keys(p["default"])[0]}):o.state.index+e<0?o.setState({index:3,key:Object.keys(p["default"])[3]}):o.setState({index:o.state.index+e,key:Object.keys(p["default"])[o.state.index+e]}),o.setState(Object.assign({},p["default"][o.state.key])),null===(t=o._contentRef.current)||void 0===t||t.classList.remove("fade-out")},250)},o._changeButtons=function(){return[d.createElement("button",{"class":"btn-circle btn-circle-primary mr-3"},d.createElement("span",{"class":"material-icons",onClick:function onClick(){return o._incrementData(-1)}},"arrow_back")),d.createElement("button",{"class":"btn-circle btn-circle-primary ml-3"},d.createElement("span",{"class":"material-icons",onClick:function onClick(){return o._incrementData(1)}},"arrow_forward"))]},o.state=Object.assign(Object.assign({},p["default"].tsjs),{key:"tsjs",index:0}),o}return n}(d["default"]);t["default"]=h},function(e,t){"use strict";/**
+ *
+ * @file mobile languages display
+ */
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const destagnate_1 = __importStar(__webpack_require__(4));
+const langData_json_1 = __importDefault(__webpack_require__(11));
+class LangDisplaySm extends destagnate_1.default {
+    constructor(parent, props) {
+        super(parent, props);
+        this._contentRef = this.createRef();
+        this.render = () => [
+            destagnate_1.createElement("div", { class: "change-buttons" }, this._changeButtons()),
+            destagnate_1.createElement("div", { ref: this._contentRef }, destagnate_1.createElement("h2", { class: "my-3" }, this.state.title), destagnate_1.createElement("span", { class: "line d-block" }), destagnate_1.createElement("p", { class: "mb-4" }, this.state.text), destagnate_1.createElement("button", {
+                class: "btn btn-outline-primary d-block d-lg-none",
+                href: this.state.href,
+            }, "See Projects"))
+        ];
+        this._incrementData = (val) => {
+            var _a;
+            (_a = this._contentRef.current) === null || _a === void 0 ? void 0 : _a.classList.add("fade-out");
+            setTimeout(() => {
+                var _a;
+                if (this.state.index + val >= Object.keys(langData_json_1.default).length) {
+                    this.setState({
+                        index: 0,
+                        key: Object.keys(langData_json_1.default)[0],
+                    });
+                }
+                else if (this.state.index + val < 0) {
+                    this.setState({
+                        index: 3,
+                        key: Object.keys(langData_json_1.default)[3],
+                    });
+                }
+                else {
+                    this.setState({
+                        index: this.state.index + val,
+                        key: Object.keys(langData_json_1.default)[this.state.index + val],
+                    });
+                }
+                this.setState(Object.assign({}, langData_json_1.default[this.state.key]));
+                (_a = this._contentRef.current) === null || _a === void 0 ? void 0 : _a.classList.remove("fade-out");
+            }, 250);
+        };
+        this._changeButtons = () => [
+            destagnate_1.createElement("button", { class: "btn-circle btn-circle-primary mr-3" }, destagnate_1.createElement("span", {
+                class: "material-icons",
+                onClick: () => this._incrementData(-1),
+            }, "arrow_back")),
+            destagnate_1.createElement("button", { class: "btn-circle btn-circle-primary ml-3" }, destagnate_1.createElement("span", {
+                class: "material-icons",
+                onClick: () => this._incrementData(1),
+            }, "arrow_forward"))
+        ];
+        this.state = Object.assign(Object.assign({}, langData_json_1.default.tsjs), { key: "tsjs", index: 0 });
+    }
+}
+exports.default = LangDisplaySm;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibGFuZ1NtLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL2hvbWUvbGFuZ1NtLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBa0JHOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFFSCx5REFBb0Q7QUFNcEQsb0VBQW1EO0FBRW5ELE1BQXFCLGFBQWMsU0FBUSxvQkFDSDtJQUlwQyxZQUFvQixNQUFtQixFQUFFLEtBQXVCO1FBQzVELEtBQUssQ0FBQyxNQUFNLEVBQUUsS0FBSyxDQUFDLENBQUE7UUFIaEIsZ0JBQVcsR0FBRyxJQUFJLENBQUMsU0FBUyxFQUFrQixDQUFBO1FBWS9DLFdBQU0sR0FBRyxHQUFrQixFQUFFLENBQUM7WUFDakMsMEJBQWEsQ0FBQyxLQUFLLEVBQUUsRUFBQyxLQUFLLEVBQUUsZ0JBQWdCLEVBQUMsRUFBRSxJQUFJLENBQUMsY0FBYyxFQUFFLENBQUM7WUFDdEUsMEJBQWEsQ0FDVCxLQUFLLEVBQ0wsRUFBQyxHQUFHLEVBQUUsSUFBSSxDQUFDLFdBQVcsRUFBQyxFQUN2QiwwQkFBYSxDQUFDLElBQUksRUFBRSxFQUFDLEtBQUssRUFBRSxNQUFNLEVBQUMsRUFBRSxJQUFJLENBQUMsS0FBSyxDQUFDLEtBQUssQ0FBQyxFQUN0RCwwQkFBYSxDQUFDLE1BQU0sRUFBRSxFQUFDLEtBQUssRUFBRSxjQUFjLEVBQUMsQ0FBQyxFQUM5QywwQkFBYSxDQUFDLEdBQUcsRUFBRSxFQUFDLEtBQUssRUFBRSxNQUFNLEVBQUMsRUFBRSxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxFQUNwRCwwQkFBYSxDQUFDLFFBQVEsRUFBRTtnQkFDcEIsS0FBSyxFQUFFLDJDQUEyQztnQkFDbEQsSUFBSSxFQUFFLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSTthQUN4QixFQUFFLGNBQWMsQ0FBQyxDQUNyQjtTQUNKLENBQUE7UUFFTyxtQkFBYyxHQUFHLENBQUMsR0FBVyxFQUFRLEVBQUU7O1lBQzNDLE1BQUEsSUFBSSxDQUFDLFdBQVcsQ0FBQyxPQUFPLDBDQUFFLFNBQVMsQ0FBQyxHQUFHLENBQUMsVUFBVSxFQUFDO1lBRW5ELFVBQVUsQ0FBQyxHQUFHLEVBQUU7O2dCQUNaLElBQUksSUFBSSxDQUFDLEtBQUssQ0FBQyxLQUFLLEdBQUcsR0FBRyxJQUFJLE1BQU0sQ0FBQyxJQUFJLENBQUMsdUJBQVEsQ0FBQyxDQUFDLE1BQU0sRUFBRTtvQkFDeEQsSUFBSSxDQUFDLFFBQVEsQ0FBQzt3QkFDVixLQUFLLEVBQUUsQ0FBQzt3QkFDUixHQUFHLEVBQUUsTUFBTSxDQUFDLElBQUksQ0FBQyx1QkFBUSxDQUFDLENBQUMsQ0FBQyxDQUFDO3FCQUNoQyxDQUFDLENBQUE7aUJBQ0w7cUJBQU0sSUFBSSxJQUFJLENBQUMsS0FBSyxDQUFDLEtBQUssR0FBRyxHQUFHLEdBQUcsQ0FBQyxFQUFFO29CQUNuQyxJQUFJLENBQUMsUUFBUSxDQUFDO3dCQUNWLEtBQUssRUFBRSxDQUFDO3dCQUNSLEdBQUcsRUFBRSxNQUFNLENBQUMsSUFBSSxDQUFDLHVCQUFRLENBQUMsQ0FBQyxDQUFDLENBQUM7cUJBQ2hDLENBQUMsQ0FBQTtpQkFDTDtxQkFBTTtvQkFDSCxJQUFJLENBQUMsUUFBUSxDQUFDO3dCQUNWLEtBQUssRUFBRSxJQUFJLENBQUMsS0FBSyxDQUFDLEtBQUssR0FBRyxHQUFHO3dCQUM3QixHQUFHLEVBQUUsTUFBTSxDQUFDLElBQUksQ0FBQyx1QkFBUSxDQUFDLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxLQUFLLEdBQUcsR0FBRyxDQUFDO3FCQUNyRCxDQUFDLENBQUE7aUJBQ0w7Z0JBRUQsSUFBSSxDQUFDLFFBQVEsbUJBQ0wsdUJBQXFCLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxHQUFHLENBQUMsRUFDM0MsQ0FBQTtnQkFFRixNQUFBLElBQUksQ0FBQyxXQUFXLENBQUMsT0FBTywwQ0FBRSxTQUFTLENBQUMsTUFBTSxDQUFDLFVBQVUsRUFBQztZQUMxRCxDQUFDLEVBQUUsR0FBRyxDQUFDLENBQUE7UUFDWCxDQUFDLENBQUE7UUFFTyxtQkFBYyxHQUFHLEdBQWtCLEVBQUUsQ0FBQztZQUMxQywwQkFBYSxDQUNULFFBQVEsRUFDUixFQUFDLEtBQUssRUFBRSxvQ0FBb0MsRUFBQyxFQUM3QywwQkFBYSxDQUNULE1BQU0sRUFDTjtnQkFDSSxLQUFLLEVBQUUsZ0JBQWdCO2dCQUN2QixPQUFPLEVBQUUsR0FBRyxFQUFFLENBQUMsSUFBSSxDQUFDLGNBQWMsQ0FBQyxDQUFDLENBQUMsQ0FBQzthQUN6QyxFQUNELFlBQVksQ0FDZixDQUNKO1lBQ0QsMEJBQWEsQ0FDVCxRQUFRLEVBQ1IsRUFBQyxLQUFLLEVBQUUsb0NBQW9DLEVBQUMsRUFDN0MsMEJBQWEsQ0FDVCxNQUFNLEVBQ047Z0JBQ0ksS0FBSyxFQUFFLGdCQUFnQjtnQkFDdkIsT0FBTyxFQUFFLEdBQUcsRUFBRSxDQUFDLElBQUksQ0FBQyxjQUFjLENBQUMsQ0FBQyxDQUFDO2FBQ3hDLEVBQ0QsZUFBZSxDQUNsQixDQUNKO1NBQ0osQ0FBQTtRQTVFRyxJQUFJLENBQUMsS0FBSyxtQ0FDRix1QkFBcUIsQ0FBQyxJQUFJLEtBQzlCLEdBQUcsRUFBRSxNQUFNLEVBQ1gsS0FBSyxFQUFFLENBQUMsR0FDWCxDQUFBO0lBQ0wsQ0FBQztDQXlFSjtBQXRGRCxnQ0FzRkMifQ==
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
  * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
+ * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -150,4 +4459,128 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */Object.defineProperty(t,"__esModule",{value:!0}),t.globals=t.sizes=void 0,t.sizes={sm:767,md:992},t.globals={sizes:t.sizes},t["default"]=t.globals}])});
+ *
+ * @file projects display
+ */
+const firebaseApp = __importStar(__webpack_require__(14));
+const createElement_1 = __importDefault(__webpack_require__(8));
+// CDN https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F**FILENAME**?alt=media
+/**
+ * Displays projects with swiper
+ * @returns {void} void
+ */
+const displayProjects = () => __awaiter(void 0, void 0, void 0, function* () {
+    const sliderContainer = document.getElementById("projects-slider");
+    yield firebaseApp.firestore.collection("projects")
+        .get()
+        .then((snapshot) => {
+        snapshot.forEach((doc) => {
+            var _a;
+            const imgFileName = doc.data().file, imgUrl = `https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F${imgFileName}?alt=media`;
+            (_a = sliderContainer === null || sliderContainer === void 0 ? void 0 : sliderContainer.querySelector(".swiper-wrapper")) === null || _a === void 0 ? void 0 : _a.appendChild(createElement_1.default("div", {
+                class: "swiper-slide",
+                style: `background-image: url(${imgUrl});`,
+            }));
+        });
+    });
+    return new Swiper("#projects-slider", {
+        effect: "coverflow",
+        loop: true,
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+    });
+});
+exports.default = displayProjects;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvamVjdHMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvaG9tZS9wcm9qZWN0cy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBa0JHO0FBQ0gsMERBQTJDO0FBRTNDLGlGQUF3RDtBQXVCeEQsbUhBQW1IO0FBRW5IOzs7R0FHRztBQUNILE1BQU0sZUFBZSxHQUFHLEdBQTJCLEVBQUU7SUFDakQsTUFBTSxlQUFlLEdBQUcsUUFBUSxDQUFDLGNBQWMsQ0FBQyxpQkFBaUIsQ0FBQyxDQUFBO0lBRWxFLE1BQU0sV0FBVyxDQUFDLFNBQVMsQ0FBQyxVQUFVLENBQUMsVUFBVSxDQUFDO1NBQzdDLEdBQUcsRUFBRTtTQUNMLElBQUksQ0FBQyxDQUFDLFFBQVEsRUFBRSxFQUFFO1FBQ2YsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLEdBQUcsRUFBRSxFQUFFOztZQUNyQixNQUFNLFdBQVcsR0FBSSxHQUFHLENBQUMsSUFBSSxFQUFrQixDQUFDLElBQUksRUFDaEQsTUFBTSxHQUFHLHlGQUF5RixXQUFXLFlBQVksQ0FBQTtZQUU3SCxNQUFBLGVBQWUsYUFBZixlQUFlLHVCQUFmLGVBQWUsQ0FBRSxhQUFhLENBQUMsaUJBQWlCLDJDQUFHLFdBQVcsQ0FDMUQsdUJBQWEsQ0FDVCxLQUFLLEVBQ0w7Z0JBQ0ksS0FBSyxFQUFFLGNBQWM7Z0JBQ3JCLEtBQUssRUFBRSx5QkFBeUIsTUFBTSxJQUFJO2FBQzdDLENBQ0osRUFDSjtRQUNMLENBQUMsQ0FBQyxDQUFBO0lBQ04sQ0FBQyxDQUFDLENBQUE7SUFFTixPQUFPLElBQUksTUFBTSxDQUFDLGtCQUFrQixFQUFFO1FBQ2xDLE1BQU0sRUFBRSxXQUFXO1FBQ25CLElBQUksRUFBRSxJQUFJO1FBQ1YsVUFBVSxFQUFFLElBQUk7UUFDaEIsY0FBYyxFQUFFLElBQUk7UUFDcEIsYUFBYSxFQUFFLE1BQU07UUFDckIsZUFBZSxFQUFFO1lBQ2IsTUFBTSxFQUFFLEVBQUU7WUFDVixPQUFPLEVBQUUsQ0FBQztZQUNWLEtBQUssRUFBRSxHQUFHO1lBQ1YsUUFBUSxFQUFFLENBQUM7WUFDWCxZQUFZLEVBQUUsSUFBSTtTQUNyQjtRQUNELFVBQVUsRUFBRTtZQUNSLEVBQUUsRUFBRSxvQkFBb0I7U0FDM0I7S0FDSixDQUFDLENBQUE7QUFDTixDQUFDLENBQUEsQ0FBQTtBQUVELGtCQUFlLGVBQWUsQ0FBQSJ9
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * Luke Zhang's developer portfolio
+ * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * @file houses firebase configuration and variables
+ */
+/* eslint-disable one-var */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.firestore = exports.auth = void 0;
+const firebaseConfig = {
+    apiKey: "AIzaSyDKHbbyZoschUX1cMf5VdjRl9TtdIX1R9A",
+    authDomain: "luke-zhang.firebaseapp.com",
+    databaseURL: "https://luke-zhang.firebaseio.com",
+    projectId: "luke-zhang",
+    storageBucket: "luke-zhang.appspot.com",
+    messagingSenderId: "309956853075",
+    appId: "1:309956853075:web:ebb55b1076c4aca168f5a6"
+};
+firebase.initializeApp(firebaseConfig);
+exports.auth = firebase.auth(), exports.firestore = firebase.firestore();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvX2ZpcmViYXNlL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBa0JHO0FBQ0gsNEJBQTRCOzs7QUFLNUIsTUFBTSxjQUFjLEdBQUc7SUFDbkIsTUFBTSxFQUFFLHlDQUF5QztJQUNqRCxVQUFVLEVBQUUsNEJBQTRCO0lBQ3hDLFdBQVcsRUFBRSxtQ0FBbUM7SUFDaEQsU0FBUyxFQUFFLFlBQVk7SUFDdkIsYUFBYSxFQUFFLHdCQUF3QjtJQUN2QyxpQkFBaUIsRUFBRSxjQUFjO0lBQ2pDLEtBQUssRUFBRSwyQ0FBMkM7Q0FDckQsQ0FBQTtBQUVELFFBQVEsQ0FBQyxhQUFhLENBQUMsY0FBYyxDQUFDLENBQUE7QUFFekIsUUFBQSxJQUFJLEdBQUcsUUFBUSxDQUFDLElBQUksRUFBRSxFQUMvQixRQUFBLFNBQVMsR0FBRyxRQUFRLENBQUMsU0FBUyxFQUFFLENBQUEifQ==
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * Luke Zhang's developer portfolio
+ * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * @file houses global constants
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.globals = exports.sizes = void 0;
+exports.sizes = {
+    sm: 767,
+    md: 992,
+}, exports.globals = {
+    sizes: exports.sizes,
+};
+exports.default = exports.globals;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvX2dsb2JhbHMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7R0FrQkc7OztBQVdVLFFBQUEsS0FBSyxHQUFVO0lBQ3hCLEVBQUUsRUFBRSxHQUFHO0lBQ1AsRUFBRSxFQUFFLEdBQUc7Q0FDVixFQUNHLFFBQUEsT0FBTyxHQUFZO0lBQ2YsS0FBSyxFQUFMLGFBQUs7Q0FDUixDQUFBO0FBRUwsa0JBQWUsZUFBTyxDQUFBIn0=
+
+/***/ })
+/******/ ]);
+});

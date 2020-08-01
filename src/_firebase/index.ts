@@ -15,24 +15,24 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  * 
- * @file houses global constants
+ * @file houses firebase configuration and variables
  */
+/* eslint-disable one-var */
 
-interface Sizes {
-    sm: number,
-    md: number,
+declare type Firebase = typeof import("firebase/app")
+declare const firebase: Firebase
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDKHbbyZoschUX1cMf5VdjRl9TtdIX1R9A",
+    authDomain: "luke-zhang.firebaseapp.com",
+    databaseURL: "https://luke-zhang.firebaseio.com",
+    projectId: "luke-zhang",
+    storageBucket: "luke-zhang.appspot.com",
+    messagingSenderId: "309956853075",
+    appId: "1:309956853075:web:ebb55b1076c4aca168f5a6"
 }
 
-interface Globals {
-    sizes: Sizes,
-}
+firebase.initializeApp(firebaseConfig)
 
-export const sizes: Sizes = {
-    sm: 767,
-    md: 992,
-},
-    globals: Globals = {
-        sizes,
-    }
-
-export default globals
+export const auth = firebase.auth(),
+    firestore = firebase.firestore()

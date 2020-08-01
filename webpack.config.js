@@ -15,6 +15,9 @@ for (const dir of src) {
                 library: dir,
                 libraryTarget: "umd",
             },
+            resolve: {
+                mainFields: ["main"],
+            },
             mode: "production",
         })
     }

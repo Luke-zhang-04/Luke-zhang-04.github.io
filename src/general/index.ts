@@ -16,8 +16,14 @@
  * 
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * 
+ * @file script for all pages
  */
 
+/**
+ * Hamburger menu setup for mobile page
+ * @return {void} void
+ */
 ((): void => {
     const navbarToggler = document.querySelector("#navbar .navbar-toggler"),
         navbarMenu = document.getElementById("navbarNav")

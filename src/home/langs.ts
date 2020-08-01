@@ -1,8 +1,6 @@
 /**
  * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
+ * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -16,6 +14,8 @@
  * 
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * 
+ * @file languages display
  */
 import * as ScrollMagic from "scrollmagic"
 import * as utils from "../_utils"
@@ -90,6 +90,13 @@ export default class LangDisplay extends DeStagnate
 
 }
 
+/**
+ * Binds ScrollMagic to elements
+ * @param {HTMLDivElement} container - container of event
+ * @param {HTMLCollectionOf.<HTMLImageElement>} images - names of images
+ * @param {LangDisplay} langDisplay - language display component
+ * @returns {ScrollMagic.Scene} scrollmagic scene
+ */
 export const bindLangStickEvent = (
     container: HTMLDivElement,
     images: HTMLCollectionOf<HTMLImageElement>,

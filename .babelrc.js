@@ -5,7 +5,12 @@ module.exports = {
         "minify-constant-folding",
         "minify-dead-code-elimination",
         "transform-merge-sibling-variables",
-        "transform-minify-booleans"
+        "transform-minify-booleans",
+        [
+            "@babel/plugin-transform-runtime", {
+                regenerator: true,
+            }
+        ],
     ],
-    shouldPrintComment: (val) => /@license|license|@preserve|@copyright/.test(val)
+    shouldPrintComment: (val) => /@license|@preserve|@copyright/.test(val)
 }
