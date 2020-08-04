@@ -52,6 +52,7 @@ const displayProjects = async (): Promise<_Swiper> => {
     const sliderContainer = document.getElementById("projects-slider")
 
     await firebaseApp.firestore.collection("projects")
+        .orderBy("date", "desc")
         .get()
         .then((snapshot) => {
             snapshot.forEach((doc) => {

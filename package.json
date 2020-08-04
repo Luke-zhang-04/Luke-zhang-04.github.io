@@ -5,7 +5,8 @@
   "scripts": {
     "build": "bash build.sh",
     "start": "bash build.sh --watch",
-    "build-dev": "bash build.sh -d"
+    "build:dev": "bash build.sh -d",
+    "sass": "bash build.sh --only sass"
   },
   "dependencies": {
     "@animated-burgers/burger-squeeze": "^1.1.2",

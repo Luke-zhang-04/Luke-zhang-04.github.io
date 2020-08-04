@@ -1,105 +1,22 @@
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else if(typeof exports === 'object')
-		exports["general"] = factory();
-	else
-		root["general"] = factory();
-})(window, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/**
+ * Luke Zhang's developer portfolio
+ * @copyright Copyright (C) 2020 Luke Zhang
+ * @author Luke Zhang Luke-zhang-04.github.io
+ * @license AGPL-3.0
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */ !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.general=t():e.general=t()}(window,(function(){return function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";
 /**
  * Luke Zhang's developer portfolio
  * @copyright Copyright (C) 2020 Luke Zhang
@@ -120,29 +37,4 @@ return /******/ (function(modules) { // webpackBootstrap
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * @file script for all pages
- */
-/**
- * Hamburger menu setup for mobile page
- * @return {void} void
- */
-(() => {
-    const navbarToggler = document.querySelector("#navbar .navbar-toggler"), navbarMenu = document.getElementById("navbarNav");
-    navbarToggler === null || navbarToggler === void 0 ? void 0 : navbarToggler.addEventListener("click", () => {
-        var _a, _b;
-        if (navbarMenu === null || navbarMenu === void 0 ? void 0 : navbarMenu.classList.contains("active")) {
-            navbarMenu === null || navbarMenu === void 0 ? void 0 : navbarMenu.classList.remove("active");
-            navbarToggler === null || navbarToggler === void 0 ? void 0 : navbarToggler.classList.remove("open");
-            (_a = navbarToggler === null || navbarToggler === void 0 ? void 0 : navbarToggler.querySelector(".burger")) === null || _a === void 0 ? void 0 : _a.classList.remove("open");
-        }
-        else {
-            navbarMenu === null || navbarMenu === void 0 ? void 0 : navbarMenu.classList.add("active");
-            navbarToggler === null || navbarToggler === void 0 ? void 0 : navbarToggler.classList.add("open");
-            (_b = navbarToggler === null || navbarToggler === void 0 ? void 0 : navbarToggler.querySelector(".burger")) === null || _b === void 0 ? void 0 : _b.classList.add("open");
-        }
-    });
-})();
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvZ2VuZXJhbC9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBb0JHO0FBRUg7OztHQUdHO0FBQ0gsQ0FBQyxHQUFTLEVBQUU7SUFDUixNQUFNLGFBQWEsR0FBRyxRQUFRLENBQUMsYUFBYSxDQUFDLHlCQUF5QixDQUFDLEVBQ25FLFVBQVUsR0FBRyxRQUFRLENBQUMsY0FBYyxDQUFDLFdBQVcsQ0FBQyxDQUFBO0lBRXJELGFBQWEsYUFBYixhQUFhLHVCQUFiLGFBQWEsQ0FBRSxnQkFBZ0IsQ0FBQyxPQUFPLEVBQUUsR0FBUyxFQUFFOztRQUNoRCxJQUFJLFVBQVUsYUFBVixVQUFVLHVCQUFWLFVBQVUsQ0FBRSxTQUFTLENBQUMsUUFBUSxDQUFDLFFBQVEsR0FBRztZQUMxQyxVQUFVLGFBQVYsVUFBVSx1QkFBVixVQUFVLENBQUUsU0FBUyxDQUFDLE1BQU0sQ0FBQyxRQUFRLEVBQUM7WUFDdEMsYUFBYSxhQUFiLGFBQWEsdUJBQWIsYUFBYSxDQUFFLFNBQVMsQ0FBQyxNQUFNLENBQUMsTUFBTSxFQUFDO1lBQ3ZDLE1BQUEsYUFBYSxhQUFiLGFBQWEsdUJBQWIsYUFBYSxDQUFFLGFBQWEsQ0FBQyxTQUFTLDJDQUFHLFNBQVMsQ0FBQyxNQUFNLENBQUMsTUFBTSxFQUFDO1NBQ3BFO2FBQU07WUFDSCxVQUFVLGFBQVYsVUFBVSx1QkFBVixVQUFVLENBQUUsU0FBUyxDQUFDLEdBQUcsQ0FBQyxRQUFRLEVBQUM7WUFDbkMsYUFBYSxhQUFiLGFBQWEsdUJBQWIsYUFBYSxDQUFFLFNBQVMsQ0FBQyxHQUFHLENBQUMsTUFBTSxFQUFDO1lBQ3BDLE1BQUEsYUFBYSxhQUFiLGFBQWEsdUJBQWIsYUFBYSxDQUFFLGFBQWEsQ0FBQyxTQUFTLDJDQUFHLFNBQVMsQ0FBQyxHQUFHLENBQUMsTUFBTSxFQUFDO1NBQ2pFO0lBQ0wsQ0FBQyxFQUFDO0FBQ04sQ0FBQyxDQUFDLEVBQUUsQ0FBQSJ9
-
-/***/ })
-/******/ ]);
-});
+ */var r,o;r=document.querySelector("#navbar .navbar-toggler"),o=document.getElementById("navbarNav"),null==r||r.addEventListener("click",(function(){var e,t;(null==o?void 0:o.classList.contains("active"))?(null==o||o.classList.remove("active"),null==r||r.classList.remove("open"),null===(e=null==r?void 0:r.querySelector(".burger"))||void 0===e||e.classList.remove("open")):(null==o||o.classList.add("active"),null==r||r.classList.add("open"),null===(t=null==r?void 0:r.querySelector(".burger"))||void 0===t||t.classList.add("open"))}))}])}));

@@ -69,8 +69,64 @@ const langDisplay = new LangDisplay(
             langDisplaySM.mount()
             controller.destroy()
         }
+    },
+
+    /**
+     * Check scrolled elements and apply appropriate classes to them
+     * @param {Array.<HTMLElement | null> | Array.<Array.<HTMLElement | null>>} elements - array of elements
+     * @returns {void} void
+     */
+    checkScrolled = (
+        elements: (HTMLElement | null)[] | (HTMLElement | null)[][]
+    ): void => {
+        const offset = window.innerHeight * 3 / 4,
+            scrolled = window.scrollY + window.innerHeight - offset
+
+        for (const element of elements) {
+            let offsetTop: number | undefined = 0,
+                _element: HTMLElement | null
+
+            if (element instanceof Array) {
+                offsetTop = element[1]?.offsetTop;
+                [_element] = element
+            } else {
+                offsetTop = element?.offsetTop
+                _element = element
+            }
+
+            if (
+                _element && offsetTop &&
+                scrolled >= offsetTop &&
+                !_element.classList.contains("scrolled-at")
+            ) {
+                console.log("ADDING")
+                _element.classList.add("scrolled-at")
+            } else if (
+                _element && offsetTop &&
+                scrolled < offsetTop &&
+                _element.classList.contains("scrolled-at")
+            ) {
+                console.log("REMOVING")
+                _element.classList.remove("scrolled-at")
+            }
+        }
+    },
+
+    windowScroll = (): void => {
+        const elems: (HTMLElement | null)[] | (HTMLElement | null)[][] =
+            [
+                [
+                    document.querySelector(".swiper-container .title"),
+                    document.querySelector(".swiper-container"),
+                ],
+            ]
+
+        checkScrolled(elems)
     }
 
 window.onresize = windowResize
+window.onscroll = windowScroll
 
 windowResize()
+
+windowScroll()
