@@ -28,7 +28,7 @@ import globals from "../_globals"
 
 displayProjects()
 
-let scrollmagicScene: ScrollMagic.Scene
+let scrollmagicScene: ScrollMagic.Scene | undefined
 
 const langDisplay = new LangDisplay(
         document.getElementById("langs-display") as HTMLElement,
@@ -99,14 +99,12 @@ const langDisplay = new LangDisplay(
                 scrolled >= offsetTop &&
                 !_element.classList.contains("scrolled-at")
             ) {
-                console.log("ADDING")
                 _element.classList.add("scrolled-at")
             } else if (
                 _element && offsetTop &&
                 scrolled < offsetTop &&
                 _element.classList.contains("scrolled-at")
             ) {
-                console.log("REMOVING")
                 _element.classList.remove("scrolled-at")
             }
         }
@@ -124,9 +122,22 @@ const langDisplay = new LangDisplay(
         checkScrolled(elems)
     }
 
-window.onresize = windowResize
-window.onscroll = windowScroll
+((): void => {
+    document.querySelectorAll("#contact-container ul li")?.forEach((element) => {
+        element.addEventListener(
+            "click",
+            () => element.querySelector("a")?.click(),
+        )
+    })
 
-windowResize()
+    window.onresize = windowResize
+    window.onscroll = windowScroll
 
-windowScroll()
+    windowScroll()
+
+    const images = document.getElementsByClassName("lang-img")
+
+    if (images) {
+        images[images.length - 1].addEventListener("load", windowResize)
+    }
+})()

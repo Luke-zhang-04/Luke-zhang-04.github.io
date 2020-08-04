@@ -12,5 +12,5 @@ module.exports = {
             }
         ],
     ],
-    shouldPrintComment: (val) => /@license|@preserve|@copyright/.test(val)
+    shouldPrintComment: (val) => /license|@preserve|@copyright/.test(val)
 }

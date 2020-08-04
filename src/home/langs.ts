@@ -75,16 +75,18 @@ export default class LangDisplay extends DeStagnate
         createElement("h2", {class: "my-3"}, this.state.title),
         createElement("span", {class: "line d-block"}),
         createElement("p", {class: "mb-4"}, this.state.text),
-        createElement("button", {
+        createElement("a", {
             class: "btn-box btn-box-primary d-none d-lg-block",
             href: this.state.href,
+            role: "button",
         }, [
             "See projects ",
             createElement("span", {class: "material-icons"}, "trending_flat")
         ]),
-        createElement("button", {
+        createElement("a", {
             class: "btn btn-outline-primary d-block d-lg-none",
             href: this.state.href,
+            role: "button",
         }, "See Projects"),
     ]
 
@@ -102,6 +104,8 @@ export const bindLangStickEvent = (
     images: HTMLCollectionOf<HTMLImageElement>,
     langDisplay: LangDisplay,
 ): ScrollMagic.Scene => {
+    console.log(images[images.length - 1].offsetTop + window.innerHeight * 0.5)
+
     const scene = new ScrollMagic.Scene({
             triggerElement: images[0],
             triggerHook: 0.5,

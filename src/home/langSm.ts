@@ -49,9 +49,10 @@ export default class LangDisplaySm extends DeStagnate
             createElement("h2", {class: "my-3"}, this.state.title),
             createElement("span", {class: "line d-block"}),
             createElement("p", {class: "mb-4"}, this.state.text),
-            createElement("button", {
+            createElement("a", {
                 class: "btn btn-outline-primary d-block d-lg-none",
                 href: this.state.href,
+                role: "button",
             }, "See Projects"),
         )
     ]

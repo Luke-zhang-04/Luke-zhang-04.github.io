@@ -160,7 +160,7 @@ body {
   }
 
   .burger {
-    margin-top: 20vw;
+    margin-top: 7.5rem;
     margin-left: 10vw;
 
     .burger-lines,
@@ -209,4 +209,8 @@ body {
   width: 3rem;
   height: 3rem;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a[role="button"] {
+  width: max-content;
 }
