@@ -20,6 +20,48 @@
  */
 @import "variables";
 
+@keyframes slider-title-out {
+  from {
+    opacity: 1;
+    height: 100vh;
+    color: $dark;
+  }
+
+  50% {
+    opacity: 1;
+    color: $none;
+  }
+
+  99% {
+    opacity: 0;
+    height: 100vh;
+    color: $none;
+  }
+
+  to {
+    opacity: 0;
+    height: 0;
+    color: $none;
+  }
+}
+
+@keyframes slider-title-in {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+
+  1% {
+    opacity: 0;
+    height: 100vh;
+  }
+
+  to {
+    opacity: 1;
+    height: 100vh;
+  }
+}
+
 @media (max-width: 766px) {
   .landing-page {
     height: 100vh;
@@ -193,25 +235,6 @@
     width: 100%;
     height: 100vh;
     position: relative;
-
-    .title {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100vw;
-      width: 100%;
-      font-size: 10vw;
-      background-color: white;
-      z-index: 1000;
-      transition: height 0s 1s ease, background-color 0.5s 0.5s ease, font-size 0.5s ease;
-
-      &.scrolled-at {
-        top: -5vh;
-        height: 10vh;
-        font-size: 2vw;
-        background-color: $none;
-      }
-    }
   
     .swiper-wrapper {
       position: absolute;
@@ -397,5 +420,23 @@
 @media (min-width: 767px) and (max-width: 991px) and (orientation: portrait) {
   .landing-page {
     height: 55vw;
+  }
+}
+
+.swiper-container .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vw;
+  width: 100%;
+  font-size: 10vw;
+  background-color: white;
+  color: $dark;
+  opacity: 1;
+  z-index: 1000;
+  animation: slider-title-in 0.5s ease;
+
+  &.scrolled-at {
+    animation: slider-title-out 1s 0.25s ease forwards;
   }
 }
