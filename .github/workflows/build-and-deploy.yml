@@ -63,4 +63,4 @@ jobs:
           ref: "gh-pages"
         env:
           commit_hash: "$(git rev-parse HEAD)"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
