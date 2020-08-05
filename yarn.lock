@@ -2712,10 +2712,8 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
-destagnate@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/destagnate/-/destagnate-1.5.3.tgz#44a19ba15b1eb6631d942bf0308749074f2ec2e4"
-  integrity sha512-sSNJGguoOIKi+6wAM6PRf2CWua8fDcERWekL5mdi231HTvM7gz5b3NtPGcrrIZkXvu+EBUOTrMkocT9I2kGdAg==
+"destagnate@file:../DynamComponent":
+  version "1.6.0"
   dependencies:
     "@babel/core" "^7.10.4"
     "@babel/plugin-proposal-class-properties" "^7.10.4"
