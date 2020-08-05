@@ -1,0 +1,85 @@
+/*
+ * Luke Zhang's developer portfolio
+ *
+ * Copyright (C) 2020 Luke Zhang
+ *
+ * Luke-zhang-04.github.io
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+@import "../_variables"
+
+@mixin contact-container
+  #contact-title
+    position: relative
+
+    div
+      position: absolute
+      top: 10vh
+      left: 50%
+      transform: translateX(-50%)
+
+  #contact-container
+    display: flex
+    justify-content: center
+    align-items: center
+    min-height: 100vh
+    
+    ul
+      position: relative
+      display: flex
+
+      li
+        position: relative
+        list-style: none
+        margin: 0 10vw
+        cursor: pointer
+        transform: translateX(-25%)
+
+        &::before
+          font-family: fontawesome, sans-serif
+          position: absolute
+          top: -3vw
+          left: 0
+          font-size: 12vw
+          height: 0
+          overflow: hidden
+          transition: height 0.5s ease-in-out
+
+        &:hover::before
+          height: 150%
+
+        &:nth-child(1)::before
+          content: "\f2b6"
+          color: $danger
+          border-bottom: 0.25rem solid
+
+        &:nth-child(2)::before
+          content: "\f09b"
+          color: black
+          border-bottom: 0.25rem solid
+
+        &:nth-child(3)::before
+          content: "\f16c"
+          color: #f48024
+          border-bottom: 0.25rem solid
+        
+        a
+          text-decoration: none
+
+          .fab,
+          .fas,
+          .far
+            font-size: 12vw
+            color: mix($light, $dark, 75%)

@@ -1,0 +1,16 @@
+# Enforce Unix newlines
+* text=auto eol=lf
+
+# Don't diff or textually merge source maps
+*.map binary
+
+# Remove lang stats for generated and compiled files
+*.js linguist-generated=true
+*.css linguist-generated=true
+
+# Make sure scss counts as css
+*.scss linguist-language=CSS
+*.sass linguist-language=CSS
+
+# Colours.sh is vendored
+colours.sh linguist-vendored=true
