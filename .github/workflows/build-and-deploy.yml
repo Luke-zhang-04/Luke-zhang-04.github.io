@@ -59,8 +59,8 @@ jobs:
           add: "js css"
           force: true
           signoff: true
-          message: "Pages deployment for commit $commit_hash"
+          message: Pages deployment for commit $commit_hash
           ref: "gh-pages"
         env:
-          commit_hash: "$(git rev-parse HEAD)"
+          commit_hash: $(git rev-parse HEAD)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
