@@ -47,6 +47,9 @@ const langDisplay = new LangDisplay(
             langDisplaySM.unmount()
             langDisplay.mount()
 
+            scrollmagicScene?.destroy(true)
+            scrollmagicScene = undefined
+
             if (home) {
                 if (
                     home.querySelector(".languages #fixed") &&
@@ -134,6 +137,7 @@ const langDisplay = new LangDisplay(
     window.onscroll = windowScroll
 
     windowScroll()
+    windowResize()
 
     const images = document.getElementsByClassName("lang-img")
 

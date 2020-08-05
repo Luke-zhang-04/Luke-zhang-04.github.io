@@ -104,8 +104,6 @@ export const bindLangStickEvent = (
     images: HTMLCollectionOf<HTMLImageElement>,
     langDisplay: LangDisplay,
 ): ScrollMagic.Scene => {
-    console.log(images[images.length - 1].offsetTop + window.innerHeight * 0.5)
-
     const scene = new ScrollMagic.Scene({
             triggerElement: images[0],
             triggerHook: 0.5,
