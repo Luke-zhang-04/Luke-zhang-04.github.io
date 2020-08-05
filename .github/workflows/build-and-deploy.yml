@@ -60,4 +60,6 @@ jobs:
         run: git add . && git commit -am"Github pages for commit $commit_hash"
         env:
           commit_hash: "$(git rev-parse HEAD)"
-          
+
+      - name: push to gh-pages
+        run: git push -u origin gh-pages
