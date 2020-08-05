@@ -18,6 +18,12 @@ for (const dir of src) {
             resolve: {
                 mainFields: ["main"],
             },
+            module: {
+                rules: [{
+                    test: /\.html$/ui,
+                    use: "raw-loader"
+                }],
+            },
             mode: "production",
         })
     }

@@ -19,10 +19,26 @@
  * 
  * @file script for all pages
  */
+import createElement from "destagnate/lib/createElement"
+import html from "../../templates/footer.html"
+
+/**
+ * Append a footer to bottom of page
+ * @returns {void} void
+ */
+((): void => {
+    const footer = createElement(
+        "footer", {class: "page-footer font-small blue pt-4 bg-dark"}
+    )
+
+    document.body.appendChild(footer)
+
+    footer.innerHTML = html as string
+})();
 
 /**
  * Hamburger menu setup for mobile page
- * @return {void} void
+ * @returns {void} void
  */
 ((): void => {
     const navbarToggler = document.querySelector("#navbar .navbar-toggler"),
