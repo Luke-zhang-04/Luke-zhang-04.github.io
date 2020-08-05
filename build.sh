@@ -119,6 +119,10 @@ buildDev() {
     mv ./js_new/ ./js/
 }
 
+typescriptStrict() {
+    npx tsc -p . || echo "ERROR"
+}
+
 #######################################
 # Main build function
 # Globals:
@@ -134,9 +138,14 @@ build() {
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
-    npx tsc -p . &
+    test=$(typescriptStrict &)
 
     wait
+
+    if [ "$test" != "" ]; then
+        printf "${BIRed}TYPESCRIPT ERROR\n"
+        exit 1
+    fi
 
     # Compile w/ Babel
     printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
