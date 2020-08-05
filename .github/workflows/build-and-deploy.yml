@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: pull gh-pages branch
+        run: git pull origin gh-pages
 
       - name: install deps
         run: yarn install --frozen-lockfile
@@ -41,6 +45,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      - name: pull gh-pages branch
+        run: git pull origin gh-pages
+
       - name: Download JS
         uses: actions/download-artifact@v2
         with:
@@ -59,8 +66,8 @@ jobs:
           add: "js css"
           force: true
           signoff: true
-          message: "Pages deployment for commit $commit_hash"
+          message: Github Pages deployment
+          tag: $GITHUB_SHA
           ref: "gh-pages"
         env:
-          commit_hash: "$(git rev-parse HEAD)"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
