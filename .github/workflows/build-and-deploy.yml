@@ -1,0 +1,63 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2 
+
+      - name: install deps
+        run: yarn install --frozen-lockfile
+
+      - name: lint
+        run: make lint
+
+      - name: build
+        run: yarn build
+
+      - name: upload JS
+        uses: actions/upload-artifact@v2
+        with:
+          name: js
+          path: js
+
+      - name: upload CSS
+        uses: actions/upload-artifact@v2
+        with:
+          name: css
+          path: css
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Download JS
+        uses: actions/download-artifact@v2
+        with:
+          name: js
+          path: js
+
+      - name: Download CSS
+        uses: actions/download-artifact@v2
+        with:
+          name: css
+          path: css
+
+      - name: checkout to gh-pages
+        run: git checkout -b gh-pages || git checkout gh-pages
+
+      - name: add and commit
+        run: git add . && git commit -am"Github pages for commit $commit_hash"
+        env:
+          commit_hash: "$(git rev-parse HEAD)"
+          
