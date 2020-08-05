@@ -53,13 +53,14 @@ jobs:
           name: css
           path: css
 
-      - name: checkout to gh-pages
-        run: git checkout -b gh-pages || git checkout gh-pages
-
-      - name: add and commit
-        run: git add . && git commit -am"Github pages for commit $commit_hash"
+      - name: Add and Commit
+        uses: EndBug/add-and-commit@v4.4.0
+        with:
+          add: "js css"
+          force: true
+          signoff: true
+          message: "Pages deployment for commit $commit_hash"
+          ref: "gh-pages"
         env:
           commit_hash: "$(git rev-parse HEAD)"
-
-      - name: push to gh-pages
-        run: git push -u origin gh-pages
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }
