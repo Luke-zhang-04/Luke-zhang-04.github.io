@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = https://github.com/Luke-zhang-04/luke-zhang-04-server.git
