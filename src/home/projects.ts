@@ -7,29 +7,11 @@
  * @file projects display
  */
 import * as firebaseApp from "../_firebase"
+import type {ProjectData} from "../_globals"
 import type {default as _Swiper} from "swiper/bundle"
 import createElement from "destagnate/lib/createElement"
 
 declare class Swiper extends _Swiper {}
-
-/* eslint-disable @typescript-eslint/naming-convention */
-
-interface Links {
-    [index: string]: string | undefined,
-    GitHub?: string,
-    PyPi?: string,
-    NPM?: string,
-    live?: string,
-}
-/* eslint-enable @typescript-eslint/naming-convention */
-
-interface ProjectData {
-    date: number,
-    description: string,
-    file: string,
-    links: Links,
-    tags: string[],
-}
 
 // CDN https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F**FILENAME**?alt=media
 

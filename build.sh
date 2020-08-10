@@ -241,10 +241,7 @@ if [[ $1 == "--only" ]]; then
         printf "${BIRed}ERROR: ${Purple}Unknown option $2 for $1\n"
     fi
 elif [[ $1 == "-w" ]]||[[ $1 == "--watch" ]];then
-    watch scss &
-    watch src &
-
-    wait
+    watch src
 elif [[ $1 == "-d" ]]||[[ $1 == "--dev" ]]; then
     buildDev
 else

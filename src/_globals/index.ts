@@ -18,6 +18,25 @@
  * @file houses global constants
  */
 
+/* eslint-disable @typescript-eslint/naming-convention */
+export interface ProjectData {
+    date: number,
+    description: string,
+    file: string,
+    links: {
+        GitHub?: string,
+        PyPi?: string,
+        NPM?: string,
+        live?: string,
+    },
+    tags: string[],
+    lang: {
+        name: string,
+        color: string,
+    },
+}
+/* eslint-enable @typescript-eslint/naming-convention */
+
 interface Sizes {
     sm: number,
     md: number,
