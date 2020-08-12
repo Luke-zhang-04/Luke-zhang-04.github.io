@@ -17,15 +17,4 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
-.project-row {
-  height: 18.75vw;
-}
-.project-row .project-card {
-  background-size: auto 100%;
-}
-.project-row:nth-child(1) {
-  margin-top: 7.5vw;
-}
-
-/*# sourceMappingURL=projects.css.map */
+ */.project-row{height:18.75vw}.project-row .project-card{background-size:auto 100%}.project-row:nth-child(1){margin-top:7.5vw}/*# sourceMappingURL=projects.css.map */
