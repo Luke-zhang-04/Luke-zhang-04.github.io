@@ -9,7 +9,8 @@
     "sass": "bash build.sh --only sass",
     "sass:watch": "sass scss:css --watch || npx sass scss:css --watch",
     "lint": "bash lint.sh",
-    "lint:fix": "bash lint.sh --fix"
+    "lint:fix": "bash lint.sh --fix",
+    "lint:watch": "node lint.mjs"
   },
   "dependencies": {
     "@animated-burgers/burger-squeeze": "^1.1.2",
@@ -33,6 +34,7 @@
     "babel-plugin-transform-merge-sibling-variables": "^6.9.4",
     "babel-plugin-transform-minify-booleans": "^6.9.4",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "chokidar": "^3.4.2",
     "eslint": "^7.3.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-prefer-arrow": "^1.2.1",
