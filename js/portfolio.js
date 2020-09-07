@@ -1,3 +1,109 @@
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["portfolio"] = factory();
+	else
+		root["portfolio"] = factory();
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Luke Zhang's developer portfolio
  * @copyright Copyright (C) 2020 Luke Zhang
@@ -16,16 +122,151 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */ !function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.portfolio=e():t.portfolio=e()}(window,(function(){return function(t){var e={};function n(r){if(e[r])return e[r].exports;var o=e[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=t,n.c=e,n.d=function(t,e,r){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(r,o,function(e){return t[e]}.bind(null,o));return r},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=7)}([function(t,e,n){"use strict";
+ */
+const portfolio_1 = __importDefault(__webpack_require__(1));
+const root = document.getElementById("root");
+if (root) {
+    const portfolio = new portfolio_1.default(root);
+    portfolio.mount();
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvcG9ydGZvbGlvL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7OztHQWtCRztBQUNILDREQUFtQztBQUVuQyxNQUFNLElBQUksR0FBRyxRQUFRLENBQUMsY0FBYyxDQUFDLE1BQU0sQ0FBQyxDQUFBO0FBRTVDLElBQUksSUFBSSxFQUFFO0lBQ04sTUFBTSxTQUFTLEdBQUcsSUFBSSxtQkFBUyxDQUFDLElBQUksQ0FBQyxDQUFBO0lBRXJDLFNBQVMsQ0FBQyxLQUFLLEVBQUUsQ0FBQTtDQUNwQiJ9
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * DeStagnate
- * A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * Luke Zhang's developer portfolio
  * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang luke-zhang-04.github.io
- * @license MIT
- * @version 1.6.0
- * @exports createElement function for DOM manipulation
- */var r=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0}),e._bindChildren=e._unpackChildren=e._bindProps=void 0;const o=r(n(3));e._bindProps=(t,e,n=!1)=>{if(e)for(const[r,o]of Object.entries(e))"string"==typeof o||"number"==typeof o?"innerHTML"===r?t.innerHTML=o.toString():n?t.setAttributeNS(null,r,o.toString()):t.setAttribute(r,o.toString()):"on"===r.slice(0,2)?"function"==typeof o&&t.addEventListener(r.slice(2).toLowerCase(),o):"ref"===r&&"object"==typeof o&&"current"in o?o.current=t:console.warn(`WARN: Invalid prop type "${typeof o}" for key "${r}". Skipping prop.`)},e._unpackChildren=t=>{const n=[];for(const r of t)"object"==typeof r&&r instanceof Array?n.push(...e._unpackChildren(r)):n.push(r);return n},e._bindChildren=(t,n)=>{if(null!=n)if(n instanceof Array)for(const r of n)e._bindChildren(t,r);else if("string"==typeof n||"number"==typeof n)t.innerText=n.toString();else if(n instanceof o.default){if(!n.didMount&&t instanceof window.HTMLElement)return void n.mount(t);if(!(t instanceof window.HTMLElement))throw new Error("Cannot use non-HTMLElement as component parent");n.parent!==t&&(n.parent=t),n.forceUpdate()}else t.appendChild(n)};e.default=(t,n,r,...o)=>{const i=document.createElement(t);e._bindProps(i,n);let s=r;return r&&o&&(s=r instanceof Array?[...e._unpackChildren(r),...e._unpackChildren(o)]:[r,...e._unpackChildren(o)]),e._bindChildren(i,s),i}},function(t,e,n){var r=n(2);t.exports=function(t,e){if(t){if("string"==typeof t)return r(t,e);var n=Object.prototype.toString.call(t).slice(8,-1);return"Object"===n&&t.constructor&&(n=t.constructor.name),"Map"===n||"Set"===n?Array.from(t):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?r(t,e):void 0}}},function(t,e){t.exports=function(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,r=new Array(e);n<e;n++)r[n]=t[n];return r}},function(t,e,n){"use strict";
+ * @author Luke Zhang Luke-zhang-04.github.io
+ * @license AGPL-3.0
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+const firebaseApp = __importStar(__webpack_require__(2));
+const destagnate_1 = __importStar(__webpack_require__(3));
+class Portfolio extends destagnate_1.default {
+    constructor(parent) {
+        super(parent);
+        this.componentDidMount = () => {
+            firebaseApp.firestore.collection("projects")
+                .orderBy("date", "desc")
+                .get()
+                .then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    const imgFileName = doc.data().file, data = Object.assign(Object.assign({}, doc.data()), { imgUrl: `https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F${imgFileName}?alt=media`, name: doc.id });
+                    this.setState({ projects: [...this.state.projects, data] });
+                });
+            });
+        };
+        this.render = () => (destagnate_1.createElement("div", { class: "project-container" }, this._groupProjects().map((projects) => (destagnate_1.createElement("div", { class: "row project-row" }, projects.map((project) => this._project(project)))))));
+        this._groupProjects = () => {
+            const grouped = [];
+            let group = [];
+            for (const [index, entry] of this.state.projects.entries()) {
+                group.push(entry);
+                if ((index + 1) % 4 === 0) {
+                    grouped.push(group);
+                    group = [];
+                }
+            }
+            if (group.length > 0) {
+                grouped.push(group);
+            }
+            return grouped;
+        };
+        this._project = ({ imgUrl }) => (destagnate_1.createElement("div", {
+            class: "col-sm-6 col-md-3 project-card",
+            style: `background-image: url(${imgUrl})`,
+        }));
+        this.state = {
+            projects: [],
+        };
+    }
+}
+exports.default = Portfolio;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicG9ydGZvbGlvLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL3BvcnRmb2xpby9wb3J0Zm9saW8udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7OztHQWtCRztBQUNILDBEQUEyQztBQUMzQyx5REFBb0Q7QUFZcEQsTUFBcUIsU0FBVSxTQUFRLG9CQUE4QjtJQUVqRSxZQUFvQixNQUFtQjtRQUNuQyxLQUFLLENBQUMsTUFBTSxDQUFDLENBQUE7UUFPVixzQkFBaUIsR0FBRyxHQUFTLEVBQUU7WUFDbEMsV0FBVyxDQUFDLFNBQVMsQ0FBQyxVQUFVLENBQUMsVUFBVSxDQUFDO2lCQUN2QyxPQUFPLENBQUMsTUFBTSxFQUFFLE1BQU0sQ0FBQztpQkFDdkIsR0FBRyxFQUFFO2lCQUNMLElBQUksQ0FBQyxDQUFDLFFBQVEsRUFBRSxFQUFFO2dCQUNmLFFBQVEsQ0FBQyxPQUFPLENBQUMsQ0FBQyxHQUFHLEVBQUUsRUFBRTtvQkFDckIsTUFBTSxXQUFXLEdBQUksR0FBRyxDQUFDLElBQUksRUFBbUIsQ0FBQyxJQUFJLEVBQ2pELElBQUksbUNBQ0csR0FBRyxDQUFDLElBQUksRUFBa0IsS0FDN0IsTUFBTSxFQUFFLHlGQUF5RixXQUFXLFlBQVksRUFDeEgsSUFBSSxFQUFFLEdBQUcsQ0FBQyxFQUFFLEdBQ2YsQ0FBQTtvQkFFTCxJQUFJLENBQUMsUUFBUSxDQUFDLEVBQUMsUUFBUSxFQUFFLENBQUMsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLFFBQVEsRUFBRSxJQUFJLENBQUMsRUFBQyxDQUFDLENBQUE7Z0JBQzdELENBQUMsQ0FBQyxDQUFBO1lBQ04sQ0FBQyxDQUFDLENBQUE7UUFDVixDQUFDLENBQUE7UUFFTSxXQUFNLEdBQUcsR0FBbUIsRUFBRSxDQUFDLENBQ2xDLDBCQUFhLENBQUMsS0FBSyxFQUFFLEVBQUMsS0FBSyxFQUFFLG1CQUFtQixFQUFDLEVBQzdDLElBQUksQ0FBQyxjQUFjLEVBQUUsQ0FBQyxHQUFHLENBQUMsQ0FBQyxRQUFRLEVBQUUsRUFBRSxDQUFDLENBQ3BDLDBCQUFhLENBQUMsS0FBSyxFQUFFLEVBQUMsS0FBSyxFQUFFLGlCQUFpQixFQUFDLEVBQzNDLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQyxPQUFPLEVBQUUsRUFBRSxDQUFDLElBQUksQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FDcEQsQ0FDSixDQUFDLENBQ0wsQ0FDSixDQUFBO1FBRU8sbUJBQWMsR0FBRyxHQUFvQixFQUFFO1lBQzNDLE1BQU0sT0FBTyxHQUFvQixFQUFFLENBQUE7WUFDbkMsSUFBSSxLQUFLLEdBQWtCLEVBQUUsQ0FBQTtZQUU3QixLQUFLLE1BQU0sQ0FBQyxLQUFLLEVBQUUsS0FBSyxDQUFDLElBQUksSUFBSSxDQUFDLEtBQUssQ0FBQyxRQUFRLENBQUMsT0FBTyxFQUFFLEVBQUU7Z0JBQ3hELEtBQUssQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUE7Z0JBRWpCLElBQUksQ0FBQyxLQUFLLEdBQUcsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsRUFBRTtvQkFDdkIsT0FBTyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQTtvQkFDbkIsS0FBSyxHQUFHLEVBQUUsQ0FBQTtpQkFDYjthQUNKO1lBRUQsSUFBSSxLQUFLLENBQUMsTUFBTSxHQUFHLENBQUMsRUFBRTtnQkFDbEIsT0FBTyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQTthQUN0QjtZQUVELE9BQU8sT0FBTyxDQUFBO1FBQ2xCLENBQUMsQ0FBQTtRQUVPLGFBQVEsR0FBRyxDQUFDLEVBQUMsTUFBTSxFQUFjLEVBQWUsRUFBRSxDQUFDLENBQ3ZELDBCQUFhLENBQ1QsS0FBSyxFQUNMO1lBQ0ksS0FBSyxFQUFFLGdDQUFnQztZQUN2QyxLQUFLLEVBQUUseUJBQXlCLE1BQU0sR0FBRztTQUM1QyxDQUNKLENBQ0osQ0FBQTtRQTdERyxJQUFJLENBQUMsS0FBSyxHQUFHO1lBQ1QsUUFBUSxFQUFFLEVBQUU7U0FDZixDQUFBO0lBQ0wsQ0FBQztDQTRESjtBQXBFRCw0QkFvRUMifQ==
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * Luke Zhang's developer portfolio
+ * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * @file houses firebase configuration and variables
+ */
+/* eslint-disable one-var */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.firestore = exports.auth = void 0;
+const firebaseConfig = {
+    apiKey: "AIzaSyDKHbbyZoschUX1cMf5VdjRl9TtdIX1R9A",
+    authDomain: "luke-zhang.firebaseapp.com",
+    databaseURL: "https://luke-zhang.firebaseio.com",
+    projectId: "luke-zhang",
+    storageBucket: "luke-zhang.appspot.com",
+    messagingSenderId: "309956853075",
+    appId: "1:309956853075:web:ebb55b1076c4aca168f5a6"
+};
+firebase.initializeApp(firebaseConfig);
+exports.auth = firebase.auth(), exports.firestore = firebase.firestore();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvX2ZpcmViYXNlL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBa0JHO0FBQ0gsNEJBQTRCOzs7QUFLNUIsTUFBTSxjQUFjLEdBQUc7SUFDbkIsTUFBTSxFQUFFLHlDQUF5QztJQUNqRCxVQUFVLEVBQUUsNEJBQTRCO0lBQ3hDLFdBQVcsRUFBRSxtQ0FBbUM7SUFDaEQsU0FBUyxFQUFFLFlBQVk7SUFDdkIsYUFBYSxFQUFFLHdCQUF3QjtJQUN2QyxpQkFBaUIsRUFBRSxjQUFjO0lBQ2pDLEtBQUssRUFBRSwyQ0FBMkM7Q0FDckQsQ0FBQTtBQUVELFFBQVEsQ0FBQyxhQUFhLENBQUMsY0FBYyxDQUFDLENBQUE7QUFFekIsUUFBQSxJQUFJLEdBQUcsUUFBUSxDQUFDLElBQUksRUFBRSxFQUMvQixRQUFBLFNBQVMsR0FBRyxRQUFRLENBQUMsU0FBUyxFQUFFLENBQUEifQ==
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 /**
  * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
@@ -36,65 +277,409 @@
  * @exports DeStagnate main destagnate class
  * @file main file for destagnate
  * @preserve
- */var r=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0}),e.Component=e.createRef=e.createElementNS=e.createElement=e.createDSComponent=void 0;const o=r(n(26)),i=r(n(4)),s=r(n(0)),a=r(n(5)),u=r(n(6));class c extends o.default{constructor(t,e,n=!1){super(),this.props=e,this._strict=!0,this._state={},this._didSetInitialState=!1,this._didMount=!1,this.getSnapshotBeforeUpdate=(t,e)=>[t,e],this.useStrict=()=>{this._strict=!0},this.disableStrict=()=>{this._strict=!1},this.forceUpdate=()=>{try{if(this.componentDidUpdate(),void 0===this._parent)throw new Error("Parent is not defined. Set parent with the parent setter or set it during mounting.");this.getSnapshotBeforeUpdate(Object.assign({},this.props),Object.assign({},this.state)),this._update(this._execRender())}catch(t){return this.componentDidCatch(t),t}},this.setState=t=>{try{if(this.componentWillUpdate(),void 0===this._parent)throw new Error("Parent is not defined. Set parent with the parent setter or set it during mounting.");this._strict&&this._checkKeys(t),this.getSnapshotBeforeUpdate(Object.assign({},this.props),Object.assign({},this.state)),Object.assign(this._state,t);const e=this.shouldComponentUpdate()?this._execRender():void 0;this._update(e)}catch(t){return this.componentDidCatch(t),t}},this.mountComponent=t=>{try{if(void 0!==t&&(this.parent=t),void 0===this._parent)throw new Error("Parent is not defined. Set parent with the parent setter or set it during mounting.");const e=this.render();if(this._didSetInitialState=!0,this.componentWillMount(),null===e)throw new Error("Expected render method to be included in component class, no render method found, or render returned an empty array");return this.bindEventListeners(this._parent),this._didMount=!0,this.componentDidMount(),"object"==typeof e&&e instanceof Array?e.map(t=>this._parent.appendChild(t)):this._parent.appendChild(e)}catch(t){return this.componentDidCatch(t),t}},this.mount=this.mountComponent,this.unmountComponent=()=>{try{if(void 0===this._parent)return void this.componentDidWarn("No parent was set. Component unmounted from nothing.");this.componentWillUnmount(),this.unbindEventListeners(this._parent),this._removeChildren(),this._didMount=!1}catch(t){this.componentDidCatch(t)}},this.unmount=this.unmountComponent,this._removeChildren=()=>{if(void 0===this._parent)throw new Error("Parent is not defined. Set parent with the parent setter or set it during mounting.");for(;this._parent.firstChild;)this._parent.lastChild&&this._parent.removeChild(this._parent.lastChild)},this._execRender=()=>(this._removeChildren(),this.render()),this._checkKeys=t=>{for(const e of Object.keys(t))Object.keys(this.state).includes(e)||this.componentDidWarn(`WARN: New key (${e}) should not be set with setState, which has keys ${JSON.stringify(Object.keys(this.state))}. Declare all state variables in constructor as a best practice. Did you misspell a key?`)},this._update=t=>{if("object"==typeof t&&t instanceof Array)for(const e of t)this._parent.appendChild(e);else t&&this._parent.appendChild(t);t&&this.componentDidUpdate()},t&&t.childElementCount>0&&!n&&this._strict&&this.componentDidCatch(new Error(`ERR: Avoid using this ${t.tagName.toLowerCase()} as element parent, as all elements within this ${t.tagName.toLowerCase()} will be removed on re-render. To disable this, pass in true as a third parameter`)),this._parent=t}get getState(){return this.state}get state(){return this._state}set state(t){this._didSetInitialState&&this._strict?(this.componentDidCatch(new Error("Do not mutate state directly. Use setState instead.")),this.componentDidWarn("DeStagnate protects you from mutating the entire state object. Avoid mutating state directly"),this.setState(t)):(this._state=t,this._didSetInitialState=!0)}get getProps(){return this.props}set parent(t){t&&t.childElementCount>0&&this._strict&&this.componentDidWarn(`WARN: Avoid using this ${t.tagName.toLowerCase()} as element parent, as all elements within this ${t.tagName.toLowerCase()} will be removed on re-render. If this was intentional, turn strict off before setting parent.`),this._parent=t}get parent(){return this._parent}get didMount(){return this._didMount}}e.default=c,e.createDSComponent=i.default,e.createElement=s.default,e.createElementNS=a.default,e.createRef=u.default,e.Component=c},function(t,e,n){"use strict";
+ */
+/* eslint-disable max-lines */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Component = exports.createRef = exports.createElementNS = exports.createElement = exports.createDSComponent = void 0;
+const _preset_1 = __importDefault(__webpack_require__(4));
+const createDSComponent_1 = __importDefault(__webpack_require__(6));
+const createElement_1 = __importDefault(__webpack_require__(7));
+const createElementNS_1 = __importDefault(__webpack_require__(8));
+const createRef_1 = __importDefault(__webpack_require__(9));
 /**
  * DeStagnate
- * A simple, ReactJS inspired library to create dynamic components within static sites easier
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang luke-zhang-04.github.io
- * @license MIT
- * @version 1.6.0
- * @exports createDSComponent add nested component for DeStagnate components
- */Object.defineProperty(e,"__esModule",{value:!0});e.default=(t,e,n)=>{const r=document.createElement("div");r.classList.add("DeStagnate-component-parent");const o=new t(r,e);return o.mount(),n&&(n.current=o),r}},function(t,e,n){"use strict";
+ * @classdesc A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @class
+ * @namespace
+ * @abstract
+ */
+class DeStagnate extends _preset_1.default {
+    /**
+     * Construct class component
+     * @public
+     * @constructor
+     * @param {HTMLElement} parent - parent of this element
+     * @param {undefined | Object.<string, string | number>} props - element properties; works like React Props
+     * @param {boolean} shouldSkipParentCheck - warn or throw error if parent element already has children
+     */
+    constructor(parent, props, shouldSkipParentCheck = false) {
+        super();
+        this.props = props;
+        /**
+         * If strict mode should be used. True by default
+         * @private
+         * @instance
+         * @type {boolean}
+         */
+        this._strict = true;
+        /**
+         * State of component. Works similar React State
+         * @type {undefined | Object.<string, unknown>}
+         * @private
+         * @instance
+         */
+        this._state = {};
+        /**
+         * If initial state was set in initializer
+         * Do not throw error with direct state setting
+         * @type {boolean}
+         * @private
+         * @instance
+         */
+        this._didSetInitialState = false;
+        /**
+         * If component is mounted
+         * @type {boolean}
+         * @private
+         * @instance
+         */
+        this._didMount = false;
+        /**
+         * What to call before component update (state mutation)
+         * @public
+         * @instance
+         * @param {Props} prevProps - previous props
+         * @param {State} prevState - previous state
+         * @returns {void} void
+         */
+        this.getSnapshotBeforeUpdate = (prevProps, prevState) => [prevProps, prevState];
+        /**
+         * Turn on strict mode
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        this.useStrict = () => {
+            this._strict = true;
+        };
+        /**
+         * Turn off strict mode
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        this.disableStrict = () => {
+            this._strict = false;
+        };
+        /**
+         * Forces a component to update
+         * Follows the same component updating procedure as setState without modifying state
+         * @public
+         * @instance
+         * @readonly
+         * @returns {void | Error} returns error if error is thrown
+         */
+        this.forceUpdate = () => {
+            try {
+                this.componentDidUpdate();
+                if (this._parent === undefined) {
+                    throw new Error("Parent is not defined. Set parent with the parent setter or set it during mounting.");
+                }
+                this.getSnapshotBeforeUpdate(Object.assign({}, this.props), Object.assign({}, this.state));
+                this._update(this._execRender());
+            }
+            catch (err) /* istanbul ignore next */ {
+                this.componentDidCatch(err);
+                return err;
+            }
+        };
+        /**
+         * Sets state
+         * @public
+         * @instance
+         * @readonly
+         * @param {Partial<State>} obj - state to set
+         * @returns {void | Error} void
+         */
+        this.setState = (obj) => {
+            try {
+                this.componentWillUpdate();
+                if (this._parent === undefined) {
+                    throw new Error("Parent is not defined. Set parent with the parent setter or set it during mounting.");
+                }
+                if (this._strict) {
+                    this._checkKeys(obj);
+                }
+                this.getSnapshotBeforeUpdate(Object.assign({}, this.props), Object.assign({}, this.state));
+                Object.assign(this._state, obj);
+                const renderedContent = this.shouldComponentUpdate()
+                    ? this._execRender()
+                    : undefined;
+                this._update(renderedContent);
+            }
+            catch (err) /* istanbul ignore next */ {
+                this.componentDidCatch(err);
+                return err;
+            }
+        };
+        /* eslint-disable @typescript-eslint/member-ordering, max-len */
+        /**
+         * Initial mounting to be manually called
+         * @public
+         * @instance
+         * @readonly
+         * @param {HTMLElement | undefined} parent - parent element to mount with; optional
+         * @returns {HTMLElement | Array.<HTMLElement> | error} - result of append child to parent element
+         */
+        this.mountComponent = (parent) => {
+            try {
+                if (parent !== undefined) {
+                    this.parent = parent;
+                }
+                if (this._parent === undefined) {
+                    throw new Error("Parent is not defined. Set parent with the parent setter or set it during mounting.");
+                }
+                const component = this.render();
+                this._didSetInitialState = true;
+                this.componentWillMount();
+                if (component === null) {
+                    throw new Error("Expected render method to be included in component class, no render method found, or render returned an empty array");
+                }
+                this.bindEventListeners(this._parent);
+                this._didMount = true;
+                this.componentDidMount();
+                if (typeof (component) === "object" && component instanceof Array) {
+                    return component.map((element) => (this._parent.appendChild(element)));
+                }
+                return this._parent.appendChild(component);
+            }
+            catch (err) /* istanbul ignore next */ {
+                this.componentDidCatch(err);
+                return err;
+            }
+        };
+        /**
+         * Initial mounting to be manually called
+         * @public
+         * @instance
+         * @readonly
+         * @returns {HTMLElement} - result of append child to parent element
+         */
+        this.mount = this.mountComponent;
+        /**
+         * Unmounting to be manually called
+         * @public
+         * @instance
+         * @readonly
+         * @returns {void} - void
+         */
+        this.unmountComponent = () => {
+            try {
+                if (this._parent === undefined) {
+                    this.componentDidWarn("No parent was set. Component unmounted from nothing.");
+                    return;
+                }
+                this.componentWillUnmount();
+                this.unbindEventListeners(this._parent);
+                this._removeChildren();
+                this._didMount = false;
+            }
+            catch (err) /* istanbul ignore next */ {
+                this.componentDidCatch(err);
+            }
+        };
+        /**
+         * Unmounting to be manually called
+         * @public
+         * @instance
+         * @readonly
+         * @returns {void} - void
+         */
+        this.unmount = this.unmountComponent;
+        /* eslint-enable max-len, @typescript-eslint/member-ordering */
+        /**
+         * Removes children from this._parent
+         * @private
+         * @instance
+         * @return {void} void
+         */
+        this._removeChildren = () => {
+            if (this._parent === undefined) {
+                throw new Error("Parent is not defined. Set parent with the parent setter or set it during mounting.");
+            }
+            while (this._parent.firstChild) {
+                if (this._parent.lastChild) {
+                    this._parent.removeChild(this._parent.lastChild);
+                }
+            }
+        };
+        /**
+         * Executes new render
+         * @private
+         * @instance
+         * @returns {HTMLElement | Array.<HTMLElement> | null} rendered content
+         */
+        this._execRender = () => {
+            this._removeChildren();
+            return this.render();
+        };
+        /**
+         * Checks new state assignment to make sure no new keys are assigned
+         * @private
+         * @instance
+         * @param {Partial<State>} obj - new state
+         * @returns {void} void
+         */
+        this._checkKeys = (obj) => {
+            for (const key of Object.keys(obj)) {
+                if (!Object.keys(this.state).includes(key)) {
+                    // eslint-disable-next-line
+                    this.componentDidWarn(`WARN: New key (${key}) should not be set with setState, which has keys ${JSON.stringify(Object.keys(this.state))}. Declare all state variables in constructor as a best practice. Did you misspell a key?`);
+                }
+            }
+        };
+        /**
+         * Updates the component
+         * @private
+         * @instance
+         * @param {RenderType} renderedContent - rendered content from executing the render function
+         * @returns {void} void
+         */
+        this._update = (renderedContent) => {
+            if (typeof (renderedContent) === "object" &&
+                renderedContent instanceof Array) {
+                for (const element of renderedContent) {
+                    this._parent.appendChild(element);
+                }
+            }
+            else if (renderedContent) {
+                this._parent.appendChild(renderedContent);
+            }
+            if (renderedContent) {
+                this.componentDidUpdate();
+            }
+        };
+        if (parent &&
+            parent.childElementCount > 0 &&
+            !shouldSkipParentCheck &&
+            this._strict) {
+            this.componentDidCatch(new Error(`ERR: Avoid using this ${parent.tagName.toLowerCase()} as element parent, as all elements within this ${parent.tagName.toLowerCase()} will be removed on re-render. To disable this, pass in true as a third parameter`));
+        }
+        this._parent = parent;
+    }
+    /**
+     * Public getState getter as this.state itself is protected
+     * @public
+     * @returns {State} component state
+     */
+    get getState() {
+        return this.state;
+    }
+    /**
+     * Get component state
+     * @protected
+     * @returns {State} component state
+     */
+    get state() {
+        return this._state;
+    }
+    /**
+     * Sets component state
+     * WARN: do not use this method to mutate the state directly
+     * @protected
+     * @param {State} obj - state to set
+     */
+    set state(obj) {
+        if (this._didSetInitialState && this._strict) {
+            this.componentDidCatch(new Error("Do not mutate state directly. Use setState instead."));
+            // eslint-disable-next-line
+            this.componentDidWarn("DeStagnate protects you from mutating the entire state object. Avoid mutating state directly");
+            this.setState(obj);
+        }
+        else {
+            this._state = obj;
+            this._didSetInitialState = true;
+        }
+    }
+    /**
+     * Public getProps getter as this.props itself is protected
+     * @public
+     * @returns {Props | undefined} component state
+     */
+    get getProps() {
+        return this.props;
+    }
+    /**
+     * Set the parent of this component
+     * @public
+     * @param {HTMLElement | undefined} element - parent element
+     * @returns {void} void;
+     */
+    set parent(element) {
+        if (element &&
+            element.childElementCount > 0 &&
+            this._strict) {
+            this.componentDidWarn(`WARN: Avoid using this ${element.tagName.toLowerCase()} as element parent, as all elements within this ${element.tagName.toLowerCase()} will be removed on re-render. If this was intentional, turn strict off before setting parent.`);
+        }
+        this._parent = element;
+    }
+    /**
+     * Get the parent element of this component
+     * @public
+     * @returns {HTMLElement | undefined} parent
+     */
+    get parent() {
+        return this._parent;
+    }
+    /**
+     * Get didMount value publicly
+     * @public
+     * @returns {boolean} if mounted
+     */
+    get didMount() {
+        return this._didMount;
+    }
+}
+exports.default = DeStagnate;
+/**
+ * Creates nested DeStagnate component
+ * @param {DeStagnateConstructor} Component - DeStagnate component
+ * @param {Object<string, unknown>} props - props of component
+ * @returns {HTMLDivElement} parent of component
+ */
+exports.createDSComponent = createDSComponent_1.default;
+/**
+ * Creates a child element to deStagnate
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+ * @returns {HTMLElement} html element
+ */
+exports.createElement = createElement_1.default;
+/**
+ * Creates a child element to DynamComponent
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number | Element | Ref | Function>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | number | string | HTMLElement | Element | Array.<number | string | HTMLElement | Element>} children -  children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these  will create multiple children
+ * @param {...(number | string | HTMLElement | Element)} childrenArgs - rest parameter of children
+ * @returns {HTMLElement} html element
+ */
+exports.createElementNS = createElementNS_1.default;
+/**
+ * Creates a reference for a nested component
+ * @returns {Object<string, undefined>} empty ref object
+ */
+exports.createRef = createRef_1.default;
+/* eslint-disable @typescript-eslint/naming-convention */
 /**
  * DeStagnate
- * A simple, ReactJS inspired library to create dynamic components within static sites easier
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang luke-zhang-04.github.io
- * @license MIT
- * @version 1.6.0
- * @exports createElementNS createElement for namespaced elements
- */Object.defineProperty(e,"__esModule",{value:!0}),e.createElementNS=void 0;const r=n(0);e.createElementNS=(t,e,n,o,...i)=>{const s=document.createElementNS(t,e);r._bindProps(s,n,!0);let a=o;return o&&i&&(a="object"==typeof o&&o instanceof Array?[...r._unpackChildren(o),...r._unpackChildren(i)]:[o,...r._unpackChildren(i)]),r._bindChildren(s,a),s},e.default=e.createElementNS},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});e.default=()=>({current:null})},function(t,e,n){"use strict";var r=function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0});
-/**
- * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * @classdesc A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @class
+ * @namespace
+ * @abstract
  */
-var o=r(n(8)),i=document.getElementById("root");i&&new o.default(i).mount()},function(t,e,n){"use strict";var r=n(9),o=r(n(10)),i=r(n(14)),s=r(n(18)),a=r(n(19)),u=r(n(21)),c=r(n(24));function l(t,e){var n;if("undefined"==typeof Symbol||null==t[Symbol.iterator]){if(Array.isArray(t)||(n=function(t,e){if(!t)return;if("string"==typeof t)return f(t,e);var n=Object.prototype.toString.call(t).slice(8,-1);"Object"===n&&t.constructor&&(n=t.constructor.name);if("Map"===n||"Set"===n)return Array.from(t);if("Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return f(t,e)}(t))||e&&t&&"number"==typeof t.length){n&&(t=n);var r=0,o=function(){};return{s:o,n:function(){return r>=t.length?{done:!0}:{done:!1,value:t[r++]}},e:function(t){throw t},f:o}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var i,s=!0,a=!1;return{s:function(){n=t[Symbol.iterator]()},n:function(){var t=n.next();return s=t.done,t},e:function(t){a=!0,i=t},f:function(){try{s||null==n.return||n.return()}finally{if(a)throw i}}}}function f(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,r=new Array(e);n<e;n++)r[n]=t[n];return r}function d(t){var e=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(t){return!1}}();return function(){var n,r=(0,c.default)(t);if(e){var o=(0,c.default)(this).constructor;n=Reflect.construct(r,arguments,o)}else n=r.apply(this,arguments);return(0,u.default)(this,n)}}var p=Object.create?function(t,e,n,r){void 0===r&&(r=n),Object.defineProperty(t,r,{enumerable:!0,get:function(){return e[n]}})}:function(t,e,n,r){void 0===r&&(r=n),t[r]=e[n]},h=Object.create?function(t,e){Object.defineProperty(t,"default",{enumerable:!0,value:e})}:function(t,e){t.default=e},m=function(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var n in t)"default"!==n&&Object.hasOwnProperty.call(t,n)&&p(e,t,n);return h(e,t),e};Object.defineProperty(e,"__esModule",{value:!0});
-/**
- * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
-var y=m(n(25)),b=m(n(3)),_=function(t){(0,a.default)(n,t);var e=d(n);function n(t){var r;return(0,s.default)(this,n),(r=e.call(this,t)).componentDidMount=function(){y.firestore.collection("projects").orderBy("date","desc").get().then((function(t){t.forEach((function(t){var e=t.data().file,n=Object.assign(Object.assign({},t.data()),{imgUrl:"https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F".concat(e,"?alt=media"),name:t.id});r.setState({projects:[].concat((0,i.default)(r.state.projects),[n])})}))}))},r.render=function(){return r._groupProjects().map((function(t){return b.createElement("div",{class:"row project-row"},t.map((function(t){return r._project(t)})))}))},r._groupProjects=function(){var t,e=[],n=[],i=l(r.state.projects.entries());try{for(i.s();!(t=i.n()).done;){var s=(0,o.default)(t.value,2),a=s[0],u=s[1];n.push(u),(a+1)%4==0&&(e.push(n),n=[])}}catch(t){i.e(t)}finally{i.f()}return n.length>0&&e.push(n),e},r._project=function(t){var e=t.imgUrl;return b.createElement("div",{class:"col-sm-6 col-md-3 project-card",style:"background-image: url(".concat(e,")")})},r.state={projects:[]},r}return n}(b.default);e.default=_},function(t,e){t.exports=function(t){return t&&t.__esModule?t:{default:t}}},function(t,e,n){var r=n(11),o=n(12),i=n(1),s=n(13);t.exports=function(t,e){return r(t)||o(t,e)||i(t,e)||s()}},function(t,e){t.exports=function(t){if(Array.isArray(t))return t}},function(t,e){t.exports=function(t,e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(t)){var n=[],r=!0,o=!1,i=void 0;try{for(var s,a=t[Symbol.iterator]();!(r=(s=a.next()).done)&&(n.push(s.value),!e||n.length!==e);r=!0);}catch(t){o=!0,i=t}finally{try{r||null==a.return||a.return()}finally{if(o)throw i}}return n}}},function(t,e){t.exports=function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}},function(t,e,n){var r=n(15),o=n(16),i=n(1),s=n(17);t.exports=function(t){return r(t)||o(t)||i(t)||s()}},function(t,e,n){var r=n(2);t.exports=function(t){if(Array.isArray(t))return r(t)}},function(t,e){t.exports=function(t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(t))return Array.from(t)}},function(t,e){t.exports=function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}},function(t,e){t.exports=function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}},function(t,e,n){var r=n(20);t.exports=function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),e&&r(t,e)}},function(t,e){function n(e,r){return t.exports=n=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t},n(e,r)}t.exports=n},function(t,e,n){var r=n(22),o=n(23);t.exports=function(t,e){return!e||"object"!==r(e)&&"function"!=typeof e?o(t):e}},function(t,e){function n(e){return"function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?t.exports=n=function(t){return typeof t}:t.exports=n=function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},n(e)}t.exports=n},function(t,e){t.exports=function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}},function(t,e){function n(e){return t.exports=n=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)},n(e)}t.exports=n},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.firestore=e.auth=void 0;firebase.initializeApp({apiKey:"AIzaSyDKHbbyZoschUX1cMf5VdjRl9TtdIX1R9A",authDomain:"luke-zhang.firebaseapp.com",databaseURL:"https://luke-zhang.firebaseio.com",projectId:"luke-zhang",storageBucket:"luke-zhang.appspot.com",messagingSenderId:"309956853075",appId:"1:309956853075:web:ebb55b1076c4aca168f5a6"}),e.auth=firebase.auth(),e.firestore=firebase.firestore()},function(t,e,n){"use strict";
+exports.Component = DeStagnate;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7Ozs7O0dBVUc7QUFDSCw4QkFBOEI7Ozs7OztBQUU5Qix3REFBOEI7QUFDOUIsNEVBQWlFO0FBQ2pFLG9FQUF5RDtBQUN6RCx3RUFBNkQ7QUFDN0QsNERBQWlEO0FBSWpEOzs7Ozs7R0FNRztBQUNILE1BQThCLFVBRTFCLFNBQVEsaUJBQU07SUEyQ2Q7Ozs7Ozs7T0FPRztJQUNILFlBQ0ksTUFBb0IsRUFDVixLQUFhLEVBQ3ZCLHFCQUFxQixHQUFHLEtBQUs7UUFFN0IsS0FBSyxFQUFFLENBQUE7UUFIRyxVQUFLLEdBQUwsS0FBSyxDQUFRO1FBbkQzQjs7Ozs7V0FLRztRQUNLLFlBQU8sR0FBRyxJQUFJLENBQUE7UUFFdEI7Ozs7O1dBS0c7UUFDSyxXQUFNLEdBQVUsRUFBVyxDQUFBO1FBRW5DOzs7Ozs7V0FNRztRQUNLLHdCQUFtQixHQUFHLEtBQUssQ0FBQTtRQVVuQzs7Ozs7V0FLRztRQUNLLGNBQVMsR0FBRyxLQUFLLENBQUE7UUE0QnpCOzs7Ozs7O1dBT0c7UUFDSSw0QkFBdUIsR0FBRyxDQUM3QixTQUFnQixFQUNoQixTQUFnQixFQUNGLEVBQUUsQ0FBQyxDQUFDLFNBQVMsRUFBRSxTQUFTLENBQUMsQ0FBQTtRQUUzQzs7Ozs7V0FLRztRQUNJLGNBQVMsR0FBRyxHQUFTLEVBQUU7WUFDMUIsSUFBSSxDQUFDLE9BQU8sR0FBRyxJQUFJLENBQUE7UUFDdkIsQ0FBQyxDQUFBO1FBRUQ7Ozs7O1dBS0c7UUFDSSxrQkFBYSxHQUFHLEdBQVMsRUFBRTtZQUM5QixJQUFJLENBQUMsT0FBTyxHQUFHLEtBQUssQ0FBQTtRQUN4QixDQUFDLENBQUE7UUFxRkQ7Ozs7Ozs7V0FPRztRQUNhLGdCQUFXLEdBQUcsR0FBaUIsRUFBRTtZQUM3QyxJQUFJO2dCQUNBLElBQUksQ0FBQyxrQkFBa0IsRUFBRSxDQUFBO2dC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
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 /**
  * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
@@ -104,7 +689,180 @@ var y=m(n(25)),b=m(n(3)),_=function(t){(0,a.default)(n,t);var e=d(n);function n(
  * @version 1.6.0
  * @exports Preset
  * @package
- */var r=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0});const o=r(n(27)),i=r(n(4)),s=r(n(0)),a=r(n(5)),u=r(n(6));class c extends o.default{constructor(){super(...arguments),this.createDSComponent=i.default,this.createElement=s.default,this.createElementNS=a.default,this.createRef=u.default,this.componentDidCatch=t=>console.error(t),this.componentDidMount=()=>{},this.componentDidUpdate=()=>{},this.componentDidWarn=t=>console.warn(t),this.componentWillMount=()=>{},this.componentWillUnmount=()=>{},this.componentWillUpdate=()=>{},this.shouldComponentUpdate=()=>!0,this.render=()=>null}}e.default=c,c.createDSComponent=i.default,c.createElement=s.default,c.createElementNS=a.default,c.createRef=u.default},function(t,e,n){"use strict";
+ */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const _events_1 = __importDefault(__webpack_require__(5));
+const createDSComponent_1 = __importDefault(__webpack_require__(6));
+const createElement_1 = __importDefault(__webpack_require__(7));
+const createElementNS_1 = __importDefault(__webpack_require__(8));
+const createRef_1 = __importDefault(__webpack_require__(9));
+/* istanbul ignore next */
+/**
+ * Lifecycle member functions
+ */
+class Preset extends _events_1.default {
+    constructor() {
+        super(...arguments);
+        /**
+         * Creates nested DeStagnate component
+         * @public
+         * @instance
+         * @readonly
+         * @param {DeStagnateConstructor} Component - DeStagnate component
+         * @param {Object<string, unknown>} props - props of component
+         * @returns {HTMLDivElement} parent of component
+         */
+        this.createDSComponent = createDSComponent_1.default;
+        /**
+         * Creates a child element to DynamComponent
+         * @public
+         * @instance
+         * @readonly
+         * @param {string} tagName - name of HTML element
+         * @param {undefined | Object.<string, string | number | Element | Ref | Function>} props - element properties, such as class, innerHTML, id, style, etc
+         * @param {undefined | number | string | HTMLElement | Element | Array.<number | string | HTMLElement | Element>} children -  children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these  will create multiple children
+         * @param {...(number | string | HTMLElement | Element)} childrenArgs - rest parameter of children
+         * @returns {HTMLElement} html element
+         */
+        this.createElement = createElement_1.default;
+        /**
+         * Creates a child element to deStagnate
+         * @public
+         * @instance
+         * @readonly
+         * @param {string | null} namespaceURI - namespace uri
+         * @param {string} tagName - name of HTML element
+         * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+         * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+         * @param {...(HTMLElement | string | number)} childrenArgs - rest parameter of children
+         * @returns {HTMLElement} html element
+         */
+        this.createElementNS = createElementNS_1.default;
+        /**
+         * Creates a reference for a nested component
+         * @public
+         * @instance
+         * @readonly
+         * @returns {Object<string, null>} empty ref object
+         */
+        this.createRef = createRef_1.default;
+        /**
+         * Called when component catches error. Default behaviour is console.error
+         * @param {Error} error - error object with info
+         * @returns {void} void
+         */
+        this.componentDidCatch = (error) => console.error(error);
+        /**
+         * What to call after component mounting
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        this.componentDidMount = () => undefined;
+        /**
+         * What to call after component update (state mutation)
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        this.componentDidUpdate = () => undefined;
+        /**
+         * Called when component catches a warning. Default behaviour is console.warn
+         * @param {string} msg - warning message
+         * @returns {void} void
+         */
+        this.componentDidWarn = (msg) => console.warn(msg);
+        /**
+         * What to call before component mounting
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        this.componentWillMount = () => undefined;
+        /**
+         * What to call before component unmounting
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        this.componentWillUnmount = () => undefined;
+        /**
+         * What to call before component update (state mutation)
+         * @public
+         * @instance
+         * @returns {void} void
+         */
+        this.componentWillUpdate = () => undefined;
+        /**
+         * Called before component is updated
+         * @returns {boolean} whether or not component should update/re-render
+         */
+        this.shouldComponentUpdate = () => true;
+        /**
+         * Rendering HTML, must be part of extended class
+         * @public
+         * @instance
+         * @abstract
+         * @returns {null | HTMLElement | Array.<HTMLElement> | Element | Array.<Element>} if returns null error will be thrown
+         */
+        this.render = () => null;
+    }
+}
+exports.default = Preset;
+/**
+ * Creates nested DeStagnate component
+ * @public
+ * @static
+ * @readonly
+ * @param {DeStagnateConstructor} Component - DeStagnate component
+ * @param {Object<string, unknown>} props - props of component
+ * @returns {HTMLDivElement} parent of component
+ */
+Preset.createDSComponent = createDSComponent_1.default;
+/**
+ * Creates a child element to DynamComponent
+ * @public
+ * @static
+ * @readonly
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number | Element | Ref | Function>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | number | string | HTMLElement | Element | Array.<number | string | HTMLElement | Element>} children -  children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these  will create multiple children
+ * @param {...(number | string | HTMLElement | Element)} childrenArgs - rest parameter of children
+ * @returns {HTMLElement} html element
+ */
+Preset.createElement = createElement_1.default;
+/**
+ * Creates a child element to deStagnate
+ * @public
+ * @static
+ * @readonly
+ * @param {string | null} namespaceURI - namespace uri
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | Array.<HTMLElement> | HTMLElement | Array.<string> | string | Array.<number> | number} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+ * @param {...(HTMLElement | string | number)} childrenArgs - rest parameter of children
+ * @returns {HTMLElement} html element
+ */
+Preset.createElementNS = createElementNS_1.default;
+/**
+ * Creates a reference for a nested component
+ * @public
+ * @static
+ * @readonly
+ * @returns {Object<string, null>} empty ref object
+ */
+Preset.createRef = createRef_1.default;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiX3ByZXNldC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9fcHJlc2V0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7O0dBU0c7Ozs7O0FBRUgsd0RBQThCO0FBQzlCLDRFQUFpRTtBQUNqRSxvRUFBeUQ7QUFDekQsd0VBQTZEO0FBQzdELDREQUFpRDtBQUlqRCwwQkFBMEI7QUFDMUI7O0dBRUc7QUFDSCxNQUE4QixNQUFPLFNBQVEsaUJBQU07SUFBbkQ7O1FBaURJOzs7Ozs7OztXQVFHO1FBQ2Esc0JBQWlCLEdBQUcsMkJBQWtCLENBQUE7UUFFdEQ7Ozs7Ozs7Ozs7V0FVRztRQUNhLGtCQUFhLEdBQUcsdUJBQWMsQ0FBQTtRQUU5Qzs7Ozs7Ozs7Ozs7V0FXRztRQUNhLG9CQUFlLEdBQUcseUJBQWdCLENBQUE7UUFFbEQ7Ozs7OztXQU1HO1FBQ2EsY0FBUyxHQUFHLG1CQUFVLENBQUE7UUFFdEM7Ozs7V0FJRztRQUNJLHNCQUFpQixHQUFHLENBQUMsS0FBWSxFQUFRLEVBQUUsQ0FBQyxPQUFPLENBQUMsS0FBSyxDQUFDLEtBQUssQ0FBQyxDQUFBO1FBRXZFOzs7OztXQUtHO1FBQ0ksc0JBQWlCLEdBQUcsR0FBUyxFQUFFLENBQUMsU0FBUyxDQUFBO1FBRWhEOzs7OztXQUtHO1FBQ0ksdUJBQWtCLEdBQUcsR0FBUyxFQUFFLENBQUMsU0FBUyxDQUFBO1FBRWpEOzs7O1dBSUc7UUFDSSxxQkFBZ0IsR0FBRyxDQUFDLEdBQVcsRUFBUSxFQUFFLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQTtRQUVsRTs7Ozs7V0FLRztRQUNJLHVCQUFrQixHQUFHLEdBQVMsRUFBRSxDQUFDLFNBQVMsQ0FBQTtRQUVqRDs7Ozs7V0FLRztRQUNJLHlCQUFvQixHQUFHLEdBQVMsRUFBRSxDQUFDLFNBQVMsQ0FBQTtRQUVuRDs7Ozs7V0FLRztRQUNJLHdCQUFtQixHQUFHLEdBQVMsRUFBRSxDQUFDLFNBQVMsQ0FBQTtRQUVsRDs7O1dBR0c7UUFDSSwwQkFBcUIsR0FBRyxHQUFZLEVBQUUsQ0FBQyxJQUFJLENBQUE7UUFFbEQ7Ozs7OztXQU1HO1FBQ2EsV0FBTSxHQUFHLEdBQWUsRUFBRSxDQUFDLElBQUksQ0FBQTtJQUVuRCxDQUFDOztBQXJLRCx5QkFxS0M7QUFuS0c7Ozs7Ozs7O0dBUUc7QUFDb0Isd0JBQWlCLEdBQUcsMkJBQWtCLENBQUE7QUFFN0Q7Ozs7Ozs7Ozs7R0FVRztBQUNvQixvQkFBYSxHQUFHLHVCQUFjLENBQUE7QUFFckQ7Ozs7Ozs7Ozs7O0dBV0c7QUFDb0Isc0JBQWUsR0FBRyx5QkFBZ0IsQ0FBQTtBQUV6RDs7Ozs7O0dBTUc7QUFDb0IsZ0JBQVMsR0FBRyxtQkFBVSxDQUFBIn0=
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 /**
  * DeStagnate
  * A simple, ReactJS inspired library to create dynamic components within static sites easier
@@ -114,4 +872,469 @@ var y=m(n(25)),b=m(n(3)),_=function(t){(0,a.default)(n,t);var e=d(n);function n(
  * @version 1.6.0
  * @exports Events
  * @package
- */Object.defineProperty(e,"__esModule",{value:!0});e.default=class{constructor(){this.bindEventListeners=t=>{this._eventListener(t.addEventListener)},this.unbindEventListeners=t=>{this._eventListener(t.removeEventListener)},this.onFocus=()=>{},this.onBlur=()=>{},this.onFocusIn=()=>{},this.onFocusOut=()=>{},this.onAnimationStart=()=>{},this.onAnimationCancel=()=>{},this.onAnimationEnd=()=>{},this.onAnimationIteration=()=>{},this.onTransitionStart=()=>{},this.onTransitionCancel=()=>{},this.onTransitionEnd=()=>{},this.onTransitionRun=()=>{},this.onAuxClick=()=>{},this.onClick=()=>{},this.onDblClick=()=>{},this.onMouseDown=()=>{},this.onMouseEnter=()=>{},this.onMouseLeave=()=>{},this.onMouseMove=()=>{},this.onMouseOver=()=>{},this.onMouseOut=()=>{},this.onMouseUp=()=>{},this._eventListener=t=>{for(const[e,n]of Object.entries(this._events()))t(e,n)},this._events=()=>({focus:this.onFocus,blur:this.onBlur,focusin:this.onFocusIn,focusout:this.onFocusOut,animationstart:this.onAnimationStart,animationcancel:this.onAnimationCancel,animationend:this.onAnimationEnd,animationiteration:this.onAnimationIteration,transitionstart:this.onTransitionStart,transitioncancel:this.onTransitionCancel,transitionend:this.onTransitionEnd,transitionrun:this.onTransitionRun,auxclick:this.onAuxClick,click:this.onClick,dblclick:this.onDblClick,mousedown:this.onMouseDown,mouseenter:this.onMouseEnter,mouseleave:this.onMouseLeave,mousemove:this.onMouseMove,mouseover:this.onMouseOver,mouseout:this.onMouseOut,mouseup:this.onMouseUp})}}}])}));
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+/* istanbul ignore next */
+class Events {
+    constructor() {
+        /**
+         * Binds event listeners event
+         * Do not call manually
+         * @protected
+         * @instance
+         * @pacakge
+         * @param {HTMLElement} element - element to bind listeners to
+         * @returns {void} void;
+         */
+        this.bindEventListeners = (element) => {
+            this._eventListener(element.addEventListener);
+        };
+        /**
+         * Binds event listeners event
+         * Do not call manually
+         * @protected
+         * @instance
+         * @pacakge
+         * @param {HTMLElement} element - element to bind listeners to
+         * @returns {void} void;
+         */
+        this.unbindEventListeners = (element) => {
+            this._eventListener(element.removeEventListener);
+        };
+        /**
+         * Focus event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onFocus = () => undefined;
+        /**
+         * Blur event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onBlur = () => undefined;
+        /**
+         * Focus in event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onFocusIn = () => undefined;
+        /**
+         * Focus out event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onFocusOut = () => undefined;
+        /**
+         * Animation start event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAnimationStart = () => undefined;
+        /**
+         * Animation cancel event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAnimationCancel = () => undefined;
+        /**
+         * Animation end event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAnimationEnd = () => undefined;
+        /**
+         * Animation iteration event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAnimationIteration = () => undefined;
+        /**
+         * Transition start event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onTransitionStart = () => undefined;
+        /**
+         * Transition cancel event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onTransitionCancel = () => undefined;
+        /**
+         * Transition end event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onTransitionEnd = () => undefined;
+        /**
+         * Transition run event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onTransitionRun = () => undefined;
+        /**
+         * Auxillary click event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onAuxClick = () => undefined;
+        /**
+         * Click event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onClick = () => undefined;
+        /**
+         * Double click event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onDblClick = () => undefined;
+        /**
+         * Mousedown event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseDown = () => undefined;
+        /**
+         * Mouse enter event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseEnter = () => undefined;
+        /**
+         * Mouse leave event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseLeave = () => undefined;
+        /**
+         * Mouse move event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseMove = () => undefined;
+        /**
+         * Mouseover event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseOver = () => undefined;
+        /**
+         * Mouseout event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseOut = () => undefined;
+        /**
+         * Mouseup event
+         * @protected
+         * @instance
+         * @returns {void}
+         */
+        this.onMouseUp = () => undefined;
+        this._eventListener = (el) => {
+            for (const [event, callback] of Object.entries(this._events())) {
+                el(event, callback);
+            }
+        };
+        this._events = () => ({
+            focus: this.onFocus,
+            blur: this.onBlur,
+            focusin: this.onFocusIn,
+            focusout: this.onFocusOut,
+            animationstart: this.onAnimationStart,
+            animationcancel: this.onAnimationCancel,
+            animationend: this.onAnimationEnd,
+            animationiteration: this.onAnimationIteration,
+            transitionstart: this.onTransitionStart,
+            transitioncancel: this.onTransitionCancel,
+            transitionend: this.onTransitionEnd,
+            transitionrun: this.onTransitionRun,
+            auxclick: this.onAuxClick,
+            click: this.onClick,
+            dblclick: this.onDblClick,
+            mousedown: this.onMouseDown,
+            mouseenter: this.onMouseEnter,
+            mouseleave: this.onMouseLeave,
+            mousemove: this.onMouseMove,
+            mouseover: this.onMouseOver,
+            mouseout: this.onMouseOut,
+            mouseup: this.onMouseUp,
+        });
+    }
+}
+exports.default = Events;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiX2V2ZW50cy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9fZXZlbnRzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7O0dBU0c7O0FBb0NILDBCQUEwQjtBQUMxQixNQUFxQixNQUFNO0lBQTNCO1FBRUk7Ozs7Ozs7O1dBUUc7UUFDTyx1QkFBa0IsR0FBRyxDQUFDLE9BQW9CLEVBQVEsRUFBRTtZQUMxRCxJQUFJLENBQUMsY0FBYyxDQUFDLE9BQU8sQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFBO1FBQ2pELENBQUMsQ0FBQTtRQUVEOzs7Ozs7OztXQVFHO1FBQ08seUJBQW9CLEdBQUcsQ0FBQyxPQUFvQixFQUFRLEVBQUU7WUFDNUQsSUFBSSxDQUFDLGNBQWMsQ0FBQyxPQUFPLENBQUMsbUJBQW1CLENBQUMsQ0FBQTtRQUNwRCxDQUFDLENBQUE7UUFFRDs7Ozs7V0FLRztRQUNPLFlBQU8sR0FBRyxHQUFTLEVBQUUsQ0FBQyxTQUFTLENBQUE7UUFFekM7Ozs7O1dBS0c7UUFDTyxXQUFNLEdBQUcsR0FBUyxFQUFFLENBQUMsU0FBUyxDQUFBO1FBRXhDOzs7OztXQUtHO1FBQ08sY0FBUyxHQUFHLEdBQVMsRUFBRSxDQUFDLFNBQVMsQ0FBQTtRQUUzQzs7Ozs7V0FLRztRQUNPLGVBQVUsR0FBRyxHQUFTLEVBQUUsQ0FBQyxTQUFTLENBQUE7UUFFNUM7Ozs7O1dBS0c7UUFDTyxxQkFBZ0IsR0FBRyxHQUFTLEVBQUUsQ0FBQyxTQUFTLENBQUE7UUFFbEQ7Ozs7O1dBS0c7UUFDTyxzQkFBaUIsR0FBRyxHQUFTLEVBQUUsQ0FBQyxTQUFTLENBQUE7UUFFbkQ7Ozs7O1dBS0c7UUFDTyxtQkFBYyxHQUFHLEdBQVMsRUFBRSxDQUFDLFNBQVMsQ0FBQTtRQUVoRDs7Ozs7V0FLRztRQUNPLHlCQUFvQixHQUFHLEdBQVMsRUFBRSxDQUFDLFNBQVMsQ0FBQTtRQUd0RDs7Ozs7V0FLRztRQUNPLHNCQUFpQixHQUFHLEdBQVMsRUFBRSxDQUFD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
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * DeStagnate
+ * A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @copyright Copyright (C) 2020 Luke Zhang
+ * @author Luke Zhang luke-zhang-04.github.io
+ * @license MIT
+ * @version 1.6.0
+ * @exports createDSComponent add nested component for DeStagnate components
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable @typescript-eslint/naming-convention */
+/**
+ * Creates nested DeStagnate component
+ * @deprecated do not use this function, since 1.6.0
+ * @see {@link https://github.com/Luke-zhang-04/DeStagnate/wiki/createDSComponent}
+ * @see {@link https://github.com/Luke-zhang-04/DeStagnate/wiki/nestedComponents}
+ * @param {DeStagnateConstructor} Component - DeStagnate component
+ * @param {Object<string, unknown>} props - props of component
+ * @param {Object<string, undefined | DeStagnate>} ref - ref object
+ * @returns {HTMLDivElement} parent of component
+ */
+const createDSComponent = (Component, props, ref) => {
+    const element = document.createElement("div");
+    element.classList.add("DeStagnate-component-parent");
+    const _component = new Component(element, props);
+    _component.mount();
+    if (ref) {
+        ref.current = _component;
+    }
+    return element;
+};
+exports.default = createDSComponent;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3JlYXRlRFNDb21wb25lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvY3JlYXRlRFNDb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7OztHQVFHOztBQVVILHlEQUF5RDtBQUN6RDs7Ozs7Ozs7O0dBU0c7QUFDSCxNQUFNLGlCQUFpQixHQUFHLENBSWxCLFNBQThDLEVBQzlDLEtBQWEsRUFDYixHQUFtQyxFQUNyQixFQUFFO0lBQ3BCLE1BQU0sT0FBTyxHQUFHLFFBQVEsQ0FBQyxhQUFhLENBQUMsS0FBSyxDQUFDLENBQUE7SUFFN0MsT0FBTyxDQUFDLFNBQVMsQ0FBQyxHQUFHLENBQUMsNkJBQTZCLENBQUMsQ0FBQTtJQUVwRCxNQUFNLFVBQVUsR0FBRyxJQUFJLFNBQVMsQ0FBQyxPQUFPLEVBQUUsS0FBSyxDQUFDLENBQUE7SUFFaEQsVUFBVSxDQUFDLEtBQUssRUFBRSxDQUFBO0lBRWxCLElBQUksR0FBRyxFQUFFO1FBQ0wsR0FBRyxDQUFDLE9BQU8sR0FBRyxVQUFVLENBQUE7S0FDM0I7SUFFRCxPQUFPLE9BQU8sQ0FBQTtBQUNsQixDQUFDLENBQUE7QUFFRCxrQkFBZSxpQkFBaUIsQ0FBQSJ9
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * DeStagnate
+ * A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @copyright Copyright (C) 2020 Luke Zhang
+ * @author Luke Zhang luke-zhang-04.github.io
+ * @license MIT
+ * @version 1.6.0
+ * @exports createElement function for DOM manipulation
+ */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports._bindChildren = exports._unpackChildren = exports._bindProps = void 0;
+const _1 = __importDefault(__webpack_require__(3));
+/**
+ * Binds children to element
+ * @package
+ * @param {Element} element - element to bind
+ * @param {undefined | Object.<string, string | number>} props - props to bind with
+ * @param {boolean} ns - if namespace element
+ * @returns {void} void
+ */
+exports._bindProps = (element, props, ns = false) => {
+    if (props) {
+        for (const [key, val] of Object.entries(props)) {
+            if (typeof (val) === "string" || typeof (val) === "number") {
+                if (key === "innerHTML") {
+                    element.innerHTML = val.toString();
+                }
+                else if (ns) {
+                    element.setAttributeNS(null, key, val.toString());
+                }
+                else {
+                    element.setAttribute(key, val.toString());
+                }
+            }
+            else if (key.slice(0, 2) === "on") { // Works such as onClick, onAnimationEnd, etc.
+                if (typeof (val) === "function") {
+                    element.addEventListener(key.slice(2)
+                        .toLowerCase(), val);
+                }
+            }
+            else if (key === "ref" &&
+                typeof (val) === "object" &&
+                "current" in val) {
+                val.current = element;
+            }
+            else {
+                console.warn(`WARN: Invalid prop type "${typeof (val)}" for key "${key}". Skipping prop.`);
+            }
+        }
+    }
+};
+exports._unpackChildren = (children) => {
+    const newChildren = [];
+    for (const child of children) {
+        if (typeof (child) === "object" && child instanceof Array) {
+            newChildren.push(...exports._unpackChildren(child));
+        }
+        else {
+            newChildren.push(child);
+        }
+    }
+    return newChildren;
+};
+/**
+ * Binds children to element
+ * @package
+ * @param {Element} element - element to bind
+ * @param {undefined | ChildrenType} children - children to bind with
+ * @returns {void} void
+ */
+exports._bindChildren = (element, children) => {
+    if (children !== null && children !== undefined) {
+        if (children instanceof Array) {
+            for (const child of children) {
+                exports._bindChildren(element, child);
+            }
+        }
+        else if (typeof (children) === "string" ||
+            typeof (children) === "number") {
+            element.innerText = children.toString();
+        }
+        else if (children instanceof _1.default) {
+            if (!children.didMount && element instanceof window.HTMLElement) {
+                children.mount(element);
+                return;
+            }
+            else if (!(element instanceof window.HTMLElement)) {
+                throw new Error("Cannot use non-HTMLElement as component parent");
+            }
+            if (children.parent !== element) {
+                children.parent = element;
+            }
+            children.forceUpdate();
+        }
+        else {
+            element.appendChild(children);
+        }
+    }
+};
+/**
+ * Creates a child element to DynamComponent
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number | Element | Ref | Function>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | number | string | HTMLElement | Element | Array.<number | string | HTMLElement | Element>} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+ * @param {...(number | string | HTMLElement | Element)} childrenArgs - rest parameter of children
+ * @returns {HTMLElement} html element
+ */
+const createElement = (tagName, props, children, ...childrenArgs) => {
+    const element = document.createElement(tagName);
+    exports._bindProps(element, props);
+    let _children = children;
+    if (children && childrenArgs) {
+        if (children instanceof Array) {
+            _children = [
+                ...exports._unpackChildren(children),
+                ...exports._unpackChildren(childrenArgs),
+            ];
+        }
+        else {
+            _children = [children, ...exports._unpackChildren(childrenArgs)];
+        }
+    }
+    exports._bindChildren(element, _children);
+    return element;
+};
+exports.default = createElement;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3JlYXRlRWxlbWVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9jcmVhdGVFbGVtZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7R0FRRzs7Ozs7O0FBRUgseUNBQTBCO0FBMkIxQjs7Ozs7OztHQU9HO0FBQ1UsUUFBQSxVQUFVLEdBQUcsQ0FDdEIsT0FBZ0IsRUFDaEIsS0FBMkUsRUFDM0UsRUFBRSxHQUFHLEtBQUssRUFDTixFQUFFO0lBQ04sSUFBSSxLQUFLLEVBQUU7UUFDUCxLQUFLLE1BQU0sQ0FBQyxHQUFHLEVBQUUsR0FBRyxDQUFDLElBQUksTUFBTSxDQUFDLE9BQU8sQ0FBQyxLQUFLLENBQUMsRUFBRTtZQUM1QyxJQUFJLE9BQU0sQ0FBQyxHQUFHLENBQUMsS0FBSyxRQUFRLElBQUksT0FBTSxDQUFDLEdBQUcsQ0FBQyxLQUFLLFFBQVEsRUFBRTtnQkFDdEQsSUFBSSxHQUFHLEtBQUssV0FBVyxFQUFFO29CQUNyQixPQUFPLENBQUMsU0FBUyxHQUFHLEdBQUcsQ0FBQyxRQUFRLEVBQUUsQ0FBQTtpQkFDckM7cUJBQU0sSUFBSSxFQUFFLEVBQUU7b0JBQ1gsT0FBTyxDQUFDLGNBQWMsQ0FBQyxJQUFJLEVBQUUsR0FBRyxFQUFFLEdBQUcsQ0FBQyxRQUFRLEVBQUUsQ0FBQyxDQUFBO2lCQUNwRDtxQkFBTTtvQkFDSCxPQUFPLENBQUMsWUFBWSxDQUFDLEdBQUcsRUFBRSxHQUFHLENBQUMsUUFBUSxFQUFFLENBQUMsQ0FBQTtpQkFDNUM7YUFDSjtpQkFBTSxJQUFJLEdBQUcsQ0FBQyxLQUFLLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQyxLQUFLLElBQUksRUFBRSxFQUFFLDhDQUE4QztnQkFDakYsSUFBSSxPQUFNLENBQUMsR0FBRyxDQUFDLEtBQUssVUFBVSxFQUFFO29CQUM1QixPQUFPLENBQUMsZ0JBQWdCLENBQ3BCLEdBQUcsQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDO3lCQUNQLFdBQVcs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
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * DeStagnate
+ * A simple, ReactJS inspired library to create dynamic components within static sites easier
+ * @copyright Copyright (C) 2020 Luke Zhang
+ * @author Luke Zhang luke-zhang-04.github.io
+ * @license MIT
+ * @version 1.6.0
+ * @exports createElementNS createElement for namespaced elements
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createElementNS = void 0;
+const createElement_1 = __webpack_require__(7);
+/**
+ * Creates a child element to deStagnate
+ * @param {string | null} namespaceURI - namespace uri
+ * @param {string} tagName - name of HTML element
+ * @param {undefined | Object.<string, string | number>} props - element properties, such as class, innerHTML, id, style, etc
+ * @param {undefined | Element | string | number | Array.<Element> | Array.<string> | Array.<number>} children - children of this element. Can be nothing, number (converted to string), string (text), or another element. An array of any of these will create multiple children
+ * @param {...(HTMLElement | string | number)} childrenArgs - rest parameter of children
+ * @returns {HTMLElement} html element
+ */
+exports.createElementNS = (namespaceURI, tagName, props, children, ...childrenArgs) => {
+    const element = document.createElementNS(namespaceURI, tagName);
+    createElement_1._bindProps(element, props, true);
+    let _children = children;
+    if (children && childrenArgs) {
+        if (typeof (children) === "object" && children instanceof Array) {
+            _children = [
+                ...createElement_1._unpackChildren(children),
+                ...createElement_1._unpackChildren(childrenArgs),
+            ];
+        }
+        else {
+            _children = [children, ...createElement_1._unpackChildren(childrenArgs)];
+        }
+    }
+    createElement_1._bindChildren(element, _children);
+    return element;
+};
+exports.default = exports.createElementNS;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3JlYXRlRWxlbWVudE5TLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2NyZWF0ZUVsZW1lbnROUy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7O0dBUUc7OztBQUVILG1EQU13QjtBQUV4Qjs7Ozs7Ozs7R0FRRztBQUNVLFFBQUEsZUFBZSxHQUFHLENBQzNCLFlBQStHLEVBQy9HLE9BQTBDLEVBQzFDLEtBQXdDLEVBQ3hDLFFBQXVCLEVBQ3ZCLEdBQUcsWUFBK0IsRUFDM0IsRUFBRTtJQUNULE1BQU0sT0FBTyxHQUFHLFFBQVEsQ0FBQyxlQUFlLENBQUMsWUFBWSxFQUFFLE9BQU8sQ0FBQyxDQUFBO0lBRS9ELDBCQUFVLENBQUMsT0FBTyxFQUFFLEtBQUssRUFBRSxJQUFJLENBQUMsQ0FBQTtJQUVoQyxJQUFJLFNBQVMsR0FBNkIsUUFBUSxDQUFBO0lBRWxELElBQUksUUFBUSxJQUFJLFlBQVksRUFBRTtRQUMxQixJQUFJLE9BQU0sQ0FBQyxRQUFRLENBQUMsS0FBSyxRQUFRLElBQUksUUFBUSxZQUFZLEtBQUssRUFBRTtZQUM1RCxTQUFTLEdBQUc7Z0JBQ1IsR0FBRywrQkFBZSxDQUFDLFFBQVEsQ0FBQztnQkFDNUIsR0FBRywrQkFBZSxDQUFDLFlBQVksQ0FBQzthQUNuQyxDQUFBO1NBQ0o7YUFBTTtZQUNILFNBQVMsR0FBRyxDQUFDLFFBQVEsRUFBRSxHQUFHLCtCQUFlLENBQUMsWUFBWSxDQUFDLENBQUMsQ0FBQTtTQUMzRDtLQUNKO0lBRUQsNkJBQWEsQ0FBQyxPQUFPLEVBQUUsU0FBUyxDQUFDLENBQUE7SUFFakMsT0FBTyxPQUFPLENBQUE7QUFDbEIsQ0FBQyxDQUFBO0FBRUQsa0JBQWUsdUJBQWUsQ0FBQSJ9
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Creates a reference for a nested component
+ * @returns {Object<string, null>} empty ref object
+ */
+const createRef = () => ({
+    current: null,
+});
+/**
+ * Creates a reference for a nested component
+ * @returns {Object<string, null>} empty ref object
+ */
+exports.default = createRef;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3JlYXRlUmVmLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2NyZWF0ZVJlZi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQWVBOzs7R0FHRztBQUNILE1BQU0sU0FBUyxHQUFHLEdBQXlDLEVBQUUsQ0FBQyxDQUFDO0lBQzNELE9BQU8sRUFBRSxJQUFJO0NBQ2hCLENBQUMsQ0FBQTtBQUVGOzs7R0FHRztBQUNILGtCQUFlLFNBQVMsQ0FBQSJ9
+
+/***/ })
+/******/ ]);
+});

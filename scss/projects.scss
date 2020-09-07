@@ -18,14 +18,31 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-.project-row {
-  height: 25vw * 3 / 4;
-
-  .project-card {
-    background-size: auto 100%;
+.project-container {
+  &:hover {
+    .project-row .project-card {
+      filter: blur(0.5vw);
+      opacity: 0.9;
+    }
   }
 
-  &:nth-child(1) {
-    margin-top: 7.5vw;
+  .project-row {
+    height: 25vw * 3 / 4;
+  
+    // stylelint-disable-next-line
+    .project-card {
+      background-size: auto 100%;
+      transition: filter 0.2s ease, opacity 0.2s ease;
+  
+      &:hover {
+        filter: blur(0);
+        z-index: 100;
+        transform: scale(1.1);
+      }
+    }
+  
+    &:nth-child(1) {
+      margin-top: 7.5vw;
+    }
   }
 }

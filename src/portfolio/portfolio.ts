@@ -58,13 +58,15 @@ export default class Portfolio extends DeStagnate<{}, PortfolioState> {
             })
     }
 
-    public render = (): HTMLElement[] => (
-        this._groupProjects().map((projects) => (
-            createElement("div", {class: "row project-row"},
-                projects.map((project) => this._project(project))
-            )
-        ))
-    )
+    public render = (): HTMLDivElement => (
+        createElement("div", {class: "project-container"},
+            this._groupProjects().map((projects) => (
+                createElement("div", {class: "row project-row"},
+                    projects.map((project) => this._project(project))
+                )
+            ))
+        )
+    ) 
 
     private _groupProjects = (): ProjectData[][] => {
         const grouped: ProjectData[][] = []
