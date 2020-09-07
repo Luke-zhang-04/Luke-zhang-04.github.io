@@ -8,7 +8,8 @@
     "build:dev": "bash build.sh -d",
     "sass": "bash build.sh --only sass",
     "sass:watch": "sass scss:css --watch || npx sass scss:css --watch",
-    "lint": "bash lint.sh"
+    "lint": "bash lint.sh",
+    "lint:fix": "bash lint.sh --fix"
   },
   "dependencies": {
     "@animated-burgers/burger-squeeze": "^1.1.2",

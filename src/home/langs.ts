@@ -3,7 +3,7 @@
  * @copyright Copyright (C) 2020 Luke Zhang
  * @author Luke Zhang Luke-zhang-04.github.io
  * @license GPL-3.0
- * 
+ *
  * @file languages display
  */
 import * as ScrollMagic from "scrollmagic"
@@ -11,16 +11,7 @@ import * as utils from "../_utils"
 import DeStagnate, {createElement} from "destagnate"
 import {default as langData} from "./langData.json"
 
-export interface LangData {
-    [index: string]: LangDisplayState,
-    tsjs: LangDisplayState,
-    frontend: LangDisplayState,
-    bash: LangDisplayState,
-    backend: LangDisplayState,
-}
-
 export interface LangDisplayState {
-    [index: string]: string | number,
     key: string,
     title: string,
     text: string,
@@ -28,8 +19,14 @@ export interface LangDisplayState {
     index: number,
 }
 
+export interface LangData {
+    tsjs: LangDisplayState,
+    frontend: LangDisplayState,
+    bash: LangDisplayState,
+    backend: LangDisplayState,
+}
+
 export interface LangDisplayProps {
-    [index: string]: HTMLElement,
     parent: HTMLElement,
 }
 
@@ -101,21 +98,21 @@ export const bindLangStickEvent = (
         }),
         increment = 1 / images.length,
         langs = ["tsjs", "frontend", "bash", "backend"]
-    
+
     if (scene) {
         scene.setPin(container)
             .addTo(utils.default.controller)
     }
 
-    let currentKey = "tsjs"
+    let currentKey: keyof LangData = "tsjs"
 
     scene.on("progress", (event) => {
         for (const [index, lang] of langs.entries()) {
             if (event.target.progress() <= increment * (index + 1)) {
                 if (currentKey !== lang) {
-                    currentKey = lang
+                    currentKey = lang as keyof LangData
                     langDisplay.changeComponent({
-                        ...(langData as LangData)[lang],
+                        ...(langData as LangData)[lang as keyof LangData],
                         key: lang,
                         index,
                     })
