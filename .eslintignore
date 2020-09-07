@@ -7,3 +7,4 @@
 **/*.d.ts
 /src/serviceWorker.ts
 *.js
+server
