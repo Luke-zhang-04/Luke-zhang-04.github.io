@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * Luke Zhang's developer portfolio
  * Copyright (C) 2020 Luke Zhang Luke-zhang-04.github.io
@@ -15,43 +17,38 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @file houses global constants
+ * @file lint watch with chokidar
  */
 
-/* eslint-disable @typescript-eslint/naming-convention */
-export interface ProjectData {
-    date: number,
-    description: string,
-    file: string,
-    links: {
-        GitHub?: string,
-        PyPi?: string,
-        NPM?: string,
-        live?: string,
-    },
-    tags: string[],
-    lang: {
-        name: string,
-        color: string,
-    },
-}
-/* eslint-enable @typescript-eslint/naming-convention */
+import {exec} from "child_process"
+import chokidar from "chokidar"
 
-interface Sizes {
-    sm: number,
-    md: number,
-}
+const lint = () => {
+    exec("bash lint.sh --fix", (error, stdout, stderr) => {
+        if (error) {
+            console.log(error)
 
-interface Globals {
-    sizes: Sizes,
+            return
+        }
+
+        if (stderr) {
+            console.log(stderr)
+
+            return
+        }
+
+        console.log(stdout)
+        console.clear()
+        console.log("Complete!")
+    })
 }
 
-export const sizes: Sizes = {
-    sm: 767,
-    md: 992,
-},
-    globals: Globals = {
-        sizes,
-    }
+chokidar.watch("src/").on("change", () => {
+    lint()
+})
 
-export default globals
+chokidar.watch("scss/").on("change", () => {
+    lint()
+})
+
+lint()
