@@ -5,6 +5,7 @@ const path = require("path"),
 
 const src = fs.readdirSync(path.resolve(__dirname, "lib")),
     babelconfig = {
+        test: /\.js$/ui,
         use: {
             loader: "babel-loader",
             options: {
@@ -14,20 +15,17 @@ const src = fs.readdirSync(path.resolve(__dirname, "lib")),
                         "@babel/plugin-transform-runtime", {
                             regenerator: true,
                         },
-                    ],
+                    ]
                 ],
+                sourceType: "unambiguous",
                 minified: true,
                 shouldPrintComment: (val) => /license|License|@preserve|@copyright/.test(val)
             },
         },
-    },
-    htmlLoader = {
-        test: /\.html$/ui,
-        use: "raw-loader"
     }
 
 for (const dir of src) {
-    if (dir[0] !== "_" && !dir.includes(".")) {
+    if (dir[0] !== "_" && !dir.includes(".") && dir !== "templates") {
         configs.push({
             entry: `./lib/${dir}/index.js`,
             output: {
@@ -41,8 +39,8 @@ for (const dir of src) {
             },
             mode: "production",
             module: process.argv.includes("--mode") && process.argv.includes("none")
-                ? {rules: [htmlLoader]}
-                : {rules: [htmlLoader, babelconfig]},
+                ? {}
+                : {rules: [babelconfig]},
         })
     }
 }

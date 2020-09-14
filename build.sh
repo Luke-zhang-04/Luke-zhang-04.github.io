@@ -74,7 +74,7 @@ buildDev() {
     wait
 
     # Pack lib files w/ webpack
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}webpack${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}webpack${Purple} and sending to ${Yellow}./js/${Purple}\n"
     npx webpack --mode none
 }
 
@@ -93,15 +93,15 @@ typescriptStrict() {
 #######################################
 build() {
     compileSass false &
-    
+
     # Compile w/ TypeScript
-    printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
+    printf "${BIYellow}Compiling${Purple} from ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
     npx tsc -p . &
 
     wait
 
     # Pack lib files w/ webpack
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}webpack${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}webpack${Purple} and sending to ${Yellow}./js/${Purple}\n"
     npx webpack
 
     for file in ./js/*.js; do

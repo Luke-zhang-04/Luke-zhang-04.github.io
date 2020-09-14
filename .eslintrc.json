@@ -55,7 +55,7 @@
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/type-annotation-spacing": "off",
         "@typescript-eslint/unified-signatures": "off",
-        
+
         "accessor-pairs": "error",
         "array-bracket-newline": ["error", {
             "multiline": true
@@ -122,7 +122,7 @@
         "lines-between-class-members": "error",
         "max-classes-per-file": ["error", 3],
         "max-depth": "error",
-        "max-len": ["error", {"code": 81, "ignoreComments": true, "ignoreTemplateLiterals": true, "ignoreUrls": true}],
+        "max-len": ["error", {"code": 81, "ignoreComments": true, "ignoreTemplateLiterals": true, "ignoreUrls": true, "ignoreStrings": true}],
         "max-lines": "error",
         "max-lines-per-function": "error",
         "max-nested-callbacks": "error",
@@ -367,7 +367,7 @@
 
                 "no-dupe-class-members": "off",
                 "@typescript-eslint/no-dupe-class-members": ["error"],
-                
+
                 "@typescript-eslint/no-extra-non-null-assertion": "error",
 
                 "no-extra-semi": "off",
@@ -412,6 +412,36 @@
             "files": ["./public/js/*", "./src/index.js"],
             "env": {
                 "browser": true
+            }
+        },
+        {
+            "files": ["*.tsx"],
+            "rules": {
+                "@typescript-eslint/naming-convention": ["error", {
+                    "selector": "default",
+                    "format": ["camelCase"]
+                },{
+                    "selector": "variableLike",
+                    "format": ["camelCase", "PascalCase"],
+                    "leadingUnderscore": "allow"
+                }, {
+                    "selector": "memberLike",
+                    "modifiers": ["private"],
+                    "format": ["camelCase"],
+                    "leadingUnderscore": "require"
+                },{
+                    "selector": "typeLike",
+                    "format": ["PascalCase"]
+                }, {
+                    "selector": "variable",
+                    "types": ["boolean"],
+                    "format": ["camelCase"],
+                    "prefix": ["is", "should", "has", "can", "did", "will"]
+                }, {
+                    "selector": "parameter",
+                    "format": ["camelCase"],
+                    "leadingUnderscore": "allow"
+                }]
             }
         }
     ]
