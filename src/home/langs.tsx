@@ -95,7 +95,7 @@ export const bindLangStickEvent = (
                 window.innerHeight * 0.5,
         }),
         increment = 1 / images.length,
-        langs = ["tsjs", "frontend", "bash", "backend"]
+        langs: (keyof LangData)[] = ["tsjs", "frontend", "bash", "backend"]
 
     if (scene) {
         scene.setPin(container)
@@ -108,10 +108,10 @@ export const bindLangStickEvent = (
         for (const [index, lang] of langs.entries()) {
             if (event.target.progress() <= increment * (index + 1)) {
                 if (currentKey !== lang) {
-                    currentKey = lang as keyof LangData
+                    currentKey = lang
                     langDisplay.changeComponent({
-                        ...(langData as LangData)[lang as keyof LangData],
-                        key: lang as keyof LangData,
+                        ...(langData)[lang],
+                        key: lang,
                         index,
                     })
                 }
