@@ -8,11 +8,12 @@
  */
 import * as ScrollMagic from "scrollmagic"
 import * as utils from "../_utils"
-import DeStagnate, {createElement} from "destagnate"
-import {default as langData} from "./langData.json"
+import DeStagnate from "destagnate"
+import langData from "./langData"
 
 export interface LangDisplayState {
-    key: string,
+    // eslint-disable-next-line
+    key: keyof LangData,
     title: string,
     text: string,
     href: string,
@@ -57,23 +58,20 @@ export default class LangDisplay extends DeStagnate
         }, 250)
     }
 
-    public render = (): HTMLElement[] => [
-        createElement("h2", {class: "my-3"}, this.state.title),
-        createElement("span", {class: "line d-block"}),
-        createElement("p", {class: "mb-4"}, this.state.text),
-        createElement("a", {
-            class: "btn-box btn-box-primary d-none d-lg-block",
-            href: this.state.href,
-            role: "button",
-        }, [
-            "See projects ",
-            createElement("span", {class: "material-icons"}, "trending_flat")
-        ]),
-        createElement("a", {
-            class: "btn btn-outline-primary d-block d-lg-none",
-            href: this.state.href,
-            role: "button",
-        }, "See Projects"),
+    public render = (): JSX.Element[] => [
+        <h2 class="my-3">{this.state.title}</h2>,
+        <span class="line d-block"/>,
+        <p class="mb-4">{this.state.text}</p>,
+        <a
+            class="btn-box btn-box-primary d-none d-lg-block"
+            href={this.state.href}
+            role="button"
+        >See Projects <span class="material-icons">trending_flat</span></a>,
+        <a
+            class="btn btn-outline-primary d-block d-lg-none"
+            href={this.state.href}
+            role="button"
+        >See Projects</a>
     ]
 
 }
@@ -113,7 +111,7 @@ export const bindLangStickEvent = (
                     currentKey = lang as keyof LangData
                     langDisplay.changeComponent({
                         ...(langData as LangData)[lang as keyof LangData],
-                        key: lang,
+                        key: lang as keyof LangData,
                         index,
                     })
                 }
