@@ -8,9 +8,5 @@
 *.js linguist-generated=true
 *.css linguist-generated=true
 
-# Make sure scss counts as css
-*.scss linguist-language=CSS
-*.sass linguist-language=CSS
-
 # Colours.sh is vendored
 colours.sh linguist-vendored=true
