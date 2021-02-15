@@ -31,7 +31,7 @@ export interface LangDisplayProps {
     parent: HTMLElement,
 }
 
-export default class LangDisplay extends DeStagnate
+export default class LangDisplay extends DeStagnate.Component
     <LangDisplayProps, LangDisplayState> {
 
     public constructor (parent: HTMLElement, props: LangDisplayProps) {

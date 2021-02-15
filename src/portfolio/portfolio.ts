@@ -30,7 +30,7 @@ interface PortfolioState {
     projects: ProjectData[],
 }
 
-export default class Portfolio extends DeStagnate<{}, PortfolioState> {
+export default class Portfolio extends DeStagnate.Component<{}, PortfolioState> {
 
     public constructor (parent: HTMLElement) {
         super(parent)

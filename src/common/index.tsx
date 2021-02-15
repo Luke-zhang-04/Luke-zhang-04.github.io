@@ -20,7 +20,7 @@
  * @file script for all pages
  */
 import * as DeStagnate from "destagnate/lib/createElementOnly"
-import footer from "../templates/footer"
+import footer from "./footer"
 
 /**
  * Append a footer to bottom of page

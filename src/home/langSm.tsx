@@ -15,7 +15,7 @@ import {
 import DeStagnate from "destagnate"
 import langData from "./langData"
 
-export default class LangDisplaySm extends DeStagnate
+export default class LangDisplaySm extends DeStagnate.Component
     <LangDisplayProps, LangDisplayState> {
 
     private _contentRef = this.createRef<HTMLDivElement>()
@@ -30,8 +30,8 @@ export default class LangDisplaySm extends DeStagnate
         }
     }
 
-    public render = (): HTMLElement[] => [
-        <div class="change-buttons">{this._changeButtons()}</div>,
+    public render = (): JSX.Element => <>
+        <div class="change-buttons">{this._changeButtons()}</div>
         <div ref={this._contentRef}>
             <h2 class="my-3">{this.state.title}</h2>
             <span class="line d-block"/>
@@ -42,7 +42,7 @@ export default class LangDisplaySm extends DeStagnate
                 role="button"
             >See Projects</a>
         </div>
-    ]
+    </>
 
     private _incrementData = (val: 1 | -1): void => {
         this._contentRef.current?.classList.add("fade-out")
