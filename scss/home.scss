@@ -1,23 +1,9 @@
 /*!
- * Luke Zhang's developer portfolio
- *
- * Copyright (C) 2020 Luke Zhang
- *
- * Luke-zhang-04.github.io
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+ * Copyright (C) 2020 - 2021 Luke Zhang
+ * BSD-3-Clause license
  */
+
 @use "home/_contact" as contact;
 
 @import "variables";
@@ -64,7 +50,7 @@
   }
 }
 
-@media (max-width: 766px) {
+@media (max-width: map-get($grid-breakpoints, "md") - 1) {
   .landing-page {
     height: 100vh;
     position: relative;
@@ -121,7 +107,7 @@
     width: 100%;
     height: 100vh;
     position: relative;
-  
+
     .swiper-wrapper {
       position: absolute;
       top: 50vh;
@@ -165,7 +151,7 @@
   @include contact.contact-container;
 }
 
-@media (min-width: 767px) {
+@media (min-width: map-get($grid-breakpoints, "md")) {
   .landing-page {
     height: 100vh;
     position: relative;
@@ -239,7 +225,7 @@
     width: 100%;
     height: 100vh;
     position: relative;
-  
+
     .swiper-wrapper {
       position: absolute;
       top: 20vh;
@@ -251,6 +237,18 @@
         height: 30vw;
         box-shadow: 0 2vw 5vw rgba($dark, 0.5);
       }
+    }
+  }
+
+  #fixed,
+  #fixed-md {
+    &.position-fixed {
+      top: 0;
+      left: 0;
+    }
+
+    &.bottom {
+      bottom: 0 !important;
     }
   }
 
@@ -307,14 +305,20 @@
     }
 
     .image-container {
-      position: absolute;
-      right: 3.75vw;
-      top: 50vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-right: 2vw;
 
       img.lang-img {
         position: relative;
-        width: 50vw;
+        width: calc(60vw - 10rem);
         margin-bottom: 50vh;
+
+        &:nth-child(1) {
+          margin-top: 50vh;
+        }
       }
     }
 
@@ -326,7 +330,7 @@
   @include contact.contact-container;
 }
 
-@media (min-width: 767px) and (max-width: 991px), (orientation: portrait) and (min-width: 767px) {
+@media (min-width: map-get($grid-breakpoints, "md") - 1) and (max-width: map-get($grid-breakpoints, "lg") - 1) and (orientation: portrait) {
   .landing-page {
     .image-container {
       img {

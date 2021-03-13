@@ -5,12 +5,12 @@
 
 {
     "env": {
-        "es6": true,
+        "es2020": true,
         "node": true
     },
     "extends": [
         "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended"
+        "plugin:@typescript-eslint/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -19,8 +19,7 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2020,
-        "sourceType": "module",
-        "project": ["./tsconfig.json", "./server/tsconfig.json"]
+        "sourceType": "module"
     },
     "plugins": [
         "@typescript-eslint",
@@ -55,7 +54,6 @@
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/type-annotation-spacing": "off",
         "@typescript-eslint/unified-signatures": "off",
-
         "accessor-pairs": "error",
         "array-bracket-newline": ["error", {
             "multiline": true
@@ -73,12 +71,12 @@
         "camelcase": "error",
         "capitalized-comments": "warn",
         "class-methods-use-this": "error",
-        "comma-dangle": ["error", {
-            "arrays": "only-multiline",
-            "objects": "only-multiline",
-            "imports": "only-multiline",
-            "exports": "only-multiline",
-            "functions": "only-multiline"
+        "comma-dangle": ["warn", {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "never",
+            "exports": "always-multiline",
+            "functions": "always-multiline"
         }],
         "comma-spacing": "error",
         "comma-style": "error",
@@ -106,7 +104,7 @@
         "guard-for-in": "error",
         "handle-callback-err": "error",
         "id-blacklist": "error",
-        "id-length": ["error", {"exceptions": ["_"]}],
+        "id-length": ["error", {"exceptions": ["_", "$"]}],
         "id-match": "error",
         "implicit-arrow-linebreak": "error",
         "indent": "error",
@@ -122,12 +120,12 @@
         "lines-between-class-members": "error",
         "max-classes-per-file": ["error", 3],
         "max-depth": "error",
-        "max-len": ["error", {"code": 81, "ignoreComments": true, "ignoreTemplateLiterals": true, "ignoreUrls": true, "ignoreStrings": true}],
-        "max-lines": "error",
-        "max-lines-per-function": "error",
+        "max-len": ["error", {"code": 81, "ignoreComments": true, "ignoreTemplateLiterals": true, "ignoreUrls": true}],
+        "max-lines": ["error", 400],
+        "max-lines-per-function": ["error", 60],
         "max-nested-callbacks": "error",
         "max-params": ["error", {"max": 6}],
-        "max-statements": ["error", {"max": 15}],
+        "max-statements": ["error", {"max": 20}],
         "max-statements-per-line": "error",
         "multiline-comment-style": "error",
         "multiline-ternary": ["error", "always-multiline"],
@@ -146,7 +144,7 @@
         "no-confusing-arrow": "error",
         "no-console": "off",
         "no-constructor-return": "error",
-        "no-continue": "error",
+        "no-continue": "off",
         "no-div-regex": "error",
         "no-duplicate-imports": "error",
         "no-dupe-class-members": "error",
@@ -173,7 +171,7 @@
         "no-loop-func": "error",
         "no-magic-numbers": ["warn", {
             "ignoreArrayIndexes": true,
-            "ignore": [0, 1, 3, 2, 4, 5, 6, 7, 8, 9, 10, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
+            "ignore": [0, 1, 3, 2, 4, 5, 6, 7, 8, 9, 10, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, 100, -100, 250]
         }],
         "no-mixed-operators": "off",
         "no-mixed-requires": "error",
@@ -208,9 +206,9 @@
         "no-script-url": "error",
         "no-self-compare": "error",
         "no-sequences": "error",
-        "no-shadow": "error",
+        "no-shadow": "off",
         "no-spaced-func": "error",
-        "no-sync": "error",
+        "no-sync": "off",
         "no-tabs": "error",
         "no-template-curly-in-string": "error",
         "no-ternary": "off",
@@ -222,7 +220,7 @@
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",
         "no-unused-expressions": "error",
-        "no-use-before-define": "error",
+        "no-use-before-define": "off",
         "no-useless-backreference": "error",
         "no-useless-call": "error",
         "no-useless-computed-key": "error",
@@ -239,7 +237,7 @@
         "object-curly-spacing": "error",
         "object-property-newline": "error",
         "object-shorthand": "error",
-        "one-var": ["warn", {"var": "always", "let": "always", "const": "consecutive"}],
+        "one-var": ["warn", "never"],
         "one-var-declaration-per-line": "error",
         "operator-assignment": "error",
         "operator-linebreak": "error",
@@ -296,7 +294,7 @@
         "template-curly-spacing": "error",
         "template-tag-spacing": "error",
         "unicode-bom": "error",
-        "valid-jsdoc": "error",
+        "valid-jsdoc": "off",
         "vars-on-top": "error",
         "wrap-iife": "error",
         "wrap-regex": "error",
@@ -306,6 +304,11 @@
     "overrides": [
         {
             "files": ["*.ts", "*.tsx"],
+            "parserOptions": {
+                "ecmaVersion": 2020,
+                "sourceType": "module",
+                "project": ["./tsconfig.json"]
+            },
             "rules": {
                 "@typescript-eslint/array-type": "error",
 
@@ -363,6 +366,9 @@
                     "selector": "parameter",
                     "format": ["camelCase"],
                     "leadingUnderscore": "allow"
+                }, {
+                    "selector": "enumMember",
+                    "format": ["camelCase", "PascalCase", "snake_case", "UPPER_CASE"]
                 }],
 
                 "no-dupe-class-members": "off",
@@ -404,8 +410,17 @@
 
                 "@typescript-eslint/unified-signatures": "error",
 
-                "no-unused-expressions": "off",
-                "@typescript-eslint/no-unused-expressions": "error"
+                "no-magic-numbers": "off",
+                "@typescript-eslint/no-magic-numbers": [
+                    "warn",
+                    {
+                        "ignoreEnums": true,
+                        "ignoreNumericLiteralTypes": true,
+                        "ignoreReadonlyClassProperties": true,
+                        "ignoreArrayIndexes": true,
+                        "ignore": [0, 1, 3, 2, 4, 5, 6, 7, 8, 9, 10, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
+                    }
+                ]
             }
         },
         {
@@ -441,7 +456,11 @@
                     "selector": "parameter",
                     "format": ["camelCase"],
                     "leadingUnderscore": "allow"
-                }]
+                }, {
+                    "selector": "enumMember",
+                    "format": ["camelCase", "PascalCase", "snake_case", "UPPER_CASE"]
+                }],
+                "max-len": ["error", {"code": 110, "ignoreComments": true, "ignoreTemplateLiterals": true, "ignoreUrls": true}]
             }
         }
     ]

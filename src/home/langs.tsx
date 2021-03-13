@@ -1,126 +1,116 @@
 /**
- * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license GPL-3.0
- *
- * @file languages display
+ * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+ * @copyright (C) 2020 - 2021 Luke Zhang
+ * @license BSD-3-Clause
  */
-import * as ScrollMagic from "scrollmagic"
-import * as utils from "../_utils"
+
 import DeStagnate from "destagnate"
-import langData from "./langData"
+import languages from "./langData.json"
 
-export interface LangDisplayState {
-    // eslint-disable-next-line
-    key: keyof LangData,
-    title: string,
-    text: string,
-    href: string,
-    index: number,
+type LanguagesState = {
+    currentLang: number,
 }
 
-export interface LangData {
-    tsjs: LangDisplayState,
-    frontend: LangDisplayState,
-    bash: LangDisplayState,
-    backend: LangDisplayState,
-}
+class Languages extends DeStagnate.Component<
+    Record<string, string>,
+    LanguagesState
+> {
 
-export interface LangDisplayProps {
-    parent: HTMLElement,
-}
+    private _images = Array.from(
+        document.querySelectorAll<HTMLImageElement>(
+            "#languages .image-container img",
+        ),
+    )
 
-export default class LangDisplay extends DeStagnate.Component
-    <LangDisplayProps, LangDisplayState> {
+    private _containerElem = document.getElementById("languages") as HTMLElement
 
-    public constructor (parent: HTMLElement, props: LangDisplayProps) {
-        super(parent, props)
+    public constructor (parent: HTMLElement | null) {
+        super(parent)
 
         this.state = {
-            ...(langData as LangData).tsjs,
-            key: "tsjs",
-            index: 0,
+            currentLang: 0,
         }
     }
+
+    public shouldComponentUpdate = this.stateDidChange
+
+    public onScroll = (): void => {
+        const {scrollY} = window
+        const {offsetTop} = this._containerElem
+        const fixed = document.getElementById("fixed")
+        const imageContainer =
+            document.querySelector("#languages .image-container") as HTMLElement
+        const height = window.innerHeight
+        const containerBottom = imageContainer?.offsetTop +
+            imageContainer?.clientHeight +
+            height
+
+        if ( // Add fixed class if when reached, set image
+            scrollY >= offsetTop &&
+            scrollY < containerBottom
+        ) {
+            this._setCurrentImage(this._images.reverse())
+
+            fixed?.classList.add("position-fixed")
+            fixed?.classList.remove("bottom")
+        } else if (this.state.currentLang === 0 && scrollY < offsetTop) { // Remove it if scrolled above it
+            fixed?.classList.remove("position-fixed")
+            fixed?.classList.remove("bottom")
+        } else if (scrollY >= containerBottom) { // Remove if reached below it
+            fixed?.classList.remove("position-fixed")
+            fixed?.classList.add("bottom")
+        }
+    }
+
+    public render = (): JSX.Element => <>
+        <h2 class="my-3">{languages[this.state.currentLang].title}</h2>
+        <span class="line d-block"/>
+        <p class="mb-4">{languages[this.state.currentLang].text}</p>
+        <a
+            href={languages[this.state.currentLang].href}
+            class="btn-box btn-box-primary d-none d-lg-block"
+        >
+            See Projects{" "}
+            <span class="material-icons">trending_flat</span>
+        </a>
+        <a
+            href={languages[this.state.currentLang].href}
+            class="btn btn-outline-primary d-block d-lg-none"
+        >See Projects</a>
+    </>
+
 
     /**
-     * Sets state with slight delay (to fade out)
-     * @param {Object.<string, string>} obj - object of new state
-     * @returns {void} void
+     * Sets the current image that has been scrolled to to the state
+     * @param images - array of image elements from bottom to top
+     * @param scrollY - current scrollY from window
      */
-    public changeComponent = (obj: LangDisplayState): void => {
-        this.props!.parent.classList.add("fade-out")
+    private _setCurrentImage = (images: HTMLImageElement[]): void => {
+        for (const [index, image] of images.entries()) {
+            const {y: position} = image.getBoundingClientRect(),
+                shrinkFactor = 3
 
-        setTimeout(() => {
-            this.setState(obj)
-            this.props!.parent.classList.remove("fade-out")
-        }, 250)
-    }
+            if (position - image.height < window.innerHeight / shrinkFactor) {
+                const newIndex = images.length - (index + 1)
 
-    public render = (): JSX.Element[] => [
-        <h2 class="my-3">{this.state.title}</h2>,
-        <span class="line d-block"/>,
-        <p class="mb-4">{this.state.text}</p>,
-        <a
-            class="btn-box btn-box-primary d-none d-lg-block"
-            href={this.state.href}
-            role="button"
-        >See Projects <span class="material-icons">trending_flat</span></a>,
-        <a
-            class="btn btn-outline-primary d-block d-lg-none"
-            href={this.state.href}
-            role="button"
-        >See Projects</a>
-    ]
-
-}
-
-/**
- * Binds ScrollMagic to elements
- * @param {HTMLDivElement} container - container of event
- * @param {HTMLCollectionOf.<HTMLImageElement>} images - names of images
- * @param {LangDisplay} langDisplay - language display component
- * @returns {ScrollMagic.Scene} scrollmagic scene
- */
-export const bindLangStickEvent = (
-    container: HTMLDivElement,
-    images: HTMLCollectionOf<HTMLImageElement>,
-    langDisplay: LangDisplay,
-): ScrollMagic.Scene => {
-    const scene = new ScrollMagic.Scene({
-            triggerElement: images[0],
-            triggerHook: 0.5,
-            duration: images[images.length - 1].offsetTop +
-                window.innerHeight * 0.5,
-        }),
-        increment = 1 / images.length,
-        langs: (keyof LangData)[] = ["tsjs", "frontend", "bash", "backend"]
-
-    if (scene) {
-        scene.setPin(container)
-            .addTo(utils.default.controller)
-    }
-
-    let currentKey: keyof LangData = "tsjs"
-
-    scene.on("progress", (event) => {
-        for (const [index, lang] of langs.entries()) {
-            if (event.target.progress() <= increment * (index + 1)) {
-                if (currentKey !== lang) {
-                    currentKey = lang
-                    langDisplay.changeComponent({
-                        ...(langData)[lang],
-                        key: lang,
-                        index,
-                    })
+                if (newIndex === this.state.currentLang) {
+                    return
                 }
-                break
+
+                this.parent?.classList.add("fade-out")
+
+                setTimeout(() => {
+                    this.setState({currentLang: newIndex})
+                    this.parent?.classList.remove("fade-out")
+                }, 250)
+
+                return
             }
         }
-    })
+    }
 
-    return scene
 }
 
-export const controller = utils.default
+const languagesComponent = new Languages(document.getElementById("langs-display"))
+
+languagesComponent.mount()

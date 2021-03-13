@@ -1,22 +1,9 @@
 /**
- * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license AGPL-3.0
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+ * @copyright (C) 2020 - 2021 Luke Zhang
+ * @license BSD-3-Clause
  */
+
 import * as firebaseApp from "../_firebase"
 import DeStagnate, {createElement} from "destagnate"
 import type {ProjectData as _ProjectData} from "../_globals"
@@ -30,7 +17,10 @@ interface PortfolioState {
     projects: ProjectData[],
 }
 
-export default class Portfolio extends DeStagnate.Component<{}, PortfolioState> {
+export default class Portfolio extends DeStagnate.Component<
+    Record<string, string>,
+    PortfolioState
+> {
 
     public constructor (parent: HTMLElement) {
         super(parent)
@@ -46,12 +36,12 @@ export default class Portfolio extends DeStagnate.Component<{}, PortfolioState> 
             .get()
             .then((snapshot) => {
                 snapshot.forEach((doc) => {
-                    const imgFileName = (doc.data() as _ProjectData).file,
-                        data = {
-                            ...doc.data() as _ProjectData,
-                            imgUrl: `https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F${imgFileName}?alt=media`,
-                            name: doc.id
-                        }
+                    const imgFileName = (doc.data() as _ProjectData).file
+                    const data = {
+                        ...doc.data() as _ProjectData,
+                        imgUrl: `https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F${imgFileName}?alt=media`,
+                        name: doc.id,
+                    }
 
                     this.setState({projects: [...this.state.projects, data]})
                 })
@@ -62,9 +52,9 @@ export default class Portfolio extends DeStagnate.Component<{}, PortfolioState> 
         createElement("div", {class: "project-container"},
             this._groupProjects().map((projects) => (
                 createElement("div", {class: "row project-row"},
-                    projects.map((project) => this._project(project))
+                    projects.map((project) => this._project(project)),
                 )
-            ))
+            )),
         )
     )
 
@@ -94,7 +84,7 @@ export default class Portfolio extends DeStagnate.Component<{}, PortfolioState> 
             {
                 class: "col-sm-6 col-md-3 project-card",
                 style: `background-image: url(${imgUrl})`,
-            }
+            },
         )
     )
 

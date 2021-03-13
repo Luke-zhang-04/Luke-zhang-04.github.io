@@ -1,25 +1,21 @@
 /**
- * Luke Zhang's developer portfolio
- * @copyright Copyright (C) 2020 Luke Zhang
- * @author Luke Zhang Luke-zhang-04.github.io
- * @license GPL-3.0
- *
- * @file projects display
+ * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+ * @copyright (C) 2020 - 2021 Luke Zhang
+ * @license BSD-3-Clause
  */
-import * as DeStagnate from "destagnate/lib/createElementOnly"
+
 import * as firebaseApp from "../_firebase"
+import DeStagnate from "destagnate"
 import type {ProjectData} from "../_globals"
-import type _Swiper from "swiper/bundle"
+import Swiper, {EffectCoverflow} from "swiper/core"
+import {getImageUrl} from "../_utils"
 
-declare class Swiper extends _Swiper {}
-
-// CDN https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F**FILENAME**?alt=media
+Swiper.use([EffectCoverflow]);
 
 /**
  * Displays projects with swiper
- * @returns {void} void
  */
-const displayProjects = async (): Promise<_Swiper> => {
+(async (): Promise<Swiper> => {
     const sliderContainer = document.getElementById("projects-slider")
 
     await firebaseApp.firestore.collection("projects")
@@ -27,11 +23,11 @@ const displayProjects = async (): Promise<_Swiper> => {
         .get()
         .then((snapshot) => {
             snapshot.forEach((doc) => {
-                const imgFileName = (doc.data() as ProjectData).file,
-                    imgUrl = `https://firebasestorage.googleapis.com/v0/b/luke-zhang.appspot.com/o/project_images%2F${imgFileName}?alt=media`
+                const imgFileName = (doc.data() as ProjectData).file
+                const imgUrl = getImageUrl(imgFileName)
 
                 sliderContainer?.querySelector(".swiper-wrapper")?.appendChild(
-                    <div class="swiper-slide" style={`background-image: url(${imgUrl});`}/>
+                    <div class="swiper-slide" style={`background-image: url(${imgUrl});`}/>,
                 )
             })
         })
@@ -53,6 +49,4 @@ const displayProjects = async (): Promise<_Swiper> => {
             el: ".swiper-pagination",
         },
     })
-}
-
-export default displayProjects
+})()
