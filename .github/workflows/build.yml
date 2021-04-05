@@ -14,7 +14,10 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: lint
-        run: bash lint.sh
+        run: yarn lint
+
+      - name: prettier check
+        run: yarn prettier . --check
 
       - name: build
         run: yarn build
