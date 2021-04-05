@@ -38,9 +38,7 @@ const checkScrolled = (elements: (HTMLElement | null)[] | (HTMLElement | null)[]
 }
 
 const windowScroll = (): void => {
-    const elems = [
-        document.querySelector<HTMLElement>(".swiper-container"),
-    ]
+    const elems = [document.querySelector<HTMLElement>(".swiper-container")]
 
     checkScrolled(elems)
 }
