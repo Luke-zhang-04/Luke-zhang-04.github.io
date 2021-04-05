@@ -7,8 +7,8 @@
 import * as firebaseApp from "../_firebase"
 import * as utils from "../_utils"
 import DeStagnate from "destagnate"
-import type {ProjectData as _ProjectData} from "../_globals"
 import {Project} from "./project"
+import type {ProjectData as _ProjectData} from "../_globals"
 
 export interface ProjectData extends _ProjectData {
     imgUrl: string
