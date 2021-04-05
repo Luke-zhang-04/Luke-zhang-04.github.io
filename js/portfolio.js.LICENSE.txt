@@ -1,0 +1,18 @@
+Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+License: BSD-3-Clause
+Copyright 2020 - 2021 Luke Zhang, Ethan Lim
+===
+
+tslib 2.1.0
+License: 0BSD
+https://github.com/Microsoft/tslib.git
+
+Copyright (c) Microsoft Corporation.
+===
+
+destagnate 2.0.0
+License: MIT
+git+https://github.com/Luke-zhang-04/DeStagnate.git
+
+Copyright (C) 2020 - 2021 Luke Zhang
+===
