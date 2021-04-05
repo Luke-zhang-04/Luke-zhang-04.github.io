@@ -19,7 +19,7 @@ Swiper.use([EffectCoverflow])
     const sliderContainer = document.getElementById("projects-slider")
 
     await firebaseApp.firestore
-        .collection("projects")
+        ?.collection("projects")
         .orderBy("date", "desc")
         .get()
         .then((snapshot) => {
