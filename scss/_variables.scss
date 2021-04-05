@@ -1,23 +1,9 @@
-/*
- * Luke Zhang's developer portfolio
- *
- * Copyright (C) 2020 Luke Zhang
- *
- * Luke-zhang-04.github.io
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+/*!
+ * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+ * Copyright (C) 2020 - 2021 Luke Zhang
+ * BSD-3-Clause license
  */
+
 @import "./../node_modules/bootstrap/scss/functions";
 @import "./../node_modules/bootstrap/scss/variables";
 
@@ -31,13 +17,16 @@ $accent: #2397ff;
 $font-family-sans-serif: "Ubuntu", sans-serif;
 $font-family-base: "Ubuntu", sans-serif;
 
-$theme-colors: (
-  none: $none,
-  primary: $primary,
-  secondary: $secondary,
-  light: $light,
-  dark: $dark,
-  accent: $accent,
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    none: $none,
+    primary: $primary,
+    secondary: $secondary,
+    light: $light,
+    dark: $dark,
+    accent: $accent,
+  )
 );
 
 $spacer: 1rem;
@@ -47,13 +36,29 @@ $spacers: ();
 $spacers: map-merge(
   (
     0: 0,
-    1: ($spacer * 0.25),
-    2: ($spacer * 0.5),
+    1: (
+      $spacer * 0.25,
+    ),
+    2: (
+      $spacer * 0.5,
+    ),
     3: $spacer,
-    4: ($spacer * 1.5),
-    5: ($spacer * 3),
-    6: ($spacer * 6),
-    7: ($spacer * 12),
+    4: (
+      $spacer * 1.5,
+    ),
+    5: (
+      $spacer * 3,
+    ),
+    6: (
+      $spacer * 6,
+    ),
+    7: (
+      $spacer * 12,
+    ),
   ),
   $spacers
+);
+
+$timings: (
+  ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1),
 );
