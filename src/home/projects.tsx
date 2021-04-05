@@ -5,20 +5,21 @@
  */
 
 import * as firebaseApp from "../_firebase"
+import Swiper, {EffectCoverflow} from "swiper/core"
 import DeStagnate from "destagnate"
 import type {ProjectData} from "../_globals"
-import Swiper, {EffectCoverflow} from "swiper/core"
 import {getImageUrl} from "../_utils"
 
-Swiper.use([EffectCoverflow]);
+Swiper.use([EffectCoverflow])
 
 /**
  * Displays projects with swiper
  */
-(async (): Promise<Swiper> => {
+;(async (): Promise<Swiper> => {
     const sliderContainer = document.getElementById("projects-slider")
 
-    await firebaseApp.firestore.collection("projects")
+    await firebaseApp.firestore
+        .collection("projects")
         .orderBy("date", "desc")
         .get()
         .then((snapshot) => {
@@ -26,9 +27,15 @@ Swiper.use([EffectCoverflow]);
                 const imgFileName = (doc.data() as ProjectData).file
                 const imgUrl = getImageUrl(imgFileName)
 
-                sliderContainer?.querySelector(".swiper-wrapper")?.appendChild(
-                    <div class="swiper-slide" style={`background-image: url(${imgUrl});`}/>,
-                )
+                sliderContainer
+                    ?.querySelector(".swiper-wrapper")
+                    ?.appendChild(
+                        <div
+                            class="swiper-slide"
+                            loading="lazy"
+                            style={`background-image: url(${imgUrl});`}
+                        />,
+                    )
             })
         })
 

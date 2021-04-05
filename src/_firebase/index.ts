@@ -18,8 +18,7 @@ firebase.initializeApp({
     appId: "1:309956853075:web:ebb55b1076c4aca168f5a6",
 })
 
-type Firestore = Firebase.firestore.Firestore
-type Functions = Firebase.functions.Functions
+export const firestore: Firebase.firestore.Firestore | undefined = firebase.firestore?.()
+export const functions: Firebase.functions.Functions | undefined = firebase.functions?.()
 
-export const firestore: Firestore = firebase.firestore?.()
-export const functions: Functions = firebase.functions?.()
+export * as utils from "./utils"

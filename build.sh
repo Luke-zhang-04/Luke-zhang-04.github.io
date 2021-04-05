@@ -20,20 +20,4 @@ build() {
     done
 }
 
-buildDev() {
-    if [[ $(echo "scss:$(tar cf - scss | shasum -a 384)" | node buildInfo.js) == 1 ]]; then
-        # Compile SASS
-        echo -e "Compiling ./scss/ to ./public/css/ with sass"
-        "$bin"/sass scss/:public/css
-    else
-        echo -e "No changed found in ./scss/"
-    fi
-
-    NODE_ENV="dev" "$bin"/rollup -c rollup.config.js
-}
-
-if [[ $1 == "-d" ]]||[[ $1 == "--dev" ]]; then
-    buildDev
-else
-    build
-fi
+build

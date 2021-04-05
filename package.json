@@ -2,12 +2,11 @@
   "name": "luke-zhang-dev-portfolio",
   "description": "Developer portfolio for Luke Zhang",
   "license": "BSD-3-Clause",
+  "type": "module",
   "scripts": {
     "build": "bash build.sh",
-    "start": "bash build.sh --watch",
+    "start": "NODE_ENV=\"dev\" rollup -c rollup.config.js --watch",
     "build:dev": "bash build.sh -d",
-    "sass": "bash build.sh --only sass",
-    "sass:watch": "sass scss:public/css --watch",
     "lint": "eslint \"src/{**/*,*}.{js,jsx,ts,tsx}\" && stylelint \"scss/{**/*,*}.{scss,css,sass}\"",
     "lint:fix": "eslint \"src/{**/*,*}.{js,jsx,ts,tsx}\" --fix && stylelint \"scss/{**/*,*}.{scss,css,sass}\" --fix"
   },

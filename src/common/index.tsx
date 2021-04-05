@@ -7,12 +7,7 @@
 import * as DeStagnate from "destagnate/lib/createElementOnly"
 import footer from "./footer"
 
-// Append a footer to bottom of page
-const _footer = <div class="page-footer font-small blue pt-4 bg-dark">
-    {footer()}
-</div>
-
-document.body.appendChild(_footer)
+document.body.appendChild(<div class="page-footer font-small blue pt-4 bg-dark">{footer()}</div>)
 
 // Hamburger menu setup for mobile page
 const navbarToggler = document.querySelector("#navbar .navbar-toggler")

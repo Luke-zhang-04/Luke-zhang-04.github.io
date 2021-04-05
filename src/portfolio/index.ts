@@ -4,12 +4,4 @@
  * @license BSD-3-Clause
  */
 
-import Portfolio from "./portfolio"
-
-const root = document.getElementById("root")
-
-if (root) {
-    const portfolio = new Portfolio(root)
-
-    portfolio.mount()
-}
+import "./grid"

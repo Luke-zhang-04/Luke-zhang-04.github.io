@@ -1,10 +1,36 @@
-/*!
+/*
  * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
  * Copyright (C) 2020 - 2021 Luke Zhang
  * BSD-3-Clause license
  */
 
-@use "variables" as variables;
+@use "./variables";
+@use "../node_modules/bootstrap/scss/mixins/buttons";
+
+$transition-timing: map-get(variables.$timings, "ease-in-out");
+
+@mixin _btn-box-arrow() {
+  // Material icons settings
+  font-family: "Material Icons", sans-serif;
+  content: "trending_flat";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga";
+
+  // Other rules
+  top: 10%;
+  position: relative;
+}
 
 .btn-box {
   cursor: pointer;
@@ -15,17 +41,18 @@
   text-decoration: none;
   width: max-content;
 
-  span.material-icons {
+  &::after {
+    @include _btn-box-arrow();
+
     position: absolute;
     width: 3vw;
     font-size: 3vw;
     font-weight: 100;
-    top: -40%;
-    transition: transform 0.25s ease;
+    transition: transform 0.25s $transition-timing;
     transform: translate(0, 0.25vw);
   }
 
-  &:hover span.material-icons {
+  &:hover::after {
     transform: translate(0.75rem, 0.25vw);
   }
 }
@@ -40,18 +67,19 @@
   text-decoration: none;
   width: max-content;
 
-  span.material-icons {
+  &::after {
+    @include _btn-box-arrow();
+
     position: absolute;
     width: 3vw;
     font-size: 3vw;
     font-weight: 100;
-    top: -5%;
-    transition: transform 0.25s ease;
-    transform: translate(0.25vw, 0.85vw);
+    transition: transform 0.25s $transition-timing;
+    transform: translateX(0.25vw);
   }
 
-  &:hover span.material-icons {
-    transform: translate(1.25vw, 0.85vw);
+  &:hover::after {
+    transform: translateX(1.25vw);
   }
 }
 /* stylelint-enable no-descending-specificity */
@@ -60,15 +88,34 @@
   .btn-box-#{$color} {
     background-color: variables.$none;
     border: 0.25vw solid $value;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.25s $transition-timing, color 0.25s $transition-timing;
 
-    span.material-icons {
+    &::after {
       color: $value;
     }
 
     &:hover {
       background-color: $value;
       color: variables.$light;
+    }
+  }
+}
+
+@each $color, $value in variables.$theme-colors {
+  .btn-pill-#{$color} {
+    @include button-outline-variant($value);
+
+    border-radius: 100vw;
+  }
+}
+
+.btn {
+  max-width: max-content;
+  white-space: normal;
+
+  .expand {
+    &::after {
+      content: " "; // Pad with space
     }
   }
 }

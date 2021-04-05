@@ -4,7 +4,6 @@
  * @license BSD-3-Clause
  */
 
-import "./langs"
 import "./projects"
 
 /**
@@ -12,28 +11,24 @@ import "./projects"
  * @param {Array.<HTMLElement | null> | Array.<Array.<HTMLElement | null>>} elements - array of elements
  * @returns {void} void
  */
-const checkScrolled = (
-    elements: (HTMLElement | null)[] | (HTMLElement | null)[][],
-): void => {
-    const offset = window.innerHeight * 3 / 4
+const checkScrolled = (elements: (HTMLElement | null)[] | (HTMLElement | null)[][]): void => {
+    const offset = (window.innerHeight * 3) / 4
     const scrolled = window.scrollY + window.innerHeight - offset
 
     for (const element of elements) {
-        const offsetTop = element instanceof Array
-            ? element[1]?.offsetTop
-            : element?.offsetTop
-        const _element = element instanceof Array
-            ? element[0]
-            : element
+        const offsetTop = element instanceof Array ? element[1]?.offsetTop : element?.offsetTop
+        const _element = element instanceof Array ? element[0] : element
 
         if (
-            _element && offsetTop &&
+            _element &&
+            offsetTop &&
             scrolled >= offsetTop &&
             !_element.classList.contains("scrolled-at")
         ) {
             _element.classList.add("scrolled-at")
         } else if (
-            _element && offsetTop &&
+            _element &&
+            offsetTop &&
             scrolled < offsetTop &&
             _element.classList.contains("scrolled-at")
         ) {
@@ -43,23 +38,18 @@ const checkScrolled = (
 }
 
 const windowScroll = (): void => {
-    const elems: (HTMLElement | null)[] | (HTMLElement | null)[][] = [
-        [
-            document.querySelector(".swiper-container .title"),
-            document.querySelector(".swiper-container"),
-        ],
+    const elems = [
+        document.querySelector<HTMLElement>(".swiper-container"),
     ]
 
     checkScrolled(elems)
 }
 
+// For the contact section, make sure that the links can still be clicked
 document.querySelectorAll("#contact-container ul li")?.forEach((element) => {
-    element.addEventListener(
-        "click",
-        () => element.querySelector("a")?.click(),
-    )
+    element.addEventListener("click", () => element.querySelector("a")?.click())
 })
 
-window.onscroll = windowScroll
+window.addEventListener("scroll", windowScroll)
 
 windowScroll()

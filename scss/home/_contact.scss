@@ -1,38 +1,28 @@
-/*!
+/*
  * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
  * Copyright (C) 2020 - 2021 Luke Zhang
  * BSD-3-Clause license
  */
 
-@import "../_variables";
+@use "../_variables";
 
-$transition-timing: cubic-bezier(0.645, 0.045, 0.355, 1);
+$transition-timing: map-get(variables.$timings, "ease-in-out");
 
 @mixin contact-container {
   #contact-title {
     position: relative;
-
-    div {
-      position: absolute;
-      top: 10vh;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    margin-top: 10vh;
   }
 
   #contact-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 100vh;
+    height: max-content;
 
     ul {
       position: relative;
       display: flex;
       justify-content: space-around;
       width: 100%;
-      padding: 0;
-      margin: 0;
+      margin: 10vh 0;
 
       li {
         position: relative;
@@ -57,7 +47,7 @@ $transition-timing: cubic-bezier(0.645, 0.045, 0.355, 1);
 
         &:nth-child(1)::before {
           content: "\f2b6";
-          color: $danger;
+          color: variables.$danger;
           border-bottom: 0.25rem solid;
         }
 
@@ -68,8 +58,8 @@ $transition-timing: cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
         &:nth-child(3)::before {
-          content: "\f16c";
-          color: #f48024;
+          content: "\f08c";
+          color: #2867b2;
           border-bottom: 0.25rem solid;
         }
 
@@ -80,7 +70,7 @@ $transition-timing: cubic-bezier(0.645, 0.045, 0.355, 1);
           .fas,
           .far {
             font-size: 12vw;
-            color: mix($light, $dark, 75%);
+            color: mix(variables.$light, variables.$dark, 75%);
           }
         }
       }

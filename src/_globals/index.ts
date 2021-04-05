@@ -6,20 +6,21 @@
 
 /* eslint-disable @typescript-eslint/naming-convention */
 export interface ProjectData {
-    date: number,
-    description: string,
-    file: string,
+    date: number
+    description: string
+    shortDescription: string
+    file: string
     links: {
-        GitHub?: string,
-        PyPi?: string,
-        NPM?: string,
-        live?: string,
-    },
-    tags: string[],
+        GitHub?: string
+        PyPi?: string
+        NPM?: string
+        live?: string
+    }
+    tags: string[]
     lang: {
-        name: string,
-        color: string,
-    },
+        name: string
+        colour: string
+    }
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 

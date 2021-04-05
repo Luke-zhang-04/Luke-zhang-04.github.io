@@ -1,6 +1,4 @@
 import {babel} from "@rollup/plugin-babel"
-import crypto from "crypto"
-import childProcess from "child_process"
 import commonjs from "@rollup/plugin-commonjs"
 import filesize from "rollup-plugin-filesize"
 import fs from "fs/promises"
@@ -22,48 +20,12 @@ Copyright 2020 - 2021 Luke Zhang, Ethan Lim
 `
 
 /**
- * Executes command in the shell
- * @param {string} command - command to execute
- * @returns {Promise<string>} - command output from stdout or stderr
- */
-const exec = (command) =>
-    new Promise((resolve, reject) => {
-        childProcess.exec(command, (err, stdout, stderr) => {
-            if (err) {
-                return reject(err)
-            }
-
-            return resolve(stderr || stdout)
-        })
-    })
-
-/**
- * SHA384 function
- * @param {{toString: () => string}} content - content to hash
- */
-const hash = (content) => crypto.createHash("sha384").update(content.toString()).digest("base64")
-
-/**
- * @template T
- * @param {()=> T} func - callback function
- * @returns {T | void} void if error
- */
-const niceTry = (func) => {
-    try {
-        return func()
-    } catch {}
-}
-
-/**
  *
  * @param {import("rollup-plugin-license").Dependency} dep - dependency
  * @returns {string}
  */
 const dependencyToString = (dep) => {
-    const lines = [
-        `${dep.name} ${dep.version}`,
-        `License: ${dep.license}`,
-    ]
+    const lines = [`${dep.name} ${dep.version}`, `License: ${dep.license}`]
 
     if (dep.repository) {
         lines.push(`${dep.repository.url}`)
@@ -84,40 +46,15 @@ const dependencyToString = (dep) => {
     return lines.join("\n")
 }
 
-/**
- * Compares file hash with previous hash and updates it
- * @param {string} fileName - dir or filename to hash
- * @returns {Promise<boolean>} if file changed
- */
-const fileDidChange = async (fileName) => {
-    try {
-        const checksum = hash(await exec(`tar cf - \"${fileName}\"`)),
-            buildInfo = (await niceTry(() => import("./buildInfo.json"))).default ?? {}
-
-        if (buildInfo[fileName] === checksum) {
-            return false
-        }
-
-        buildInfo[fileName] = checksum
-
-        await fs.writeFile("./buildInfo.json", JSON.stringify(buildInfo))
-
-        return true
-    } catch (err) {
-        console.error(err)
-
-        return true
-    }
-}
-
-const config = async () => {
-    const scripts = (await fs.readdir("./src/")).filter((dir) => dir[0] !== "_")
+const config = async (isProduction = process.env.NODE_ENV !== "dev") => {
+    const scripts = (await fs.readdir("./src/", {withFileTypes: true}))
+        .filter((dir) => dir.isDirectory() && dir.name[0] !== "_")
+        .map((dir) => dir.name)
 
     /**
      * @type {import("rollup").RollupOptions[]}
      */
     const configs = []
-    const isProduction = process.env.NODE_ENV !== "dev"
 
     // prettier-ignore
     /**
@@ -177,28 +114,19 @@ const config = async () => {
     ]
 
     for (const script of scripts) {
-        if (process.env.NODE_ENV !== "dev" || (await fileDidChange(`./src/${script}`))) {
-            const [entry] = (await fs.readdir(`./src/${script}`)).filter((dir) =>
-                /index/u.test(dir),
-            )
+        const entry = (await fs.readdir(`./src/${script}`)).find((dir) => /index/u.test(dir))
 
-            configs.push({
-                input: `./src/${script}/${entry}`,
-                output: {
-                    file: `${process.env.NODE_ENV === "dev" ? "public" : "build"}/js/${script}.js`,
-                    format: "iife",
-                    banner: process.env.NODE_ENV === "dev" ? undefined : banner(script),
-                    sourcemap: true,
-                },
-                plugins: plugins(script),
-            })
-        } else {
-            console.log(`No changes found in src/${script}, skipping.`)
-        }
-    }
-
-    if (configs.length === 0) {
-        process.exit(0)
+        configs.push({
+            input: `./src/${script}/${entry}`,
+            output: {
+                file: `${process.env.NODE_ENV === "dev" ? "public" : "build"}/js/${script}.js`,
+                format: "iife",
+                banner: process.env.NODE_ENV === "dev" ? undefined : banner(script),
+                sourcemap: true,
+            },
+            plugins: plugins(script),
+            watch: process.env.NODE_ENV === "dev",
+        })
     }
 
     return configs
