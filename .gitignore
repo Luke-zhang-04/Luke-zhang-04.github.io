@@ -128,3 +128,5 @@ dist
 build
 public/css
 public/js
+.vscode
+public/build
