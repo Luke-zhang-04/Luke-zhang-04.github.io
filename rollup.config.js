@@ -88,7 +88,6 @@ const config = {
                 dev: !production,
                 hydratable: true,
             },
-            emitCss: true,
         }),
         // we'll extract any component CSS out into
         // a separate file - better for performance
@@ -112,6 +111,7 @@ const config = {
         typescript({
             sourceMap: !production,
             inlineSources: !production,
+            target: production ? undefined : "ESNext",
         }),
 
         filesize({

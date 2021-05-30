@@ -5,23 +5,30 @@
     import {Home} from "./pages"
     import Navbar from "./components/navbar/index.svelte"
 
-    let pathname = window.location.pathname
-    let unsub
+    let pathname = window.location.pathname.slice(1)
+    let unsub: ReturnType<typeof globalHistory.listen> | undefined
+
+    if (pathname === "") {
+        pathname = "home"
+    }
 
     onMount(() => {
-        unsub = globalHistory.listen(({location, action}) => {
-            console.log(location, action)
-            pathname = location.pathname
+        unsub = globalHistory.listen(({location}) => {
+            pathname = location.pathname.slice(1)
+
+            if (pathname === "") {
+                pathname = "home"
+            }
         })
     })
 
     onDestroy(() => {
-        unsub()
+        unsub?.()
     })
 </script>
 
 <Router>
-    <Navbar />
+    <Navbar bind:activePage={pathname} />
     <div>
         <Route path="/" exact component={Home} />
     </div>

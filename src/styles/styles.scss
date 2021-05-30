@@ -1,0 +1,63 @@
+/*!
+ * Universal styling for luke-zhang-04.github.io
+ * Includes Normalize.css, Bootstrap SASS, and other styles that apply to all pages
+ */
+@use "./variables";
+@use "./navbar";
+
+@import "./bootstrap";
+@import "../../node_modules/@animated-burgers/burger-squeeze/styles.scss";
+@import "../../node_modules/@animated-burgers/burger/styles.scss";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import "../../node_modules/normalize.css/normalize";
+
+/*!
+ * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+ * Copyright (C) 2020 - 2021 Luke Zhang
+ * BSD-3-Clause license
+ */
+
+@import "./animations";
+@import "./buttons";
+
+body {
+  background-color: $light;
+  color: $dark;
+  overflow: hidden !important;
+}
+
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+@include navbar.navbar;
+
+.spacer-vh {
+  height: 100vh;
+}
+
+a[role="button"] {
+  width: max-content;
+}
+
+.spinner-border {
+  width: 90vw;
+  height: 90vw;
+}
+
+@media (min-width: map-get(variables.$grid-breakpoints, "md")) {
+  .spinner-border {
+    width: 25vw;
+    height: 25vw;
+  }
+}
+
+.material-icons {
+  vertical-align: middle;
+}
+
+.material-icons-fix-font {
+  font-size: 1rem !important;
+}

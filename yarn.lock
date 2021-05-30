@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+"@animated-burgers/burger-squeeze@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@animated-burgers/burger-squeeze/-/burger-squeeze-1.1.2.tgz#98606c634d37e09ae8ffd4b6e38218878d0c7d4d"
+  integrity sha512-icB2y3yIeOYwbh0GOKQkMwwhvLd28SAr8dKctI/izLtBz+GMHq71YV2q0iYXZMFrS5/QytZx8k/33B7PFQIkzw==
+  dependencies:
+    "@animated-burgers/burger" "^1.1.2"
+
+"@animated-burgers/burger@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@animated-burgers/burger/-/burger-1.1.2.tgz#a75f7147f9d4041b8bfd510e0097a1500c4fa009"
+  integrity sha512-hErU9dlOcEeYbmbhhngBMXSDtqOaXfFEnKoodfs6vCFWD8dVLMNVbFFpZ0eV7/Wa9kKTGLPeLtDeP0vWYAcY7w==
+
 "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13":
   version "7.12.13"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.12.13.tgz"
@@ -925,11 +937,6 @@
   version "1.0.0-next.15"
   resolved "https://registry.npmjs.org/@polka/url/-/url-1.0.0-next.15.tgz"
   integrity sha512-15spi3V28QdevleWBNXE4pIls3nFZmBbUGrW9IVPwiQczuSb9n76TCB4bsk8TSel+I1OkHEdPhu5QKMfY6rQHA==
-
-"@popperjs/core@^2.6.0":
-  version "2.9.2"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.9.2.tgz"
-  integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
 
 "@rollup/plugin-babel@^5.3.0":
   version "5.3.0"
@@ -2716,6 +2723,11 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   resolved "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
+normalize.css@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
+  integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
+
 npm-bundled@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.1.2.tgz#944c78789bd739035b70baa2ca5cc32b8d860bc1"
@@ -3747,13 +3759,6 @@ svelte@^3.0.0:
   version "3.38.2"
   resolved "https://registry.npmjs.org/svelte/-/svelte-3.38.2.tgz"
   integrity sha512-q5Dq0/QHh4BLJyEVWGe7Cej5NWs040LWjMbicBGZ+3qpFWJ1YObRmUDZKbbovddLC9WW7THTj3kYbTOFmU9fbg==
-
-sveltestrap@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.npmjs.org/sveltestrap/-/sveltestrap-5.0.6.tgz"
-  integrity sha512-YGAupSgB0D9pgIxykA9rPd7M9nbRWvXk1pFwDCKukOOKgSo97DUD4o8eq+AjBg+4IYsJlhAY9frMt1bNsuq+iw==
-  dependencies:
-    "@popperjs/core" "^2.6.0"
 
 tar@^2.0.0:
   version "2.2.2"

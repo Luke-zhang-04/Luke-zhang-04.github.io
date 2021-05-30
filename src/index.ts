@@ -1,4 +1,4 @@
-import "./styles/_bootstrap.scss"
+import "./styles/styles.scss"
 import App from "./index.svelte"
 
 const app = new App({

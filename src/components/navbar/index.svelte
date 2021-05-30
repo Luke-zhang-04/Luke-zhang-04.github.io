@@ -1,10 +1,12 @@
 <script lang="ts">
     import {Link} from "svelte-routing"
 
+    export let activePage: undefined | string
+
     const pages: {name: string; displayName: string; href: string; isExternal?: boolean}[] = [
         {
             name: "home",
-            displayName: "home",
+            displayName: "Home",
             href: "/",
         },
         {
@@ -12,18 +14,24 @@
             displayName: "Portfolio",
             href: "portfolio",
         },
+        {
+            name: "resume",
+            displayName: "Resume",
+            href: "https://rebrand.ly/luke-zhang-resume",
+            isExternal: true,
+        },
     ]
 </script>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-light bg-none w-95 ml-md-0 pl-md-4" id="navbar">
-    <a role="button" class="navbar-brand d-md-none d-lg-block" href="/">
+    <Link role="button" class="navbar-brand d-md-none d-lg-block" to="/">
         <img src="images/logo.png" alt="logo" />
-    </a>
+    </Link>
     <div id="navbarNav">
         <ul class="navbar-nav">
             {#each pages as page}
-                <li class="nav-item">
+                <li class="nav-item {activePage === page.name ? 'active' : ''}">
                     {#if page.isExternal}
                         <a
                             role="button"
@@ -41,25 +49,6 @@
                     {/if}
                 </li>
             {/each}
-            <li class="nav-item">
-                <a role="button" class="nav-link" href="/">
-                    Home <span class="visually-hidden-focusable">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a role="button" class="nav-link" href="portfolio.html">Portfolio</a>
-            </li>
-            <li class="nav-item">
-                <a
-                    role="button"
-                    class="nav-link"
-                    href="https://rebrand.ly/luke-zhang-resume"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Resume
-                </a>
-            </li>
         </ul>
     </div>
 
