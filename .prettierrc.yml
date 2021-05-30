@@ -3,7 +3,7 @@ arrowParens: "always"
 bracketSpacing: false
 embeddedLanguageFormatting: "auto"
 endOfLine: "lf"
-htmlWhitespaceSensitivity: "css"
+htmlWhitespaceSensitivity: "ignore"
 jsxBracketSameLine: false
 jsxSingleQuote: false
 printWidth: 99
@@ -25,7 +25,7 @@ tsdoc: true
 
 svelteSortOrder: "options-styles-scripts-markup"
 svelteStrictMode: false
-svelteBracketNewLine: false
+svelteBracketNewLine: true
 svelteAllowShorthand: true
 svelteIndentScriptAndStyle: true
 

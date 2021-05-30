@@ -1,6 +1,10 @@
+import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 import css from "rollup-plugin-css-only"
+import filesize from "rollup-plugin-filesize"
+import license from "rollup-plugin-license"
 import livereload from "rollup-plugin-livereload"
+import progress from "rollup-plugin-progress"
 import resolve from "@rollup/plugin-node-resolve"
 import scss from "rollup-plugin-scss"
 import svelte from "rollup-plugin-svelte"
@@ -9,6 +13,39 @@ import {terser} from "rollup-plugin-terser"
 import typescript from "@rollup/plugin-typescript"
 
 const production = !process.env.ROLLUP_WATCH
+
+const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+License: BSD-3-Clause
+Copyright 2020 - 2021 Luke Zhang, Ethan Lim
+===
+
+`
+
+/**
+ * @param {import("rollup-plugin-license").Dependency} dep - Dependency
+ * @returns {string}
+ */
+const dependencyToString = (dep) => {
+    const lines = [`${dep.name} ${dep.version}`, `License: ${dep.license}`]
+
+    if (dep.repository?.url) {
+        lines.push(`${dep.repository.url}`)
+    } else if (dep.homepage) {
+        lines.push(`${dep.homepage}`)
+    } else if (dep.author) {
+        lines.push(`${dep.author.text()}`)
+    }
+
+    if (dep.licenseText) {
+        lines.push("")
+        const depText = dep.licenseText.split("\n")
+
+        lines.push(depText.find((text) => /Copyright/.test(text)) ?? depText[0])
+        lines.push("===\n")
+    }
+
+    return lines.join("\n")
+}
 
 function serve() {
     let server
@@ -31,13 +68,17 @@ function serve() {
     }
 }
 
-export default {
+/**
+ * @type {import("rollup").RollupOptions}
+ */
+const config = {
     input: "src/index.ts",
     output: {
         sourcemap: true,
         format: "iife",
         name: "app",
         file: "public/build/bundle.js",
+        banner: "/*! For license information please see build/bundle.js.LICENSE.txt */\n",
     },
     plugins: [
         svelte({
@@ -73,6 +114,11 @@ export default {
             inlineSources: !production,
         }),
 
+        filesize({
+            showMinifiedSize: false,
+        }),
+        progress(),
+
         // In dev mode, call `npm run start` once
         // the bundle has been generated
         !production && serve({}),
@@ -83,9 +129,49 @@ export default {
 
         // If we're building for production (npm run build
         // instead of npm run dev), minify
-        production && terser(),
+        production &&
+            terser({
+                format: {
+                    comments: /For license information/u,
+                },
+            }),
+
+        production &&
+            babel({
+                babelrc: false,
+                babelHelpers: "bundled",
+                presets: [
+                    [
+                        "@babel/preset-env",
+                        {
+                            useBuiltIns: "usage",
+                            corejs: 3,
+                        },
+                    ],
+                ],
+                minified: false,
+                comments: true,
+            }),
+
+        production &&
+            license({
+                thirdParty: {
+                    includePrivate: true,
+                    output: {
+                        template: (deps) =>
+                            bannerComment +
+                            (deps.length > 0
+                                ? deps.map((dep) => dependencyToString(dep)).join("\n")
+                                : "No third parties dependencies"),
+                        file: "public/build/bundle.js.LICENSE.txt",
+                        encoding: "utf-8",
+                    },
+                },
+            }),
     ],
     watch: {
         clearScreen: false,
     },
 }
+
+export default config
