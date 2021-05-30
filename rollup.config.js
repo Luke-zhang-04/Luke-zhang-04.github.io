@@ -2,6 +2,7 @@ import commonjs from "@rollup/plugin-commonjs"
 import css from "rollup-plugin-css-only"
 import livereload from "rollup-plugin-livereload"
 import resolve from "@rollup/plugin-node-resolve"
+import scss from "rollup-plugin-scss"
 import svelte from "rollup-plugin-svelte"
 import sveltePreprocess from "svelte-preprocess"
 import {terser} from "rollup-plugin-terser"
@@ -44,11 +45,18 @@ export default {
             compilerOptions: {
                 // enable run-time checks when not in production
                 dev: !production,
+                hydratable: true,
             },
+            emitCss: true,
         }),
         // we'll extract any component CSS out into
         // a separate file - better for performance
         css({output: "bundle.css"}),
+
+        scss({
+            output: "public/build/bootstrap.css",
+            outputStyle: production ? "compressed" : "expanded",
+        }),
 
         // If you have external dependencies installed from
         // npm, you'll most likely need these plugins. In
