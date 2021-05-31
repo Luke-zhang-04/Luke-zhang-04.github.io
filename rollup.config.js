@@ -66,6 +66,8 @@ function serve() {
             process.on("exit", toExit)
         },
     }
+
+    return lines.join("\n")
 }
 
 /**

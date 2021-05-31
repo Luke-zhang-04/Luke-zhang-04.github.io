@@ -1,6 +1,9 @@
-name: Build
+name: Build and Deploy
 
-on: [pull_request, push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -24,3 +27,9 @@ jobs:
 
       - name: build
         run: yarn build
+
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: build
