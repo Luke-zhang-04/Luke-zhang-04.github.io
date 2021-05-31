@@ -1,26 +1,14 @@
+<!--
+Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+
+License: BSD-3-Clause
+Copyright (C) 2020 - 2021 Luke Zhang
+ -->
 <script lang="ts">
     import {Link} from "svelte-routing"
+    import {pages} from "../../globals"
 
     export let activePage: undefined | string
-
-    const pages: {name: string; displayName: string; href: string; isExternal?: boolean}[] = [
-        {
-            name: "home",
-            displayName: "Home",
-            href: "/",
-        },
-        {
-            name: "portfolio",
-            displayName: "Portfolio",
-            href: "portfolio",
-        },
-        {
-            name: "resume",
-            displayName: "Resume",
-            href: "https://rebrand.ly/luke-zhang-resume",
-            isExternal: true,
-        },
-    ]
 </script>
 
 <!-- Navbar -->

@@ -16,6 +16,7 @@
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^1.0.0",
+    "firebase": "^8.6.3",
     "node-sass": "npm:sass@~1.32.0",
     "prettier": "~2.3.0",
     "prettier-plugin-jsdoc": "~0.3.22",
@@ -42,6 +43,7 @@
     "bootstrap": "^5.0.0-beta3",
     "core-js": "^3",
     "normalize.css": "^8.0.1",
-    "svelte-routing": "^1.6.0"
+    "svelte-routing": "^1.6.0",
+    "swiper": "^6.7.0"
   }
 }

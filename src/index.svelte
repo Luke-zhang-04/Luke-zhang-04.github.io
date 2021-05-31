@@ -1,7 +1,14 @@
+<!--
+Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+
+License: BSD-3-Clause
+Copyright (C) 2020 - 2021 Luke Zhang
+ -->
 <script lang="ts">
     import {Router, Route} from "svelte-routing"
     import {globalHistory} from "svelte-routing/src/history"
     import {onDestroy, onMount} from "svelte"
+    import Footer from "./components/footer/index.svelte"
     import {Home} from "./pages"
     import Navbar from "./components/navbar/index.svelte"
 
@@ -29,7 +36,6 @@
 
 <Router>
     <Navbar bind:activePage={pathname} />
-    <div>
-        <Route path="/" exact component={Home} />
-    </div>
+    <Route path="/" exact component={Home} />
+    <Footer />
 </Router>

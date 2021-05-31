@@ -82,15 +82,28 @@ const config = {
         file: "public/build/bundle.js",
         banner: "/*! For license information please see build/bundle.js.LICENSE.txt */\n",
     },
+    onwarn: (warning, defaultHandler) => {
+        if (warning.code !== "CIRCULAR_DEPENDENCY") {
+            defaultHandler(warning)
+        }
+    },
     plugins: [
         svelte({
-            preprocess: [sveltePreprocess({sourceMap: !production})],
+            preprocess: [sveltePreprocess({sourceMap: true})],
             compilerOptions: {
                 // enable run-time checks when not in production
                 dev: !production,
                 hydratable: true,
+                sourcemap: true,
             },
         }),
+        typescript({
+            tsconfig: "./tsconfig.json",
+            sourceMap: true,
+            inlineSources: true,
+            target: production ? undefined : "ESNext",
+        }),
+
         // we'll extract any component CSS out into
         // a separate file - better for performance
         css({output: "bundle.css"}),
@@ -110,15 +123,6 @@ const config = {
             dedupe: ["svelte"],
         }),
         commonjs(),
-        typescript({
-            sourceMap: !production,
-            inlineSources: !production,
-            target: production ? undefined : "ESNext",
-        }),
-
-        filesize({
-            showMinifiedSize: false,
-        }),
         progress(),
 
         // In dev mode, call `npm run start` once
@@ -153,6 +157,7 @@ const config = {
                 ],
                 minified: false,
                 comments: true,
+                sourceMaps: true,
             }),
 
         production &&
@@ -170,6 +175,8 @@ const config = {
                     },
                 },
             }),
+
+        production && filesize({showMinifiedSize: false}),
     ],
     watch: {
         clearScreen: false,
