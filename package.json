@@ -5,7 +5,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear --port 3000",
+    "start": "sirv public --no-clear --port 3000 --single",
     "validate": "svelte-check",
     "lint": "yarn eslint 'src/{**/*,*}.{svelte,ts}' --max-warnings=0"
   },
@@ -51,7 +51,6 @@
     "@animated-burgers/burger-squeeze": "^1.1.2",
     "bootstrap": "^5.0.0-beta3",
     "normalize.css": "^8.0.1",
-    "query-string": "^7.0.0",
     "svelte-routing": "^1.6.0",
     "swiper": "^6.7.0"
   }

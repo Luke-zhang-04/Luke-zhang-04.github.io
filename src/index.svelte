@@ -11,7 +11,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
     import {Home, NotFound, Portfolio} from "./pages"
     import Navbar from "./components/navbar"
     import {globalHistory} from "svelte-routing/src/history"
-    import qs from "query-string"
+    import {parse as parseQs} from "query-string"
 
     let pathname = window.location.pathname.slice(1)
     let unsub: ReturnType<typeof globalHistory.listen> | undefined
@@ -29,7 +29,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
             }
         })
 
-        const {redirect} = qs.parse(window.location.search)
+        const {redirect} = parseQs(window.location.search)
 
         if (redirect) {
             globalHistory.navigate(typeof redirect === "string" ? redirect : redirect[0])
