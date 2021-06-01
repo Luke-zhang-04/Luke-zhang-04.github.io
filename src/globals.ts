@@ -5,8 +5,8 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
+import {crypto, getImageUrl} from "./utils"
 import {firestore, snapshotToArray} from "./utils/firebase"
-import {getImageUrl, crypto} from "./utils"
 
 export const pages: {name: string; displayName: string; href: string; isExternal?: boolean}[] = [
     {
@@ -47,7 +47,7 @@ export interface ProjectData {
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
-let fallbackCounter = 0
+const fallbackCounter = 0
 
 export const projectData: Promise<(ProjectData & {imgUrl: string; name: string; id: string})[]> =
     (async () => {
