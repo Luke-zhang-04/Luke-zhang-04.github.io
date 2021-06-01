@@ -5,6 +5,4 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
-export {default as Home} from "./home"
-export {default as NotFound} from "./404"
-export {default as Portfolio} from "./portfolio"
+export {default} from "./index.svelte"

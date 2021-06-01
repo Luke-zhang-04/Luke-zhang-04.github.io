@@ -39,26 +39,6 @@ declare module "svelte-routing/src/history" {
     export const navigate: ReturnType<typeof createHistory>["navigate"]
 }
 
-declare module "swiper/svelte" {
-    const svelte: typeof import("svelte")
-
-    type SwiperOptions = import("swiper").SwiperOptions
-
-    interface SwiperProps extends SwiperOptions {
-        [key: string]: unknown
-    }
-
-    /**
-     * @see {@link https://swiperjs.com/svelte}
-     */
-    export class Swiper extends svelte.SvelteComponentTyped<SwiperProps> {}
-
-    /**
-     * @see {@link https://swiperjs.com/svelte}
-     */
-    export class SwiperSlide extends svelte.SvelteComponentTyped {}
-}
-
 declare module "swiper/swiper.esm" {
     const mod: typeof import("swiper/core")
 
