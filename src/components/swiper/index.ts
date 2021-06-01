@@ -5,5 +5,5 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
-export {default, default as Swiper} from "./index.svelte"
+export {default, default as Swiper} from "./swiper.svelte"
 export {default as Slide} from "./slide.svelte"

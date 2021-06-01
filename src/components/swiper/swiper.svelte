@@ -32,7 +32,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <script lang="ts">
     import "swiper/swiper.scss"
     import "swiper/components/pagination/pagination.scss"
-    import {Swiper, EffectCoverflow} from "swiper/swiper.esm"
+    import {EffectCoverflow, Swiper} from "swiper/swiper.esm"
     import {onDestroy, onMount} from "svelte"
 
     Swiper.use([EffectCoverflow])

@@ -6,6 +6,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <style lang="scss">
     @use "../../styles/variables";
+
     .swiper-slide {
         background-position: center;
         background-size: cover;

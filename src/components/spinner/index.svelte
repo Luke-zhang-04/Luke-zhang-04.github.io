@@ -11,28 +11,29 @@ Ported from https://github.com/Luke-zhang-04/talentmaker-site/blob/refactor/src/
     export let type: "border" | "grow" = "border"
     export let style = ""
     export let size = ""
-    export let centered = false
-    export let small = false
-    export let inline = false
+    let isCentered: boolean | undefined
+    let isSmall: boolean | undefined
+    let isInline: boolean | undefined
 
     let className = ""
-    export {className as class}
+
+    export {className as class, isCentered as centered, isSmall as isSmall, isInline as inline}
 
     // Spinner color
     const _color = color ? `text-${color}` : ""
     // Classname for a small spinner
-    const _size = small || inline ? `spinner-${type}-sm` : ""
+    const _size = isSmall || isInline ? `spinner-${type}-sm` : ""
     // Style object
-    let _style = style ?? "" + (size ? `; width: ${size}; height: ${size}` : "")
+    const _style = style ?? `${size ? `; width: ${size}; height: ${size}` : ""}`
 
     const _className = `spinner-${type ?? "border"} ${_size} ${_color} ${className}`
 </script>
 
-{#if inline}
+{#if isInline}
     <span class={_className} role="status" aria-hidden="true" />
     <span class="visually-hidden">Loading...</span>
     <slot />
-{:else if centered}
+{:else if isCentered}
     <div class="d-flex justify-content-center h-100 align-items-center">
         <div class={_className} style={_style}>
             <span class="visually-hidden">Loading...</span>

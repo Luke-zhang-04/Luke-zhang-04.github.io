@@ -5,7 +5,7 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
-    import {Swiper, Slide} from "../../swiper"
+    import {Slide, Swiper} from "../../swiper"
     import {Link} from "svelte-routing"
     import Spinner from "../../spinner"
     import {projectData} from "../../../globals"

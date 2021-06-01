@@ -5,12 +5,12 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
-    import {Router, Route} from "svelte-routing"
-    import {globalHistory} from "svelte-routing/src/history"
+    import {Route, Router} from "svelte-routing"
     import {onDestroy, onMount} from "svelte"
     import Footer from "./components/footer"
     import {Home} from "./pages"
     import Navbar from "./components/navbar"
+    import {globalHistory} from "svelte-routing/src/history"
 
     let pathname = window.location.pathname.slice(1)
     let unsub: ReturnType<typeof globalHistory.listen> | undefined
