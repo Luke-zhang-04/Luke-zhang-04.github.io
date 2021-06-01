@@ -1,8 +1,3 @@
-*/node_modules/
-.serverless
-.vscode
-lib/
-tsconfig*.json
-build/
-public/css
-public/js
+public/build
+tsconfig.json
+analysis

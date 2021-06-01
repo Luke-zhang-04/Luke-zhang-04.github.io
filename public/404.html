@@ -3,11 +3,10 @@
   <head>
     <title>Luke Zhang</title>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/0ae7d0db93.js" crossorigin="anonymous"></script>
-
     <link rel="icon" href="/images/favicon.ico" />
     <link rel="apple-touch-icon" href="/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@6.2.0/swiper-bundle.min.css" />
 
     <meta name="author" content="Luke Zhang, luke.zhang2004dev@gmail.com" />
     <meta name="copyright" content="2020 Luke Zhang" />
@@ -42,29 +41,17 @@
       content="Hi, I'm Luke Zhang, a full-stack developer. I specialize in React, TypeScript, Python, and Firebase."
     />
     <meta property="twitter:image" content="https://luke-zhang-04.github.io/images/sc.png" />
-
-    <link rel="stylesheet" href="/build/bootstrap.css" />
-    <link rel="stylesheet" href="/build/bundle.css" />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-      crossorigin="anonymous"
-    ></script>
-
-    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
-
-    <script defer src="/build/bundle.js"></script>
   </head>
 
+  <script>
+    // prettier-ignore
+    const path = window.location.pathname.slice(1);
+    // prettier-ignore
+    window.location.href = window.location.origin + "/?redirect=" + encodeURIComponent(path);
+  </script>
+
   <noscript>You need to enable Javascript to use this site</noscript>
-  <body></body>
+  <body>
+    Redirecting you... if you are not redirected right away, click <a href="../">here</a>
+  </body>
 </html>
