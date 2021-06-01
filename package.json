@@ -16,6 +16,7 @@
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^1.0.0",
+    "core-js": "^3",
     "firebase": "^8.6.3",
     "node-sass": "npm:sass@~1.32.0",
     "prettier": "~2.3.0",
@@ -30,6 +31,7 @@
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
+    "rollup-plugin-visualizer": "^5.5.0",
     "sass": "~1.32.0",
     "sirv-cli": "^1.0.0",
     "svelte": "^3.0.0",
@@ -41,7 +43,6 @@
   "dependencies": {
     "@animated-burgers/burger-squeeze": "^1.1.2",
     "bootstrap": "^5.0.0-beta3",
-    "core-js": "^3",
     "normalize.css": "^8.0.1",
     "svelte-routing": "^1.6.0",
     "swiper": "^6.7.0"

@@ -5,57 +5,45 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
-    import "swiper/swiper.scss"
-    import "swiper/components/pagination/pagination.scss"
-    import "components/effect-coverflow/effect-coverflow.scss"
-    import SwiperCore, {EffectCoverflow} from "swiper/core"
-    import {Swiper, SwiperSlide} from "swiper/svelte"
+    import {Swiper, Slide} from "../../swiper"
     import {Link} from "svelte-routing"
-    import Spinner from "../../spinner/index.svelte"
+    import Spinner from "../../spinner"
     import {projectData} from "../../../globals"
-
-    SwiperCore.use([EffectCoverflow])
 </script>
-
-<!--
-<div class="swiper-container" id="projects-slider">
-    <div class="p-3 text-center mt-6 mt-md-0 title">
-        <div>
-            <h1>My Work</h1>
-            <Link to="portfolio.html" class="btn btn-outline-primary" id="see-all-btn">
-                See all
-            </Link>
-        </div>
-    </div>
-    <div class="swiper-wrapper">
-    {#await projectData}
-        <Spinner color="primary" size="25vw" class="my-5" centered />
-    {:then projects}
-        {#each projects as {imgUrl}}
-            <SwiperSlide loading="lazy" style={`background-image: url(${imgUrl});`} />
-        {/each}
-    {/await}
-    </div>
-
-    <div class="swiper-pagination mb-lg-5 d-block" />
-</div> -->
 
 {#await projectData}
     <Spinner color="primary" size="25vw" class="my-5" centered />
 {:then projects}
     <Swiper
-        effect="coverflow"
-        loop={true}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView="auto"
-        pagination={true}
-        coverflowEffect={{rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true}}
-        id="projects-slider"
+        options={{
+            effect: "coverflow",
+            loop: true,
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: true,
+        }}
     >
-        {#each projects as {imgUrl}}
-            <SwiperSlide loading="lazy" style={`background-image: url(${imgUrl});`} />
-        {/each}
+        <div class="p-3 text-center mt-6 mt-md-0 title" slot="header">
+            <div>
+                <h1>My Work</h1>
+                <Link to="portfolio.html" class="btn btn-outline-primary" id="see-all-btn">
+                    See all
+                </Link>
+            </div>
+        </div>
+        <svelte:fragment slot="slides">
+            {#each projects as {imgUrl}}
+                <Slide loading="lazy" style={`background-image: url(${imgUrl});`} />
+            {/each}
+        </svelte:fragment>
     </Swiper>
 {:catch err}
     {#if err instanceof Error}

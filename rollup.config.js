@@ -9,11 +9,11 @@ import resolve from "@rollup/plugin-node-resolve"
 import scss from "rollup-plugin-scss"
 import svelte from "rollup-plugin-svelte"
 import sveltePreprocess from "svelte-preprocess"
+import visualizer from "rollup-plugin-visualizer"
 import {terser} from "rollup-plugin-terser"
 import typescript from "@rollup/plugin-typescript"
 
 const production = !process.env.ROLLUP_WATCH
-
 const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
 Copyright 2020 - 2021 Luke Zhang, Ethan Lim
@@ -66,8 +66,6 @@ function serve() {
             process.on("exit", toExit)
         },
     }
-
-    return lines.join("\n")
 }
 
 /**
@@ -78,13 +76,17 @@ const config = {
     output: {
         sourcemap: true,
         format: "iife",
-        name: "app",
         file: "public/build/bundle.js",
         banner: "/*! For license information please see build/bundle.js.LICENSE.txt */\n",
     },
     onwarn: (warning, defaultHandler) => {
-        if (warning.code !== "CIRCULAR_DEPENDENCY") {
+        if (
+            warning.code !== "CIRCULAR_DEPENDENCY" &&
+            warning.code !== "MISSING_NAME_OPTION_FOR_IIFE_EXPORT"
+        ) {
             defaultHandler(warning)
+
+            return
         }
     },
     plugins: [
@@ -120,7 +122,7 @@ const config = {
         // https://github.com/rollup/plugins/tree/master/packages/commonjs
         resolve({
             browser: true,
-            dedupe: ["svelte"],
+            dedupe: ["svelte", "tslib"],
         }),
         commonjs(),
         progress(),
@@ -132,15 +134,6 @@ const config = {
         // Watch the `public` directory and refresh the
         // browser on changes when not in production
         !production && livereload("public"),
-
-        // If we're building for production (npm run build
-        // instead of npm run dev), minify
-        production &&
-            terser({
-                format: {
-                    comments: /For license information/u,
-                },
-            }),
 
         production &&
             babel({
@@ -176,7 +169,22 @@ const config = {
                 },
             }),
 
+        // If we're building for production (npm run build
+        // instead of npm run dev), minify
+        production &&
+            terser({
+                format: {
+                    comments: /For license information/u,
+                },
+            }),
+
         production && filesize({showMinifiedSize: false}),
+
+        production &&
+            visualizer({
+                filename: "analysis/index.html",
+                template: "treemap",
+            }),
     ],
     watch: {
         clearScreen: false,

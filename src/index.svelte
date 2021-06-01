@@ -8,9 +8,9 @@ Copyright (C) 2020 - 2021 Luke Zhang
     import {Router, Route} from "svelte-routing"
     import {globalHistory} from "svelte-routing/src/history"
     import {onDestroy, onMount} from "svelte"
-    import Footer from "./components/footer/index.svelte"
+    import Footer from "./components/footer"
     import {Home} from "./pages"
-    import Navbar from "./components/navbar/index.svelte"
+    import Navbar from "./components/navbar"
 
     let pathname = window.location.pathname.slice(1)
     let unsub: ReturnType<typeof globalHistory.listen> | undefined

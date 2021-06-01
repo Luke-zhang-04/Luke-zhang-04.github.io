@@ -1,3 +1,10 @@
+/**
+ * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+ *
+ * @license BSD-3-Clause
+ * @copyright (C) 2020 - 2021 Luke Zhang
+ */
+
 declare module "svelte-routing/src/history" {
     const getLocation: (source: typeof window) => Location & {state: any; key: string}
 
@@ -50,4 +57,10 @@ declare module "swiper/svelte" {
      * @see {@link https://swiperjs.com/svelte}
      */
     export class SwiperSlide extends svelte.SvelteComponentTyped {}
+}
+
+declare module "swiper/swiper.esm" {
+    const mod: typeof import("swiper/core")
+
+    export = mod
 }

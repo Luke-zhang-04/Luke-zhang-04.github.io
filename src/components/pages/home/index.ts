@@ -5,5 +5,6 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
+export {default as Contact} from "./contact.svelte"
 export {default as LandingPage} from "./landingPage.svelte"
 export {default as Swiper} from "./swiper.svelte"
