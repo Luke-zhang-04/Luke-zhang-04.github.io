@@ -4,7 +4,6 @@ Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
-
 <script lang="ts">
     import * as utils from "../../../utils"
     import Project from "./internal/project.svelte"
