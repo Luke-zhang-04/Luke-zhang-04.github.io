@@ -47,7 +47,7 @@
     // prettier-ignore
     const path = window.location.pathname.slice(1);
     // prettier-ignore
-    window.location.href = "../?redirect=" + encodeURIComponent(path);
+    window.location.href = window.location.origin + "/?redirect=" + encodeURIComponent(path);
   </script>
 
   <noscript>You need to enable Javascript to use this site</noscript>
