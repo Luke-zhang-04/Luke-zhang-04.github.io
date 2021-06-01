@@ -28,21 +28,14 @@ Copyright (C) 2020 - 2021 Luke Zhang
                 <h5 class="text-uppercase">Nav</h5>
                 <ul class="list-unstyled">
                     {#each pages as page}
-                        {#if page.isExternal}
-                            <a href={page.href} {...linkProps}>{page.displayName}</a>
-                        {:else}
-                            <Link to={page.href}>{page.displayName}</Link>
-                        {/if}
+                        <li>
+                            {#if page.isExternal}
+                                <a href={page.href} {...linkProps}>{page.displayName}</a>
+                            {:else}
+                                <Link to={page.href}>{page.displayName}</Link>
+                            {/if}
+                        </li>
                     {/each}
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/portfolio.html">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="https://rebrand.ly/luke-zhang-resume" {...linkProps}>Resume</a>
-                    </li>
                 </ul>
             </div>
             <div class="col-md-3 mb-md-0 mb-3">
