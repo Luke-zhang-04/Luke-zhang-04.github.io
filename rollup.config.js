@@ -41,8 +41,9 @@ const dependencyToString = (dep) => {
         const depText = dep.licenseText.split("\n")
 
         lines.push(depText.find((text) => /Copyright/.test(text)) ?? depText[0])
-        lines.push("===\n")
     }
+
+    lines.push("===\n")
 
     return lines.join("\n")
 }
