@@ -6,7 +6,7 @@
  */
 
 import {firestore, snapshotToArray} from "./utils/firebase"
-import {getImageUrl} from "./utils"
+import {getImageUrl, crypto} from "./utils"
 
 export const pages: {name: string; displayName: string; href: string; isExternal?: boolean}[] = [
     {
@@ -47,17 +47,24 @@ export interface ProjectData {
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
-export const projectData: Promise<(ProjectData & {imgUrl: string})[]> = firestore
-    ?.collection("projects")
-    .orderBy("date", "desc")
-    .get()
-    .then((snapshot) =>
-        snapshotToArray(snapshot).map((doc) => {
-            const data = doc.data() as ProjectData
+let fallbackCounter = 0
 
-            return {
-                ...data,
-                imgUrl: getImageUrl(data.file),
-            }
-        }),
-    )
+export const projectData: Promise<(ProjectData & {imgUrl: string; name: string; id: string})[]> =
+    (async () => {
+        const projects = snapshotToArray(
+            await firestore?.collection("projects").orderBy("date", "desc").get(),
+        )
+
+        return await Promise.all(
+            projects.map(async (doc) => {
+                const data = doc.data() as ProjectData
+
+                return {
+                    ...data,
+                    name: doc.id,
+                    id: (await crypto.hash("SHA-256", doc.id)) ?? fallbackCounter.toString(),
+                    imgUrl: getImageUrl(data.file),
+                }
+            }),
+        )
+    })()

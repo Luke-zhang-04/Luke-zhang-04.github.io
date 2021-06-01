@@ -8,7 +8,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
     import {Route, Router} from "svelte-routing"
     import {onDestroy, onMount} from "svelte"
     import Footer from "./components/footer"
-    import {Home} from "./pages"
+    import {Home, Portfolio} from "./pages"
     import Navbar from "./components/navbar"
     import {globalHistory} from "svelte-routing/src/history"
 
@@ -37,5 +37,6 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <Router>
     <Navbar bind:activePage={pathname} />
     <Route path="/" exact component={Home} />
+    <Route path="/portfolio" component={Portfolio} />
     <Footer />
 </Router>

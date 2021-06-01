@@ -11,9 +11,9 @@ Ported from https://github.com/Luke-zhang-04/talentmaker-site/blob/refactor/src/
     export let type: "border" | "grow" = "border"
     export let style = ""
     export let size = ""
-    let isCentered: boolean | undefined
-    let isSmall: boolean | undefined
-    let isInline: boolean | undefined
+    let isCentered: boolean | undefined = false as boolean
+    let isSmall: boolean | undefined = false as boolean
+    let isInline: boolean | undefined = false as boolean
 
     let className = ""
 

@@ -12,7 +12,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 </script>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-md navbar-light bg-none w-95 ml-md-0 pl-md-4" id="navbar">
+<nav class="navbar navbar-expand-md navbar-light bg-none w-95 ms-md-0 pl-md-4" id="navbar">
     <Link role="button" class="navbar-brand d-md-none d-lg-block" to="/">
         <img src="images/logo.png" alt="logo" />
     </Link>
