@@ -1,6 +1,6 @@
 # Luke-zhang-04.github.io
 
-Developer profolio
+Developer profolio made with Svelte and Typescript
 
 ## Notes:
 
