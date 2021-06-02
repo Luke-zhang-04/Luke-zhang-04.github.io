@@ -1,5 +1,5 @@
-import * as url from "url"
 import * as path from "path"
+import * as url from "url"
 import alias from "@rollup/plugin-alias"
 import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
@@ -20,16 +20,15 @@ import typescript from "@rollup/plugin-typescript"
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const production = !process.env.ROLLUP_WATCH
+const processEnv = {
+    NODE_ENV: production ? "production" : "development",
+}
 const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
 Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 ===
 
 `
-
-const processEnv = {
-    NODE_ENV: production ? "production" : "development",
-}
 
 /**
  * @param {import("rollup-plugin-license").Dependency} dep - Dependency

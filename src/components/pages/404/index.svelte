@@ -5,7 +5,7 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <style lang="scss" src="./index.scss">
-    @use "../../../styles/variables";
+    @use "src/styles/variables";
 
     @mixin _404-md() {
         .image-404 {
