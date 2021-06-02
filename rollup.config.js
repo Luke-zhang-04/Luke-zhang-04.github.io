@@ -6,6 +6,7 @@ import license from "rollup-plugin-license"
 import livereload from "rollup-plugin-livereload"
 import progress from "rollup-plugin-progress"
 import resolve from "@rollup/plugin-node-resolve"
+import sass from "sass"
 import scss from "rollup-plugin-scss"
 import svelte from "rollup-plugin-svelte"
 import sveltePreprocess from "svelte-preprocess"
@@ -114,6 +115,7 @@ const config = {
         scss({
             output: "public/build/bootstrap.css",
             outputStyle: production ? "compressed" : "expanded",
+            sass,
         }),
 
         // If you have external dependencies installed from
