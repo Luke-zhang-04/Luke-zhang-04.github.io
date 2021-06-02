@@ -9,8 +9,8 @@ Ported from https://github.com/Luke-zhang-04/talentmaker-site/blob/refactor/src/
 <script lang="ts">
     export let color = ""
     export let type: "border" | "grow" = "border"
-    export let style = ""
-    export let size = ""
+    export let style: string | undefined = undefined
+    export let size: string | undefined = undefined
     let isCentered: boolean | undefined = false as boolean
     let isSmall: boolean | undefined = false as boolean
     let isInline: boolean | undefined = false as boolean
