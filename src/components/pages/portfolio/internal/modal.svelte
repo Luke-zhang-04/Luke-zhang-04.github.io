@@ -5,8 +5,8 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
-    import {MaybeLink} from "../../../elements"
-    import type {ProjectData} from "../../../../globals"
+    import {MaybeLink} from "~/components/elements"
+    import type {ProjectData} from "~/globals"
 
     export let date: ProjectData["date"]
     export let description: ProjectData["description"]

@@ -5,7 +5,7 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
-    import {Contact, LandingPage, Swiper} from "../../components/pages/home"
+    import {Contact, LandingPage, Swiper} from "~/components/pages/home"
 </script>
 
 <LandingPage />

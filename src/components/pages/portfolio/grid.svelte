@@ -5,10 +5,10 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
-    import * as utils from "../../../utils"
+    import * as utils from "~/utils"
     import Project from "./internal/project.svelte"
-    import Spinner from "../../spinner"
-    import {projectData} from "../../../globals"
+    import Spinner from "~/components/spinner"
+    import {projectData} from "~/globals"
 </script>
 
 {#await projectData}

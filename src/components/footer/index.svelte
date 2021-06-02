@@ -6,7 +6,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
     import {Link} from "svelte-routing"
-    import {pages} from "../../globals"
+    import {pages} from "~/globals"
 
     const linkProps = {
         target: "_blank",

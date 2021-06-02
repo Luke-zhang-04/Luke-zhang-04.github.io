@@ -8,7 +8,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 
 <script lang="ts">
     import Modal from "./modal.svelte"
-    import type {ProjectData} from "../../../../globals"
+    import type {ProjectData} from "~/globals"
 
     export let date: ProjectData["date"]
     export let description: ProjectData["description"]

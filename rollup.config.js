@@ -1,3 +1,6 @@
+import * as url from "url"
+import * as path from "path"
+import alias from "@rollup/plugin-alias"
 import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 import css from "rollup-plugin-css-only"
@@ -15,6 +18,7 @@ import visualizer from "rollup-plugin-visualizer"
 import {terser} from "rollup-plugin-terser"
 import typescript from "@rollup/plugin-typescript"
 
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const production = !process.env.ROLLUP_WATCH
 const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
@@ -102,12 +106,13 @@ const config = {
         }
     },
     plugins: [
-        replace({
-            "process.env.NODE_ENV": JSON.stringify(processEnv.NODE_ENV),
-            'process.env["NODE_ENV"]': JSON.stringify(processEnv.NODE_ENV),
-            "process.env['NODE_ENV']": JSON.stringify(processEnv.NODE_ENV),
-            "process.env": JSON.stringify(processEnv),
-            preventAssignment: true,
+        alias({
+            entries: [
+                {
+                    find: /^~\/(.*)/u,
+                    replacement: path.join(__dirname, "src", "$1"),
+                },
+            ],
         }),
         svelte({
             preprocess: [sveltePreprocess({sourceMap: true})],
@@ -123,6 +128,14 @@ const config = {
             sourceMap: true,
             inlineSources: true,
             target: production ? undefined : "ESNext",
+        }),
+
+        replace({
+            "process.env.NODE_ENV": JSON.stringify(processEnv.NODE_ENV),
+            'process.env["NODE_ENV"]': JSON.stringify(processEnv.NODE_ENV),
+            "process.env['NODE_ENV']": JSON.stringify(processEnv.NODE_ENV),
+            "process.env": JSON.stringify(processEnv),
+            preventAssignment: true,
         }),
 
         // we'll extract any component CSS out into
