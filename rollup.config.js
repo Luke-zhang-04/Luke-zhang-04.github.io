@@ -5,6 +5,7 @@ import filesize from "rollup-plugin-filesize"
 import license from "rollup-plugin-license"
 import livereload from "rollup-plugin-livereload"
 import progress from "rollup-plugin-progress"
+import replace from "@rollup/plugin-replace"
 import resolve from "@rollup/plugin-node-resolve"
 import sass from "sass"
 import scss from "rollup-plugin-scss"
@@ -17,10 +18,14 @@ import typescript from "@rollup/plugin-typescript"
 const production = !process.env.ROLLUP_WATCH
 const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
-Copyright 2020 - 2021 Luke Zhang, Ethan Lim
+Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 ===
 
 `
+
+const processEnv = {
+    NODE_ENV: production ? "production" : "development",
+}
 
 /**
  * @param {import("rollup-plugin-license").Dependency} dep - Dependency
@@ -30,11 +35,16 @@ const dependencyToString = (dep) => {
     const lines = [`${dep.name} ${dep.version}`, `License: ${dep.license}`]
 
     if (dep.repository?.url) {
-        lines.push(`${dep.repository.url}`)
+        lines.push(
+            (typeof dep.repository === "string" ? dep.repository : dep.repository.url).replace(
+                /^git\+/u,
+                "",
+            ),
+        )
     } else if (dep.homepage) {
-        lines.push(`${dep.homepage}`)
-    } else if (dep.author) {
-        lines.push(`${dep.author.text()}`)
+        lines.push(dep.homepage)
+    } else if (dep.hor) {
+        lines.push(dep.author.text())
     }
 
     if (dep.licenseText) {
@@ -92,6 +102,13 @@ const config = {
         }
     },
     plugins: [
+        replace({
+            "process.env.NODE_ENV": JSON.stringify(processEnv.NODE_ENV),
+            'process.env["NODE_ENV"]': JSON.stringify(processEnv.NODE_ENV),
+            "process.env['NODE_ENV']": JSON.stringify(processEnv.NODE_ENV),
+            "process.env": JSON.stringify(processEnv),
+            preventAssignment: true,
+        }),
         svelte({
             preprocess: [sveltePreprocess({sourceMap: true})],
             compilerOptions: {
