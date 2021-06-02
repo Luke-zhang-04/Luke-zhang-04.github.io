@@ -20,6 +20,7 @@ const rules = {
     "no-negated-condition": "warn",
     "no-nested-ternary": "warn",
     "no-unused-vars": "off",
+    "no-undef": "off",
     "no-var": "warn",
     "object-shorthand": "warn",
     "one-var": ["warn", "never"],

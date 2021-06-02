@@ -42,6 +42,8 @@ Copyright (C) 2020 - 2021 Luke Zhang
         // undefined -> true
         images.push(defaultImage)
     }
+
+    const {class: className} = $$props
 </script>
 
 {#if !didLoad}
@@ -55,7 +57,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
     alt="All backups failed"
     {...$$props}
     src={images[currentIndex]}
-    class="{didLoad ? 'd-block' : 'd-none'} {$$props['class']}"
+    class="{didLoad ? 'd-block' : 'd-none'} {className}"
     on:load={(event) => {
         didLoad = true
 
