@@ -5,6 +5,8 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
+/// <reference types="node" />
+
 declare module "svelte-routing/src/history" {
     const getLocation: (source: typeof window) => Location & {state: any; key: string}
 
@@ -43,4 +45,40 @@ declare module "swiper/swiper.esm" {
     const mod: typeof import("swiper/core")
 
     export = mod
+}
+
+declare namespace NodeJS {
+    interface ProcessEnv {
+        readonly NODE_ENV: "production" | "development" | "test"
+    }
+}
+
+declare module "*.png" {
+    const url: string
+
+    export default url
+}
+
+declare module "*.svg" {
+    const url: string
+
+    export default url
+}
+
+declare module "*.gif" {
+    const url: string
+
+    export default url
+}
+
+declare module "*.jp(e)?g" {
+    const url: string
+
+    export default url
+}
+
+declare module "*.webp" {
+    const url: string
+
+    export default url
 }

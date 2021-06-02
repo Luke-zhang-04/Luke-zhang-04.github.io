@@ -5,4 +5,4 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
-export {default} from "../../components/pages/404"
+export {default} from "~/components/pages/404"

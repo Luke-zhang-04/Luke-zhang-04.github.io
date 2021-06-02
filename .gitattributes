@@ -3,10 +3,10 @@
 
 # Don't diff or textually merge source maps
 *.map binary
+# Don't diff or textually merge svgs
+*.svg binary
 
-# Remove lang stats for generated and compiled files
-*.js linguist-generated=true
-*.css linguist-generated=true
+*.config.js linguist-detectable=false
 
 # Colours.sh is vendored
 colours.sh linguist-vendored=true

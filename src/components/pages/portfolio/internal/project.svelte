@@ -7,8 +7,10 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <style lang="scss" src="./project.scss"></style>
 
 <script lang="ts">
+    import {Image as Img} from "~/components/elements"
     import Modal from "./modal.svelte"
-    import type {ProjectData} from "../../../../globals"
+    import type {ProjectData} from "~/globals"
+    import Spinner from "~/components/spinner"
 
     export let date: ProjectData["date"]
     export let description: ProjectData["description"]
@@ -23,7 +25,9 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <Modal {...{date, description, links, lang, name, id}} />
 <div class="col-12 col-md-6 col-lg-3 project-card">
     <figure>
-        <img src={imgUrl} alt={`${name} cover`} />
+        <Img src={imgUrl} alt={`${name} cover`} shouldUseDefault={false}>
+            <Spinner color="primary" size="20vw" centered />
+        </Img>
         <div class="card-overlay" />
         <figcaption class="text-center">
             <h1>{name}</h1>

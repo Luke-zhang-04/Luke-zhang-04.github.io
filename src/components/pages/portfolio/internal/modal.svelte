@@ -4,9 +4,29 @@ Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
+<style lang="scss">
+    .language {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        .language-indicator {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 1rem;
+            margin-right: 0.5rem;
+        }
+    }
+
+    .modal-footer .button-container {
+        overflow-x: hidden;
+    }
+</style>
+
 <script lang="ts">
-    import {MaybeLink} from "../../../elements"
-    import type {ProjectData} from "../../../../globals"
+    import {MaybeLink} from "~/components/elements"
+    import type {ProjectData} from "~/globals"
 
     export let date: ProjectData["date"]
     export let description: ProjectData["description"]

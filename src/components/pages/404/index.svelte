@@ -5,7 +5,7 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <style lang="scss" src="./index.scss">
-    @use "../../../styles/variables";
+    @use "src/styles/variables";
 
     @mixin _404-md() {
         .image-404 {
@@ -28,12 +28,13 @@ Copyright (C) 2020 - 2021 Luke Zhang
 
 <script lang="ts">
     import {Link} from "svelte-routing"
+    import notFound from "./404.svg"
 </script>
 
 <div class="d-flex justify-content-center align-items-center w-100 image-container flex-column">
     <h1>404</h1>
     <p>The page you were looking for couldn't be found</p>
-    <img class="image-404" src="images/404.svg" alt="404 not found" />
+    <img class="image-404" src={notFound} alt="404 not found" />
     <div class="d-flex justify-content-center flex-row mt-3 mt-md-5">
         <button class="btn btn-primary mx-1" on:click={() => window.history.back()}>Back</button>
         <Link to="/" class="btn btn-outline-primary mx-1">Home</Link>
