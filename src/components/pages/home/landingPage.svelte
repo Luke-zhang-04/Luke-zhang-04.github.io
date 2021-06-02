@@ -8,6 +8,9 @@ Copyright (C) 2020 - 2021 Luke Zhang
 
 <script lang="ts">
     import {Link} from "svelte-routing"
+    import computer from "./computer.svg"
+    import decor1 from "./decor1.svg"
+    import decor2 from "./decor2.svg"
 </script>
 
 <div class="landing-page">
@@ -41,8 +44,8 @@ Copyright (C) 2020 - 2021 Luke Zhang
         </div>
     </div>
     <div class="image-container">
-        <img alt="background" src="images/decor/decor1.svg" class="d-none d-md-block" />
-        <img alt="background" src="images/decor/decor2.svg" class="d-sm-block d-md-none" />
-        <img alt="computer" src="images/computer.svg" />
+        <img alt="background" src={decor1} class="d-none d-md-block" />
+        <img alt="background" src={decor2} class="d-sm-block d-md-none" />
+        <img alt="computer" src={computer} />
     </div>
 </div>

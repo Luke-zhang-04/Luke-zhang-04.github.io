@@ -1,5 +1,7 @@
+// Configure the project yourself they said, it'll be easy they said
 import * as childProcess from "child_process"
 import * as fs from "fs"
+import * as fse from "fs-extra"
 import * as path from "path"
 import * as url from "url"
 import alias from "@rollup/plugin-alias"
@@ -7,6 +9,7 @@ import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 import filesize from "rollup-plugin-filesize"
 import html from "@rollup/plugin-html"
+import rollupUrl from "./rollup/url"
 import license from "rollup-plugin-license"
 import livereload from "rollup-plugin-livereload"
 import htmlnano from "htmlnano"
@@ -25,7 +28,10 @@ import typescript from "@rollup/plugin-typescript"
 const production = !process.env.ROLLUP_WATCH
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const processEnv = {NODE_ENV: production ? "production" : "development"}
-const hash = production ? String(childProcess.execSync("git rev-parse --short HEAD")).trim() : ""
+const hashLen = 7
+const hash = production // Grab the latest git commit hash and use that
+    ? String(childProcess.execSync("git rev-parse HEAD")).trim().slice(0, hashLen)
+    : ""
 const outDir = production ? "build" : "public"
 const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
@@ -34,11 +40,20 @@ Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 
 `
 
+// If production, delete the output directory contents and re-copy everything over
 if (production) {
-    fs.rmSync("build/static", {recursive: true, force: true})
+    fse.removeSync(outDir)
+
+    for (const dir of fs.readdirSync(path.join(__dirname, "public"))) {
+        if (dir !== "build" && dir !== "index.html") {
+            fse.copySync(path.join(__dirname, "public", dir), path.join(__dirname, outDir, dir))
+        }
+    }
 }
 
 /**
+ * Convert a rollup-plugin-license dependency to a string
+ *
  * @param {import("rollup-plugin-license").Dependency} dep - Dependency
  * @returns {string}
  */
@@ -105,6 +120,7 @@ const config = {
         banner: `/*! For license information please see static/js/bundle.${hash}.js.LICENSE.txt */\n`,
     },
     onwarn: (warning, defaultHandler) => {
+        // Suppress these warnings
         if (
             warning.code !== "CIRCULAR_DEPENDENCY" &&
             warning.code !== "MISSING_NAME_OPTION_FOR_IIFE_EXPORT"
@@ -115,6 +131,7 @@ const config = {
         }
     },
     plugins: [
+        // Alias ~ for the project root (src)
         alias({
             entries: [
                 {
@@ -139,6 +156,7 @@ const config = {
             target: production ? undefined : "ESNext",
         }),
 
+        // Replace process.env.NODE_ENV
         replace({
             "process.env.NODE_ENV": JSON.stringify(processEnv.NODE_ENV),
             'process.env["NODE_ENV"]': JSON.stringify(processEnv.NODE_ENV),
@@ -169,6 +187,18 @@ const config = {
         commonjs(),
         progress(),
 
+        // Resolve images with hashes and their URLs
+        rollupUrl({
+            include: ["**/*.svg", "**/*.png", "**/*.jp(e)?g", "**/*.gif", "**/*.webp"],
+            limit: 0,
+            fileName: production ? "[name].[hash][extname]" : "[name][extname]",
+            sourceDir: path.join(__dirname, "src"),
+            destDir: path.join(__dirname, outDir, production ? "static" : "build", "media"),
+            publicPath: path.join(production ? "static" : "build", "media"),
+            minifySvg: production,
+            hashLen,
+        }),
+
         // In dev mode, call `npm run start` once
         // the bundle has been generated
         !production && serve({}),
@@ -177,24 +207,27 @@ const config = {
         // browser on changes when not in production
         !production && livereload("public"),
 
-        // production &&
-        //     babel({
-        //         babelrc: false,
-        //         babelHelpers: "bundled",
-        //         presets: [
-        //             [
-        //                 "@babel/preset-env",
-        //                 {
-        //                     useBuiltIns: "usage",
-        //                     corejs: 3,
-        //                 },
-        //             ],
-        //         ],
-        //         minified: false,
-        //         comments: true,
-        //         sourceMaps: true,
-        //     }),
+        // In production mode, transpile for older browsers with babel
+        production &&
+            babel({
+                babelrc: false,
+                babelHelpers: "bundled",
+                presets: [
+                    [
+                        "@babel/preset-env",
+                        {
+                            useBuiltIns: "usage",
+                            corejs: 3,
+                        },
+                    ],
+                ],
+                minified: false,
+                comments: true,
+                sourceMaps: true,
+            }),
 
+        // Open source libraries are licensed and copyrighted
+        // Make sure to create a license file to stay within license terms
         production &&
             license({
                 thirdParty: {
@@ -213,21 +246,24 @@ const config = {
 
         // If we're building for production (npm run build
         // instead of npm run dev), minify
-        // production &&
-        //     terser({
-        //         format: {
-        //             comments: /For license information/u,
-        //         },
-        // }),
+        production &&
+            terser({
+                format: {
+                    comments: /For license information/u,
+                },
+            }),
 
+        // Show filesize
         production && filesize({showMinifiedSize: false}),
 
+        // Emit a bundle analysis page
         production &&
             visualizer({
                 filename: "analysis/index.html",
                 template: "treemap",
             }),
 
+        // Process index.html and replace scripts with hashed names
         production &&
             html({
                 template: async ({files}) => {
@@ -248,6 +284,7 @@ const config = {
                 },
             }),
 
+        // Resolve 404.html
         production &&
             resolveHtml({
                 files: [["./public/404.html", "./build/404.html"]],

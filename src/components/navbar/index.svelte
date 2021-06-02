@@ -158,6 +158,8 @@ Copyright (C) 2020 - 2021 Luke Zhang
     import {onMount, onDestroy} from "svelte"
     import {Link} from "svelte-routing"
     import {globalHistory} from "svelte-routing/src/history"
+    import logo from "./logo.png"
+    import logoLight from "./logo-light.png"
     import {pages} from "../../globals"
 
     export let activePage: undefined | string
@@ -182,7 +184,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-light bg-none w-95 ms-md-0 pl-md-4" id="navbar">
     <Link role="button" class="navbar-brand d-md-none d-lg-block" to="/">
-        <img src="images/logo.png" alt="logo" />
+        <img src={logo} alt="logo" />
     </Link>
     <div id="navbarNav" class:active={isOpen}>
         <ul class="navbar-nav">
@@ -221,6 +223,6 @@ Copyright (C) 2020 - 2021 Luke Zhang
     </button>
 
     <a role="button" class="navbar-brand d-lg-none d-md-block d-none" href="/">
-        <img src="images/logo-light.png" alt="logo" />
+        <img src={logoLight} alt="logo" />
     </a>
 </nav>

@@ -3,6 +3,8 @@
 
 # Don't diff or textually merge source maps
 *.map binary
+# Don't diff or textually merge svgs
+*.svg binary
 
 *.config.js linguist-detectable=false
 

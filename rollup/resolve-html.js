@@ -27,6 +27,8 @@ import htmlnano from "htmlnano"
  */
 
 /**
+ * Nothing special, just processes an html file and moves it to a directory
+ *
  * @param {{
  *     files?: [input: string, output: string][]
  *     shouldMinify?: boolean
