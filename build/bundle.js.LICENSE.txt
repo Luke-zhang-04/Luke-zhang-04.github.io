@@ -51,3 +51,28 @@ https://github.com/nolimits4web/Swiper.git
 
 Copyright (c) 2019 Vladimir Kharlampidi
 ===
+
+strict-uri-encode 2.0.0
+License: MIT
+Kevin Mårtensson <kevinmartensson@gmail.com> (github.com/kevva)
+===
+
+decode-uri-component 0.2.0
+License: MIT
+Sam Verschueren <sam.verschueren@gmail.com> (github.com/SamVerschueren)
+===
+
+split-on-first 1.1.0
+License: MIT
+Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+===
+
+filter-obj 1.1.0
+License: MIT
+Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+===
+
+query-string 7.0.0
+License: MIT
+Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+===
