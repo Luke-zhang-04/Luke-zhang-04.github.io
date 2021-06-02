@@ -44,10 +44,9 @@
   </head>
 
   <script>
-    // prettier-ignore
-    const path = window.location.pathname.slice(1);
-    // prettier-ignore
-    window.location.href = window.location.origin + "/?redirect=" + encodeURIComponent(path);
+    const pathname = window.location.pathname.slice(1)
+
+    window.location.href = window.location.origin + "/?redirect=" + encodeURIComponent(pathname)
   </script>
 
   <noscript>You need to enable Javascript to use this site</noscript>

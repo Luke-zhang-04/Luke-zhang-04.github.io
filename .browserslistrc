@@ -1,6 +1,10 @@
-defaults
+# defaults
 
-not IE >= 0
-not IE_mob >= 0
-> 3%
-not dead
+# not IE >= 0
+# not IE_mob >= 0
+# > 3%
+# not dead
+
+last 1 chrome version
+last 1 firefox version
+last 1 safari version

@@ -1,15 +1,19 @@
+import * as childProcess from "child_process"
+import * as fs from "fs"
 import * as path from "path"
 import * as url from "url"
 import alias from "@rollup/plugin-alias"
 import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
-import css from "rollup-plugin-css-only"
 import filesize from "rollup-plugin-filesize"
+import html from "@rollup/plugin-html"
 import license from "rollup-plugin-license"
 import livereload from "rollup-plugin-livereload"
+import htmlnano from "htmlnano"
 import progress from "rollup-plugin-progress"
 import replace from "@rollup/plugin-replace"
 import resolve from "@rollup/plugin-node-resolve"
+import resolveHtml from "./rollup/resolve-html"
 import sass from "sass"
 import scss from "rollup-plugin-scss"
 import svelte from "rollup-plugin-svelte"
@@ -18,17 +22,21 @@ import visualizer from "rollup-plugin-visualizer"
 import {terser} from "rollup-plugin-terser"
 import typescript from "@rollup/plugin-typescript"
 
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const production = !process.env.ROLLUP_WATCH
-const processEnv = {
-    NODE_ENV: production ? "production" : "development",
-}
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
+const processEnv = {NODE_ENV: production ? "production" : "development"}
+const hash = production ? String(childProcess.execSync("git rev-parse --short HEAD")).trim() : ""
+const outDir = production ? "build" : "public"
 const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
 Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 ===
 
 `
+
+if (production) {
+    fs.rmSync("build/static", {recursive: true, force: true})
+}
 
 /**
  * @param {import("rollup-plugin-license").Dependency} dep - Dependency
@@ -46,7 +54,7 @@ const dependencyToString = (dep) => {
         )
     } else if (dep.homepage) {
         lines.push(dep.homepage)
-    } else if (dep.hor) {
+    } else if (dep.author) {
         lines.push(dep.author.text())
     }
 
@@ -91,8 +99,10 @@ const config = {
     output: {
         sourcemap: true,
         format: "iife",
-        file: "public/build/bundle.js",
-        banner: "/*! For license information please see build/bundle.js.LICENSE.txt */\n",
+        // file: production ? `${outDir}/bundle.${hash}.js` : `${outDir}/bundle.js`,
+        dir: outDir,
+        entryFileNames: production ? `static/js/bundle.${hash}.js` : "build/bundle.js",
+        banner: `/*! For license information please see static/js/bundle.${hash}.js.LICENSE.txt */\n`,
     },
     onwarn: (warning, defaultHandler) => {
         if (
@@ -139,10 +149,10 @@ const config = {
 
         // we'll extract any component CSS out into
         // a separate file - better for performance
-        css({output: "bundle.css"}),
-
         scss({
-            output: "public/build/bootstrap.css",
+            output: production
+                ? `${outDir}/static/css/bundle.${hash}.css`
+                : `${outDir}/build/bundle.css`,
             outputStyle: production ? "compressed" : "expanded",
             sass,
         }),
@@ -167,23 +177,23 @@ const config = {
         // browser on changes when not in production
         !production && livereload("public"),
 
-        production &&
-            babel({
-                babelrc: false,
-                babelHelpers: "bundled",
-                presets: [
-                    [
-                        "@babel/preset-env",
-                        {
-                            useBuiltIns: "usage",
-                            corejs: 3,
-                        },
-                    ],
-                ],
-                minified: false,
-                comments: true,
-                sourceMaps: true,
-            }),
+        // production &&
+        //     babel({
+        //         babelrc: false,
+        //         babelHelpers: "bundled",
+        //         presets: [
+        //             [
+        //                 "@babel/preset-env",
+        //                 {
+        //                     useBuiltIns: "usage",
+        //                     corejs: 3,
+        //                 },
+        //             ],
+        //         ],
+        //         minified: false,
+        //         comments: true,
+        //         sourceMaps: true,
+        //     }),
 
         production &&
             license({
@@ -195,7 +205,7 @@ const config = {
                             (deps.length > 0
                                 ? deps.map((dep) => dependencyToString(dep)).join("\n")
                                 : "No third parties dependencies"),
-                        file: "public/build/bundle.js.LICENSE.txt",
+                        file: `${outDir}/static/js/bundle.${hash}.js.LICENSE.txt`,
                         encoding: "utf-8",
                     },
                 },
@@ -203,12 +213,12 @@ const config = {
 
         // If we're building for production (npm run build
         // instead of npm run dev), minify
-        production &&
-            terser({
-                format: {
-                    comments: /For license information/u,
-                },
-            }),
+        // production &&
+        //     terser({
+        //         format: {
+        //             comments: /For license information/u,
+        //         },
+        // }),
 
         production && filesize({showMinifiedSize: false}),
 
@@ -216,6 +226,32 @@ const config = {
             visualizer({
                 filename: "analysis/index.html",
                 template: "treemap",
+            }),
+
+        production &&
+            html({
+                template: async ({files}) => {
+                    const script = (files.js ?? [])
+                        .map(({fileName}) => `<script defer src="${fileName}"></script>`)
+                        .join("\n")
+
+                    const css = `<link rel="stylesheet" href="static/css/bundle.${hash}.css"/>`
+
+                    const contents = (await fs.promises.readFile("./public/index.html", "utf-8"))
+                        .replace(/[\s\S].*<( )*link .*href="build\/bundle.css".*>.*[\s\S]/u, css)
+                        .replace(
+                            /[\s\S].*<( )*script .*src="build\/bundle.js".*>.*[\s\S]/u,
+                            script,
+                        )
+
+                    return production ? (await htmlnano.process(contents)).html : contents
+                },
+            }),
+
+        production &&
+            resolveHtml({
+                files: [["./public/404.html", "./build/404.html"]],
+                shouldMinify: true,
             }),
     ],
     watch: {
