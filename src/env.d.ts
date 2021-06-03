@@ -71,7 +71,13 @@ declare module "*.gif" {
     export default url
 }
 
-declare module "*.jp(e)?g" {
+declare module "*.jpg" {
+    const url: string
+
+    export default url
+}
+
+declare module "*.jepg" {
     const url: string
 
     export default url
@@ -81,4 +87,20 @@ declare module "*.webp" {
     const url: string
 
     export default url
+}
+
+declare module "*.yml" {
+    type YAMLValues = string | number | boolean | null | YAMLValues[] | {[key: string]: YAMLValues}
+
+    const content: YAMLValues
+
+    export = content
+}
+
+declare module "*.yaml" {
+    type YAMLValues = string | number | boolean | null | YAMLValues[] | {[key: string]: YAMLValues}
+
+    const content: YAMLValues
+
+    export = content
 }

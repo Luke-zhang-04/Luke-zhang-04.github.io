@@ -9,7 +9,7 @@ import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 import filesize from "rollup-plugin-filesize"
 import html from "@rollup/plugin-html"
-import rollupUrl from "./rollup/resolve-file"
+import json from "@rollup/plugin-json"
 import license from "rollup-plugin-license"
 import livereload from "rollup-plugin-livereload"
 import htmlnano from "htmlnano"
@@ -17,6 +17,7 @@ import progress from "rollup-plugin-progress"
 import replace from "@rollup/plugin-replace"
 import resolve from "@rollup/plugin-node-resolve"
 import resolveHtml from "./rollup/resolve-html"
+import rollupUrl from "./rollup/resolve-file"
 import sass from "sass"
 import scss from "rollup-plugin-scss"
 import svelte from "rollup-plugin-svelte"
@@ -24,6 +25,7 @@ import sveltePreprocess from "svelte-preprocess"
 import visualizer from "rollup-plugin-visualizer"
 import {terser} from "rollup-plugin-terser"
 import typescript from "@rollup/plugin-typescript"
+import yaml from "@rollup/plugin-yaml"
 
 const production = !process.env.ROLLUP_WATCH
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
@@ -186,6 +188,14 @@ const config = {
         }),
         commonjs(),
         progress(),
+
+        // Resolve JSON and YAML files
+        json({
+            indent: "  ",
+            namedExports: false,
+            preferConst: true,
+        }),
+        yaml(),
 
         // Resolve images with hashes and their URLs
         rollupUrl({
