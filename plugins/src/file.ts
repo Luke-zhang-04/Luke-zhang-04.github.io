@@ -12,36 +12,37 @@ import {promises as fs} from "fs"
 import mime from "mime"
 import {optimize} from "svgo"
 import path from "path"
+import type {PluginFunc} from "./types"
 
-/**
- * @param {string} algo
- * @param {stirng} contents
- * @param {crypto.BinaryToTextEncoding} format
- */
-const hash = (algo, contents, format = "hex") =>
-    crypto.createHash(algo).update(contents).digest(format)
+const hash = (
+    algo: string,
+    contents: string | Buffer,
+    format: crypto.BinaryToTextEncoding = "hex",
+) => crypto.createHash(algo).update(contents).digest(format)
 
 const {posix, sep} = path
 const defaultInclude = ["**/*.svg", "**/*.png", "**/*.jp(e)?g", "**/*.gif", "**/*.webp"]
 
+type RollupUrlOptions = {
+    exclude?: null | string | string[]
+    include?: string | string[]
+    limit?: number
+    publicPath?: string
+    emitFiles?: boolean
+    fileName?: string
+    hashLen?: number
+    sourceDir?: string
+    destDir?: string
+    minifySvg?: boolean
+    minifySvgOptions?: import("svgo").OptimizeOptions
+}
+
 /**
- * @param {{
- *     exclude?: null | string | string[]
- *     include?: string | string[]
- *     limit?: number
- *     publicPath?: string
- *     emitFiles?: boolean
- *     fileName?: string
- *     hashLen?: number
- *     sourceDir?: string
- *     destDir?: string
- *     minifySvg?: boolean
- *     minifySvgOptions?: import("svgo").OptimizeOptions
- * }} options
- * @returns
+ * Improved Version of @rollup/plugin-url with configurable hash length and svg minification
+ *
  * @see {@link https://github.com/rollup/plugins/tree/master/packages/url}
  */
-const url = (options = {}) => {
+const url: PluginFunc<RollupUrlOptions> = (options = {}) => {
     const {
         limit = 14 * 1024,
         include = defaultInclude,
@@ -55,11 +56,7 @@ const url = (options = {}) => {
     } = options
 
     const filter = createFilter(include, exclude)
-
-    /**
-     * @type {{[key: string]: string}}
-     */
-    const copies = Object.create(null)
+    const copies: {[key: string]: string} = Object.create(null)
 
     return {
         name: "url",
@@ -68,11 +65,7 @@ const url = (options = {}) => {
                 return null
             }
             const [stats, buffer] = await Promise.all([fs.stat(id), fs.readFile(id)])
-
-            /**
-             * @type {string}
-             */
-            let data
+            let data: string
 
             if ((limit && stats.size > limit) || limit === 0) {
                 const checksum = hash("sha384", buffer, "hex").slice(0, hashLen)
@@ -111,14 +104,14 @@ const url = (options = {}) => {
             // Allow skipping saving files for server side builds.
             if (!emitFiles) return
 
-            const base = options.destDir || outputOptions.dir || path.dirname(outputOptions.file)
+            const base =
+                options.destDir ?? outputOptions.dir ?? path.dirname(outputOptions.file ?? "")
 
             await fs.mkdir(base, {recursive: true})
 
             await Promise.all(
-                Object.keys(copies).map(async (name) => {
+                Object.entries(copies).map(async ([name, output]) => {
                     // Create a nested directory if the fileName pattern contains a directory structure
-                    const output = copies[name]
                     const outputDirectory = path.join(base, path.dirname(output))
 
                     await fs.mkdir(outputDirectory, {recursive: true})
@@ -140,7 +133,7 @@ const url = (options = {}) => {
 }
 
 // https://github.com/filamentgroup/directory-encoder/blob/master/lib/svg-uri-encoder.js
-const encodeSVG = (buffer) =>
+const encodeSVG = (buffer: Buffer) =>
     encodeURIComponent(
         buffer
             .toString("utf-8")
