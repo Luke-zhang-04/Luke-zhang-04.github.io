@@ -5,7 +5,7 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
-    import Fuse from "fuse.js"
+    import Fuse from "fuse.js/dist/fuse.basic.esm"
     import Grid from "./internal/grid.svelte"
     import Spinner from "~/components/spinner"
     import {projectData} from "~/globals"

@@ -41,6 +41,12 @@ declare module "svelte-routing/src/history" {
     export const navigate: ReturnType<typeof createHistory>["navigate"]
 }
 
+declare module "fuse.js/dist/fuse.basic.esm" {
+    const mod: typeof import("fuse.js")
+
+    export = mod
+}
+
 declare module "swiper/swiper.esm" {
     const mod: typeof import("swiper/core")
 
