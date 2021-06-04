@@ -7,6 +7,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <script lang="ts">
     import {createEventDispatcher} from "svelte"
     import defaultImage from "./default.svg"
+    import {onDestroy} from "svelte"
 
     const dispatch =
         createEventDispatcher<{
@@ -44,6 +45,8 @@ Copyright (C) 2020 - 2021 Luke Zhang
     }
 
     const {class: className} = $$props
+
+    onDestroy(() => (images = []))
 </script>
 
 {#if !didLoad}

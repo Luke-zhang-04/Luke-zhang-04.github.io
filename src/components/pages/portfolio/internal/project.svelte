@@ -20,14 +20,25 @@ Copyright (C) 2020 - 2021 Luke Zhang
     export let name: string
     export let id: string
     export let imgUrl: string
+
+    let didLoadImages = false
 </script>
 
 <Modal {...{date, description, links, lang, name, id}} />
 <div class="col-12 col-md-6 col-lg-3 project-card">
     <figure>
-        <Img src={imgUrl} alt={`${name} cover`} shouldUseDefault={false}>
-            <Spinner color="primary" size="20vw" centered />
-        </Img>
+        {#if didLoadImages}
+            <img src={imgUrl} alt="{name} cover" />
+        {:else}
+            <Img
+                src={imgUrl}
+                alt="{name} cover"
+                shouldUseDefault={false}
+                on:load={() => (didLoadImages = true)}
+            >
+                <Spinner color="primary" size="20vw" centered />
+            </Img>
+        {/if}
         <div class="card-overlay" />
         <figcaption class="text-center">
             <h1>{name}</h1>
