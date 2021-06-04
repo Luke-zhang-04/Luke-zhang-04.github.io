@@ -155,7 +155,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 </style>
 
 <script lang="ts">
-    import {onMount, onDestroy} from "svelte"
+    import {onDestroy, onMount} from "svelte"
     import {Link} from "svelte-routing"
     import {globalHistory} from "svelte-routing/src/history"
     import logo from "./logo.png"

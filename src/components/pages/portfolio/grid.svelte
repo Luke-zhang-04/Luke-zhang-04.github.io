@@ -9,6 +9,11 @@ Copyright (C) 2020 - 2021 Luke Zhang
     import Project from "./internal/project.svelte"
     import Spinner from "~/components/spinner"
     import {projectData} from "~/globals"
+
+    const searchOptions: Fuse.IFuseOptions<Store> = {
+        keys: ["location", "name"],
+        shouldSort: true,
+    }
 </script>
 
 {#await projectData}

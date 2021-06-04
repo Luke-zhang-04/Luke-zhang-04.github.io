@@ -5,4 +5,4 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
-export {default} from "./index.svelte"
+export {default} from "./home.svelte"
