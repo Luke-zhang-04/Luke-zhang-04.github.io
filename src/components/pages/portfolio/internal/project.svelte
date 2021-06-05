@@ -51,8 +51,8 @@ Copyright (C) 2020 - 2021 Luke Zhang
             <div class="project-btn-container">
                 <button
                     class="btn btn-pill-primary"
-                    data-toggle="modal"
-                    data-target={`#modal-${modalId}`}
+                    data-bs-toggle="modal"
+                    data-bs-target={`#modal-${modalId}`}
                 >
                     More Info <span class="material-icons">chevron_right</span>
                 </button>
