@@ -5,9 +5,8 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
-    import {createEventDispatcher} from "svelte"
+    import {createEventDispatcher, onDestroy} from "svelte"
     import defaultImage from "./default.svg"
-    import {onDestroy} from "svelte"
 
     const dispatch =
         createEventDispatcher<{

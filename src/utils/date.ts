@@ -13,15 +13,22 @@
  * @returns Time difference
  */
 export const timeDifference = (start: number, end?: number) => {
-    const msPerMinute = 60 * 1000
-    const msPerHour = msPerMinute * 60
-    const msPerDay = msPerHour * 24
-    const msPerMonth = msPerDay * 30
-    const msPerYear = msPerDay * 365
+    const minute = 60
+    const minsPerHour = 60
+    const msPerSecond = 1000
+    const hoursPerDay = 24
+    const daysPerMonth = 30
+    const daysPerYear = 365
+
+    const msPerMinute = minute * msPerSecond
+    const msPerHour = msPerMinute * minsPerHour
+    const msPerDay = msPerHour * hoursPerDay
+    const msPerMonth = msPerDay * daysPerMonth
+    const msPerYear = msPerDay * daysPerYear
     const elapsed = end === undefined ? Date.now() - start : start - end
 
     if (elapsed < msPerMinute) {
-        const seconds = Math.round(elapsed / 1000)
+        const seconds = Math.round(elapsed / msPerSecond)
 
         return `${seconds} second${seconds === 1 ? "" : "s"} ago`
     } else if (elapsed < msPerHour) {
