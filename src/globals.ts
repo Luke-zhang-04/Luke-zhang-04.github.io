@@ -31,20 +31,20 @@ export const pages: {name: string; displayName: string; href: string; isExternal
 export interface ProjectData {
     date: number
     description: string
-    shortDescription: string
     file: string
-    links: {
-        GitHub?: string
-        PyPi?: string
-        NPM?: string
-        live?: string
-        marketplace?: string
-    }
-    tags: string[]
     lang: {
         name: string
         colour: string
     }
+    links: {
+        github: string
+        pypi?: string
+        npm?: string
+        live?: string
+        marketplace?: string
+    }
+    shortDescription: string
+    tags: string[]
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
@@ -86,7 +86,7 @@ type LinkData = {
 
 export const linkData: LinkData[] = [
     {
-        key: "GitHub",
+        key: "github",
         text: "Source",
         icon: ["material-icons", "code"],
         color: "dark",
@@ -104,13 +104,13 @@ export const linkData: LinkData[] = [
         color: "primary",
     },
     {
-        key: "PyPi",
+        key: "pypi",
         text: "PyPi",
         icon: ["fontawesome", "fab fa-python"],
         color: "primary",
     },
     {
-        key: "NPM",
+        key: "npm",
         text: "NPM",
         icon: ["fontawesome", "fab fa-npm"],
         color: "danger",
