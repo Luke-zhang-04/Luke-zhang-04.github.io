@@ -24,13 +24,6 @@ Emil Tholin @EmilTholin
 Copyright (c) 2017 EmilTholin
 ===
 
-tslib 2.2.0
-License: 0BSD
-https://github.com/Microsoft/tslib.git
-
-Copyright (c) Microsoft Corporation.
-===
-
 ssr-window 3.0.0
 License: MIT
 https://github.com/nolimits4web/ssr-window.git
@@ -50,6 +43,34 @@ License: MIT
 https://github.com/nolimits4web/Swiper.git
 
 Copyright (c) 2019 Vladimir Kharlampidi
+===
+
+tslib 2.2.0
+License: 0BSD
+https://github.com/Microsoft/tslib.git
+
+Copyright (c) Microsoft Corporation.
+===
+
+fuse.js 6.4.6
+License: Apache-2.0
+https://github.com/krisk/Fuse.git
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+===
+
+svelte-markdown 0.1.8
+License: MIT
+https://github.com/pablo-abc/svelte-markdown
+
+Copyright (c) 2020 Pablo Berganza
+===
+
+marked 2.0.7
+License: MIT
+https://marked.js.org
+
+Copyright (c) 2018+, MarkedJS (https://github.com/markedjs/)
 ===
 
 strict-uri-encode 2.0.0
