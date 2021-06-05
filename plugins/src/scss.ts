@@ -58,10 +58,10 @@ let sassRenderer: SassRenderer | undefined = undefined
 
 const loadSassLibrary = async (): Promise<SassRenderer> => {
     try {
-        return sassRenderer ??= await import("sass")
+        return (sassRenderer ??= await import("sass"))
     } catch {
         // @ts-expect-error
-        return sassRenderer = await import("node-sass")
+        return (sassRenderer = await import("node-sass"))
     }
 }
 
@@ -82,7 +82,7 @@ const scss: PluginFunc<CSSPluginOptions> = (options = {}) => {
         // Compile SASS to CSS
         if (scss.length) {
             includePaths = includePaths.filter((v, i, a) => a.indexOf(v) === i)
-            
+
             try {
                 const sass = options.sass || (await loadSassLibrary())
 

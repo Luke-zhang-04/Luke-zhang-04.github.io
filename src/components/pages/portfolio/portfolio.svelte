@@ -31,7 +31,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 
     let allProjects: Project[] = []
     let projects: Project[] = []
-    let allTags = new Set(["all"])
+    const allTags = new Set(["all"])
     let currentTag = "all"
 
     projectData.then((_projects) => {
