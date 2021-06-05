@@ -144,6 +144,12 @@ const config = {
                 },
             ],
         }),
+        typescript({
+            tsconfig: "./tsconfig.json",
+            sourceMap: true,
+            inlineSources: true,
+            target: production ? undefined : "ESNext",
+        }),
         svelte({
             preprocess: [sveltePreprocess({sourceMap: true})],
             compilerOptions: {
@@ -152,12 +158,6 @@ const config = {
                 hydratable: true,
                 sourcemap: true,
             },
-        }),
-        typescript({
-            tsconfig: "./tsconfig.json",
-            sourceMap: true,
-            inlineSources: true,
-            target: production ? undefined : "ESNext",
         }),
 
         // Replace process.env.NODE_ENV

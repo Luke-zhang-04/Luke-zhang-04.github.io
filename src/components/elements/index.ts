@@ -6,4 +6,3 @@
  */
 
 export {default as Image} from "./image.svelte"
-export {default as MaybeLink} from "./maybeLink.svelte"

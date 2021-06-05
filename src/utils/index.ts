@@ -6,6 +6,7 @@
  */
 
 export * as crypto from "./crypto"
+export * as date from "./date"
 export * as firebase from "./firebase"
 
 export const getImageUrl = (filename: string): string =>

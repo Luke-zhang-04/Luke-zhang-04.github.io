@@ -38,6 +38,7 @@ export interface ProjectData {
         PyPi?: string
         NPM?: string
         live?: string
+        marketplace?: string
     }
     tags: string[]
     lang: {

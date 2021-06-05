@@ -25,8 +25,10 @@ Copyright (C) 2020 - 2021 Luke Zhang
 </style>
 
 <script lang="ts">
-    import {MaybeLink} from "~/components/elements"
+    import * as utils from "~/utils"
     import type {ProjectData} from "~/globals"
+    import SvelteMarkdown from "svelte-markdown"
+    import linkData from "./linkData"
 
     export let date: ProjectData["date"]
     export let description: ProjectData["description"]
@@ -36,7 +38,6 @@ Copyright (C) 2020 - 2021 Luke Zhang
     export let id: string
 
     const projectAgeThreshold = 15_778_476_000 // 0.5 years in ms
-    const msPerDay = 86_400_000
 
     const isProjectOld = (timestamp: number): boolean =>
         Date.now() - timestamp > projectAgeThreshold
@@ -54,13 +55,13 @@ Copyright (C) 2020 - 2021 Luke Zhang
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" />
             </div>
             <div class="modal-body">
-                {description}
+                <SvelteMarkdown source={description} />
                 {#if isProjectOld(date)}
                     <hr />
                     <p>
-                        Note: this project was last modified{" "}
-                        {Math.round((Date.now() - date) / msPerDay)} days ago. Some of the programming
-                        in this project may be old and filled with bad practice. I am aware of this.
+                        Note: this project was last modified {utils.date.timeDifference(date)}.
+                        Some of the programming in this project may be old and filled with bad
+                        practice.
                     </p>
                 {/if}
                 <hr class="d-block d-md-none" />
@@ -80,20 +81,26 @@ Copyright (C) 2020 - 2021 Luke Zhang
                     </div>
                 </div>
                 <div class="col-12 col-md-9 d-flex justify-content-end pe-3 button-container">
-                    <MaybeLink class="btn btn-pill-dark mx-1" href={links.GitHub}>
-                        Source <span class="material-icons">code</span>
-                    </MaybeLink>
-                    <MaybeLink class="btn btn-pill-success mx-1" href={links.live}>
-                        <span class="expand">Live</span>
-                        <span class="material-icons">visibility</span>
-                    </MaybeLink>
-                    <MaybeLink class="btn btn-pill-primary mx-1" href={links.PyPi}>
-                        <span class="expand">PyPi</span>
-                        <i class="fab fa-python" />
-                    </MaybeLink>
-                    <MaybeLink class="btn btn-pill-danger mx-1" href={links.NPM}>
-                        <span class="expand">NPM</span>
-                    </MaybeLink>
+                    {#each linkData as link}
+                        {#if links[link.key]}
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={links[link.key]}
+                                class="btn btn-pill-{link.color ?? 'primary'} mx-1"
+                            >
+                                {link.text}
+                                {#if link.icon}
+                                    {" "}
+                                    {#if link.icon[0] === "material-icons"}
+                                        <span class="material-icons">{link.icon[1]}</span>
+                                    {:else}
+                                        <i class={link.icon[1]} />
+                                    {/if}
+                                {/if}
+                            </a>
+                        {/if}
+                    {/each}
                 </div>
             </div>
         </div>

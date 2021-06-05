@@ -1,0 +1,48 @@
+/**
+ * Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+ *
+ * @license BSD-3-Clause
+ * @copyright (C) 2020 - 2021 Luke Zhang
+ */
+
+/**
+ * Calculates elapsed time between current and previous
+ *
+ * @param start - Start time
+ * @param end - End time. If none given, start becomes Date.now(), and end becomes start
+ * @returns Time difference
+ */
+export const timeDifference = (start: number, end?: number) => {
+    const msPerMinute = 60 * 1000
+    const msPerHour = msPerMinute * 60
+    const msPerDay = msPerHour * 24
+    const msPerMonth = msPerDay * 30
+    const msPerYear = msPerDay * 365
+    const elapsed = end === undefined ? Date.now() - start : start - end
+
+    if (elapsed < msPerMinute) {
+        const seconds = Math.round(elapsed / 1000)
+
+        return `${seconds} second${seconds === 1 ? "" : "s"} ago`
+    } else if (elapsed < msPerHour) {
+        const minutes = Math.round(elapsed / msPerMinute)
+
+        return `${minutes} minute${minutes === 1 ? "" : "s"} ago`
+    } else if (elapsed < msPerDay) {
+        const hours = Math.round(elapsed / msPerHour)
+
+        return `${hours} hour${hours === 1 ? "" : "s"} ago`
+    } else if (elapsed < msPerMonth) {
+        const days = Math.round(elapsed / msPerDay)
+
+        return `about ${days} day${days === 1 ? "" : "s"} ago`
+    } else if (elapsed < msPerYear) {
+        const months = Math.round(elapsed / msPerMonth)
+
+        return `about ${months} month${months === 1 ? "" : "s"} ago`
+    }
+
+    const years = Math.round(elapsed / msPerYear)
+
+    return `about ${years} year${years === 1 ? "" : "s"} ago`
+}

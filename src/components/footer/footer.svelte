@@ -43,7 +43,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://github.com/Luke-zhang-04" {...linkProps}>GitHub</a>
+                        <a href="https://github.com/Luke-zhang-04" {...linkProps}>Github</a>
                     </li>
                     <li>
                         <a href="mailto:Luke.zhang2004@gmail.com" {...linkProps}>Email</a>
