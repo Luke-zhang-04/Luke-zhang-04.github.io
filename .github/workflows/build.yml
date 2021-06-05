@@ -22,5 +22,8 @@ jobs:
       - name: prettier check
         run: yarn prettier . --check
 
+      - name: build rollup plugins
+        run: yarn workspace rollup-plugins build
+
       - name: build
         run: yarn build

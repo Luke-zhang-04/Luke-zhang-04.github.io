@@ -5,4 +5,4 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
-export {default as Grid} from "./grid.svelte"
+export {default as Grid} from "./portfolio.svelte"

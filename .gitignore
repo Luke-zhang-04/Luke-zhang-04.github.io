@@ -131,3 +131,4 @@ public/js
 .vscode
 public/build
 analysis/
+lib

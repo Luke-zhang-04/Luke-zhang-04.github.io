@@ -5,10 +5,10 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
+    import {Home, NotFound, Portfolio} from "./pages"
     import {Route, Router} from "svelte-routing"
     import {onDestroy, onMount} from "svelte"
     import Footer from "./components/footer"
-    import {Home, NotFound, Portfolio} from "./pages"
     import Navbar from "./components/navbar"
     import {globalHistory} from "svelte-routing/src/history"
     import {parse as parseQs} from "query-string"

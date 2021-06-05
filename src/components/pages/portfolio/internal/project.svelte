@@ -12,6 +12,8 @@ Copyright (C) 2020 - 2021 Luke Zhang
     import type {ProjectData} from "~/globals"
     import Spinner from "~/components/spinner"
 
+    const idLen = 7
+
     export let date: ProjectData["date"]
     export let description: ProjectData["description"]
     export let shortDescription: ProjectData["shortDescription"]
@@ -20,14 +22,28 @@ Copyright (C) 2020 - 2021 Luke Zhang
     export let name: string
     export let id: string
     export let imgUrl: string
+
+    let didLoadImages = false
+    let modalId = ""
+
+    $: modalId = id.slice(0, idLen)
 </script>
 
-<Modal {...{date, description, links, lang, name, id}} />
+<Modal {...{date, description, links, lang, name}} id={modalId} />
 <div class="col-12 col-md-6 col-lg-3 project-card">
     <figure>
-        <Img src={imgUrl} alt={`${name} cover`} shouldUseDefault={false}>
-            <Spinner color="primary" size="20vw" centered />
-        </Img>
+        {#if didLoadImages}
+            <img src={imgUrl} alt="{name} cover" />
+        {:else}
+            <Img
+                src={imgUrl}
+                alt="{name} cover"
+                shouldUseDefault={false}
+                on:load={() => (didLoadImages = true)}
+            >
+                <Spinner color="primary" size="20vw" centered />
+            </Img>
+        {/if}
         <div class="card-overlay" />
         <figcaption class="text-center">
             <h1>{name}</h1>
@@ -35,8 +51,8 @@ Copyright (C) 2020 - 2021 Luke Zhang
             <div class="project-btn-container">
                 <button
                     class="btn btn-pill-primary"
-                    data-toggle="modal"
-                    data-target={`#modal-${id}`}
+                    data-bs-toggle="modal"
+                    data-bs-target={`#modal-${modalId}`}
                 >
                     More Info <span class="material-icons">chevron_right</span>
                 </button>

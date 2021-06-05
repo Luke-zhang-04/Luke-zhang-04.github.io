@@ -1,24 +1,21 @@
 // Configure the project yourself they said, it'll be easy they said
-import * as childProcess from "child_process"
 import * as fs from "fs"
 import * as fse from "fs-extra"
 import * as path from "path"
 import * as url from "url"
+import {html as resolveHtml, file as rollupUrl, scss, yaml} from "./plugins/lib/index"
 import alias from "@rollup/plugin-alias"
 import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 import filesize from "rollup-plugin-filesize"
 import html from "@rollup/plugin-html"
-import rollupUrl from "./rollup/url"
 import license from "rollup-plugin-license"
 import livereload from "rollup-plugin-livereload"
 import htmlnano from "htmlnano"
 import progress from "rollup-plugin-progress"
 import replace from "@rollup/plugin-replace"
 import resolve from "@rollup/plugin-node-resolve"
-import resolveHtml from "./rollup/resolve-html"
 import sass from "sass"
-import scss from "rollup-plugin-scss"
 import svelte from "rollup-plugin-svelte"
 import sveltePreprocess from "svelte-preprocess"
 import visualizer from "rollup-plugin-visualizer"
@@ -29,9 +26,6 @@ const production = !process.env.ROLLUP_WATCH
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const processEnv = {NODE_ENV: production ? "production" : "development"}
 const hashLen = 7
-const hash = production // Grab the latest git commit hash and use that
-    ? String(childProcess.execSync("git rev-parse HEAD")).trim().slice(0, hashLen)
-    : ""
 const outDir = production ? "build" : "public"
 const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 License: BSD-3-Clause
@@ -40,8 +34,12 @@ Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 
 `
 
-// If production, delete the output directory contents and re-copy everything over
+if (!process.env.NODE_ENV) {
+    process.env.NODE_ENV = production ? "production" : "development"
+}
+
 if (production) {
+    // If production, delete the output directory contents and re-copy everything over
     fse.removeSync(outDir)
 
     for (const dir of fs.readdirSync(path.join(__dirname, "public"))) {
@@ -114,10 +112,16 @@ const config = {
     output: {
         sourcemap: true,
         format: "iife",
-        // file: production ? `${outDir}/bundle.${hash}.js` : `${outDir}/bundle.js`,
         dir: outDir,
-        entryFileNames: production ? `static/js/bundle.${hash}.js` : "build/bundle.js",
-        banner: `/*! For license information please see static/js/bundle.${hash}.js.LICENSE.txt */\n`,
+        entryFileNames: production ? `static/js/bundle.[hash].js` : "build/bundle.js",
+        assetFileNames: (asset) => {
+            if (/\.html$/.test(asset.name) && production) {
+                return "[name].[ext]"
+            }
+
+            return production ? `static/[ext]/[name].[hash].[ext]` : "build/bundle.[ext]"
+        },
+        banner: `/*! For license information please see static/js/bundle.js.LICENSE.txt */\n`,
     },
     onwarn: (warning, defaultHandler) => {
         // Suppress these warnings
@@ -140,20 +144,20 @@ const config = {
                 },
             ],
         }),
-        svelte({
-            preprocess: [sveltePreprocess({sourceMap: true})],
-            compilerOptions: {
-                // enable run-time checks when not in production
-                dev: !production,
-                hydratable: true,
-                sourcemap: true,
-            },
-        }),
         typescript({
             tsconfig: "./tsconfig.json",
             sourceMap: true,
             inlineSources: true,
             target: production ? undefined : "ESNext",
+        }),
+        svelte({
+            preprocess: [sveltePreprocess({sourceMap: true})],
+            compilerOptions: {
+                // enable run-time checks when not in production
+                dev: !production,
+                hydratable: false,
+                sourcemap: true,
+            },
         }),
 
         // Replace process.env.NODE_ENV
@@ -168,9 +172,7 @@ const config = {
         // we'll extract any component CSS out into
         // a separate file - better for performance
         scss({
-            output: production
-                ? `${outDir}/static/css/bundle.${hash}.css`
-                : `${outDir}/build/bundle.css`,
+            output: "bundle.css",
             outputStyle: production ? "compressed" : "expanded",
             sass,
         }),
@@ -186,6 +188,12 @@ const config = {
         }),
         commonjs(),
         progress(),
+
+        // Resolve JSON and YAML files
+        yaml({
+            namedExports: false,
+            compact: true,
+        }),
 
         // Resolve images with hashes and their URLs
         rollupUrl({
@@ -221,7 +229,7 @@ const config = {
                         },
                     ],
                 ],
-                minified: false,
+                minified: true,
                 comments: true,
                 sourceMaps: true,
             }),
@@ -238,7 +246,7 @@ const config = {
                             (deps.length > 0
                                 ? deps.map((dep) => dependencyToString(dep)).join("\n")
                                 : "No third parties dependencies"),
-                        file: `${outDir}/static/js/bundle.${hash}.js.LICENSE.txt`,
+                        file: `${outDir}/static/js/bundle.js.LICENSE.txt`,
                         encoding: "utf-8",
                     },
                 },
@@ -256,13 +264,6 @@ const config = {
         // Show filesize
         production && filesize({showMinifiedSize: false}),
 
-        // Emit a bundle analysis page
-        production &&
-            visualizer({
-                filename: "analysis/index.html",
-                template: "treemap",
-            }),
-
         // Process index.html and replace scripts with hashed names
         production &&
             html({
@@ -271,7 +272,9 @@ const config = {
                         .map(({fileName}) => `<script defer src="${fileName}"></script>`)
                         .join("\n")
 
-                    const css = `<link rel="stylesheet" href="static/css/bundle.${hash}.css"/>`
+                    const css = (files.css ?? [])
+                        .map(({fileName}) => `<link rel="stylesheet" href="${fileName}"/>`)
+                        .join("\n")
 
                     const contents = (await fs.promises.readFile("./public/index.html", "utf-8"))
                         .replace(/[\s\S].*<( )*link .*href="build\/bundle.css".*>.*[\s\S]/u, css)
@@ -287,8 +290,16 @@ const config = {
         // Resolve 404.html
         production &&
             resolveHtml({
-                files: [["./public/404.html", "./build/404.html"]],
+                files: [["./public/404.html", "404.html"]],
                 shouldMinify: true,
+            }),
+
+        // Emit a bundle analysis page
+        production &&
+            visualizer({
+                filename: "analysis/index.html",
+                template: "treemap",
+                sourcemap: true,
             }),
     ],
     watch: {

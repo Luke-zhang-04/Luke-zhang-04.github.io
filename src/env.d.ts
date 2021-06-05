@@ -41,8 +41,14 @@ declare module "svelte-routing/src/history" {
     export const navigate: ReturnType<typeof createHistory>["navigate"]
 }
 
+declare module "fuse.js/dist/fuse.basic.esm" {
+    import * as mod from "fuse.js"
+
+    export = mod
+}
+
 declare module "swiper/swiper.esm" {
-    const mod: typeof import("swiper/core")
+    import * as mod from "swiper/core"
 
     export = mod
 }
@@ -71,7 +77,13 @@ declare module "*.gif" {
     export default url
 }
 
-declare module "*.jp(e)?g" {
+declare module "*.jpg" {
+    const url: string
+
+    export default url
+}
+
+declare module "*.jepg" {
     const url: string
 
     export default url
@@ -81,4 +93,20 @@ declare module "*.webp" {
     const url: string
 
     export default url
+}
+
+declare module "*.yml" {
+    type YAMLValues = string | number | boolean | null | YAMLValues[] | {[key: string]: YAMLValues}
+
+    const content: YAMLValues
+
+    export = content
+}
+
+declare module "*.yaml" {
+    type YAMLValues = string | number | boolean | null | YAMLValues[] | {[key: string]: YAMLValues}
+
+    const content: YAMLValues
+
+    export = content
 }
