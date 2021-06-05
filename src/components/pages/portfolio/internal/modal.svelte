@@ -31,6 +31,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 
 <script lang="ts">
     import * as utils from "~/utils"
+    import {Anchor} from "~/components/markdown"
     import type {ProjectData} from "~/globals"
     import SvelteMarkdown from "svelte-markdown"
     import {linkData} from "~/globals"
@@ -57,10 +58,18 @@ Copyright (C) 2020 - 2021 Luke Zhang
                     {"  "}
                     {name}
                 </h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" />
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                />
             </div>
             <div class="modal-body">
-                <SvelteMarkdown source={description.replace(/\\n/gu, "\n")} />
+                <SvelteMarkdown
+                    source={description.replace(/\\n/gu, "\n")}
+                    renderers={{link: Anchor}}
+                />
                 {#if isProjectOld(date)}
                     <hr />
                     <p>
