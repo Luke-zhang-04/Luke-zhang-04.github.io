@@ -12,6 +12,8 @@ Copyright (C) 2020 - 2021 Luke Zhang
     import type {ProjectData} from "~/globals"
     import Spinner from "~/components/spinner"
 
+    const idLen = 7
+
     export let date: ProjectData["date"]
     export let description: ProjectData["description"]
     export let shortDescription: ProjectData["shortDescription"]
@@ -22,9 +24,12 @@ Copyright (C) 2020 - 2021 Luke Zhang
     export let imgUrl: string
 
     let didLoadImages = false
+    let modalId = ""
+
+    $: modalId = id.slice(0, idLen)
 </script>
 
-<Modal {...{date, description, links, lang, name, id}} />
+<Modal {...{date, description, links, lang, name}} id={modalId} />
 <div class="col-12 col-md-6 col-lg-3 project-card">
     <figure>
         {#if didLoadImages}
@@ -47,7 +52,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
                 <button
                     class="btn btn-pill-primary"
                     data-toggle="modal"
-                    data-target={`#modal-${id}`}
+                    data-target={`#modal-${modalId}`}
                 >
                     More Info <span class="material-icons">chevron_right</span>
                 </button>

@@ -22,6 +22,11 @@ Copyright (C) 2020 - 2021 Luke Zhang
     .modal-footer .button-container {
         overflow-x: hidden;
     }
+
+    .modal-body {
+        overflow-y: scroll;
+        max-height: 75vh;
+    }
 </style>
 
 <script lang="ts">
@@ -55,7 +60,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" />
             </div>
             <div class="modal-body">
-                <SvelteMarkdown source={description} />
+                <SvelteMarkdown source={description.replace(/\\n/gu, "\n")} />
                 {#if isProjectOld(date)}
                     <hr />
                     <p>
