@@ -34,7 +34,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
         <div class="p-3 text-center mt-6 mt-md-0 title" slot="header">
             <div>
                 <h1>My Work</h1>
-                <Link to="portfolio.html" class="btn btn-outline-primary" id="see-all-btn">
+                <Link to="portfolio" class="btn btn-outline-primary" id="see-all-btn">
                     See all
                 </Link>
             </div>
