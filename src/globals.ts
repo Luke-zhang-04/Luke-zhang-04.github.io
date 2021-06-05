@@ -27,7 +27,6 @@ export const pages: {name: string; displayName: string; href: string; isExternal
     },
 ]
 
-/* eslint-disable @typescript-eslint/naming-convention */
 export interface ProjectData {
     date: number
     description: string
@@ -46,7 +45,6 @@ export interface ProjectData {
     shortDescription: string
     tags: string[]
 }
-/* eslint-enable @typescript-eslint/naming-convention */
 
 export interface Project extends ProjectData {
     imgUrl: string
