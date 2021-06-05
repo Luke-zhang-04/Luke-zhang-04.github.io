@@ -1425,7 +1425,7 @@
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.1.tgz#459c65fa1867dafe6a8f322c4c51695663cc55e9"
   integrity sha512-5tXH6Bx/kNGd3MgffdmP4dy2Z+G4eaXw0SE81Tq3BNadtnMR5/ySMzX4SLEzHJzSmPNn4HIdpQsBvXMUykr58w==
 
-"@types/marked@^2.0.3":
+"@types/marked@^2.0.0", "@types/marked@^2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/marked/-/marked-2.0.3.tgz#c8ea93684e530cc3b667d3e7226556dd0844ad1f"
   integrity sha512-lbhSN1rht/tQ+dSWxawCzGgTfxe9DB31iLgiT1ZVT5lshpam/nyOA1m3tKHRoNPctB2ukSL22JZI5Fr+WI/zYg==
@@ -6451,11 +6451,11 @@ svelte-check@^2.0.0:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
-svelte-markdown@^0.1.8:
+"svelte-markdown@https://github.com/Luke-zhang-04/svelte-markdown.git#9a7cef2b657c80fe59aebcc4d76f2f979fc777ae":
   version "0.1.8"
-  resolved "https://registry.yarnpkg.com/svelte-markdown/-/svelte-markdown-0.1.8.tgz#bd1b7f712de16a51a9afa0f1fd6f8a317a32ad86"
-  integrity sha512-QceqoS3LM3srpNzjB9EKfJYSCRLLmATdpqXuK7YoDj+Lnpbf7AhZ5Doq9OvNfOSFY00EJv8tT1j9QSFRubVe4A==
+  resolved "https://github.com/Luke-zhang-04/svelte-markdown.git#9a7cef2b657c80fe59aebcc4d76f2f979fc777ae"
   dependencies:
+    "@types/marked" "^2.0.0"
     marked "^2.0.0"
 
 svelte-preprocess@^4.0.0, svelte-preprocess@^4.7.3:
