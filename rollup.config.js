@@ -229,7 +229,7 @@ const config = {
                         },
                     ],
                 ],
-                minified: false,
+                minified: true,
                 comments: true,
                 sourceMaps: true,
             }),
@@ -264,13 +264,6 @@ const config = {
         // Show filesize
         production && filesize({showMinifiedSize: false}),
 
-        // Emit a bundle analysis page
-        production &&
-            visualizer({
-                filename: "analysis/index.html",
-                template: "treemap",
-            }),
-
         // Process index.html and replace scripts with hashed names
         production &&
             html({
@@ -299,6 +292,14 @@ const config = {
             resolveHtml({
                 files: [["./public/404.html", "404.html"]],
                 shouldMinify: true,
+            }),
+
+        // Emit a bundle analysis page
+        production &&
+            visualizer({
+                filename: "analysis/index.html",
+                template: "treemap",
+                sourcemap: true,
             }),
     ],
     watch: {
