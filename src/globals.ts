@@ -74,3 +74,45 @@ export const projectData: Promise<Project[]> = (async () => {
         }),
     )
 })()
+
+type LinkData = {
+    key: keyof ProjectData["links"]
+    text: string
+    icon?:
+        | [provider: "material-icons", name: string]
+        | [provider: "fontawesome", className: string]
+    color?: string
+}
+
+export const linkData: LinkData[] = [
+    {
+        key: "GitHub",
+        text: "Source",
+        icon: ["material-icons", "code"],
+        color: "dark",
+    },
+    {
+        key: "live",
+        text: "Live",
+        icon: ["material-icons", "visibility"],
+        color: "success",
+    },
+    {
+        key: "marketplace",
+        text: "VSCode Marketplace",
+        icon: ["material-icons", "store"],
+        color: "primary",
+    },
+    {
+        key: "PyPi",
+        text: "PyPi",
+        icon: ["fontawesome", "fab fa-python"],
+        color: "primary",
+    },
+    {
+        key: "NPM",
+        text: "NPM",
+        icon: ["fontawesome", "fab fa-npm"],
+        color: "danger",
+    },
+]

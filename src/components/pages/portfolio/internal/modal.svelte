@@ -28,7 +28,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
     import * as utils from "~/utils"
     import type {ProjectData} from "~/globals"
     import SvelteMarkdown from "svelte-markdown"
-    import linkData from "./linkData"
+    import {linkData} from "~/globals"
 
     export let date: ProjectData["date"]
     export let description: ProjectData["description"]
