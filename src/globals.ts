@@ -8,6 +8,10 @@
 import {crypto, getImageUrl} from "./utils"
 import {firestore, snapshotToArray} from "./utils/firebase"
 
+export const shouldUseLocalImages = true
+
+export {default as imageMap} from "./images"
+
 export const pages: {name: string; displayName: string; href: string; isExternal?: boolean}[] = [
     {
         name: "home",
