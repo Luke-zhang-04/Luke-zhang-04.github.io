@@ -163,14 +163,14 @@ Copyright (C) 2020 - 2021 Luke Zhang
             <Link
                 role="button"
                 class="btn-box-lg btn-box-primary d-lg-block d-none"
-                to="portfolio.html"
+                to="portfolio"
             >
                 My work
             </Link>
             <Link
                 role="button"
                 class="btn btn-outline-primary d-lg-none d-md-block d-sm-block"
-                to="portfolio.html"
+                to="portfolio"
             >
                 My Work
             </Link>
