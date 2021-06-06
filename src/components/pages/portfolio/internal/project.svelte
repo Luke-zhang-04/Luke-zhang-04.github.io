@@ -7,6 +7,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <style lang="scss" src="./project.scss"></style>
 
 <script lang="ts">
+    import {imageMap, shouldUseLocalImages} from "~/globals"
     import {Image as Img} from "~/components/elements"
     import Modal from "./modal.svelte"
     import type {ProjectData} from "~/globals"
@@ -33,10 +34,10 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <div class="col-12 col-md-6 col-lg-3 project-card">
     <figure>
         {#if didLoadImages}
-            <img src={imgUrl} alt="{name} cover" />
+            <img src={shouldUseLocalImages ? imageMap[name] : imgUrl} alt="{name} cover" />
         {:else}
             <Img
-                src={imgUrl}
+                src={shouldUseLocalImages ? imageMap[name] : imgUrl}
                 alt="{name} cover"
                 shouldUseDefault={false}
                 on:load={() => (didLoadImages = true)}

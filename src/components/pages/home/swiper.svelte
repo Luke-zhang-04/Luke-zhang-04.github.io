@@ -6,9 +6,9 @@ Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
     import {Slide, Swiper} from "~/components/swiper"
+    import {imageMap, projectData, shouldUseLocalImages} from "~/globals"
     import {Link} from "svelte-routing"
     import Spinner from "~/components/spinner"
-    import {projectData} from "~/globals"
 </script>
 
 {#await projectData}
@@ -40,8 +40,13 @@ Copyright (C) 2020 - 2021 Luke Zhang
             </div>
         </div>
         <svelte:fragment slot="slides">
-            {#each projects as {imgUrl}}
-                <Slide loading="lazy" style={`background-image: url(${imgUrl});`} />
+            {#each projects as {name, imgUrl}}
+                <Slide
+                    loading="lazy"
+                    style="background-image: url({shouldUseLocalImages
+                        ? imageMap[name]
+                        : imgUrl});"
+                />
             {/each}
         </svelte:fragment>
     </Swiper>
