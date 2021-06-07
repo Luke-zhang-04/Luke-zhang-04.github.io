@@ -37,7 +37,7 @@
     "prettier-plugin-svelte": "~2.3.0",
     "rollup": "^2.3.4",
     "rollup-plugin-filesize": "^9.1.1",
-    "rollup-plugin-license": "^2.4.0",
+    "rollup-plugin-license": "^2.5.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-scss": "^2.6.1",
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@animated-burgers/burger-squeeze": "^1.1.2",
-    "bootstrap": "^5.0.0-beta3",
+    "bootstrap": "^5.0.1",
     "fuse.js": "^6.4.6",
     "normalize.css": "^8.0.1",
     "query-string": "^7.0.0",

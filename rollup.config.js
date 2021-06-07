@@ -27,8 +27,10 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const processEnv = {NODE_ENV: production ? "production" : "development"}
 const hashLen = 7
 const outDir = production ? "build" : "public"
-const bannerComment = `Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+const bannerComment = `Luke Zhang's developer portfolio
 License: BSD-3-Clause
+https://Luke-zhang-04.github.io
+
 Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 ===
 
@@ -75,7 +77,12 @@ const dependencyToString = (dep) => {
         lines.push("")
         const depText = dep.licenseText.split("\n")
 
-        lines.push(depText.find((text) => /Copyright/.test(text)) ?? depText[0])
+        lines.push(
+            (
+                depText.find((text) => /[cC]opyright (\([cC]\) )?[0-9]{4}/u.test(text)) ??
+                depText[0]
+            ).trim(),
+        )
     }
 
     lines.push("===\n")
