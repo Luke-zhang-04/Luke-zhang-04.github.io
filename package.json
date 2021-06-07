@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@animated-burgers/burger-squeeze": "^1.1.2",
-    "bootstrap": "^5.0.0-beta3",
+    "bootstrap": "^5.0.1",
     "fuse.js": "^6.4.6",
     "normalize.css": "^8.0.1",
     "query-string": "^7.0.0",
