@@ -1,5 +1,7 @@
-Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
+Luke Zhang's developer portfolio
 License: BSD-3-Clause
+https://Luke-zhang-04.github.io
+
 Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 ===
 
@@ -56,7 +58,7 @@ fuse.js 6.4.6
 License: Apache-2.0
 https://github.com/krisk/Fuse.git
 
-   2. Grant of Copyright License. Subject to the terms and conditions of
+Copyright 2017 Kirollos Risk
 ===
 
 svelte-markdown 0.1.8
@@ -76,24 +78,34 @@ Copyright (c) 2018+, MarkedJS (https://github.com/markedjs/)
 strict-uri-encode 2.0.0
 License: MIT
 Kevin Mårtensson <kevinmartensson@gmail.com> (github.com/kevva)
+
+The MIT License (MIT)
 ===
 
 decode-uri-component 0.2.0
 License: MIT
 Sam Verschueren <sam.verschueren@gmail.com> (github.com/SamVerschueren)
+
+The MIT License (MIT)
 ===
 
 split-on-first 1.1.0
 License: MIT
 Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+MIT License
 ===
 
 filter-obj 1.1.0
 License: MIT
 Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+The MIT License (MIT)
 ===
 
 query-string 7.0.0
 License: MIT
 Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+
+MIT License
 ===
