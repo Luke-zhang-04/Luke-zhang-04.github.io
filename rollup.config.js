@@ -18,7 +18,6 @@ import resolve from "@rollup/plugin-node-resolve"
 import sass from "sass"
 import svelte from "rollup-plugin-svelte"
 import sveltePreprocess from "svelte-preprocess"
-import visualizer from "rollup-plugin-visualizer"
 import {terser} from "rollup-plugin-terser"
 import typescript from "@rollup/plugin-typescript"
 
@@ -299,14 +298,6 @@ const config = {
             resolveHtml({
                 files: [["./public/404.html", "404.html"]],
                 shouldMinify: true,
-            }),
-
-        // Emit a bundle analysis page
-        production &&
-            visualizer({
-                filename: "analysis/index.html",
-                template: "treemap",
-                sourcemap: true,
             }),
     ],
     watch: {
