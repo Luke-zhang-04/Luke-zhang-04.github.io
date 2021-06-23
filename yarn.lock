@@ -6451,9 +6451,10 @@ svelte-check@^2.0.0:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
-"svelte-markdown@https://github.com/Luke-zhang-04/svelte-markdown.git#9a7cef2b657c80fe59aebcc4d76f2f979fc777ae":
-  version "0.1.8"
-  resolved "https://github.com/Luke-zhang-04/svelte-markdown.git#9a7cef2b657c80fe59aebcc4d76f2f979fc777ae"
+svelte-markdown@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/svelte-markdown/-/svelte-markdown-0.1.9.tgz#b472185fb6a57cf3e20705a6fd7a3fe42457adf8"
+  integrity sha512-TcdPCD0wYhAggMF1wxIMk+3PllzkSikywvZrLi0C73IBeX3XEFg8NcTG61EvzdWd6j7QLcDzBZ2qTdCJYm1S5A==
   dependencies:
     "@types/marked" "^2.0.0"
     marked "^2.0.0"

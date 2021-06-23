@@ -58,7 +58,7 @@
     "fuse.js": "^6.4.6",
     "normalize.css": "^8.0.1",
     "query-string": "^7.0.0",
-    "svelte-markdown": "https://github.com/Luke-zhang-04/svelte-markdown.git#9a7cef2b657c80fe59aebcc4d76f2f979fc777ae",
+    "svelte-markdown": "^0.1.9",
     "svelte-routing": "^1.6.0",
     "swiper": "^6.7.0"
   },
