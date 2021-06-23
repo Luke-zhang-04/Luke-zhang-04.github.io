@@ -155,21 +155,14 @@ module.exports = {
         tsconfigRootDir: __dirname,
         sourceType: "module",
         project: ["./tsconfig.json"],
+        extraFileExtensions: [".svelte"],
     },
-    plugins: ["@typescript-eslint", "prefer-arrow"],
+    plugins: ["@typescript-eslint", "prefer-arrow", "svelte3"],
     rules,
     overrides: [
         {
             files: ["*.svelte"],
             parser: "@typescript-eslint/parser",
-            parserOptions: {
-                ecmaVersion: 2021,
-                sourceType: "module",
-                tsconfigRootDir: __dirname,
-                project: ["./tsconfig.json"],
-                extraFileExtensions: [".svelte"],
-            },
-            plugins: ["@typescript-eslint", "prefer-arrow", "svelte3"],
             processor: "svelte3/svelte3",
         },
     ],
