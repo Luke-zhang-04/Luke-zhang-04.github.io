@@ -59,7 +59,7 @@
     "fuse.js": "^6.4.6",
     "normalize.css": "^8.0.1",
     "query-string": "^7.0.0",
-    "svelte-markdown": "^0.1.9",
+    "svelte-markdown": "^0.1.10",
     "svelte-routing": "^1.6.0",
     "swiper": "^6.7.0"
   },

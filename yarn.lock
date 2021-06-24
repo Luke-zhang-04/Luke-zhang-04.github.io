@@ -6498,10 +6498,10 @@ svelte-check@^2.0.0:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
-svelte-markdown@^0.1.9:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/svelte-markdown/-/svelte-markdown-0.1.9.tgz#b472185fb6a57cf3e20705a6fd7a3fe42457adf8"
-  integrity sha512-TcdPCD0wYhAggMF1wxIMk+3PllzkSikywvZrLi0C73IBeX3XEFg8NcTG61EvzdWd6j7QLcDzBZ2qTdCJYm1S5A==
+svelte-markdown@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/svelte-markdown/-/svelte-markdown-0.1.10.tgz#cb807b9cf6f0702ca1b94eb945858846feeec432"
+  integrity sha512-2GLYBJ0jsBDXNJIxoTRgETzbX/OivtqFrykrAHuVVvfQQFkFcJfbVgMbjBEHIC+iWZdTiA4BHdBxxaIAHPfCXw==
   dependencies:
     "@types/marked" "^2.0.0"
     marked "^2.0.0"
