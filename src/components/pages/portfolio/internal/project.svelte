@@ -24,7 +24,6 @@ Copyright (C) 2020 - 2021 Luke Zhang
     export let id: string
     export let imgUrl: string
 
-    let didLoadImages = false
     let modalId = ""
 
     $: modalId = id.slice(0, idLen)
@@ -33,18 +32,13 @@ Copyright (C) 2020 - 2021 Luke Zhang
 <Modal {...{date, description, links, lang, name}} id={modalId} />
 <div class="col-12 col-md-6 col-lg-3 project-card">
     <figure>
-        {#if didLoadImages}
-            <img src={shouldUseLocalImages ? imageMap[name] : imgUrl} alt="{name} cover" />
-        {:else}
-            <Img
-                src={shouldUseLocalImages ? imageMap[name] : imgUrl}
-                alt="{name} cover"
-                shouldUseDefault={false}
-                on:load={() => (didLoadImages = true)}
-            >
-                <Spinner color="primary" size="20vw" centered />
-            </Img>
-        {/if}
+        <Img
+            src={shouldUseLocalImages ? imageMap[name] : imgUrl}
+            alt="{name} cover"
+            shouldUseDefault={false}
+        >
+            <Spinner color="primary" size="20vw" centered />
+        </Img>
         <div class="card-overlay" />
         <figcaption class="text-center">
             <h1>{name}</h1>

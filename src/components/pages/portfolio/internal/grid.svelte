@@ -14,7 +14,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 
 {#each Array.from(utils.arrayToChunks(projects, 4)) as projectRow}
     <div class="row g-3 my-md-0">
-        {#each projectRow as project}
+        {#each projectRow as project (project.id)}
             <Project {...project} />
         {/each}
     </div>
