@@ -78,11 +78,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
 </style>
 
 <script lang="ts">
-    const data: {href: string; iconClass: string}[] = [
-        {href: "mailto:luke.zhang2004dev@gmail.com", iconClass: "far fa-envelope-open"},
-        {href: "https://github.com/luke-zhang-04", iconClass: "fab fa-github"},
-        {href: "https://www.linkedin.com/in/luke-zhang-1b8a89198/", iconClass: "fab fa-linkedin"},
-    ]
+    import {contactDataWithIcons as data} from "~/globals"
 </script>
 
 <div class="contact-title">

@@ -5,8 +5,8 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <script lang="ts">
+    import {contactData, pages} from "~/globals"
     import {Link} from "svelte-routing"
-    import {pages} from "~/globals"
 
     const linkProps = {
         target: "_blank",
@@ -42,25 +42,13 @@ Copyright (C) 2020 - 2021 Luke Zhang
                 <h5 class="text-uppercase">Links</h5>
 
                 <ul class="list-unstyled">
-                    <li>
-                        <a href="https://github.com/Luke-zhang-04" {...linkProps}>Github</a>
-                    </li>
-                    <li>
-                        <a href="mailto:Luke.zhang2004@gmail.com" {...linkProps}>Email</a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/luke-zhang-1b8a89198/" {...linkProps}>
-                            Linkedin
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://stackoverflow.com/users/12370337/luke-zhang-04"
-                            {...linkProps}
-                        >
-                            Stackoverflow
-                        </a>
-                    </li>
+                    {#each Object.entries(contactData) as [name, href]}
+                        <li>
+                            <a {href} {...linkProps}>
+                                {name[0]?.toUpperCase() + name.slice(1)}
+                            </a>
+                        </li>
+                    {/each}
                 </ul>
             </div>
         </div>

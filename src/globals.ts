@@ -118,3 +118,16 @@ export const linkData: LinkData[] = [
         color: "danger",
     },
 ]
+
+export const contactData = {
+    email: "mailto:luke.zhang2004dev@gmail.com",
+    github: "https://github.com/luke-zhang-04",
+    linkedin: "https://www.linkedin.com/in/luke-zhang-1b8a89198/",
+    stackoverflow: "https://stackoverflow.com/users/12370337/luke-zhang-04",
+}
+
+export const contactDataWithIcons: {href: string; iconClass: string}[] = [
+    {href: contactData.email, iconClass: "far fa-envelope-open"},
+    {href: contactData.github, iconClass: "fab fa-github"},
+    {href: contactData.linkedin, iconClass: "fab fa-linkedin"},
+]
