@@ -19,6 +19,13 @@ https://github.com/sveltejs/svelte.git
 Copyright (c) 2016-21 [these people](https://github.com/sveltejs/svelte/graphs/contributors)
 ===
 
+tslib 2.2.0
+License: 0BSD
+https://github.com/Microsoft/tslib.git
+
+Copyright (c) Microsoft Corporation.
+===
+
 svelte-routing 1.6.0
 License: MIT
 Emil Tholin @EmilTholin
@@ -47,13 +54,6 @@ https://github.com/nolimits4web/Swiper.git
 Copyright (c) 2019 Vladimir Kharlampidi
 ===
 
-tslib 2.2.0
-License: 0BSD
-https://github.com/Microsoft/tslib.git
-
-Copyright (c) Microsoft Corporation.
-===
-
 fuse.js 6.4.6
 License: Apache-2.0
 https://github.com/krisk/Fuse.git
@@ -61,7 +61,7 @@ https://github.com/krisk/Fuse.git
 Copyright 2017 Kirollos Risk
 ===
 
-svelte-markdown 0.1.8
+svelte-markdown 0.1.10
 License: MIT
 https://github.com/pablo-abc/svelte-markdown
 
