@@ -110,3 +110,31 @@ declare module "*.yaml" {
 
     export = content
 }
+
+declare module "*.module.scss" {
+    export const css: string
+    const styles: {readonly [key: string]: string}
+
+    export default styles
+}
+
+declare module "*.module.sass" {
+    export const css: string
+    const styles: {readonly [key: string]: string}
+
+    export default styles
+}
+
+declare module "*.module.css" {
+    export const css: string
+    const styles: {readonly [key: string]: string}
+
+    export default styles
+}
+
+declare module "*.module.less" {
+    export const css: string
+    const styles: {readonly [key: string]: string}
+
+    export default styles
+}

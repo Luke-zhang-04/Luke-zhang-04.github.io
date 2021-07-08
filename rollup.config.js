@@ -1,9 +1,10 @@
 // Configure the project yourself they said, it'll be easy they said
+import * as crypto from "crypto"
 import * as fs from "fs"
 import * as fse from "fs-extra"
 import * as path from "path"
 import * as url from "url"
-import {html as resolveHtml, file as rollupUrl, scss, yaml} from "./plugins/lib/index"
+import {html as resolveHtml, file as rollupUrl, yaml} from "./plugins/lib/index"
 import alias from "@rollup/plugin-alias"
 import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
@@ -15,7 +16,7 @@ import htmlnano from "htmlnano"
 import progress from "rollup-plugin-progress"
 import replace from "@rollup/plugin-replace"
 import resolve from "@rollup/plugin-node-resolve"
-import sass from "sass"
+import styles from "rollup-plugin-styles"
 import svelte from "rollup-plugin-svelte"
 import sveltePreprocess from "svelte-preprocess"
 import {terser} from "rollup-plugin-terser"
@@ -34,6 +35,15 @@ Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 ===
 
 `
+
+/**
+ * @param {string} algo - Algorithm e.g `sha256`
+ * @param {crypto.BinaryLike} contents - What to hash
+ * @param {crypto.BinaryToTextEncoding} format - Format; `base64` or `hex`
+ * @returns {string} Hashed contents
+ */
+export const hash = (algo, contents, format = "hex") =>
+    crypto.createHash(algo).update(contents).digest(format)
 
 if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = production ? "production" : "development"
@@ -175,12 +185,19 @@ const config = {
             preventAssignment: true,
         }),
 
-        // we'll extract any component CSS out into
-        // a separate file - better for performance
-        scss({
-            output: "bundle.css",
-            outputStyle: production ? "compressed" : "expanded",
-            sass,
+        styles({
+            mode: "extract",
+            sourceMap: production || "inline",
+            minimize: production,
+            autoModules: true,
+            // modules: {
+            //     generateScopedName: (name, file) =>
+            //         `${path.basename(file).replace(/\.module\.[A-z]*$/, "")}_${name}__${hash(
+            //             "sha256",
+            //             name + file,
+            //             "base64",
+            //         ).slice(0, 6)}`,
+            // },
         }),
 
         // If you have external dependencies installed from
@@ -230,7 +247,7 @@ const config = {
                     [
                         "@babel/preset-env",
                         {
-                            useBuiltIns: "usage",
+                            useBuiltIns: "entry",
                             corejs: 3,
                         },
                     ],
