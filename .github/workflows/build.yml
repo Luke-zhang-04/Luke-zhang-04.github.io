@@ -9,21 +9,28 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+          registry-url: "https://registry.npmjs.org"
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.0.2
 
       - name: install deps
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: typecheck
-        run: yarn tsc --noEmit
+        run: pnpm tsc --noEmit
 
       - name: lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: prettier check
-        run: yarn prettier . --check
+        run: pnpm prettier . --check
 
       - name: build rollup plugins
-        run: yarn workspace rollup-plugins build
+        run: pnpm build --filter rollup-plugins
 
       - name: build
-        run: yarn build
+        run: pnpm build
