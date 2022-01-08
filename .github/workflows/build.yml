@@ -11,19 +11,19 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: install deps
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: typecheck
-        run: yarn tsc --noEmit
+        run: pnpm tsc --noEmit
 
       - name: lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: prettier check
-        run: yarn prettier . --check
+        run: pnpm prettier . --check
 
       - name: build rollup plugins
-        run: yarn workspace rollup-plugins build
+        run: pnpm build -r --filter rollup-plugins
 
       - name: build
-        run: yarn build
+        run: pnpm build

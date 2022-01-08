@@ -129,14 +129,17 @@ const scss: PluginFunc<CSSPluginOptions> = (options = {}) => {
                 if (options.failOnError) {
                     throw e
                 }
+
+                const error = e as Error & {line: number; column: number}
+
                 console.log()
-                console.log(red("Error:\n\t" + e.message))
-                if (e.message.includes("Invalid CSS")) {
+                console.log(red("Error:\n\t" + error.message))
+                if (error.message.includes("Invalid CSS")) {
                     console.log(green("Solution:\n\t" + "fix your Sass code"))
-                    console.log("Line:   " + e.line)
-                    console.log("Column: " + e.column)
+                    console.log("Line:   " + error.line)
+                    console.log("Column: " + error.column)
                 }
-                if (e.message.includes("sass") && e.message.includes("find module")) {
+                if (error.message.includes("sass") && error.message.includes("find module")) {
                     console.log(
                         green(
                             "Solution:\n\t" +
@@ -146,7 +149,7 @@ const scss: PluginFunc<CSSPluginOptions> = (options = {}) => {
                         ),
                     )
                 }
-                if (e.message.includes("node-sass") && e.message.includes("bindings")) {
+                if (error.message.includes("node-sass") && error.message.includes("bindings")) {
                     console.log(green("Solution:\n\t" + "npm rebuild node-sass --force"))
                 }
                 console.log()
@@ -306,7 +309,7 @@ function ensureParentDirsSync(dir: string) {
 
     try {
         mkdirSync(dir)
-    } catch (err) {
+    } catch (err: any) {
         if (err.code === "ENOENT") {
             ensureParentDirsSync(path.dirname(dir))
             ensureParentDirsSync(dir)
