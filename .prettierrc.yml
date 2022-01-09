@@ -4,7 +4,7 @@ bracketSpacing: false
 embeddedLanguageFormatting: "auto"
 endOfLine: "lf"
 htmlWhitespaceSensitivity: "strict"
-jsxBracketSameLine: false
+bracketSameLine: false
 jsxSingleQuote: false
 printWidth: 99
 quoteProps: "as-needed"
@@ -25,9 +25,12 @@ tsdoc: true
 
 svelteSortOrder: "options-styles-scripts-markup"
 svelteStrictMode: false
-svelteBracketNewLine: true
 svelteAllowShorthand: true
 svelteIndentScriptAndStyle: true
+
+plugins:
+  - ./node_modules/prettier-plugin-svelte
+  - ./node_modules/prettier-plugin-jsdoc
 
 overrides:
   - files:

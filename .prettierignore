@@ -1,4 +1,6 @@
-public/build
+public/build/
 tsconfig.json
 analysis
 build/
+pnpm-lock.yaml
+plugins/lib
