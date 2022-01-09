@@ -8,7 +8,7 @@
  * @see {@link https://github.com/rollup/plugins/tree/master/packages/yaml}
  */
 
-import {FilterPattern, createFilter, dataToEsm} from "@rollup/pluginutils"
+import {type FilterPattern, createFilter, dataToEsm} from "@rollup/pluginutils"
 import yaml from "js-yaml"
 import type {PluginFunc} from "./types"
 

@@ -6,11 +6,11 @@
  * @see {@link https://github.com/rollup/plugins/blob/master/packages/url/src/index.js}
  */
 
+import {type OptimizedSvg, optimize} from "svgo"
 import {createFilter} from "@rollup/pluginutils"
 import crypto from "crypto"
 import {promises as fs} from "fs"
 import mime from "mime"
-import {optimize} from "svgo"
 import path from "path"
 import type {PluginFunc} from "./types"
 
@@ -120,9 +120,16 @@ const url: PluginFunc<RollupUrlOptions> = (options = {}) => {
                         const contents = optimize(
                             await fs.readFile(name, "utf-8"),
                             minifySvgOptions,
-                        ).data
+                        )
 
-                        return fs.writeFile(path.join(base, output), contents)
+                        if (contents.modernError) {
+                            throw contents.modernError
+                        }
+
+                        return fs.writeFile(
+                            path.join(base, output),
+                            (contents as OptimizedSvg).data,
+                        )
                     }
 
                     return fs.copyFile(name, path.join(base, output))

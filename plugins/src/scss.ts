@@ -6,7 +6,7 @@
  */
 
 import {existsSync, mkdirSync} from "fs"
-import {createFilter, CreateFilter} from "@rollup/pluginutils"
+import {createFilter, type CreateFilter} from "@rollup/pluginutils"
 import path from "path"
 import type {PluginFunc} from "./types"
 
