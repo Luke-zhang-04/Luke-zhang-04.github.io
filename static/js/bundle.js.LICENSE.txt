@@ -5,25 +5,65 @@ https://Luke-zhang-04.github.io
 Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
 ===
 
-core-js 3.13.1
+core-js 3.20.2
 License: MIT
 https://github.com/zloirock/core-js.git
 
-Copyright (c) 2014-2021 Denis Pushkarev
+Copyright (c) 2014-2022 Denis Pushkarev
 ===
 
-svelte 3.38.2
+svelte 3.45.0
 License: MIT
 https://github.com/sveltejs/svelte.git
 
-Copyright (c) 2016-21 [these people](https://github.com/sveltejs/svelte/graphs/contributors)
+Copyright (c) 2016-22 [these people](https://github.com/sveltejs/svelte/graphs/contributors)
 ===
 
-tslib 2.2.0
+tslib 2.3.1
 License: 0BSD
 https://github.com/Microsoft/tslib.git
 
 Copyright (c) Microsoft Corporation.
+===
+
+@firebase/util 1.4.3
+License: Apache-2.0
+https://github.com/firebase/firebase-js-sdk.git
+===
+
+@firebase/component 0.5.10
+License: Apache-2.0
+https://github.com/firebase/firebase-js-sdk.git
+===
+
+@firebase/logger 0.3.2
+License: Apache-2.0
+https://github.com/firebase/firebase-js-sdk.git
+===
+
+@firebase/app 0.7.12
+License: Apache-2.0
+https://github.com/firebase/firebase-js-sdk.git
+===
+
+@firebase/webchannel-wrapper 0.6.1
+License: Apache-2.0
+https://github.com/firebase/firebase-js-sdk.git
+===
+
+@firebase/firestore 3.4.2
+License: Apache-2.0
+https://github.com/firebase/firebase-js-sdk.git
+===
+
+firebase 9.6.2
+License: Apache-2.0
+https://github.com/firebase/firebase-js-sdk.git
+===
+
+@firebase/auth 0.19.5
+License: Apache-2.0
+https://github.com/firebase/firebase-js-sdk.git
 ===
 
 svelte-routing 1.6.0
@@ -33,46 +73,53 @@ Emil Tholin @EmilTholin
 Copyright (c) 2017 EmilTholin
 ===
 
-ssr-window 3.0.0
+ssr-window 4.0.2
 License: MIT
 https://github.com/nolimits4web/ssr-window.git
 
 Copyright (c) 2018 Vladimir Kharlampidi
 ===
 
-dom7 3.0.0
+dom7 4.0.2
 License: MIT
 https://github.com/nolimits4web/dom7.git
 
 Copyright (c) 2017 Vladimir Kharlampidi
 ===
 
-swiper 6.7.0
+swiper 7.4.1
 License: MIT
 https://github.com/nolimits4web/Swiper.git
 
 Copyright (c) 2019 Vladimir Kharlampidi
 ===
 
-fuse.js 6.4.6
+fuse.js 6.5.3
 License: Apache-2.0
 https://github.com/krisk/Fuse.git
 
 Copyright 2017 Kirollos Risk
 ===
 
-svelte-markdown 0.1.10
+svelte-markdown 0.2.1
 License: MIT
 https://github.com/pablo-abc/svelte-markdown
 
 Copyright (c) 2020 Pablo Berganza
 ===
 
-marked 2.0.7
+marked 4.0.9
 License: MIT
 https://marked.js.org
 
 Copyright (c) 2018+, MarkedJS (https://github.com/markedjs/)
+===
+
+query-string 7.1.0
+License: MIT
+Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+
+MIT License
 ===
 
 strict-uri-encode 2.0.0
@@ -101,11 +148,4 @@ License: MIT
 Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
 
 The MIT License (MIT)
-===
-
-query-string 7.0.0
-License: MIT
-Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
-
-MIT License
 ===
