@@ -36,12 +36,13 @@ export interface ProjectData {
     date: number
     description: string
     file: string
-    lang: {
+    lang?: {
         name: string
         colour: string
     }
     links: {
-        github: string
+        github?: string
+        githubOrg?: string
         pypi?: string
         npm?: string
         live?: string
@@ -97,6 +98,12 @@ export const linkData: LinkData[] = [
         key: "github",
         text: "Source",
         icon: ["material-icons", "code"],
+        color: "dark",
+    },
+    {
+        key: "githubOrg",
+        text: "Github",
+        icon: ["fontawesome", "fab fa-github"],
         color: "dark",
     },
     {

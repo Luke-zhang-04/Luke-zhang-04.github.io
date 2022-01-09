@@ -19,7 +19,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
     export let description: ProjectData["description"]
     export let shortDescription: ProjectData["shortDescription"]
     export let links: ProjectData["links"]
-    export let lang: ProjectData["lang"]
+    export let lang: ProjectData["lang"] = undefined
     export let name: string
     export let id: string
     export let imgUrl: string

@@ -79,44 +79,53 @@ Copyright (C) 2020 - 2021 Luke Zhang
                     </p>
                 {/if}
                 <hr class="d-block d-md-none" />
-                <div class="language d-block d-md-none">
-                    <div class="language-indicator" style={`background-color: ${lang.colour}`} />
-                    {lang.name}
-                </div>
-            </div>
-            <div class="modal-footer flex-row flex-nowrap justify-content-start">
-                <div class="d-none d-md-block col-3">
-                    <div class="language">
+                {#if lang}
+                    <div class="language d-block d-md-none">
                         <div
                             class="language-indicator"
                             style={`background-color: ${lang.colour}`}
                         />
                         {lang.name}
                     </div>
-                </div>
-                <div class="col-12 col-md-9 d-flex justify-content-end pe-3 button-container">
-                    {#each linkData as link}
-                        {#if links[link.key]}
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={links[link.key]}
-                                class="btn btn-pill-{link.color ?? 'primary'} mx-1"
-                            >
-                                {link.text}
-                                {#if link.icon}
-                                    {" "}
-                                    {#if link.icon[0] === "material-icons"}
-                                        <span class="material-icons">{link.icon[1]}</span>
-                                    {:else}
-                                        <i class={link.icon[1]} />
-                                    {/if}
-                                {/if}
-                            </a>
-                        {/if}
-                    {/each}
-                </div>
+                {/if}
             </div>
+            {#if Object.keys(links).length > 0 || lang}
+                <div class="modal-footer flex-row flex-nowrap justify-content-start">
+                    <div class="d-none d-md-block col-3">
+                        {#if lang}
+                            <div class="language">
+                                <div
+                                    class="language-indicator"
+                                    style={`background-color: ${lang.colour}`}
+                                />
+                                {lang.name}
+                            </div>
+                        {/if}
+                    </div>
+                    <div class="col-12 col-md-9 d-flex justify-content-end pe-3 button-container">
+                        {#each linkData as link}
+                            {#if links[link.key]}
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={links[link.key]}
+                                    class="btn btn-pill-{link.color ?? 'primary'} mx-1"
+                                >
+                                    {link.text}
+                                    {#if link.icon}
+                                        {" "}
+                                        {#if link.icon[0] === "material-icons"}
+                                            <span class="material-icons">{link.icon[1]}</span>
+                                        {:else}
+                                            <i class={link.icon[1]} />
+                                        {/if}
+                                    {/if}
+                                </a>
+                            {/if}
+                        {/each}
+                    </div>
+                </div>
+            {/if}
         </div>
     </div>
 </div>
