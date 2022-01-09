@@ -226,6 +226,7 @@ const config = {
             babel({
                 babelrc: false,
                 babelHelpers: "bundled",
+                exclude: [/\bcore-js\b/],
                 presets: [
                     [
                         "@babel/preset-env",
