@@ -4,6 +4,7 @@
  * BSD-3-Clause license
  */
 
+@use "sass:math";
 @import "../../node_modules/bootstrap/scss/utilities";
 
 $full-range: ();
@@ -12,7 +13,7 @@ $full-range: ();
   $full-range: map-merge(
     $full-range,
     (
-      $width: percentage($width / 100),
+      $width: percentage(math.div($width, 100)),
     )
   );
 }

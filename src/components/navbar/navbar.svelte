@@ -5,6 +5,7 @@ License: BSD-3-Clause
 Copyright (C) 2020 - 2021 Luke Zhang
  -->
 <style lang="scss">
+    @use "sass:math";
     @use "src/styles/variables";
 
     $transition-timing: map-get(variables.$timings, "ease-in-out");
@@ -59,7 +60,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
             .nav-item {
                 // Nav links
                 display: block;
-                margin: min(2rem, #{(100 / ($nav-link-count * 8)) + vh}) auto;
+                margin: min(2rem, #{(math.div(100, ($nav-link-count * 8))) + vh}) auto;
                 max-width: 50vw;
 
                 .nav-link {
@@ -139,7 +140,7 @@ Copyright (C) 2020 - 2021 Luke Zhang
         }
     }
 
-    @media (max-width: map-get(variables.$grid-breakpoints, "md") + 1px) {
+    @media (max-width: (map-get(variables.$grid-breakpoints, "md") + 1px)) {
         @include _navbar-sm-only;
     }
 

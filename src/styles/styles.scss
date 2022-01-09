@@ -8,10 +8,10 @@
 @use "./swiper";
 
 @import "./bootstrap";
-@import "../../node_modules/@animated-burgers/burger-squeeze/styles.scss";
-@import "../../node_modules/@animated-burgers/burger/styles.scss";
+@import "~@animated-burgers/burger-squeeze/styles.scss";
+@import "~@animated-burgers/burger/styles.scss";
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
-@import "../../node_modules/normalize.css/normalize";
+@import "~normalize.css/normalize";
 
 @import "./animations";
 @import "./buttons";

@@ -2,6 +2,8 @@
  * Universal styling for luke-zhang-04.github.io
  * Includes Normalize.css, Bootstrap SASS, and other styles that apply to all pages
  */
+
+@use "sass:math";
 @use "./variables";
 
 $transition-timing: map-get(variables.$timings, "ease-in-out");
@@ -56,7 +58,7 @@ $nav-link-count: 3;
     .nav-item {
       // Nav links
       display: block;
-      margin: min(2rem, #{(100 / ($nav-link-count * 8)) + vh}) auto;
+      margin: min(2rem, #{(math.div(100, ($nav-link-count * 8))) + vh}) auto;
       max-width: 50vw;
 
       .nav-link {
@@ -134,7 +136,7 @@ $nav-link-count: 3;
     }
   }
 
-  @media (max-width: map-get(variables.$grid-breakpoints, "md") + 1px) {
+  @media (max-width: (map-get(variables.$grid-breakpoints, "md") + 1px)) {
     @include _navbar-sm-only;
   }
 

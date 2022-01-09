@@ -5,6 +5,7 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
+/// <reference types="svelte" />
 /// <reference types="node" />
 
 declare module "svelte-routing/src/history" {
