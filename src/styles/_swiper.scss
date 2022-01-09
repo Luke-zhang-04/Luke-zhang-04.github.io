@@ -7,16 +7,17 @@
 @use "./variables";
 
 @mixin _projects-sm() {
-  .swiper-container {
+  .swiper {
     height: 90vh;
   }
 }
 
-.swiper-container {
+.swiper {
   width: 100%;
   height: min(100vh, 100vw);
   max-height: max-content;
   position: relative;
+  overflow: visible !important;
 
   .swiper-wrapper {
     position: absolute;
