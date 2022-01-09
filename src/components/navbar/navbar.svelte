@@ -216,7 +216,6 @@ Copyright (C) 2020 - 2021 Luke Zhang
 
     <!-- Navbar button -->
     <button
-        role="button"
         class="navbar-toggler"
         class:open={isOpen}
         on:click={() => (isOpen = !isOpen)}

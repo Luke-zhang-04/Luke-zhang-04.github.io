@@ -5,11 +5,11 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
-import type {default as Firebase} from "firebase/app"
+import * as FirebaseApp from "firebase/app"
+import * as FirebaseAuth from "firebase/auth"
+import * as Firestore from "firebase/firestore"
 
-declare const firebase: typeof Firebase
-
-firebase.initializeApp({
+export const firebaseApp = FirebaseApp.initializeApp({
     apiKey: "AIzaSyDKHbbyZoschUX1cMf5VdjRl9TtdIX1R9A",
     authDomain: "luke-zhang.firebaseapp.com",
     databaseURL: "https://luke-zhang.firebaseio.com",
@@ -19,12 +19,12 @@ firebase.initializeApp({
     appId: "1:309956853075:web:ebb55b1076c4aca168f5a6",
 })
 
-export const auth = firebase.firestore()
-export const firestore = firebase.firestore()
+export const auth = FirebaseAuth.getAuth(firebaseApp)
+export const firestore = Firestore.getFirestore(firebaseApp)
 
 export const snapshotToArray = (
-    snapshot: Firebase.firestore.QuerySnapshot<Firebase.firestore.DocumentData>,
-): Firebase.firestore.QueryDocumentSnapshot<Firebase.firestore.DocumentData>[] => {
+    snapshot: Firestore.QuerySnapshot<Firestore.DocumentData>,
+): Firestore.QueryDocumentSnapshot<Firestore.DocumentData>[] => {
     const arr: ReturnType<typeof snapshotToArray> = []
 
     snapshot.forEach((doc) => arr.push(doc))

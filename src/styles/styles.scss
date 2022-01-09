@@ -8,10 +8,10 @@
 @use "./swiper";
 
 @import "./bootstrap";
-@import "~@animated-burgers/burger-squeeze/styles.scss";
-@import "~@animated-burgers/burger/styles.scss";
+@import "../../node_modules/@animated-burgers/burger-squeeze/styles.scss";
+@import "../../node_modules/@animated-burgers/burger/styles.scss";
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
-@import "~normalize.css/normalize";
+@import "../../node_modules/normalize.css/normalize";
 
 @import "./animations";
 @import "./buttons";
@@ -56,4 +56,39 @@ a[role="button"] {
 
 .material-icons-fix-font {
   font-size: 1rem !important;
+}
+
+@mixin _projects-sm() {
+  .swiper-container {
+    height: 90vh;
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  height: min(100vh, 100vw);
+  max-height: max-content;
+  position: relative;
+
+  .swiper-wrapper {
+    position: absolute;
+  }
+}
+
+@media (min-width: map-get(variables.$grid-breakpoints, "md")) {
+  @include _projects-sm();
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 40vw;
+  height: 30vw;
+  box-shadow: 0 2vw 5vw rgba(variables.$dark, 0.5);
+}
+
+.swiper-slide,
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  border-radius: 12px;
 }

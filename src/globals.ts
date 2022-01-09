@@ -5,8 +5,9 @@
  * @copyright (C) 2020 - 2021 Luke Zhang
  */
 
+import * as firestore from "firebase/firestore"
 import {crypto, getImageUrl} from "./utils"
-import {firestore, snapshotToArray} from "./utils/firebase"
+import {firestore as db, snapshotToArray} from "./utils/firebase"
 
 export const shouldUseLocalImages = true
 
@@ -60,7 +61,12 @@ const fallbackCounter = 0
 
 export const projectData: Promise<Project[]> = (async () => {
     const projects = snapshotToArray(
-        await firestore?.collection("projects").orderBy("date", "desc").get(),
+        await firestore.getDocs(
+            firestore.query(
+                firestore.collection(db, "projects"),
+                firestore.orderBy("date", "desc"),
+            ),
+        ),
     )
 
     return await Promise.all(

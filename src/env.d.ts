@@ -48,12 +48,6 @@ declare module "fuse.js/dist/fuse.basic.esm" {
     export = mod
 }
 
-declare module "swiper/swiper.esm" {
-    import * as mod from "swiper/core"
-
-    export = mod
-}
-
 declare namespace NodeJS {
     interface ProcessEnv {
         readonly NODE_ENV: "production" | "development" | "test"

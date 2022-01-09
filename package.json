@@ -53,6 +53,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "@animated-burgers/burger": "^1.1.2",
     "@animated-burgers/burger-squeeze": "^1.1.2",
     "bootstrap": "^5.1.3",
     "fuse.js": "^6.5.3",
