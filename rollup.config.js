@@ -30,7 +30,7 @@ const bannerComment = `Luke Zhang's developer portfolio
 License: BSD-3-Clause
 https://Luke-zhang-04.github.io
 
-Copyright (c) 2020 - 2021 Luke Zhang, Ethan Lim
+Copyright (c) 2020 - 2022 Luke Zhang
 ===
 
 `

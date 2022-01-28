@@ -2,7 +2,7 @@
 Luke Zhang's developer portfolio | https://Luke-zhang-04.github.io
 
 License: BSD-3-Clause
-Copyright (C) 2020 - 2021 Luke Zhang
+Copyright (C) 2020 - 2022 Luke Zhang
 
 Ported from https://github.com/Luke-zhang-04/talentmaker-site/blob/refactor/src/components/bootstrap/spinner.tsx
  -->
