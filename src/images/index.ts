@@ -10,6 +10,7 @@ import ccc from "./ccc.svg"
 import debateTimer from "./debate-timer.svg"
 import destagnate from "./destagnate.svg"
 import githubio from "./githubio.svg"
+import jamhacks from "./jamhacks.svg"
 import kkcabinets from "./kkcabinets.svg"
 import leetcode from "./leetcode.svg"
 import processingVscode from "./processing-vscode.svg"
@@ -36,6 +37,7 @@ const images: {[key: string]: string} = {
     SleepStop: sleepstop,
     Utilities: utils,
     VirtualMeet: vmeet,
+    JAMHacks: jamhacks,
 }
 /* eslint-disable @typescript-eslint/naming-convention */
 
