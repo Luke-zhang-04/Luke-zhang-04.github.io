@@ -33,6 +33,9 @@ jobs:
 
       - name: build
         run: pnpm build
+        
+      - name: CNAME
+        run: echo "lukezhang.dev" > build/CNAME
 
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@4.1.0
