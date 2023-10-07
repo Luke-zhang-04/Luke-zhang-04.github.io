@@ -30,6 +30,12 @@ export const pages: {name: string; displayName: string; href: string; isExternal
         href: "https://rebrand.ly/luke-zhang-resume",
         isExternal: true,
     },
+    {
+        name: "notes",
+        displayName: "Notes",
+        href: "https://notes.lukezhang.dev",
+        isExternal: true,
+    },
 ]
 
 export interface ProjectData {
