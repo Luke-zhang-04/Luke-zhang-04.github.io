@@ -26,27 +26,31 @@ Copyright (C) 2020 - 2022 Luke Zhang
     .modal-body {
         overflow-y: scroll;
         max-height: 75vh;
+
+        :global(img) {
+            max-width: 100%;
+        }
     }
 </style>
 
 <script lang="ts">
-    import * as utils from "~/utils"
+    // import * as utils from "~/utils"
     import {Anchor} from "~/components/markdown"
     import type {ProjectData} from "~/globals"
     import SvelteMarkdown from "svelte-markdown"
     import {linkData} from "~/globals"
 
-    export let date: ProjectData["date"]
+    // export let date: ProjectData["date"]
     export let description: ProjectData["description"]
     export let links: ProjectData["links"]
     export let lang: ProjectData["lang"]
     export let name: string
     export let id: string
 
-    const projectAgeThreshold = 15_778_476_000 // 0.5 years in ms
+    // const projectAgeThreshold = 15_778_476_000 // 0.5 years in ms
 
-    const isProjectOld = (timestamp: number): boolean =>
-        Date.now() - timestamp > projectAgeThreshold
+    // const isProjectOld = (timestamp: number): boolean =>
+    //     Date.now() - timestamp > projectAgeThreshold
 </script>
 
 <div class="modal fade" id={`modal-${id}`} tabindex="-1" aria-labelledby={id} aria-hidden="true">
@@ -70,14 +74,14 @@ Copyright (C) 2020 - 2022 Luke Zhang
                     source={description.replace(/\\n/gu, "\n")}
                     renderers={{link: Anchor}}
                 />
-                {#if isProjectOld(date)}
+                <!-- {#if isProjectOld(date)}
                     <hr />
                     <p>
                         Note: this project was last modified {utils.date.timeDifference(date)}.
                         Some of the programming in this project may be old and filled with bad
                         practice.
                     </p>
-                {/if}
+                {/if} -->
                 <hr class="d-block d-md-none" />
                 {#if lang}
                     <div class="language d-block d-md-none">
